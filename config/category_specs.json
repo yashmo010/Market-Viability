@@ -1,0 +1,72 @@
+{
+  "_comment": "Schema-driven category specification fields. To add a new category, add a key here matching a category in data/extracted/category_profiles.json and list its fields. No code changes are required — the API serves this file and the UI renders it dynamically. Every field is OPTIONAL. Field types: 'number', 'text', 'select', 'boolean' (rendered as a Yes/No select). 'unit' is shown as a suffix; 'options' is required for 'select'.",
+  "_version": 1,
+  "categories": {
+    "wireless_headphones": {
+      "label": "Wireless Headphones / Earphones",
+      "fields": [
+        { "key": "battery_life_hours", "label": "Battery Life", "type": "number", "unit": "hrs", "placeholder": "e.g. 30" },
+        { "key": "anc", "label": "Noise Cancellation", "type": "select", "options": ["None", "Active (ANC)", "Passive isolation"] },
+        { "key": "water_resistance", "label": "Water Resistance", "type": "select", "options": ["None", "IPX4", "IPX5", "IPX7", "IP67"] },
+        { "key": "bluetooth_version", "label": "Bluetooth Version", "type": "select", "options": ["4.2", "5.0", "5.1", "5.2", "5.3", "5.4"] },
+        { "key": "driver_size_mm", "label": "Driver Size", "type": "number", "unit": "mm", "placeholder": "e.g. 40" },
+        { "key": "codec_support", "label": "Codec Support", "type": "text", "placeholder": "e.g. AAC, aptX, LDAC" },
+        { "key": "form_factor", "label": "Form Factor", "type": "select", "options": ["In-ear", "On-ear", "Over-ear"] },
+        { "key": "multipoint", "label": "Multipoint Pairing", "type": "boolean" },
+        { "key": "warranty_months", "label": "Warranty", "type": "number", "unit": "months", "placeholder": "e.g. 12" }
+      ]
+    },
+    "bluetooth_speakers": {
+      "label": "Bluetooth Speakers",
+      "fields": [
+        { "key": "power_output_w", "label": "Power Output", "type": "number", "unit": "W", "placeholder": "e.g. 20" },
+        { "key": "battery_life_hours", "label": "Battery Life", "type": "number", "unit": "hrs", "placeholder": "e.g. 24" },
+        { "key": "water_resistance", "label": "Water Resistance", "type": "select", "options": ["None", "IPX4", "IPX5", "IPX7", "IP67"] },
+        { "key": "bluetooth_version", "label": "Bluetooth Version", "type": "select", "options": ["4.2", "5.0", "5.1", "5.2", "5.3", "5.4"] },
+        { "key": "driver_config", "label": "Driver Configuration", "type": "text", "placeholder": "e.g. dual 15W + passive radiator" },
+        { "key": "portability", "label": "Form Factor", "type": "select", "options": ["Portable", "Bookshelf", "Party / Large"] },
+        { "key": "stereo_pairing", "label": "Stereo Pairing", "type": "boolean" },
+        { "key": "warranty_months", "label": "Warranty", "type": "number", "unit": "months", "placeholder": "e.g. 12" }
+      ]
+    },
+    "power_banks": {
+      "label": "Power Banks",
+      "fields": [
+        { "key": "capacity_mah", "label": "Capacity", "type": "number", "unit": "mAh", "placeholder": "e.g. 20000" },
+        { "key": "output_power_w", "label": "Max Output", "type": "number", "unit": "W", "placeholder": "e.g. 65" },
+        { "key": "ports", "label": "Ports", "type": "text", "placeholder": "e.g. 2x USB-C, 1x USB-A" },
+        { "key": "fast_charging", "label": "Fast Charging", "type": "select", "options": ["None", "PD", "QC", "PD + QC"] },
+        { "key": "passthrough_charging", "label": "Passthrough Charging", "type": "boolean" },
+        { "key": "weight_g", "label": "Weight", "type": "number", "unit": "g", "placeholder": "e.g. 350" },
+        { "key": "display", "label": "Charge Display", "type": "select", "options": ["None", "LED bars", "Digital %"] },
+        { "key": "warranty_months", "label": "Warranty", "type": "number", "unit": "months", "placeholder": "e.g. 18" }
+      ]
+    },
+    "smartwatches": {
+      "label": "Smartwatches",
+      "fields": [
+        { "key": "battery_life_days", "label": "Battery Life", "type": "number", "unit": "days", "placeholder": "e.g. 7" },
+        { "key": "display_type", "label": "Display Type", "type": "select", "options": ["LCD", "AMOLED", "E-ink"] },
+        { "key": "water_resistance", "label": "Water Resistance", "type": "select", "options": ["None", "IP68", "5ATM", "10ATM"] },
+        { "key": "gps", "label": "Built-in GPS", "type": "boolean" },
+        { "key": "health_sensors", "label": "Health Sensors", "type": "text", "placeholder": "e.g. HR, SpO2, ECG" },
+        { "key": "os_compat", "label": "OS Compatibility", "type": "select", "options": ["Android", "iOS", "Both"] },
+        { "key": "connectivity", "label": "Connectivity", "type": "select", "options": ["Bluetooth", "WiFi + BT", "LTE"] },
+        { "key": "warranty_months", "label": "Warranty", "type": "number", "unit": "months", "placeholder": "e.g. 12" }
+      ]
+    },
+    "ice_makers": {
+      "label": "Ice Makers",
+      "fields": [
+        { "key": "ice_capacity_lbs_day", "label": "Ice Capacity", "type": "number", "unit": "lbs/day", "placeholder": "e.g. 26" },
+        { "key": "production_time_min", "label": "Batch Time", "type": "number", "unit": "min", "placeholder": "e.g. 8" },
+        { "key": "reservoir_size_l", "label": "Reservoir Size", "type": "number", "unit": "L", "placeholder": "e.g. 2.2" },
+        { "key": "ice_types", "label": "Ice Types", "type": "text", "placeholder": "e.g. bullet, nugget" },
+        { "key": "self_cleaning", "label": "Self-Cleaning", "type": "boolean" },
+        { "key": "footprint", "label": "Footprint", "type": "select", "options": ["Countertop", "Under-counter", "Commercial"] },
+        { "key": "noise_level_db", "label": "Noise Level", "type": "number", "unit": "dB", "placeholder": "e.g. 45" },
+        { "key": "warranty_months", "label": "Warranty", "type": "number", "unit": "months", "placeholder": "e.g. 12" }
+      ]
+    }
+  }
+}

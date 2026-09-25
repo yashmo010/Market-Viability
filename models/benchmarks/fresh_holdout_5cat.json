@@ -1,0 +1,23 @@
+{
+  "n": 118,
+  "rho": 0.437,
+  "ci": [
+    0.275,
+    0.576
+  ],
+  "auc": 0.826,
+  "per_category": {
+    "bluetooth_speakers": 0.511,
+    "ice_makers": 0.114,
+    "power_banks": 0.425,
+    "smartwatches": 0.596,
+    "wireless_headphones": 0.31
+  },
+  "by_cat_n": {
+    "bluetooth_speakers": 24,
+    "ice_makers": 19,
+    "power_banks": 25,
+    "smartwatches": 25,
+    "wireless_headphones": 25
+  }
+}

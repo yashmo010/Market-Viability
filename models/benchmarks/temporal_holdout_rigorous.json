@@ -1,0 +1,36 @@
+{
+  "protocol": "rigorous temporal: train first_review_ts<=2021-10, CV-selected best_iter, test ALL newest-20% via frozen bridging, brand_tier IN, train-split mention priors",
+  "n_test": 125,
+  "coverage": "125/126",
+  "best_iteration": 178,
+  "rho": 0.559,
+  "p": 1.2097653322513635e-11,
+  "ci": [
+    0.429,
+    0.666
+  ],
+  "auc": 0.925,
+  "mean_within_category_rho": 0.164,
+  "per_category": {
+    "bluetooth_speakers": {
+      "n": 7,
+      "rho": null
+    },
+    "ice_makers": {
+      "n": 37,
+      "rho": -0.03
+    },
+    "power_banks": {
+      "n": 19,
+      "rho": -0.028
+    },
+    "smartwatches": {
+      "n": 38,
+      "rho": 0.405
+    },
+    "wireless_headphones": {
+      "n": 24,
+      "rho": 0.31
+    }
+  }
+}
