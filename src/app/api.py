@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+from functools import lru_cache
 from pathlib import Path
 import uvicorn
 from fastapi import FastAPI, HTTPException, Body
@@ -18,6 +19,19 @@ sys.path.insert(0, str(ROOT_DIR))
 from src.prediction.predictor import Predictor, _compose_specs
 from src.prediction.spec_coach import coach_spec
 from src.prediction.input_gate import evaluate_sufficiency
+
+
+@lru_cache(maxsize=2)
+def _get_predictor(mock: bool) -> Predictor:
+    """Load the models + category profiles ONCE and reuse across requests.
+
+    Previously a fresh Predictor was built per request, re-reading every XGBoost
+    model and profile from disk each time — slow and memory-churning on small
+    instances (notably the second prediction onward). The Predictor is read-only
+    at predict time, so a single shared instance is safe across FastAPI's request
+    threadpool. Cached separately for real vs. mock LLM mode.
+    """
+    return Predictor(use_mock_llm=mock)
 
 app = FastAPI(title="Hybrid AI Product Success Predictor API", version="1.0.0")
 
@@ -101,7 +115,7 @@ def predict_success(req: PredictRequest):
         if not gate["sufficient"]:
             return {"refused": True, **gate}
 
-        predictor = Predictor(use_mock_llm=req.mock)
+        predictor = _get_predictor(req.mock)
         specs = {
             "name": req.name,
             "price": req.price,

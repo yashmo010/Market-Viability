@@ -132,7 +132,8 @@ class Predictor:
     # -- SHAP explanation -----------------------------------------------------
 
     def _shap_top(self, model: xgb.XGBRegressor, row: pd.DataFrame,
-                  bridged_reasoning: dict[str, str], k: int = 3) -> tuple[list, list]:
+                  bridged_reasoning: dict[str, str], product_type: str,
+                  k: int = 3) -> tuple[list, list]:
         import shap
 
         X = row.copy()
@@ -145,11 +146,26 @@ class Predictor:
         # its score feature + its mention_rate feature. Keep ONLY real aspects
         # (the bridged ones) so non-actionable metadata (category, price,
         # rating_count, velocity, installs) never surfaces as a "risk/strength".
-        # The sign is the model's effect on predicted viability (+ raises, - lowers),
-        # which can diverge from whether the aspect itself is "good" — that's a real
-        # learned relationship, surfaced honestly under direction-based labels.
+        #
+        # We ALSO drop aspects the bridging step cannot estimate reliably from a spec
+        # (measured Pearson r < SHAP_MIN_RELIABILITY in models/bridging_reliability.json):
+        # repairability (r~0.27), design_appeal (~0.21), after_sales (~0.07). Left in, those
+        # low-fidelity aspects dominated the explanation with large, often counterintuitive
+        # impacts — e.g. a spec that says "not repairable" surfacing repairability as the top
+        # strength — which is noise from a poorly-bridged, inversely-learned feature, not an
+        # actionable design lever. The surviving aspects are the ones the model can actually
+        # judge from a specification. If no reliability weights are available we fall back to
+        # showing every aspect.
+        SHAP_MIN_RELIABILITY = 0.30
+        weights = self._reliability_weights(product_type)
+
+        def _reliable(aspect: str) -> bool:
+            return (not weights) or weights.get(aspect, 0.0) >= SHAP_MIN_RELIABILITY
+
         aspect_impact: dict[str, float] = {}
         for aspect in bridged_reasoning:
+            if not _reliable(aspect):
+                continue
             aspect_impact[aspect] = (
                 float(shap_by_feature.get(aspect, 0.0))
                 + float(shap_by_feature.get(f"{aspect}_mention_rate", 0.0))
@@ -189,7 +205,7 @@ class Predictor:
                                       profile, category, product_type)
         pred_full = float(self._model(full_name).predict(row_full)[0])
         pred_aspects = float(self._model(aspects_name).predict(row_aspects)[0])
-        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning)
+        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type)
         return {
             "viability_pct": round(float(np.clip(pred_aspects, 0, 100)), 1),
             "full_model_pct": round(float(np.clip(pred_full, 0, 100)), 1),
@@ -317,7 +333,7 @@ class Predictor:
         # SHAP from aspects-only model: risks/strengths name design levers
         # (build_quality, durability...) not un-actionable popularity metadata
         # (review_velocity, rating_count) that a pre-launch product can't change.
-        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning)
+        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type)
 
         with open(MODELS_DIR / "training_report.json", encoding="utf-8") as f:
             model_version = json.load(f).get("data_hash", "unknown")
