@@ -149,6 +149,31 @@ class Predictor:
             return float(bt["new_tier"])
         return float(bt["established_prior"])
 
+    def _price_adjust_value(self, bridged: dict, reasoning: dict, price,
+                            profile: dict) -> tuple[dict, dict]:
+        """Set value_for_money deterministically from price. Value-for-money is, by
+        definition, price-worth, so it must fall as price rises even though every other
+        aspect is bridged price-free. The bridged score reflects feature quality; we shift
+        it by the product's price position within the category (a bonus below the median,
+        a penalty above, bounded), giving price a monotone, visible, principled effect on
+        the score while all other aspects stay price-independent."""
+        if price is None or "value_for_money" not in bridged:
+            return bridged, reasoning
+        pstats = profile.get("price", {}) or {}
+        med = pstats.get("median") or float(price) or 1.0
+        p25 = pstats.get("p25") or med * 0.7
+        p75 = pstats.get("p75") or med * 1.3
+        spread = max(p75 - p25, med * 0.3, 1.0)
+        dev = (float(price) - med) / spread          # 0 at median, ~+1 near p75, ~-1 near p25
+        adj = -2.5 * max(-1.5, min(3.0, dev))        # bonus below median, penalty above
+        out = dict(bridged)
+        out["value_for_money"] = float(np.clip(float(bridged["value_for_money"]) + adj, 0.0, 10.0))
+        r = dict(reasoning)
+        pos = "below" if float(price) < med else ("above" if float(price) > med else "at")
+        r["value_for_money"] = (f"Priced {pos} the category median (~{med:.0f}); "
+                                f"value-for-money set from price position and feature quality.")
+        return out, r
+
     # -- SHAP explanation -----------------------------------------------------
 
     def _shap_top(self, model: xgb.XGBRegressor, row: pd.DataFrame,
@@ -327,6 +352,13 @@ class Predictor:
                                   product_type, use_mock=self.use_mock_llm)
         bridged = {a: s.score for a, s in bridging.scores.items()}
         reasoning = {a: s.reasoning for a, s in bridging.scores.items()}
+        # value_for_money is BY DEFINITION price-worth, so it must respond to price even
+        # though every other aspect is bridged price-free. We set it deterministically:
+        # the bridged score reflects feature quality, and we shift it by the product's
+        # price position within the category (a bonus below the median, a penalty above),
+        # giving price a visible, monotone, and principled effect on the score.
+        bridged, reasoning = self._price_adjust_value(bridged, reasoning,
+                                                      user_specs.get("price"), profile)
         grounded = {a: s.grounded for a, s in bridging.scores.items()}
 
         # Company / product maturity adjustment (Requirement 2): grade down
