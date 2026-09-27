@@ -78,10 +78,14 @@ def _params_for(cols) -> dict:
         params["monotone_constraints"] = constraints
     return params
 
-# columns removed for the honest "aspects-only" variant (the pipeline spec §6 leakage guard).
-# days_since_update is app metadata, not a review aspect — it must be excluded so the
-# aspects-only model measures PURE sentiment contribution.
-LEAKY_COLUMNS = ["price", "avg_rating", "rating_count_log", "review_velocity",
+# Columns removed for the production/"aspects-only" headline variant. These are the truly
+# LEAKY metadata — avg_rating, rating_count and velocity are components of the success label,
+# so a model that sees them scores itself. PRICE is deliberately NOT excluded: it is not part
+# of the label (no leakage) and is knowable pre-launch, and consumers weigh price directly, so
+# the headline model keeps price with a monotone -1 constraint (higher price -> lower or equal
+# viability). This gives the score a real, learned, correctly-signed price response instead of
+# leaving price to leak in only weakly through the bridged value_for_money aspect.
+LEAKY_COLUMNS = ["avg_rating", "rating_count_log", "review_velocity",
                  "install_count_log", "days_since_update"]
 
 
