@@ -133,52 +133,50 @@ class Predictor:
 
     def _shap_top(self, model: xgb.XGBRegressor, row: pd.DataFrame,
                   bridged_reasoning: dict[str, str], product_type: str,
-                  k: int = 3) -> tuple[list, list]:
+                  profile: dict, k: int = 3) -> tuple[list, list]:
         import shap
 
-        X = row.copy()
-        X["category"] = X["category"].cat.codes
         explainer = shap.TreeExplainer(model)
-        vals = explainer.shap_values(X)[0]
-        shap_by_feature = dict(zip(row.columns, vals))
 
-        # Aggregate SHAP to the ASPECT level: each aspect's total contribution is
-        # its score feature + its mention_rate feature. Keep ONLY real aspects
-        # (the bridged ones) so non-actionable metadata (category, price,
-        # rating_count, velocity, installs) never surfaces as a "risk/strength".
-        #
-        # We ALSO drop aspects the bridging step cannot estimate reliably from a spec
-        # (measured Pearson r < SHAP_MIN_RELIABILITY in models/bridging_reliability.json):
-        # repairability (r~0.27), design_appeal (~0.21), after_sales (~0.07). Left in, those
-        # low-fidelity aspects dominated the explanation with large, often counterintuitive
-        # impacts — e.g. a spec that says "not repairable" surfacing repairability as the top
-        # strength — which is noise from a poorly-bridged, inversely-learned feature, not an
-        # actionable design lever. The surviving aspects are the ones the model can actually
-        # judge from a specification. If no reliability weights are available we fall back to
-        # showing every aspect.
-        SHAP_MIN_RELIABILITY = 0.30
-        weights = self._reliability_weights(product_type)
+        def _shap_vec(r: pd.DataFrame) -> dict:
+            X = r.copy()
+            X["category"] = X["category"].cat.codes
+            return dict(zip(r.columns, explainer.shap_values(X)[0]))
 
-        def _reliable(aspect: str) -> bool:
-            return (not weights) or weights.get(aspect, 0.0) >= SHAP_MIN_RELIABILITY
-
-        aspect_impact: dict[str, float] = {}
+        # Each aspect's impact is measured RELATIVE TO THE CATEGORY AVERAGE — the exact
+        # reference the "your design vs category average" bar chart uses — so the risk/
+        # strength cards and the chart can never disagree. We SHAP the product, SHAP a
+        # hypothetical category-average product, and take the difference. Because the model
+        # is monotone (+1 on every aspect), an aspect above the category average always has a
+        # positive difference (a strength) and one below it always negative (a risk): the
+        # sign now matches the chart's green/red by construction. Metadata features are never
+        # aspects, so they can't surface here.
+        avg_scores = profile.get("avg_aspect_scores", {})
+        avg_row = row.copy()
         for aspect in bridged_reasoning:
-            if not _reliable(aspect):
-                continue
-            aspect_impact[aspect] = (
-                float(shap_by_feature.get(aspect, 0.0))
-                + float(shap_by_feature.get(f"{aspect}_mention_rate", 0.0))
-            )
+            if aspect in avg_row.columns and aspect in avg_scores:
+                avg_row.iloc[0, avg_row.columns.get_loc(aspect)] = float(avg_scores[aspect])
+        sp = _shap_vec(row)
+        sa = _shap_vec(avg_row)
+
+        # Use ONLY the aspect-SCORE contribution (the chart shows scores, and the score is
+        # the monotone-constrained feature — so its category-relative SHAP is guaranteed to
+        # share the sign of (score − category_avg)). The mention_rate feature is category-
+        # constant at predict time and its SHAP interactions would otherwise flip the sign of
+        # a near-average aspect, re-introducing the chart/card disagreement.
+        aspect_impact: dict[str, float] = {
+            aspect: float(sp.get(aspect, 0.0)) - float(sa.get(aspect, 0.0))
+            for aspect in bridged_reasoning
+        }
         ordered = sorted(aspect_impact.items(), key=lambda t: t[1])
 
         def _fmt(aspect: str, impact: float) -> dict:
             return {"feature": aspect, "impact": round(float(impact), 2),
                     "reasoning": bridged_reasoning.get(aspect, "")}
 
-        risks = [_fmt(a, v) for a, v in ordered if v < 0][:k]
+        risks = [_fmt(a, v) for a, v in ordered if v < -0.05][:k]
         strengths = [_fmt(a, v) for a, v in sorted(ordered, key=lambda t: -t[1])
-                     if v > 0][:k]
+                     if v > 0.05][:k]
         return risks, strengths
 
     # -- public API -------------------------------------------------------------
@@ -205,7 +203,7 @@ class Predictor:
                                       profile, category, product_type)
         pred_full = float(self._model(full_name).predict(row_full)[0])
         pred_aspects = float(self._model(aspects_name).predict(row_aspects)[0])
-        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type)
+        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type, profile)
         return {
             "viability_pct": round(float(np.clip(pred_aspects, 0, 100)), 1),
             "full_model_pct": round(float(np.clip(pred_full, 0, 100)), 1),
@@ -333,7 +331,7 @@ class Predictor:
         # SHAP from aspects-only model: risks/strengths name design levers
         # (build_quality, durability...) not un-actionable popularity metadata
         # (review_velocity, rating_count) that a pre-launch product can't change.
-        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type)
+        risks, strengths = self._shap_top(self._model(aspects_name), row_aspects, reasoning, product_type, profile)
 
         with open(MODELS_DIR / "training_report.json", encoding="utf-8") as f:
             model_version = json.load(f).get("data_hash", "unknown")
