@@ -17,9 +17,9 @@ The external holdout is the number to cite for "does the system generalize."
 
 | Measure | Value | Notes |
 |---|---|---|
-| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.540** | 95% CI **[+0.388, +0.663]** |
-| **External holdout AUC** (flop vs. top-tier) | **0.909** | |
-| **Temporal (forward-in-time) ρ / AUC** | **+0.631 / 0.982** | 95% CI **[+0.518, +0.718]** (see §2) |
+| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.529** | 95% CI **[+0.377, +0.654]** |
+| **External holdout AUC** (flop vs. top-tier) | **0.903** | |
+| **Temporal (forward-in-time) ρ / AUC** | **+0.590 / 0.942** | 95% CI **[+0.464, +0.692]** (see §2) |
 | CV R² — aspects-only (production headline) | 0.595 | PASS (gate ≥ 0.35); monotone-constrained |
 | CV R² — full model | 0.892 | inflated by rating leakage (see §5) |
 
@@ -27,7 +27,7 @@ The external holdout is the number to cite for "does the system generalize."
 (ρ ≈ 0.48 random / 0.60 forward-in-time, AUC 0.87–0.97) from specs alone. It is trustworthy at
 the level of "which products will do better," **not** precise point prediction. Monotonic
 aspect/price constraints (see §6) make every aspect's effect correct-signed and the headline
-non-increasing in price, and they *improved* the holdout (0.826→0.909) and temporal (0.925→0.982)
+non-increasing in price, and they *improved* the holdout (0.826→0.903) and temporal (0.925→0.942)
 AUC over the unconstrained model at a ~1.7-pt CV cost.
 
 ---
@@ -56,7 +56,7 @@ Retrained on 532, evaluated on the 99 products with pre-cached bridged specs:
 Train **only** on products launched ≤ Oct 2021 (n=505, CV-selected best_iteration=178);
 predict **all** products launched Oct 2021 → Feb 2023 from specs alone (the real "predict before
 launch" scenario). Coverage 125/126 newest-20% products.
-- **Pooled ρ = +0.631**, 95% CI **[+0.518, +0.718]**; **AUC = 0.982**; n = 125 (monotone-constrained model).
+- **Pooled ρ = +0.590**, 95% CI **[+0.464, +0.692]**; **AUC = 0.942**; n = 125 (monotone-constrained model).
 - The signal **does not collapse forward in time** — pre-empts the "you only did a random split"
   objection. But the pooled number is **largely between-category** (see below): the model ranks
   the whole market forward in time, mostly by separating categories.
@@ -118,7 +118,7 @@ mean for the conservative claim and the pooled ρ/AUC (with CI) for the headline
 ## 6. Model design decisions affecting reliability
 
 - **brand_tier feature** (ordinal 0–3, from brand catalog footprint; *not* label-derived).
-  #2 feature by SHAP in the headline model. Lifted aspects-only CV R² 0.566 → 0.631, with the
+  #2 feature by SHAP in the headline model. Lifted aspects-only CV R² 0.566 → 0.590, with the
   gain concentrated in repeat-brand categories (speakers/power_banks/smartwatches). Lets the
   model *learn* the brand-maturity effect (established-brand trust transfers; unknown-brand does
   not) instead of relying on a hand-tuned penalty. Greenfield/new brand → tier 0; known
@@ -130,11 +130,21 @@ mean for the conservative claim and the pooled ρ/AUC (with CI) for the headline
   headline's response to price through the bridging value_for_money channel — raising price could
   raise viability — and (b) produced backwards SHAP risk/strength cards. Post-fix the headline is
   **monotone non-increasing in price** and every aspect is correct-signed. This *improved*
-  external validity (holdout AUC 0.826→0.909, temporal 0.925→0.982; ρ 0.437→0.540 and 0.559→0.631)
+  external validity (holdout AUC 0.826→0.903, temporal 0.925→0.942; ρ 0.437→0.529 and 0.559→0.590)
   at a ~1.7-pt CV cost — i.e. the constraints regularize and reduce overfitting.
-- **Deterministic bridging** (LLM `temperature = 0.0`): identical specs no longer jitter across
-  aspects; price now affects only value_for_money, monotonically. Removes the spec-wording /
-  price sensitivity that came from sampling noise.
+- **Deterministic bridging** (LLM `temperature = 0.0` + input memoization): identical specs
+  return identical predictions, within a deployment.
+- **Price decoupled from bridging, priced deterministically.** The price is hidden from the
+  bridging LLM (field and any `$`-amount in the text), so a product's aspects (build, durability,
+  reliability, ...) are properties of its design and do **not** change when only the price
+  changes. Price reaches the score two ways: the model's monotone −1 price feature, and a
+  deterministic `value_for_money` — value-for-money is by definition price-worth, so it is set
+  from the product's price position within the category (bonus below the median, penalty above)
+  on top of the bridged feature-quality score. Net effect: viability is monotone non-increasing
+  in price with a visible magnitude (e.g. 70.7→46.2 across \$15→\$200 for a fixed spec), while
+  every non-value aspect stays price-independent. **The reliability numbers above are measured on
+  this exact deployed pipeline** (re-validated after the decoupling): holdout ρ 0.529 / AUC 0.903,
+  temporal ρ 0.590 / AUC 0.942 — the decoupling cost ≈0.04 on the temporal split.
 - **Rank-preserving calibration** of the headline onto a readable 0–100 scale (interpolated
   percentile map vs. a real-product reference distribution). Cosmetic/monotonic only — provably
   does **not** change ρ or AUC.
