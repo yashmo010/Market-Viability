@@ -17,16 +17,18 @@ The external holdout is the number to cite for "does the system generalize."
 
 | Measure | Value | Notes |
 |---|---|---|
-| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.437** | p = 7.6e-07, 95% CI **[+0.275, +0.576]** |
-| **External holdout AUC** (flop vs. top-tier) | **0.826** | |
-| **Mean within-category ρ** | **≈ 0.39** | stricter measure (see §4) |
-| CV R² — aspects-only (production headline) | 0.603 | PASS (gate ≥ 0.35) |
-| CV R² — aspects-only, *pure* (no brand_tier) | 0.566 | the "pure ABSA contribution" figure |
-| CV R² — full model | 0.893 | inflated by rating leakage (see §5) |
+| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.475** | 95% CI **[+0.314, +0.608]** |
+| **External holdout AUC** (flop vs. top-tier) | **0.867** | |
+| **Temporal (forward-in-time) ρ / AUC** | **+0.603 / 0.973** | 95% CI **[+0.486, +0.696]** (see §2) |
+| CV R² — aspects-only (production headline) | 0.586 | PASS (gate ≥ 0.35); monotone-constrained |
+| CV R² — full model | 0.892 | inflated by rating leakage (see §5) |
 
 **Interpretation:** the system reliably **rank-orders** product viability out-of-sample
-(ρ ≈ 0.4, AUC ≈ 0.83, p < 1e-6) from specs alone. It is trustworthy at the level of
-"which products will do better," **not** precise point prediction.
+(ρ ≈ 0.48 random / 0.60 forward-in-time, AUC 0.87–0.97) from specs alone. It is trustworthy at
+the level of "which products will do better," **not** precise point prediction. Monotonic
+aspect/price constraints (see §6) make every aspect's effect correct-signed and the headline
+non-increasing in price, and they *improved* the holdout (0.826→0.867) and temporal (0.925→0.973)
+AUC over the unconstrained model at a ~1.7-pt CV cost.
 
 ---
 
@@ -54,7 +56,7 @@ Retrained on 532, evaluated on the 99 products with pre-cached bridged specs:
 Train **only** on products launched ≤ Oct 2021 (n=505, CV-selected best_iteration=178);
 predict **all** products launched Oct 2021 → Feb 2023 from specs alone (the real "predict before
 launch" scenario). Coverage 125/126 newest-20% products.
-- **Pooled ρ = +0.559**, p = 1.2e-11, 95% CI **[+0.429, +0.666]**; **AUC = 0.925**; n = 125.
+- **Pooled ρ = +0.603**, 95% CI **[+0.486, +0.696]**; **AUC = 0.973**; n = 125 (monotone-constrained model).
 - The signal **does not collapse forward in time** — pre-empts the "you only did a random split"
   objection. But the pooled number is **largely between-category** (see below): the model ranks
   the whole market forward in time, mostly by separating categories.
@@ -121,10 +123,18 @@ mean for the conservative claim and the pooled ρ/AUC (with CI) for the headline
   model *learn* the brand-maturity effect (established-brand trust transfers; unknown-brand does
   not) instead of relying on a hand-tuned penalty. Greenfield/new brand → tier 0; known
   established brand → its real tier; unspecified → neutral established prior.
-- **Price monotonicity** (`monotone_constraints={"price": -1}` on the full model): fixes a
-  spurious *rising*-price effect the unconstrained model had learned (higher price → higher
-  predicted viability at fixed quality). Post-fix price is non-increasing; full-model R² held
-  at 0.893.
+- **Monotonic aspect + price constraints** (both models): every review aspect and `brand_tier`
+  get a **+1** (non-decreasing) constraint and `price` a **−1** (non-increasing) one. The
+  unconstrained model had learned spurious *inverses* from the noisy popularity label (e.g.
+  lower value-for-money / lower repairability *raising* the score), which both (a) inverted the
+  headline's response to price through the bridging value_for_money channel — raising price could
+  raise viability — and (b) produced backwards SHAP risk/strength cards. Post-fix the headline is
+  **monotone non-increasing in price** and every aspect is correct-signed. This *improved*
+  external validity (holdout AUC 0.826→0.867, temporal 0.925→0.973; ρ 0.437→0.475 and 0.559→0.603)
+  at a ~1.7-pt CV cost — i.e. the constraints regularize and reduce overfitting.
+- **Deterministic bridging** (LLM `temperature = 0.0`): identical specs no longer jitter across
+  aspects; price now affects only value_for_money, monotonically. Removes the spec-wording /
+  price sensitivity that came from sampling noise.
 - **Rank-preserving calibration** of the headline onto a readable 0–100 scale (interpolated
   percentile map vs. a real-product reference distribution). Cosmetic/monotonic only — provably
   does **not** change ρ or AUC.
