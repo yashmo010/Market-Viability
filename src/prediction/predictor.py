@@ -8,6 +8,7 @@ hardcoded column list.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -41,6 +42,25 @@ def _compose_specs(user_specs: dict) -> dict:
         lines = "\n".join(f"- {k.replace('_', ' ')}: {v}" for k, v in filled.items())
         base = (out.get("description") or "").strip()
         out["description"] = (base + "\n\nStructured specifications:\n" + lines).strip()
+    return out
+
+
+_PRICE_RX = re.compile(
+    r"(?:priced\s+at\s+)?\$\s*\d[\d,]*(?:\.\d{1,2})?"          # $78.99, priced at $1,299
+    r"|\b\d[\d,]*(?:\.\d{1,2})?\s*(?:dollars|usd|bucks)\b",     # 79 dollars / 79 USD
+    re.IGNORECASE,
+)
+
+
+def _bridging_specs(user_specs: dict) -> dict:
+    """A copy of the specs for the BRIDGING LLM with the price removed — both the
+    price field and any price mention in the description text. Aspects (build,
+    durability, reliability, design, ...) are properties of the design, not the
+    price tag, so the LLM must not see the price: otherwise the same product
+    re-scores its aspects whenever the price changes. Price still reaches the score
+    through the model's monotone -1 price feature."""
+    out = {k: v for k, v in user_specs.items() if k != "price"}
+    out["description"] = _PRICE_RX.sub("", out.get("description") or "").strip()
     return out
 
 
@@ -300,8 +320,11 @@ class Predictor:
         # bridging LLM reasons over them as concrete evidence (Requirement 1).
         user_specs = _compose_specs(user_specs)
 
-        bridging = bridge_aspects(user_specs, category, profile, product_type,
-                                  use_mock=self.use_mock_llm)
+        # Bridge from the DESIGN only — hide the price (field + text) so aspects don't
+        # shift when only the price changes; price affects the score via the model's
+        # monotone price feature instead.
+        bridging = bridge_aspects(_bridging_specs(user_specs), category, profile,
+                                  product_type, use_mock=self.use_mock_llm)
         bridged = {a: s.score for a, s in bridging.scores.items()}
         reasoning = {a: s.reasoning for a, s in bridging.scores.items()}
         grounded = {a: s.grounded for a, s in bridging.scores.items()}
