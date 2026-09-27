@@ -5,14 +5,21 @@ mock provider available for tests.
 
 from __future__ import annotations
 
+import hashlib
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from src.extraction.extraction_prompt import build_bridging_prompt
-from src.extraction.llm_provider import ProviderPool, strip_json
+from src.extraction.llm_provider import ProviderError, ProviderPool, strip_json
 from src.extraction.validators import BridgingResult, validate_bridging
+
+# Memoize bridging by prompt hash so an identical spec always yields an identical
+# prediction. Hosted LLMs are not deterministic even at temperature 0, and the
+# provider pool can answer from different backends across runs, so without this the
+# same product re-scored to different aspects (and thus different viability) each time.
+_BRIDGE_CACHE: dict[str, BridgingResult] = {}
 
 
 def profile_to_prompt_fields(profile: dict) -> dict:
@@ -44,19 +51,31 @@ def bridge_aspects(user_specs: dict, category: str, profile: dict,
                                    version=prompt_version)
     if use_mock:
         return _mock_bridge(user_specs, profile, product_type)
-    # Cascade through the whole fleet (gemini-first per PROVIDER_ORDER), so one
-    # prediction never hard-fails just because one pool's daily quota is drained.
-    pool = ProviderPool()
 
+    # Reproducibility: identical spec+category -> identical prompt -> cached result.
+    cache_key = hashlib.sha256(prompt.encode("utf-8")).hexdigest()
+    cached = _BRIDGE_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+
+    pool = ProviderPool()
     last_error = ""
     for attempt in range(max_retries + 1):
         p = prompt if attempt == 0 else (
             prompt + f"\n\nYour previous response was invalid: {last_error}\n"
             "Return ONLY the corrected JSON object with EVERY aspect scored."
         )
-        raw, _ = pool.generate(p, provider=None, json_mode=True)
+        # Pin bridging to Gemini for consistency (best reasoning; this module scores
+        # with gemini_flash by design); fall back to the full pool only if Gemini is
+        # unavailable, so one prediction never hard-fails on a drained daily quota.
         try:
-            return validate_bridging(strip_json(raw), product_type)
+            raw, _ = pool.generate(p, provider="gemini_flash", json_mode=True)
+        except ProviderError:
+            raw, _ = pool.generate(p, provider=None, json_mode=True)
+        try:
+            result = validate_bridging(strip_json(raw), product_type)
+            _BRIDGE_CACHE[cache_key] = result
+            return result
         except ValueError as exc:
             last_error = str(exc)[:300]
     raise ValueError(f"Bridging failed after {max_retries + 1} attempts: {last_error}")
