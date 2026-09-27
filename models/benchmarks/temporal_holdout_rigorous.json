@@ -1,10 +1,10 @@
 {
   "n": 125,
-  "rho": 0.603,
+  "rho": 0.631,
   "ci": [
-    0.486,
-    0.696
+    0.518,
+    0.718
   ],
-  "auc": 0.973,
-  "note": "monotone-constrained model"
+  "auc": 0.982,
+  "note": "monotone + price in headline"
 }

@@ -17,17 +17,17 @@ The external holdout is the number to cite for "does the system generalize."
 
 | Measure | Value | Notes |
 |---|---|---|
-| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.475** | 95% CI **[+0.314, +0.608]** |
-| **External holdout AUC** (flop vs. top-tier) | **0.867** | |
-| **Temporal (forward-in-time) ρ / AUC** | **+0.603 / 0.973** | 95% CI **[+0.486, +0.696]** (see §2) |
-| CV R² — aspects-only (production headline) | 0.586 | PASS (gate ≥ 0.35); monotone-constrained |
+| **External holdout ρ (Spearman, pooled 5-cat)** | **+0.540** | 95% CI **[+0.388, +0.663]** |
+| **External holdout AUC** (flop vs. top-tier) | **0.909** | |
+| **Temporal (forward-in-time) ρ / AUC** | **+0.631 / 0.982** | 95% CI **[+0.518, +0.718]** (see §2) |
+| CV R² — aspects-only (production headline) | 0.595 | PASS (gate ≥ 0.35); monotone-constrained |
 | CV R² — full model | 0.892 | inflated by rating leakage (see §5) |
 
 **Interpretation:** the system reliably **rank-orders** product viability out-of-sample
 (ρ ≈ 0.48 random / 0.60 forward-in-time, AUC 0.87–0.97) from specs alone. It is trustworthy at
 the level of "which products will do better," **not** precise point prediction. Monotonic
 aspect/price constraints (see §6) make every aspect's effect correct-signed and the headline
-non-increasing in price, and they *improved* the holdout (0.826→0.867) and temporal (0.925→0.973)
+non-increasing in price, and they *improved* the holdout (0.826→0.909) and temporal (0.925→0.982)
 AUC over the unconstrained model at a ~1.7-pt CV cost.
 
 ---
@@ -56,7 +56,7 @@ Retrained on 532, evaluated on the 99 products with pre-cached bridged specs:
 Train **only** on products launched ≤ Oct 2021 (n=505, CV-selected best_iteration=178);
 predict **all** products launched Oct 2021 → Feb 2023 from specs alone (the real "predict before
 launch" scenario). Coverage 125/126 newest-20% products.
-- **Pooled ρ = +0.603**, 95% CI **[+0.486, +0.696]**; **AUC = 0.973**; n = 125 (monotone-constrained model).
+- **Pooled ρ = +0.631**, 95% CI **[+0.518, +0.718]**; **AUC = 0.982**; n = 125 (monotone-constrained model).
 - The signal **does not collapse forward in time** — pre-empts the "you only did a random split"
   objection. But the pooled number is **largely between-category** (see below): the model ranks
   the whole market forward in time, mostly by separating categories.
@@ -118,7 +118,7 @@ mean for the conservative claim and the pooled ρ/AUC (with CI) for the headline
 ## 6. Model design decisions affecting reliability
 
 - **brand_tier feature** (ordinal 0–3, from brand catalog footprint; *not* label-derived).
-  #2 feature by SHAP in the headline model. Lifted aspects-only CV R² 0.566 → 0.603, with the
+  #2 feature by SHAP in the headline model. Lifted aspects-only CV R² 0.566 → 0.631, with the
   gain concentrated in repeat-brand categories (speakers/power_banks/smartwatches). Lets the
   model *learn* the brand-maturity effect (established-brand trust transfers; unknown-brand does
   not) instead of relying on a hand-tuned penalty. Greenfield/new brand → tier 0; known
@@ -130,7 +130,7 @@ mean for the conservative claim and the pooled ρ/AUC (with CI) for the headline
   headline's response to price through the bridging value_for_money channel — raising price could
   raise viability — and (b) produced backwards SHAP risk/strength cards. Post-fix the headline is
   **monotone non-increasing in price** and every aspect is correct-signed. This *improved*
-  external validity (holdout AUC 0.826→0.867, temporal 0.925→0.973; ρ 0.437→0.475 and 0.559→0.603)
+  external validity (holdout AUC 0.826→0.909, temporal 0.925→0.982; ρ 0.437→0.540 and 0.559→0.631)
   at a ~1.7-pt CV cost — i.e. the constraints regularize and reduce overfitting.
 - **Deterministic bridging** (LLM `temperature = 0.0`): identical specs no longer jitter across
   aspects; price now affects only value_for_money, monotonically. Removes the spec-wording /
