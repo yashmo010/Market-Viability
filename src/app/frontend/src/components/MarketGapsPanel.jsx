@@ -30,12 +30,14 @@ export default function MarketGapsPanel({ gaps, hoveredAspect, setHoveredAspect 
         <AlertCircle size={20} color="var(--warning)" />
         <h3 style={styles.title}>Market Gaps Identified</h3>
       </div>
-      <p style={styles.subtitle}>Aspects where your spec does not outperform the category averages. Hover a card to spotlight matching charts.</p>
+      <p style={styles.subtitle}>The category's known pain points where your design doesn't <em>clearly</em> beat the average — matching or barely edging a market sore spot won't set you apart. Hover a card to spotlight matching charts.</p>
 
       <div style={styles.gapsList}>
         {gaps.map((gap, idx) => {
           const isExpanded = expandedGap === idx;
           const isHighlighted = hoveredAspect === gap.aspect;
+          const delta = gap.your_estimate - gap.category_avg;
+          const scoreColor = delta < 0 ? 'var(--danger)' : 'var(--warning)';
           
           return (
             <div 
@@ -60,9 +62,12 @@ export default function MarketGapsPanel({ gaps, hoveredAspect, setHoveredAspect 
                     color: isHighlighted ? 'var(--accent)' : 'var(--text-primary)'
                   }}>{gap.aspect.replace(/_/g, ' ')}</span>
                   <div style={styles.gapScores}>
-                    <span style={styles.yourScore}>Your design: <strong>{gap.your_estimate.toFixed(1)}</strong></span>
+                    <span style={{ ...styles.yourScore, color: scoreColor }}>Your design: <strong>{gap.your_estimate.toFixed(1)}</strong></span>
                     <span style={styles.divider}>|</span>
                     <span style={styles.avgScore}>Category avg: <strong>{gap.category_avg.toFixed(1)}</strong></span>
+                    <span style={{ ...styles.deltaChip, color: scoreColor, borderColor: scoreColor }}>
+                      {delta >= 0 ? '+' : ''}{delta.toFixed(1)} vs avg
+                    </span>
                   </div>
                 </div>
                 <button style={styles.expandBtn}>
@@ -166,9 +171,19 @@ const styles = {
     gap: '10px',
     fontSize: '12px',
     alignItems: 'center',
+    flexWrap: 'wrap',
   },
   yourScore: {
-    color: 'var(--danger)',
+    fontVariantNumeric: 'tabular-nums',
+  },
+  deltaChip: {
+    fontSize: '11px',
+    fontWeight: 600,
+    padding: '1px 8px',
+    borderRadius: '999px',
+    border: '1px solid',
+    fontVariantNumeric: 'tabular-nums',
+    lineHeight: '1.6',
   },
   avgScore: {
     color: 'var(--text-muted)',
