@@ -233,7 +233,7 @@ class ProviderPool:
         import google.generativeai as genai
 
         genai.configure(api_key=key)
-        gen_cfg = {"temperature": 0.1}
+        gen_cfg = {"temperature": 0.0}  # deterministic: bridging must not jitter across identical inputs
         if json_mode:
             gen_cfg["response_mime_type"] = "application/json"
         # pinned model names (not "-latest" aliases): extraction scores must come
@@ -253,7 +253,7 @@ class ProviderPool:
         resp = client.chat.completions.create(
             model=model_name,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.1,
+            temperature=0.0,
             **kwargs,
         )
         text = resp.choices[0].message.content
@@ -274,7 +274,7 @@ class ProviderPool:
         resp = client.chat.completions.create(
             model=PROVIDER_MODELS[provider],
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.1,
+            temperature=0.0,
             **kwargs,
         )
         text = resp.choices[0].message.content
@@ -299,7 +299,7 @@ class ProviderPool:
             )
             client = ollama.Client(host=self.ollama_base_url)
             resp = client.generate(model=self.ollama_model, prompt=prompt,
-                                   format="json", options={"temperature": 0.1})
+                                   format="json", options={"temperature": 0.0})
         finally:
             self._ollama_sem.release()
         text = resp.get("response", "")

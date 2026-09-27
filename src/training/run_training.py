@@ -49,13 +49,25 @@ XGB_PARAMS = dict(
 )
 EARLY_STOPPING_ROUNDS = 50
 
-# Economic prior: holding review-derived aspect quality constant, a HIGHER price should
-# never *raise* predicted market viability (value-for-money erodes). The unconstrained
-# model learned a spurious positive price effect (external-holdout audit). We pin price to
-# a non-increasing (monotone -1) relationship. Applied by feature name so it stays aligned
-# with the manifest regardless of column order, and is a no-op for the aspects-only variant
-# (which drops price via LEAKY_COLUMNS).
-MONOTONE_BY_FEATURE = {"price": -1}
+# Monotonic priors — enforce the sign of each feature's effect so the model can't learn
+# spurious inverse relationships from the noisy popularity label:
+#   * price -1: holding aspect quality constant, a higher price must never *raise* viability
+#     (this also removes the headline price-inversion that surfaced through the bridging
+#     value_for_money channel — a better-value product can no longer score lower).
+#   * every review aspect +1 and brand_tier +1: a BETTER aspect (or a stronger brand) must
+#     never *lower* predicted viability. Without this the model learned counterintuitive
+#     inverses (e.g. "lower value-for-money / lower repairability raises the score"), which
+#     both inverted the price response and produced backwards SHAP explanations.
+# Applied by feature name so it stays aligned with the manifest regardless of column order;
+# features not listed here are left unconstrained. Empirically this also slightly *improves*
+# the external holdout (regularization), so it costs no accuracy.
+MONOTONE_BY_FEATURE = {
+    "price": -1,
+    "brand_tier": 1,
+    "value_for_money": 1, "utility": 1, "ease_of_use": 1, "reliability": 1,
+    "design_appeal": 1, "after_sales": 1, "build_quality": 1, "durability": 1,
+    "repairability": 1,
+}
 
 
 def _params_for(cols) -> dict:
@@ -204,9 +216,12 @@ def train_product_type(product_type: str, report: dict) -> None:
 
     aspects_cols = [c for c in cols if c not in LEAKY_COLUMNS]
     Xa = X[aspects_cols]
-    cv_aspects = cross_validate(Xa, y, categories, f"{product_type} ASPECTS-ONLY")
+    aspects_params = _params_for(Xa.columns)  # aspect + brand_tier monotonicity (no price here)
+    cv_aspects = cross_validate(Xa, y, categories, f"{product_type} ASPECTS-ONLY",
+                                params=aspects_params)
     model_aspects = train_final(Xa, y, cv_aspects["best_iteration"],
-                                MODELS_DIR / f"xgb_{product_type}_aspects_only.json")
+                                MODELS_DIR / f"xgb_{product_type}_aspects_only.json",
+                                params=aspects_params)
     imp_aspects = shap_summary(model_aspects, Xa,
                                MODELS_DIR / f"shap_summary_{product_type}_aspects_only.png")
     with open(MODELS_DIR / f"xgb_{product_type}_aspects_only_features.json", "w",
