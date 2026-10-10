@@ -1,0 +1,70 @@
+{
+  "protocol_name": "FROZEN_PRIMARY_TEMPORAL_PROTOCOL",
+  "temporal_cutoff_iso": "2021-10-31T23:59:59Z",
+  "temporal_cutoff_epoch": 1635724799,
+  "definition_type": "Fixed Historical Calendar Boundary",
+  "launch_date_proxy": "first_recorded_review_timestamp",
+  "training_pool": {
+    "sample_size": 507,
+    "condition": "first_review_ts <= 1635724799",
+    "earliest_first_review_utc": "2006-02-20T12:42:37Z",
+    "latest_first_review_utc": "2021-10-26T23:10:26Z",
+    "total_historical_reviews": 43599,
+    "categories": {
+      "bluetooth_speakers": 128,
+      "ice_makers": 109,
+      "power_banks": 80,
+      "smartwatches": 75,
+      "wireless_headphones": 115
+    }
+  },
+  "temporal_test_pool": {
+    "sample_size": 124,
+    "condition": "first_review_ts > 1635724799",
+    "earliest_first_review_utc": "2021-11-01T09:58:09Z",
+    "latest_first_review_utc": "2023-02-28T01:44:19Z",
+    "quarantined_signals": [
+      "customer_reviews",
+      "star_ratings",
+      "review_volume",
+      "review_velocity",
+      "sales_rank"
+    ],
+    "accessible_inputs": [
+      "launch_title",
+      "category",
+      "brand_name",
+      "launch_unit_price",
+      "raw_spec_bullet_points",
+      "grounded_llm_aspect_extractions"
+    ],
+    "categories": {
+      "bluetooth_speakers": 7,
+      "ice_makers": 36,
+      "power_banks": 19,
+      "smartwatches": 39,
+      "wireless_headphones": 23
+    },
+    "unseen_brands_count": 82
+  },
+  "corpus_boundary": {
+    "harvest_end_utc": "2023-09-05T13:41:04Z",
+    "minimum_label_exposure_months": 7.0,
+    "total_clean_products": 631,
+    "suspect_products_excluded": 9
+  },
+  "external_application_validation": {
+    "cohort_name": "Independent Real-World Application Evaluation",
+    "product_launch_period": "2022-2024",
+    "sample_size_total": 155,
+    "sample_size_evaluable": 150,
+    "prospective_pre_launch_skus": 5,
+    "relation_to_primary_protocol": "Secondary external transfer validation; physically independent from the primary 507/124 research benchmark partition."
+  },
+  "distinction_of_dates": {
+    "date_a_research_execution": "2026 (Study reporting, statistical verification, and final manuscript preparation)",
+    "date_b_temporal_cutoff": "2021-10-31 23:59:59 UTC (Historical information boundary separating training from forward holdout)",
+    "date_c_external_validation": "2022-2024 (Independent subsequent real-world product launch window)"
+  },
+  "performance_blindness_guarantee": "The October 31, 2021 cutoff was frozen prior to model evaluation based on chronological product availability (~80/20 partition) and data-quality preservation across 5 categories, with zero metric-driven tuning."
+}

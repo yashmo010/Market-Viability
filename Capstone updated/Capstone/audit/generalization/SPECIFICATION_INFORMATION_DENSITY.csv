@@ -1,0 +1,6 @@
+Specification_Feature,Train_Mean,Train_Std,Test_Mean,Test_Std,Spearman_Rho_With_Predicted_Score,Spearman_Rho_With_Ground_Truth,P_Value_Ground_Truth
+word_count,205.96,96.5,267.7,78.15,-0.225,-0.078,3.9133e-01
+bullet_count,5.34,1.16,5.4,0.85,-0.116,0.097,2.8327e-01
+numeric_count,7.29,5.12,8.94,5.35,-0.005,-0.185,3.9362e-02
+completeness_score,0.9,0.15,0.97,0.06,-0.047,-0.069,4.4939e-01
+price,109.96,156.41,108.53,142.48,0.16,0.574,3.0636e-12

@@ -1,0 +1,296 @@
+{
+  "XGBoost": {
+    "pooled_oof_spearman_rho": 0.7565,
+    "pooled_oof_spearman_p": 3.335556232280722e-95,
+    "pooled_oof_pearson_r": 0.7564,
+    "pooled_oof_rmse": 12.53,
+    "pooled_oof_mae": 9.56,
+    "pooled_oof_r2": 0.5715,
+    "mean_fold_rho": 0.7575,
+    "std_fold_rho": 0.0431,
+    "mean_train_time_sec": 0.093,
+    "mean_infer_latency_ms_per_item": 0.0395,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.7259387846266065,
+        "rmse": 13.710792661505847,
+        "mae": 9.9523771944233,
+        "r2": 0.5322342303102785
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.8172812141294085,
+        "rmse": 11.938013383012562,
+        "mae": 9.172578915764305,
+        "r2": 0.6443999662692511
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.7061968549796156,
+        "rmse": 13.83566817454293,
+        "mae": 11.085730999483923,
+        "r2": 0.5044294233452397
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.7993244030285381,
+        "rmse": 10.702122420446646,
+        "mae": 8.238607411299602,
+        "r2": 0.6332796410044874
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.7389596358786016,
+        "rmse": 12.185759129781783,
+        "mae": 9.36259891124763,
+        "r2": 0.5412706413765852
+      }
+    ]
+  },
+  "Gradient Boosting": {
+    "pooled_oof_spearman_rho": 0.7396,
+    "pooled_oof_spearman_p": 6.86930717807846e-89,
+    "pooled_oof_pearson_r": 0.7347,
+    "pooled_oof_rmse": 13.02,
+    "pooled_oof_mae": 10.14,
+    "pooled_oof_r2": 0.5375,
+    "mean_fold_rho": 0.7411,
+    "std_fold_rho": 0.0587,
+    "mean_train_time_sec": 0.3023,
+    "mean_infer_latency_ms_per_item": 0.0779,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.7600239749845916,
+        "rmse": 13.04515817488134,
+        "mae": 9.840010158025427,
+        "r2": 0.5765501243171287
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.8289520556852943,
+        "rmse": 12.349658589404074,
+        "mae": 9.600373024414724,
+        "r2": 0.6194536386408244
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.6477227722772276,
+        "rmse": 14.983316987848324,
+        "mae": 12.280595444267192,
+        "r2": 0.4188059318265416
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.747128712871287,
+        "rmse": 11.919405059070193,
+        "mae": 9.60502324586505,
+        "r2": 0.5451121369212141
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.7216619733926154,
+        "rmse": 12.57982435652864,
+        "mae": 9.38624694938374,
+        "r2": 0.5111219799224042
+      }
+    ]
+  },
+  "Random Forest": {
+    "pooled_oof_spearman_rho": 0.7267,
+    "pooled_oof_spearman_p": 2.2382025875796815e-84,
+    "pooled_oof_pearson_r": 0.7322,
+    "pooled_oof_rmse": 13.25,
+    "pooled_oof_mae": 10.42,
+    "pooled_oof_r2": 0.5207,
+    "mean_fold_rho": 0.7269,
+    "std_fold_rho": 0.0556,
+    "mean_train_time_sec": 0.1313,
+    "mean_infer_latency_ms_per_item": 0.3618,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.7134536983110076,
+        "rmse": 13.888460296071997,
+        "mae": 10.733231398341193,
+        "r2": 0.52003285016448
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.812780250040995,
+        "rmse": 13.037685372478006,
+        "mae": 10.215189680054989,
+        "r2": 0.5758703214180346
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.6815492137449038,
+        "rmse": 14.53151179738432,
+        "mae": 11.987702688181075,
+        "r2": 0.45332799334357987
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.7656959813628421,
+        "rmse": 11.362834494652772,
+        "mae": 9.240098509019017,
+        "r2": 0.5866018259159522
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.6611259788204468,
+        "rmse": 13.221246462830402,
+        "mae": 9.928362971133028,
+        "r2": 0.4599970163607341
+      }
+    ]
+  },
+  "Ridge Regression": {
+    "pooled_oof_spearman_rho": 0.6481,
+    "pooled_oof_spearman_p": 9.889436626714709e-62,
+    "pooled_oof_pearson_r": 0.6477,
+    "pooled_oof_rmse": 14.62,
+    "pooled_oof_mae": 11.43,
+    "pooled_oof_r2": 0.4165,
+    "mean_fold_rho": 0.6485,
+    "std_fold_rho": 0.0531,
+    "mean_train_time_sec": 0.0232,
+    "mean_infer_latency_ms_per_item": 0.0873,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.6460862533997547,
+        "rmse": 15.384249314399163,
+        "mae": 11.576797547119579,
+        "r2": 0.41108050671565854
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.6939570598978801,
+        "rmse": 14.859715943034852,
+        "mae": 11.397415350036619,
+        "r2": 0.4490417560115999
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.5588468258590564,
+        "rmse": 16.418765191286738,
+        "mae": 13.191345217651644,
+        "r2": 0.3021112108657852
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.6337449039021549,
+        "rmse": 13.396244775421165,
+        "mae": 10.796931297091186,
+        "r2": 0.425405663882909
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.7101127260156085,
+        "rmse": 12.735239618030478,
+        "mae": 10.182449463693246,
+        "r2": 0.4989678450925704
+      }
+    ]
+  },
+  "Support Vector Regressor (SVR)": {
+    "pooled_oof_spearman_rho": 0.7495,
+    "pooled_oof_spearman_p": 1.56871867906754e-92,
+    "pooled_oof_pearson_r": 0.7405,
+    "pooled_oof_rmse": 12.98,
+    "pooled_oof_mae": 9.99,
+    "pooled_oof_r2": 0.5401,
+    "mean_fold_rho": 0.7461,
+    "std_fold_rho": 0.0309,
+    "mean_train_time_sec": 0.0246,
+    "mean_infer_latency_ms_per_item": 0.1184,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.7871767759300202,
+        "rmse": 12.672171412434194,
+        "mae": 9.873157271075279,
+        "r2": 0.6004184854600461
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.7700097822460715,
+        "rmse": 13.279921794350308,
+        "mae": 9.832566166029887,
+        "r2": 0.559963496038292
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.6976470588235294,
+        "rmse": 14.446391907263717,
+        "mae": 11.38534627819795,
+        "r2": 0.4597136160863299
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.742201514269074,
+        "rmse": 11.981210361113058,
+        "mae": 9.348660515491629,
+        "r2": 0.5403824759715419
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.7333393516028519,
+        "rmse": 12.386241852432825,
+        "mae": 9.497704378058133,
+        "r2": 0.5260522470607781
+      }
+    ]
+  },
+  "Multi-Layer Perceptron (MLP)": {
+    "pooled_oof_spearman_rho": 0.5463,
+    "pooled_oof_spearman_p": 8.692138554755974e-41,
+    "pooled_oof_pearson_r": 0.5315,
+    "pooled_oof_rmse": 16.97,
+    "pooled_oof_mae": 13.16,
+    "pooled_oof_r2": 0.2138,
+    "mean_fold_rho": 0.5401,
+    "std_fold_rho": 0.0851,
+    "mean_train_time_sec": 0.7054,
+    "mean_infer_latency_ms_per_item": 0.0463,
+    "fold_metrics": [
+      {
+        "fold": 1,
+        "spearman_rho": 0.5412522405867086,
+        "rmse": 18.668358232543948,
+        "mae": 13.622993337212083,
+        "r2": 0.13280740018367188
+      },
+      {
+        "fold": 2,
+        "spearman_rho": 0.5300337572306631,
+        "rmse": 17.767118766686785,
+        "mae": 14.200043716591566,
+        "r2": 0.21235289414681835
+      },
+      {
+        "fold": 3,
+        "spearman_rho": 0.42804892253931276,
+        "rmse": 18.812217161122007,
+        "mae": 14.786581214535307,
+        "r2": 0.08381072232889697
+      },
+      {
+        "fold": 4,
+        "spearman_rho": 0.5106814210832847,
+        "rmse": 15.879670662895908,
+        "mae": 12.828548342141564,
+        "r2": 0.19261965196656305
+      },
+      {
+        "fold": 5,
+        "spearman_rho": 0.6906950806525518,
+        "rmse": 13.008404444704722,
+        "mae": 10.35849844888712,
+        "r2": 0.47724352680687065
+      }
+    ]
+  }
+}

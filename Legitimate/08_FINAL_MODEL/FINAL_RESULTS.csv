@@ -1,0 +1,9 @@
+metric_group,metric_name,value,ci95,p_value
+Primary,Spearman rho,0.672,"[0.550, 0.762]",1.25e-17
+Primary,Top/Bottom Quintile AUC,0.971,"[0.922, 1.000]",-
+Primary,RMSE,19.75,-,-
+Primary,MAE,16.66,-,-
+Primary,R^2,0.3271,-,-
+Comparison,Delta rho vs Model_O,+0.1101,"[0.0485, 0.1833]",0.0004
+Cold Start,Unseen Brand rho (n=82),0.633,-,2.22e-11
+Cold Start,Unseen Brand AUC (n=82),0.981,-,-

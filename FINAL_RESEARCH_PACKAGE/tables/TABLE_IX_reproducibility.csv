@@ -1,0 +1,11 @@
+Parameter,Configured Value
+Temporal Cutoff Epoch,1635724799 (2021-10-31 23:59:59 UTC)
+Training Sample Size,507 pre-cutoff products
+Temporal Test Sample Size,124 launch-blind test products
+Model Family,"XGBoost Regressor (hist method, enable_categorical=True)"
+Ensemble Size (n_estimators),112 trees (5-fold CV early stopping on training set)
+Learning Rate (eta),0.05
+Tree Depth (max_depth),5
+Monotone Constraints,"price: -1, brand_tier: +1, aspects: +1"
+Random Seed,"42 (5-seed audit: 42, 123, 456, 789, 999)"
+Software Stack,"Python 3.13.12, xgboost 3.2.0, scikit-learn 1.8.0, pandas 3.0.0"

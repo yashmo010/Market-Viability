@@ -1,0 +1,6 @@
+Category,Train_Products_N,Test_Products_N,Raw_Volume_Median,Raw_Rating_Median,Raw_Velocity_Median,Normalized_Target_Mean,Normalized_Target_Std,Normalized_Target_Min,Normalized_Target_Max,Target_Skewness
+bluetooth_speakers,128,7,55.5,4.5,1.36,54.4,18.6,13.81,90.96,0.1
+ice_makers,109,36,60.0,4.2,1.19,66.41,16.24,17.5,89.57,-0.89
+power_banks,80,19,21.0,4.5,0.82,42.8,18.34,6.91,92.39,0.71
+smartwatches,75,39,24.0,4.2,0.97,40.44,16.75,3.23,90.0,0.32
+wireless_headphones,115,23,107.0,4.3,0.0,51.24,15.06,15.91,89.88,0.02

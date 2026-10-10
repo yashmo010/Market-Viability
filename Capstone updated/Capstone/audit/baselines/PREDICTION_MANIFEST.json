@@ -1,0 +1,137 @@
+{
+  "Proposed Model (XGBoost Monotone)": {
+    "file": "audit\\baselines\\predictions\\proposed_model_xgboost_monotone.json",
+    "sha256": "a7a454655ea8ccccf59a8c5edb7511eb2953fc01073aa8aaed03c143736c11a6",
+    "n_evaluated": 124
+  },
+  "Baseline A: Global Mean": {
+    "file": "audit\\baselines\\predictions\\baseline_a_global_mean.json",
+    "sha256": "c72f1ee25cf97a7a0fa583040c3f3c254d230bd8852ad44297a77208d3e911f2",
+    "n_evaluated": 124
+  },
+  "Baseline B: Global Median": {
+    "file": "audit\\baselines\\predictions\\baseline_b_global_median.json",
+    "sha256": "bcc7955f8fb63e596a6b21e96d4f1026478c08b4d89fe728eed67157187613d1",
+    "n_evaluated": 124
+  },
+  "Baseline C: Category Mean": {
+    "file": "audit\\baselines\\predictions\\baseline_c_category_mean.json",
+    "sha256": "65299906988c1abe3ed4a7c084eeaef2147d3ec4dc2f58268d9d9bea1fdd6fac",
+    "n_evaluated": 124
+  },
+  "Baseline D: Category Median": {
+    "file": "audit\\baselines\\predictions\\baseline_d_category_median.json",
+    "sha256": "ba22b6b8f3f393f754c2123aca742d9d8b0611f3a2c2793e6632ce42dab10242",
+    "n_evaluated": 124
+  },
+  "Baseline E: Brand-Only": {
+    "file": "audit\\baselines\\predictions\\baseline_e_brand-only.json",
+    "sha256": "861807e97e2d5cd7f2282507c92b26755e1094312edca6caf296db59bca95155",
+    "n_evaluated": 124
+  },
+  "Baseline F: Category + Brand": {
+    "file": "audit\\baselines\\predictions\\baseline_f_category_plus_brand.json",
+    "sha256": "fc72756cd0d6ba3acb69d84fca1a4ddea6e96dc40f6b17a1ef01f0f251ab179a",
+    "n_evaluated": 124
+  },
+  "Baseline G1: Ridge Regression": {
+    "file": "audit\\baselines\\predictions\\baseline_g1_ridge_regression.json",
+    "sha256": "f87885c6725847246f6431f68ff0e3aaa2bb35cc3b1fe6f84b2150baa13d3355",
+    "n_evaluated": 124
+  },
+  "Baseline G2: Elastic Net": {
+    "file": "audit\\baselines\\predictions\\baseline_g2_elastic_net.json",
+    "sha256": "ecfe0a7debcb1610853fe02bd16236184597eec9177002a500a576a116dc836d",
+    "n_evaluated": 124
+  },
+  "Baseline H1: Random Forest": {
+    "file": "audit\\baselines\\predictions\\baseline_h1_random_forest.json",
+    "sha256": "8890f16ec7c53a573c07c08a8f5b438eef94331059c6c00d75633c6fe273e8b9",
+    "n_evaluated": 124
+  },
+  "Baseline H2: Gradient Boosting": {
+    "file": "audit\\baselines\\predictions\\baseline_h2_gradient_boosting.json",
+    "sha256": "ee4bdf6b78c52b385c9c5040d702e8c93eea9e841e0687c63ed35614c40a537c",
+    "n_evaluated": 124
+  },
+  "Baseline I1: Spec TF-IDF + Ridge": {
+    "file": "audit\\baselines\\predictions\\baseline_i1_spec_tf-idf_plus_ridge.json",
+    "sha256": "daa9747dace1eb4fa7c2ada62cc1498e6fcd3a8bde6855effa1e9a84caad3b8d",
+    "n_evaluated": 124
+  },
+  "Baseline I2: Spec TF-IDF + Price + Cat (Ridge)": {
+    "file": "audit\\baselines\\predictions\\baseline_i2_spec_tf-idf_plus_price_plus_cat_ridge.json",
+    "sha256": "07363ae4f16066235c391542927d72692f98922958e2b9aed2dfb594a357aac4",
+    "n_evaluated": 124
+  },
+  "Baseline I3: Spec TF-IDF + Gradient Boosting": {
+    "file": "audit\\baselines\\predictions\\baseline_i3_spec_tf-idf_plus_gradient_boosting.json",
+    "sha256": "9f939aa4186d9e075a90dd3dcc9f15771fb34c1fd1bbcd1ef710968b05dbb8af",
+    "n_evaluated": 124
+  },
+  "Ablation A: Remove LLM Aspects": {
+    "file": "audit\\baselines\\predictions\\ablation_a_remove_llm_aspects.json",
+    "sha256": "8cc9815e8d4a4c7d55e601dd65e7f98910d0f62bc5f7eb196fd103beec73afbf",
+    "n_evaluated": 124
+  },
+  "Ablation B: Remove Brand": {
+    "file": "audit\\baselines\\predictions\\ablation_b_remove_brand.json",
+    "sha256": "a08f6f3f69a359be739ac64901b4410c9e56fe8878805417505808c2dd5d7323",
+    "n_evaluated": 124
+  },
+  "Ablation C: Remove Category": {
+    "file": "audit\\baselines\\predictions\\ablation_c_remove_category.json",
+    "sha256": "cb89aac54005638c38b396bde43419dd5bf96ecb3f2b2f5074e703ad64f02b34",
+    "n_evaluated": 124
+  },
+  "Ablation D: Remove Monotonic Constraints": {
+    "file": "audit\\baselines\\predictions\\ablation_d_remove_monotonic_constraints.json",
+    "sha256": "f2948f20456f6d0dfed78204f0325d65f021129deec21dfdae8ccb652623a4a7",
+    "n_evaluated": 124
+  },
+  "Ablation E: Raw Target (Unnormalized)": {
+    "file": "audit\\baselines\\predictions\\ablation_e_raw_target_unnormalized.json",
+    "sha256": "a7a454655ea8ccccf59a8c5edb7511eb2953fc01073aa8aaed03c143736c11a6",
+    "n_evaluated": 124
+  },
+  "Ablation F1: Remove Physical Build Aspects": {
+    "file": "audit\\baselines\\predictions\\ablation_f1_remove_physical_build_aspects.json",
+    "sha256": "0f5c3684c84e97824074419f0c6cdc88d60db8ea4591ac9e1a2b94d39b596bc0",
+    "n_evaluated": 124
+  },
+  "Ablation F2: Remove Experiential Aspects": {
+    "file": "audit\\baselines\\predictions\\ablation_f2_remove_experiential_aspects.json",
+    "sha256": "faf37a6a7e33e41d417f2912921d8d67c402f9cf935a42e16e0084940387fc74",
+    "n_evaluated": 124
+  },
+  "Ablation F3: Remove Commercial/Aesthetic Aspects": {
+    "file": "audit\\baselines\\predictions\\ablation_f3_remove_commercial_aesthetic_aspects.json",
+    "sha256": "5b9dd2233e5161f4ead987b9bb446b72313f605de8d1dc3b753afd239e6038c5",
+    "n_evaluated": 124
+  },
+  "Ablation G: Numeric-Only (Price + Brand)": {
+    "file": "audit\\baselines\\predictions\\ablation_g_numeric-only_price_plus_brand.json",
+    "sha256": "d29d64a5c5a94aad051431e01910f8018fadb8fee80fb10f156fb351f0946f1d",
+    "n_evaluated": 124
+  },
+  "Ablation H: Text-Only (TF-IDF XGB)": {
+    "file": "audit\\baselines\\predictions\\ablation_h_text-only_tf-idf_xgb.json",
+    "sha256": "74d19fce8b79ef0ec9a992919b40e67f66758f62d3f60aeabff5fc7b920f2f1c",
+    "n_evaluated": 124
+  },
+  "Ablation I: Minimal Proposed Model": {
+    "file": "audit\\baselines\\predictions\\ablation_i_minimal_proposed_model.json",
+    "sha256": "c4a071d7b724f0edc4d2ed1201bc626546020664eacd85e041ead6bf228604a0",
+    "n_evaluated": 124
+  },
+  "LLM Value: Model 2 (Aspects Alone)": {
+    "file": "audit\\baselines\\predictions\\llm_value_model_2_aspects_alone.json",
+    "sha256": "470686b5a4b64cad7ba614f99c9396cd02cf0b7919f8d7efb4b44dcc9330caf8",
+    "n_evaluated": 124
+  },
+  "Oracle Diagnostic (True Review Aspects)": {
+    "file": "audit\\baselines\\predictions\\oracle_diagnostic_true_review_aspects.json",
+    "sha256": "1b9a395c926f771b9cf1ea076d6c2cd9e51921237c65f18446b2aa4d1b3b42d5",
+    "n_evaluated": 124
+  }
+}

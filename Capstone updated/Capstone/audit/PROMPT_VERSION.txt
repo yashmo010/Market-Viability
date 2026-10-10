@@ -1,0 +1,5 @@
+Prompt Version: 2 (Skeptic Prompt)
+Module: src/extraction/extraction_prompt.py
+Function: build_bridging_prompt(version=2)
+Description: Ignores marketing puffery and superlatives, penalizes absence of evidence, anchors aspect scores to category norms, requires grounded/ungrounded labeling per aspect score.
+Schema: Strict JSON object containing 9 physical aspects (value_for_money, utility, ease_of_use, reliability, design_appeal, after_sales, build_quality, durability, repairability) with score (0.0 - 10.0) and justification reasoning.

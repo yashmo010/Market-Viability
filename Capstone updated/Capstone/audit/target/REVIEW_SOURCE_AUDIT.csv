@@ -1,0 +1,10 @@
+Aspect Name,Aspect Definition,Review Signal Extracted,Target Overlap Mechanism,Direct Leakage?,Construct Overlap?,Mitigation in Headline Pipeline
+value_for_money,Worth relative to price,Review text mentioning price/worth,Correlates with star rating (r=0.38),NO,YES (Satisfaction),Bridged price-free from specs; adjusted deterministically from launch price.
+utility,Core functional performance,Review text mentioning features/function,Correlates with star rating (r=0.34),NO,YES (Satisfaction),Estimated strictly from specification feature bullet points.
+ease_of_use,Setup and operational ergonomics,Review text mentioning simplicity/controls,Correlates with star rating (r=0.31),NO,YES (Satisfaction),Estimated strictly from specification interfaces and claimed controls.
+reliability,Defect-free operation,Review text mentioning bugs/failures,Correlates with star rating (r=0.42),NO,YES (Satisfaction),Estimated strictly from technical specs; anchored to category prior.
+design_appeal,Aesthetic and form factor,Review text mentioning appearance/materials,Correlates with star rating (r=0.25),NO,YES (Satisfaction),Estimated strictly from specification styling descriptions.
+after_sales,Customer support and warranty,Review text mentioning warranty/service,Correlates with star rating (r=0.21),NO,YES (Satisfaction),Estimated strictly from explicit warranty terms; flagged low-trust if absent.
+build_quality,Physical construction / fit & finish,Review text mentioning materials/weight,Correlates with star rating (r=0.36),NO,YES (Satisfaction),"Estimated strictly from claimed materials (metal, polycarbonate, etc.)."
+durability,Long-term wear and tear resistance,Review text mentioning drop/life/waterproof,Correlates with star rating (r=0.39),NO,YES (Satisfaction),Estimated strictly from IP ratings and durability standards.
+repairability,Ease of part replacement / servicing,Review text mentioning batteries/parts,Correlates with star rating (r=0.18),NO,YES (Satisfaction),Estimated strictly from modularity claims; ungrounded if omitted.

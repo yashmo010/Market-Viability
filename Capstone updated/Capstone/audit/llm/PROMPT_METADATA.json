@@ -1,0 +1,30 @@
+{
+  "prompt_name": "BRIDGING_PROMPT_V2 (Skeptic Prompt)",
+  "version": 2,
+  "sha256_hash": "d9c508e9221654a33752d73fdabd4414983392728528ac2e8c126d01f426eea8",
+  "source_file": "src/extraction/extraction_prompt.py",
+  "deployment_function": "src.prediction.bridging_layer.bridge_aspects(prompt_version=2)",
+  "target_aspect_keys": [
+    "value_for_money",
+    "utility",
+    "ease_of_use",
+    "reliability",
+    "design_appeal",
+    "after_sales",
+    "build_quality",
+    "durability",
+    "repairability"
+  ],
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "response_format": "json_object",
+  "persona": "Skeptical market analyst discounting marketing puffery",
+  "decision_rules": [
+    "Ignore marketing puffery/superlatives; score only verifiable concrete specs",
+    "Absence Rule: aspects with no concrete evidence score 0.5-1.5 below category mean and grounded=False",
+    "Anchor Discipline: scores >2.0 above category mean require specific spec facts",
+    "Pain-Point Check: specs must concretely address category pain points"
+  ],
+  "frozen_date": "2026-07-15",
+  "evaluation_holdout_cohort": "Strict launch-blind temporal holdout (post-2021-10-31)"
+}

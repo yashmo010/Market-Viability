@@ -1,0 +1,12 @@
+Metric / Cohort,Original (Legacy),Strict (Leakage-Free),Delta,Interpretation
+Extended Temporal Sample Size (n),125 / 126,124,-1 / -2,Exact clean post-cutoff count after 6 fraud exclusions from 130 raw post-cutoff
+Extended Temporal Spearman rho,"0.590 [0.464, 0.692]","0.562 [0.414, 0.681]",-0.028,Modest expected drop when all future brand footprint and category priors removed
+Extended Temporal Quintile AUC,0.942,"0.890 [0.795, 0.968]",-0.052,High discriminative power maintained with zero leakage
+Mean Within-Category rho,0.16,0.207,+0.047,Within-category ranking preserved; smartwatches (+0.415) and bluetooth (+0.536) strong
+Mature Temporal Sample Size (n),66 (claimed),51 (recomputed actual),-15,Recomputed actual post-cutoff products with >=30 reviews
+Mature Temporal Spearman rho,"0.545 [0.352, 0.694]","0.631 [0.413, 0.778]",+0.086,Strong signal among mature products whose post-launch popularity is stable
+Mature Temporal Quintile AUC,"0.901 [0.784, 0.985]",0.955,+0.054,Exceptional discrimination on mature post-cutoff products
+Brand Tier Feature Contamination,Contaminated (95 products altered),"Clean (Fitted on train only, fallback tier 0)",Resolved,No future SKUs used to estimate brand strength at launch
+Category Profiles Contamination,Contaminated (Test extractions pooled),Clean (Fitted on train only),Resolved,No test product reviews or prices in prompt or reference priors
+Target Scaler Contamination,Contaminated (Min/Max saw test rows),Clean (Min/Max fitted on train only),Resolved,Test outcomes strictly isolated until evaluation
+Prediction Information Barrier,None (Shared parquet access),Physical separation & strict code barrier,Resolved,Test labels deleted in Run B yielded byte-for-byte identical predictions

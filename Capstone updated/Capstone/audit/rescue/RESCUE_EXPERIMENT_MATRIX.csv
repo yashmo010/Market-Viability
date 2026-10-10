@@ -1,0 +1,10 @@
+exp_id,hypothesis,features,model,status
+EXP-UNIQUE-A,Metadata priors alone provide high baseline,"Price, Category, Brand",Ridge (alpha=10),COMPLETED
+EXP-UNIQUE-B,Adding LLM aspects provides incremental accuracy over Model A,"Price, Category, Brand, 9 Aspects",Ridge (alpha=10),COMPLETED
+EXP-UNIQUE-C,Adding raw TF-IDF provides incremental accuracy over Model A,"Price, Category, Brand, TF-IDF 300",Ridge (alpha=10),COMPLETED
+EXP-UNIQUE-D,LLM aspects alone contain predictive signal,9 Aspects alone,Ridge (alpha=10),COMPLETED
+EXP-UNIQUE-E,TF-IDF alone contains predictive signal,TF-IDF 300 alone,Ridge (alpha=10),COMPLETED
+EXP-CALIB-ZCAT,Within-category standardization removes cross-category aspect scale confounds,"Price, Category, Brand, Category-standardized aspects",Ridge,COMPLETED
+EXP-ASPECT-OBJ,"Pruning subjective aspects (after-sales, design) improves aspect signal","Price, Category, Brand, 5 Objective aspects",Ridge,COMPLETED
+EXP-ARCH-GBDT,GBDT integration exploits nonlinear aspect interactions better than XGBoost monotone,"Price, Category, Brand, All aspects",Gradient Boosting,COMPLETED
+EXP-ARCH-RF,Random Forest provides bagging stabilization for noisy aspect features,"Price, Category, Brand, All aspects",Random Forest,COMPLETED

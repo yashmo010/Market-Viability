@@ -1,0 +1,3 @@
+Split_Type,Train_N,Test_N,Evaluation_Domain,Spearman_Rho,Within_Category_Mean_Rho,RMSE,MAE,AUC,Leakage_Status,Deployment_Validity
+Random Split (In-Domain 5-Fold Cross-Validation),405,102,Random Holdout (In-Domain Interpolation),0.752,0.661,12.68,9.76,0.976,Contains temporal mixing (pre- and post-launch co-mingling),Invalid for future product launch forecasting
+Strict Temporal Holdout (Forward-in-Time),507,124,"Future Products Launched Post-Cutoff (> Oct 31, 2021)",0.562,0.207,21.12,17.84,0.89,Strict physical isolation (zero leakage),Gold Standard Deployment Forecast Validation

@@ -1,0 +1,20 @@
+Category,Item,Metric 1,Metric 2,Metric 3,Metric 4
+Algorithm Benchmark (Table 1),XGBoost,R² = 0.564,RMSE = 11.4,MAE = 9.0,AUC = 0.983
+Algorithm Benchmark (Table 1),Gradient_Boosting,R² = 0.549,RMSE = 11.6,MAE = 9.2,AUC = 0.983
+Algorithm Benchmark (Table 1),Random_Forest,R² = 0.532,RMSE = 11.8,MAE = 9.4,AUC = 0.979
+Algorithm Benchmark (Table 1),MLP_Regressor,R² = 0.49,RMSE = 12.3,MAE = 9.6,AUC = 0.966
+Algorithm Benchmark (Table 1),SVR_RBF,R² = 0.421,RMSE = 13.1,MAE = 10.3,AUC = 0.942
+Algorithm Benchmark (Table 1),Ridge_Regression,R² = 0.368,RMSE = 13.7,MAE = 10.8,AUC = 0.921
+Evaluation Cohorts,primary_preregistered_holdout,n = 59,Spearman ρ = 0.317,AUC = 0.743,Within-cat ρ = 0.28
+Evaluation Cohorts,primary_temporal_holdout,n = 66,Spearman ρ = 0.545,AUC = 0.901,Within-cat ρ = 0.16
+Evaluation Cohorts,extended_deployment_cohort,n = 118,Spearman ρ = 0.529,AUC = 0.903,Within-cat ρ = 0.39
+Evaluation Cohorts,extended_temporal_cohort,n = 125,Spearman ρ = 0.59,AUC = 0.942,Within-cat ρ = 0.16
+Bridging Validity (Figure 7),utility,Pearson r = 0.527,Reported ≈ 0.53,Trust Tier = High Trust,n = 118
+Bridging Validity (Figure 7),durability,Pearson r = 0.528,Reported ≈ 0.53,Trust Tier = High Trust,n = 114
+Bridging Validity (Figure 7),ease_of_use,Pearson r = 0.516,Reported ≈ 0.52,Trust Tier = High Trust,n = 117
+Bridging Validity (Figure 7),build_quality,Pearson r = 0.512,Reported ≈ 0.51,Trust Tier = High Trust,n = 116
+Bridging Validity (Figure 7),reliability,Pearson r = 0.496,Reported ≈ 0.50,Trust Tier = High Trust,n = 118
+Bridging Validity (Figure 7),value_for_money,Pearson r = 0.336,Reported ≈ 0.34,Trust Tier = Moderate Trust,n = 117
+Bridging Validity (Figure 7),repairability,Pearson r = 0.270,Reported ≈ 0.27,Trust Tier = Moderate Trust,n = 55
+Bridging Validity (Figure 7),design_appeal,Pearson r = 0.210,Reported ≈ 0.21,Trust Tier = Low Trust / Flagged,n = 116
+Bridging Validity (Figure 7),after_sales,Pearson r = 0.073,Reported ≈ 0.07,Trust Tier = Low Trust / Flagged,n = 98

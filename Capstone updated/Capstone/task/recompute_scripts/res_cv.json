@@ -1,0 +1,178 @@
+{
+ "FULL (incl. rating/count/velocity)": {
+  "repo_style_peek_constrained": {
+   "r2": 0.8872591050929023,
+   "r2_sd": 0.006333476759179462,
+   "rmse": 5.912982867676577,
+   "mae": 4.597273159618718,
+   "best_iter": 367,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.9093632798003692,
+    "ice_makers": 0.8379880622663299,
+    "power_banks": 0.8827583494163098,
+    "smartwatches": 0.8396122046573794,
+    "wireless_headphones": 0.7909226335625372
+   }
+  },
+  "honest_constrained": {
+   "r2": 0.8857337766354277,
+   "r2_sd": 0.005556203759286747,
+   "rmse": 5.954246747541215,
+   "mae": 4.623352752261178,
+   "best_iter": 248,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.9088705153507513,
+    "ice_makers": 0.8357185797140305,
+    "power_banks": 0.87826199084372,
+    "smartwatches": 0.8378640585794177,
+    "wireless_headphones": 0.7890189329236044
+   }
+  },
+  "honest_unconstrained": {
+   "r2": 0.88206899529075,
+   "r2_sd": 0.011035205091549646,
+   "rmse": 6.043784184668199,
+   "mae": 4.585544372161794,
+   "best_iter": 262,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.9076409854448245,
+    "ice_makers": 0.8056439622382366,
+    "power_banks": 0.8592877893864405,
+    "smartwatches": 0.8323215465649927,
+    "wireless_headphones": 0.8152065128843876
+   }
+  }
+ },
+ "ASPECTS-ONLY (repo headline: aspects+mention+price+brand_tier+category)": {
+  "repo_style_peek_constrained": {
+   "r2": 0.5767795336959558,
+   "r2_sd": 0.01482099409405424,
+   "rmse": 11.465156355060367,
+   "mae": 8.853574048601427,
+   "best_iter": 146,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5860087424426177,
+    "ice_makers": 0.30318004153250266,
+    "power_banks": 0.5453780401277017,
+    "smartwatches": 0.4760530719016203,
+    "wireless_headphones": 0.34348082416483816
+   }
+  },
+  "honest_constrained": {
+   "r2": 0.5542419194032424,
+   "r2_sd": 0.027533749747668715,
+   "rmse": 11.770072890045029,
+   "mae": 9.113784476414548,
+   "best_iter": 74,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.549236556127381,
+    "ice_makers": 0.24988981854819847,
+    "power_banks": 0.5046146785521306,
+    "smartwatches": 0.46643662027197996,
+    "wireless_headphones": 0.33719653032771824
+   }
+  },
+  "honest_unconstrained": {
+   "r2": 0.5939668868790319,
+   "r2_sd": 0.01545293058558344,
+   "rmse": 11.230019148840293,
+   "mae": 8.647079459859967,
+   "best_iter": 112,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.6219421759945247,
+    "ice_makers": 0.2816832108948323,
+    "power_banks": 0.5373447131166006,
+    "smartwatches": 0.5348259218810674,
+    "wireless_headphones": 0.37559028371988423
+   }
+  }
+ },
+ "aspects+brand_tier (no price)": {
+  "repo_style_peek_constrained": {
+   "r2": 0.5814450532448923,
+   "r2_sd": 0.027219050147735714,
+   "rmse": 11.398542122270328,
+   "mae": 8.835334252101834,
+   "best_iter": 158,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.596798016087501,
+    "ice_makers": 0.2921639933969431,
+    "power_banks": 0.5264218626361579,
+    "smartwatches": 0.49768932442567937,
+    "wireless_headphones": 0.364722113944123
+   }
+  },
+  "honest_constrained": {
+   "r2": 0.5702801484261611,
+   "r2_sd": 0.02505874891352418,
+   "rmse": 11.552279871981133,
+   "mae": 8.93669895661655,
+   "best_iter": 87,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5876273511105297,
+    "ice_makers": 0.2730102636549322,
+    "power_banks": 0.5042418220438296,
+    "smartwatches": 0.4868533545121202,
+    "wireless_headphones": 0.3508968348819117
+   }
+  },
+  "honest_unconstrained": {
+   "r2": 0.5775205682582746,
+   "r2_sd": 0.010144985921531275,
+   "rmse": 11.456985057828927,
+   "mae": 8.87328020622061,
+   "best_iter": 156,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5935298997243081,
+    "ice_makers": 0.2691918541997739,
+    "power_banks": 0.52423293928422,
+    "smartwatches": 0.5104171575375072,
+    "wireless_headphones": 0.35523338437268825
+   }
+  }
+ },
+ "pure aspects (no price, no brand_tier)": {
+  "repo_style_peek_constrained": {
+   "r2": 0.5441739115865974,
+   "r2_sd": 0.033219161502843236,
+   "rmse": 11.89532192108788,
+   "mae": 9.28854276381099,
+   "best_iter": 135,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5503047442296323,
+    "ice_makers": 0.3135495065395071,
+    "power_banks": 0.4844125439442354,
+    "smartwatches": 0.40086047812764836,
+    "wireless_headphones": 0.29610056126633943
+   }
+  },
+  "honest_constrained": {
+   "r2": 0.5388872793023249,
+   "r2_sd": 0.03226056268675254,
+   "rmse": 11.964683828823468,
+   "mae": 9.329930532465818,
+   "best_iter": 111,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5363490264295852,
+    "ice_makers": 0.3122513502063914,
+    "power_banks": 0.4669471412780065,
+    "smartwatches": 0.4062027346592282,
+    "wireless_headphones": 0.29613353112459306
+   }
+  },
+  "honest_unconstrained": {
+   "r2": 0.541803281428904,
+   "r2_sd": 0.015001722378299899,
+   "rmse": 11.931643356638997,
+   "mae": 9.354043870230353,
+   "best_iter": 97,
+   "per_cat_r2": {
+    "bluetooth_speakers": 0.5565044409819961,
+    "ice_makers": 0.2971693805154476,
+    "power_banks": 0.47920787798499676,
+    "smartwatches": 0.41453178116596556,
+    "wireless_headphones": 0.27938177920515295
+   }
+  }
+ }
+}

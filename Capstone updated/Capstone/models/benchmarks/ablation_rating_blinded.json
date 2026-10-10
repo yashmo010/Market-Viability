@@ -1,0 +1,50 @@
+{
+  "results": {
+    "Condition A (With Rating Context)": {
+      "cv_r2": 0.5948212847105372,
+      "cv_r2_std": 0.030493302672029467,
+      "cv_rmse": 11.169030732609997,
+      "cv_rmse_std": 0.2603239528992522,
+      "cv_mae": 8.633802367913848,
+      "cv_mae_std": 0.3627016809676231,
+      "holdout_n": 59,
+      "holdout_rho": 0.317,
+      "holdout_auc": 0.743,
+      "holdout_pval": 0.01442741661583773
+    },
+    "Condition B (Rating-Blinded Extraction)": {
+      "cv_r2": 0.5306584050390957,
+      "cv_r2_std": 0.03448173691947213,
+      "cv_rmse": 12.027047521174138,
+      "cv_rmse_std": 0.47722337196491516,
+      "cv_mae": 9.262143543495625,
+      "cv_mae_std": 0.6093152819583854,
+      "holdout_n": 59,
+      "holdout_rho": 0.312,
+      "holdout_auc": 0.738,
+      "holdout_pval": 0.016
+    }
+  },
+  "summary": [
+    {
+      "Condition": "Condition A (Contextual Rating Provided)",
+      "Extraction Input": "Review text + star rating anchor ('rated {rating}/5')",
+      "CV R\u00b2": "0.595 \u00b1 0.030",
+      "CV RMSE": "11.17",
+      "CV MAE": "8.63",
+      "Holdout Spearman \u03c1 (n=59)": "0.317",
+      "Holdout AUC": "0.743",
+      "Leakage Risk": "Low (rating context banned from scores; null-forcing enforced)"
+    },
+    {
+      "Condition": "Condition B (Rating-Blinded Extraction)",
+      "Extraction Input": "Review text only (zero rating context)",
+      "CV R\u00b2": "0.531 \u00b1 0.034",
+      "CV RMSE": "12.03",
+      "CV MAE": "9.26",
+      "Holdout Spearman \u03c1 (n=59)": "0.312",
+      "Holdout AUC": "0.738",
+      "Leakage Risk": "Zero (impossible to leak star rating; retains 98.4% of holdout signal)"
+    }
+  ]
+}

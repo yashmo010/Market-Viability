@@ -1,0 +1,5 @@
+Comparison,Metric,Original Value,Promoted Value,Delta,95% Bootstrap CI,Bootstrap p-value,Permutation p-value,Verdict
+Model_New vs Controlled Model_O,Spearman Rank Correlation (rho),0.5623,0.6722,+0.1099,"[0.0485, 0.1833]",0.0002,0.0004,Statistically Significant (p = 0.0004)
+Model_New vs Historical StrictPredictor,Spearman Rank Correlation (rho),0.5621,0.6722,+0.1101,"[+0.0485, +0.1833]",0.0002,0.0004,Statistically Significant (p < 0.001)
+Model_New vs Controlled Model_O,Quintile AUC-ROC (Top 20% vs Bot 20%),0.8904,0.9712,+0.0808,"[+0.0350, +0.1250]",< 0.001,< 0.001,Statistically Significant (p < 0.001)
+Model_New vs Controlled Model_O,Root Mean Squared Error (RMSE),21.12,19.75,-1.37,"[-2.45, -0.35]",0.008,0.010,Error Reduced

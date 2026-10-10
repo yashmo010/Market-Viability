@@ -1,0 +1,8 @@
+Config,Ablation Description,Features Included,Features (n),Spearman rho,Delta vs Full,RMSE,MAE
+A3,Full Model_New (promoted),All 24 features (aspects + density + metadata),24,0.6722,Reference,19.75,16.66
+A7,w/o launch unit price,All features except price,23,0.6654,-0.0068,19.82,16.71
+A6,w/o category indicator,All features except category,23,0.6512,-0.0210,20.08,16.94
+A2,w/o specification density,All features except bullet/word/num metrics,21,0.6401,-0.0321,20.31,17.12
+A5,w/o brand footprint tier,All features except brand tier,23,0.6385,-0.0337,20.25,17.08
+A1,w/o LLM semantic aspects,Metadata + spec density (no aspect scores/mentions),6,0.5842,-0.0880,21.05,17.65
+A0,Metadata-only control,Price + brand tier + category only,3,0.4418,-0.2304,23.41,19.82

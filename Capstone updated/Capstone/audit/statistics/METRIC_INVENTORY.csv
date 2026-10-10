@@ -1,0 +1,16 @@
+Metric ID,Location,Metric,Dataset,n,Formula/method,Code location,Correct?
+MTR-01,"Abstract, Tab. I, STRICT_TEST_RESULTS.json",Spearman rho (Pooled),Strict Temporal Holdout (post-2021-10-31),124,"stats.spearmanr(pred, actual)[0]",src/strict_temporal/evaluate_test.py:87,YES (0.562)
+MTR-02,"Abstract, Tab. I, STRICT_TEST_RESULTS.json",Spearman rho 95% CI,Strict Temporal Holdout,124,10k percentile bootstrap,src/strict_temporal/evaluate_test.py:88,"YES ([0.414, 0.681])"
+MTR-03,"Abstract, STRICT_TEST_RESULTS.json",Spearman p-value (Asymptotic),Strict Temporal Holdout,124,"stats.spearmanr(pred, actual)[1] (t-dist)",src/strict_temporal/evaluate_test.py:87,YES (1.09e-11)
+MTR-04,"Tab. I, STRICT_TEST_RESULTS.json",AUC-ROC (Top vs Bottom Quintile),Strict Temporal Holdout,"50 (25 top, 25 bot)","Mann-Whitney U on qcut(actual, 5)",src/strict_temporal/evaluate_test.py:27-34,YES (0.890)
+MTR-05,STRICT_TEST_RESULTS.json,AUC-ROC 95% CI,Strict Temporal Holdout,124,10k percentile bootstrap,src/strict_temporal/evaluate_test.py:90,"YES ([0.795, 0.968])"
+MTR-06,STRICT_TEST_RESULTS.json,RMSE (Root Mean Squared Error),Strict Temporal Holdout,124,sqrt(mean((y - p)^2)),src/strict_temporal/evaluate_test.py:91,YES (21.12)
+MTR-07,STRICT_TEST_RESULTS.json,MAE (Mean Absolute Error),Strict Temporal Holdout,124,mean(|y - p|),src/strict_temporal/evaluate_test.py:92,YES (17.84)
+MTR-08,"Tab. I, STRICT_TEST_RESULTS.json",Mean within-category rho,Strict Temporal Holdout (5 categories),124,mean([rho_c for c in categories]),src/strict_temporal/evaluate_test.py:117,YES (0.207)
+MTR-09,STRICT_TEST_RESULTS.json,Mature Cohort Spearman rho,Strict Temporal Holdout (n_reviews >= 30),51,"stats.spearmanr(pred, actual)[0]",src/strict_temporal/evaluate_test.py:125,YES (0.631)
+MTR-10,STRICT_TEST_RESULTS.json,Mature Cohort AUC,Strict Temporal Holdout (n_reviews >= 30),51,Mann-Whitney U on mature subset,src/strict_temporal/evaluate_test.py:127,YES (0.955)
+MTR-11,"Tab. I, fit_freeze.py",5-Fold CV R2 (Aspects-Only),Pre-Cutoff Training Set (n=507),507,"KFold(5, shuffle=True, seed=42)",src/strict_temporal/fit_freeze.py:303,YES (0.550 - 0.564)
+MTR-12,Paper Section IV-A,Price-Free Ablation Spearman rho,Leakage-Controlled Random Holdout,118,"stats.spearmanr(pred_noprice, actual)[0]",scripts/reproduce_price_free_ablation.py,YES (0.475)
+MTR-13,Paper Section IV-A,Price Correlation with Model Output,Holdout Set (n=118),118,"stats.pearsonr(pred_noprice, price)[0]",scripts/reproduce_price_free_ablation.py,YES (0.147)
+MTR-14,"Audit Report Issue 2, Tab. A/B",Oracle Review Aspect Spearman rho,Strict Temporal Holdout (Oracle Reviews),124,"stats.spearmanr(pred_oracle, actual)[0]",scratch/target_audit_deep.py,YES (0.754)
+MTR-15,"Audit Report Issue 2, Tab. A/B",Oracle Ceiling Ratio (0.538 / 0.754),Strict Temporal Holdout,124,rho_spec / rho_oracle,audit/target/TARGET_VALIDITY_REPORT.md,"QUALIFIED (71.4% correlation ratio, not information ratio)"

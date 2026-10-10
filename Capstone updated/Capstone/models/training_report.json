@@ -1,0 +1,216 @@
+{
+  "timestamp": "2026-09-27T15:27:23",
+  "seed": 42,
+  "xgb_params": {
+    "objective": "reg:squarederror",
+    "n_estimators": 600,
+    "learning_rate": 0.05,
+    "max_depth": 5,
+    "min_child_weight": 3,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "enable_categorical": true,
+    "tree_method": "hist",
+    "random_state": 42
+  },
+  "monotone_constraints": {
+    "price": -1,
+    "brand_tier": 1,
+    "value_for_money": 1,
+    "utility": 1,
+    "ease_of_use": 1,
+    "reliability": 1,
+    "design_appeal": 1,
+    "after_sales": 1,
+    "build_quality": 1,
+    "durability": 1,
+    "repairability": 1
+  },
+  "data_hash": "56ab2ec44477eaf5",
+  "n_excluded_suspect": 9,
+  "physical": {
+    "n_products": 631,
+    "avg_rating_target_correlation": 0.4573980684688202,
+    "full": {
+      "folds": [
+        {
+          "fold": 1,
+          "rmse": 6.405388223136552,
+          "mae": 4.642619418407049,
+          "r2": 0.8639725871760698
+        },
+        {
+          "fold": 2,
+          "rmse": 5.4586312185061105,
+          "mae": 4.028250140053885,
+          "r2": 0.9105392405684908
+        },
+        {
+          "fold": 3,
+          "rmse": 5.315866703237092,
+          "mae": 4.233609513540117,
+          "r2": 0.8995753282573371
+        },
+        {
+          "fold": 4,
+          "rmse": 6.04622401861873,
+          "mae": 4.522032540336489,
+          "r2": 0.8824354475416907
+        },
+        {
+          "fold": 5,
+          "rmse": 5.560310581972715,
+          "mae": 4.279716601296076,
+          "r2": 0.9028294918974377
+        }
+      ],
+      "mean_rmse": 5.75728414909424,
+      "mean_mae": 4.341245642726723,
+      "mean_r2": 0.8918704190882053,
+      "per_category": {
+        "bluetooth_speakers": {
+          "n": 135,
+          "r2": 0.9148441581950981,
+          "rmse": 5.396375778212269
+        },
+        "ice_makers": {
+          "n": 145,
+          "r2": 0.8419686154457136,
+          "rmse": 5.25581604644561
+        },
+        "power_banks": {
+          "n": 99,
+          "r2": 0.8774306061252676,
+          "rmse": 5.925600841543628
+        },
+        "smartwatches": {
+          "n": 114,
+          "r2": 0.8614848938293675,
+          "rmse": 5.589268840077745
+        },
+        "wireless_headphones": {
+          "n": 138,
+          "r2": 0.8002456860645805,
+          "rmse": 6.622907063582395
+        }
+      },
+      "best_iteration": 293,
+      "feature_importance": {
+        "review_velocity": 6.536600112915039,
+        "category": 5.089000225067139,
+        "avg_rating": 4.953999996185303,
+        "repairability": 2.000499963760376,
+        "rating_count_log": 1.5958000421524048,
+        "after_sales": 1.1202000379562378,
+        "value_for_money_mention_rate": 0.9970999956130981,
+        "durability": 0.6582000255584717,
+        "ease_of_use_mention_rate": 0.6043999791145325,
+        "brand_tier": 0.5738000273704529,
+        "utility_mention_rate": 0.5090000033378601,
+        "build_quality_mention_rate": 0.3986999988555908,
+        "utility": 0.39629998803138733,
+        "reliability_mention_rate": 0.36890000104904175,
+        "ease_of_use": 0.32850000262260437,
+        "repairability_mention_rate": 0.3125,
+        "value_for_money": 0.2732999920845032,
+        "design_appeal_mention_rate": 0.271699994802475,
+        "durability_mention_rate": 0.267300009727478,
+        "reliability": 0.2615000009536743,
+        "after_sales_mention_rate": 0.2160000056028366,
+        "design_appeal": 0.1881999969482422,
+        "price": 0.15129999816417694,
+        "build_quality": 0.13459999859333038
+      },
+      "gate": "PASS"
+    },
+    "aspects_only": {
+      "folds": [
+        {
+          "fold": 1,
+          "rmse": 10.596910445252428,
+          "mae": 7.961032187033826,
+          "r2": 0.6276991288954634
+        },
+        {
+          "fold": 2,
+          "rmse": 11.17509851253878,
+          "mae": 8.88308723922003,
+          "r2": 0.6250548054818543
+        },
+        {
+          "fold": 3,
+          "rmse": 11.320660007408788,
+          "mae": 9.00625090717134,
+          "r2": 0.5445551967462638
+        },
+        {
+          "fold": 4,
+          "rmse": 11.412010311852763,
+          "mae": 8.951293125576441,
+          "r2": 0.5811753469581662
+        },
+        {
+          "fold": 5,
+          "rmse": 11.357280992139792,
+          "mae": 8.466512450626919,
+          "r2": 0.594598721362608
+        }
+      ],
+      "mean_rmse": 11.17239205383851,
+      "mean_mae": 8.653635181925711,
+      "mean_r2": 0.5946166398888713,
+      "per_category": {
+        "bluetooth_speakers": {
+          "n": 135,
+          "r2": 0.5754140271756254,
+          "rmse": 12.049742939871548
+        },
+        "ice_makers": {
+          "n": 145,
+          "r2": 0.318924566583477,
+          "rmse": 10.9110385875864
+        },
+        "power_banks": {
+          "n": 99,
+          "r2": 0.6126774954357237,
+          "rmse": 10.533622248372108
+        },
+        "smartwatches": {
+          "n": 114,
+          "r2": 0.5402021198207784,
+          "rmse": 10.183332213934621
+        },
+        "wireless_headphones": {
+          "n": 138,
+          "r2": 0.3685048909581742,
+          "rmse": 11.775668544271207
+        }
+      },
+      "best_iteration": 163,
+      "feature_importance": {
+        "repairability": 3.296299934387207,
+        "value_for_money_mention_rate": 3.128499984741211,
+        "category": 3.0497000217437744,
+        "brand_tier": 2.9811999797821045,
+        "after_sales": 2.333199977874756,
+        "utility": 1.7214000225067139,
+        "ease_of_use": 1.5539000034332275,
+        "build_quality_mention_rate": 1.2939000129699707,
+        "design_appeal_mention_rate": 1.2568999528884888,
+        "utility_mention_rate": 1.149899959564209,
+        "repairability_mention_rate": 1.023300051689148,
+        "durability": 0.9908000230789185,
+        "durability_mention_rate": 0.8569999933242798,
+        "reliability": 0.8370000123977661,
+        "ease_of_use_mention_rate": 0.8277999758720398,
+        "value_for_money": 0.7414000034332275,
+        "after_sales_mention_rate": 0.7282000184059143,
+        "reliability_mention_rate": 0.5681999921798706,
+        "design_appeal": 0.5586000084877014,
+        "price": 0.3716999888420105,
+        "build_quality": 0.21410000324249268
+      },
+      "gate": "PASS"
+    }
+  }
+}

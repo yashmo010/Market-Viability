@@ -1,0 +1,22 @@
+{
+  "promoted": {
+    "spearman_rho": 0.6722,
+    "kendall_tau": 0.4772,
+    "kendall_p": 4.120630179160544e-15,
+    "ndcg_at_5": 0.8933,
+    "ndcg_at_10": 0.8771
+  },
+  "controlled_baseline": {
+    "spearman_rho": 0.5623,
+    "kendall_tau": 0.3946,
+    "kendall_p": 1.1147922487278045e-10,
+    "ndcg_at_5": 0.86,
+    "ndcg_at_10": 0.8832
+  },
+  "delta": {
+    "delta_spearman_rho": 0.1099,
+    "delta_kendall_tau": 0.0826,
+    "delta_ndcg_at_5": 0.0333,
+    "delta_ndcg_at_10": -0.0061
+  }
+}

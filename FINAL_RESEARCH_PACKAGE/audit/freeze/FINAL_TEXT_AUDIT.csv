@@ -1,0 +1,16 @@
+Term_or_Value,Role_Location,Verified_Value,Status_in_Final_Artifacts
+0.5621,Historical Baseline rho,0.5621 (0.562),VERIFIED & LABELED AS HISTORICAL
+0.5623,Controlled Baseline rho,0.5623 (0.562),VERIFIED & LABELED AS CONTROLLED
+0.6722,Promoted Model rho,0.6722 (0.672),VERIFIED & PROMOTED
++0.1099,Delta rho vs Controlled,+0.1099 (+0.110),VERIFIED & STATISTICALLY SIGNIFICANT
+0.8904,Baseline AUC,0.8904 (0.890),VERIFIED
+0.9712,Promoted AUC,0.9712 (0.971),VERIFIED
+19.75,Promoted RMSE,19.75,VERIFIED
+16.66,Promoted MAE,16.66,VERIFIED
+"[0.5495, 0.7620]",Promoted Model 95% CI,"[0.550, 0.762] rounded",VERIFIED & CONSISTENT
+"[0.0485, 0.1833]",Bootstrap 95% CI on Delta,"[+0.0485, +0.1833]",VERIFIED (Excludes Zero)
+0.0004,Paired Permutation p-value,p = 0.0004,VERIFIED (p < 0.001)
+"[42, 123, 456, 789, 999]",Seed Stability Suite,"[42, 123, 456, 789, 999]",VERIFIED (One Single List)
+Air Fryer,Core Research Taxonomy,0 occurrences,VERIFIED (Completely Purged)
+Sales / Revenue,Target Description,0 occurrences,VERIFIED (Review-Derived Proxy Only)
+causal drivers,Ablation Description,Replaced with component contributions,VERIFIED (Non-Causal Academic Framing)

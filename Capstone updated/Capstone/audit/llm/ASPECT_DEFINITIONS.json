@@ -1,0 +1,74 @@
+{
+  "value_for_money": {
+    "definition": "Is the product worth its price? Price-to-benefit perception.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Poor price-to-benefit ratio; overpriced relative to features and market alternatives",
+    "high_score_meaning": "Exceptional value proposition; delivers flagship-grade capabilities at accessible price",
+    "null_behavior_in_extraction": "null when review does not mention price, cost, or worth",
+    "grounding_rule_in_bridging": "Adjusted deterministically from launch price relative to category price distribution"
+  },
+  "utility": {
+    "definition": "Does the product perform its core function well? (e.g., sound quality for headphones)",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Fails at core functional purpose; weak fundamental performance",
+    "high_score_meaning": "Superb primary performance (e.g. pristine acoustic reproduction, rapid ice production)",
+    "null_behavior_in_extraction": "null when review omits functional performance",
+    "grounding_rule_in_bridging": "Requires concrete spec attributes (e.g. driver size, transducer specs, ice production lb/day)"
+  },
+  "ease_of_use": {
+    "definition": "Setup, controls, comfort, day-to-day usability.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Convoluted setup, unintuitive controls, painful pairing or ergonomics",
+    "high_score_meaning": "Effortless plug-and-play, seamless connectivity, intuitive user interface",
+    "null_behavior_in_extraction": "null when review omits setup/ergonomics",
+    "grounding_rule_in_bridging": "Requires physical button specs, app pairing protocol, or companion software details"
+  },
+  "reliability": {
+    "definition": "Consistent performance over time; no malfunctions or connectivity drops.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Frequent hardware dropouts, firmware glitches, sporadic operational failures",
+    "high_score_meaning": "Rock-solid continuous operation without connectivity drops or software crashes",
+    "null_behavior_in_extraction": "null when review omits stability/glitches",
+    "grounding_rule_in_bridging": "Anchored to category prior unless spec specifies enterprise-grade controllers or Bluetooth 5.2+"
+  },
+  "design_appeal": {
+    "definition": "Aesthetics, look and feel, form factor.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Clunky, cheap aesthetics, awkward form factor, outdated visual styling",
+    "high_score_meaning": "Sleek, premium industrial design, modern minimalist aesthetics, refined finish",
+    "null_behavior_in_extraction": "null when review omits visual/form comments",
+    "grounding_rule_in_bridging": "Requires specific materials or styling dimensions; low-weight aspect in confidence"
+  },
+  "after_sales": {
+    "definition": "Customer service, warranty, replacement experience.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Unresponsive customer service, rejected warranty claims, zero spare parts",
+    "high_score_meaning": "Prompt, courteous support, hassle-free replacement, multi-year warranty",
+    "null_behavior_in_extraction": "null when review omits warranty/service",
+    "grounding_rule_in_bridging": "Unestimable from standard specs; scored at category average with grounded=False (weight ~0)"
+  },
+  "build_quality": {
+    "definition": "Materials, construction solidity, fit and finish.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Flimsy plastic, creaking hinges, uneven gaps, cheap construction feel",
+    "high_score_meaning": "Rigid aluminum chassis, precision tolerances, premium tactile materials",
+    "null_behavior_in_extraction": "null when review omits materials/weight",
+    "grounding_rule_in_bridging": "Requires explicit material declarations (anodized aluminum, reinforced silicone, etc.)"
+  },
+  "durability": {
+    "definition": "Longevity; resistance to wear, drops, breakage over time.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Degrades within months; broken joints, frayed cables, dead battery cells",
+    "high_score_meaning": "Survives drops, moisture, outdoor exposure, and years of daily wear",
+    "null_behavior_in_extraction": "null when review omits longevity/wear",
+    "grounding_rule_in_bridging": "Requires certified ingress protection (IP67, IPX8), drop ratings, or cycle ratings"
+  },
+  "repairability": {
+    "definition": "Ease of repair, spare parts, serviceability.",
+    "range": "[0.0, 10.0]",
+    "low_score_meaning": "Glued shut, proprietary fasteners, irreplaceable battery, disposable design",
+    "high_score_meaning": "Modular assembly, replaceable battery/cables, standard screws, published manuals",
+    "null_behavior_in_extraction": "null when review omits modularity/repair",
+    "grounding_rule_in_bridging": "Requires modular claims; ungrounded if absent"
+  }
+}

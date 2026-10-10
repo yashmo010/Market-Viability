@@ -1,0 +1,6 @@
+category,n,baseline_historical_rho,baseline_controlled_rho,model_promoted_rho,delta_rho_vs_controlled,baseline_historical_rmse,model_promoted_rmse
+bluetooth_speakers,7,0.536,0.536,0.429,-0.107,21.17,22.09
+ice_makers,36,0.179,0.185,0.192,0.007,20.5,18.17
+power_banks,19,-0.042,-0.042,0.126,0.169,27.95,26.39
+smartwatches,39,0.415,0.415,0.544,0.128,16.1,14.22
+wireless_headphones,23,-0.055,-0.055,0.132,0.188,22.93,22.79

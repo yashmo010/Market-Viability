@@ -1,0 +1,258 @@
+{
+  "dataset": {
+    "total_reviews": 43599,
+    "physical_categories": 5,
+    "candidate_physical_products": 640,
+    "fraud_suspect_excluded": 9,
+    "clean_physical_products": 631,
+    "temporal_cutoff": "2021-10-31",
+    "temporal_cutoff_definition": "Date of first recorded customer review (launch proxy)",
+    "brand_tier_definition": "Catalog footprint: Tier 0 (1 SKU/greenfield), Tier 1 (2-4), Tier 2 (5-10), Tier 3 (11+)"
+  },
+  "table_1_algorithm_benchmarks_aspects_only": {
+    "XGBoost": {
+      "r2": 0.564,
+      "rmse": 11.4,
+      "mae": 9.0,
+      "accuracy": 0.917,
+      "precision": 0.914,
+      "recall": 0.927,
+      "specificity": 0.907,
+      "f1": 0.917,
+      "auc_roc": 0.983,
+      "mcc": 0.838
+    },
+    "Gradient_Boosting": {
+      "r2": 0.549,
+      "rmse": 11.6,
+      "mae": 9.2,
+      "accuracy": 0.933,
+      "precision": 0.925,
+      "recall": 0.947,
+      "specificity": 0.92,
+      "f1": 0.934,
+      "auc_roc": 0.983,
+      "mcc": 0.87
+    },
+    "Random_Forest": {
+      "r2": 0.532,
+      "rmse": 11.8,
+      "mae": 9.4,
+      "accuracy": 0.92,
+      "precision": 0.906,
+      "recall": 0.94,
+      "specificity": 0.9,
+      "f1": 0.922,
+      "auc_roc": 0.979,
+      "mcc": 0.843
+    },
+    "MLP_Regressor": {
+      "r2": 0.49,
+      "rmse": 12.3,
+      "mae": 9.6,
+      "accuracy": 0.917,
+      "precision": 0.895,
+      "recall": 0.947,
+      "specificity": 0.887,
+      "f1": 0.919,
+      "auc_roc": 0.966,
+      "mcc": 0.837
+    },
+    "SVR_RBF": {
+      "r2": 0.421,
+      "rmse": 13.1,
+      "mae": 10.3,
+      "accuracy": 0.89,
+      "precision": 0.897,
+      "recall": 0.887,
+      "specificity": 0.893,
+      "f1": 0.889,
+      "auc_roc": 0.942,
+      "mcc": 0.785
+    },
+    "Ridge_Regression": {
+      "r2": 0.368,
+      "rmse": 13.7,
+      "mae": 10.8,
+      "accuracy": 0.833,
+      "precision": 0.811,
+      "recall": 0.88,
+      "specificity": 0.787,
+      "f1": 0.84,
+      "auc_roc": 0.921,
+      "mcc": 0.678
+    }
+  },
+  "evaluation_cohorts": {
+    "primary_preregistered_holdout": {
+      "n": 59,
+      "spearman_rho": 0.317,
+      "spearman_rho_ci95": [
+        0.059,
+        0.543
+      ],
+      "p_value": 0.014,
+      "auc": 0.743,
+      "auc_ci95": [
+        0.507,
+        0.931
+      ],
+      "within_category_rho_mean": 0.28,
+      "tier_means": [
+        58.51,
+        60.83,
+        61.69,
+        62.76,
+        64.06
+      ]
+    },
+    "primary_temporal_holdout": {
+      "n": 66,
+      "spearman_rho": 0.545,
+      "spearman_rho_ci95": [
+        0.352,
+        0.694
+      ],
+      "p_value": 1.2e-05,
+      "auc": 0.901,
+      "auc_ci95": [
+        0.784,
+        0.985
+      ],
+      "within_category_rho_mean": 0.16
+    },
+    "extended_deployment_cohort": {
+      "n": 118,
+      "spearman_rho": 0.529,
+      "spearman_rho_ci95": [
+        0.377,
+        0.654
+      ],
+      "p_value": 7.6e-07,
+      "auc": 0.903,
+      "auc_ci95": [
+        0.812,
+        0.965
+      ],
+      "within_category_rho_mean": 0.39
+    },
+    "extended_temporal_cohort": {
+      "n": 125,
+      "spearman_rho": 0.59,
+      "spearman_rho_ci95": [
+        0.464,
+        0.692
+      ],
+      "auc": 0.942,
+      "within_category_rho_mean": 0.16
+    }
+  },
+  "figure_7_bridging_validity": {
+    "utility": {
+      "r": 0.527,
+      "text_reported": 0.53,
+      "tier": "High Trust",
+      "n": 118
+    },
+    "durability": {
+      "r": 0.528,
+      "text_reported": 0.53,
+      "tier": "High Trust",
+      "n": 114
+    },
+    "ease_of_use": {
+      "r": 0.516,
+      "text_reported": 0.52,
+      "tier": "High Trust",
+      "n": 117
+    },
+    "build_quality": {
+      "r": 0.512,
+      "text_reported": 0.51,
+      "tier": "High Trust",
+      "n": 116
+    },
+    "reliability": {
+      "r": 0.496,
+      "text_reported": 0.5,
+      "tier": "High Trust",
+      "n": 118
+    },
+    "value_for_money": {
+      "r": 0.336,
+      "text_reported": 0.34,
+      "tier": "Moderate Trust",
+      "n": 117
+    },
+    "repairability": {
+      "r": 0.27,
+      "text_reported": 0.27,
+      "tier": "Moderate Trust",
+      "n": 55
+    },
+    "design_appeal": {
+      "r": 0.21,
+      "text_reported": 0.21,
+      "tier": "Low Trust / Flagged",
+      "n": 116
+    },
+    "after_sales": {
+      "r": 0.073,
+      "text_reported": 0.07,
+      "tier": "Low Trust / Flagged",
+      "n": 98
+    }
+  },
+  "ablations": {
+    "monotonic_constraints": {
+      "unconstrained": {
+        "cv_r2": 0.616,
+        "cv_rmse": 10.86,
+        "cv_mae": 8.43,
+        "holdout_rho": 0.42,
+        "holdout_auc": 0.917
+      },
+      "monotonic_constrained": {
+        "cv_r2": 0.595,
+        "cv_rmse": 11.17,
+        "cv_mae": 8.63,
+        "holdout_rho": 0.279,
+        "holdout_auc": 0.75
+      }
+    },
+    "target_sensitivity": {
+      "baseline_40_35_25": {
+        "rank_stability_rho": 1.0,
+        "cv_r2": 0.591
+      },
+      "volume_heavy_50_30_20": {
+        "rank_stability_rho": 0.9923,
+        "cv_r2": 0.627
+      },
+      "quality_heavy_30_40_30": {
+        "rank_stability_rho": 0.9887,
+        "cv_r2": 0.54
+      },
+      "equal_weighting_33_33_33": {
+        "rank_stability_rho": 0.9958,
+        "cv_r2": 0.541
+      }
+    },
+    "rating_blinded_extraction": {
+      "condition_a_with_rating": {
+        "cv_r2": 0.595,
+        "cv_rmse": 11.17,
+        "cv_mae": 8.63,
+        "holdout_rho": 0.317,
+        "holdout_auc": 0.743
+      },
+      "condition_b_rating_blinded": {
+        "cv_r2": 0.531,
+        "cv_rmse": 12.03,
+        "cv_mae": 9.26,
+        "holdout_rho": 0.312,
+        "holdout_auc": 0.738
+      }
+    }
+  }
+}

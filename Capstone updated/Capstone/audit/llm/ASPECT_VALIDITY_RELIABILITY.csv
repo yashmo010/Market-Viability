@@ -1,0 +1,10 @@
+Aspect,Pearson r vs Review Truth,p-value,MAE vs Real Aspect Score,Sample Size n,Trust Tier,Confidence Weight in UI
+value_for_money,0.325,2.970e-04,1.15,120,Medium Trust,0.325
+utility,0.496,7.426e-09,0.81,121,Medium Trust,0.496
+ease_of_use,0.503,4.959e-09,0.93,120,High Trust,0.503
+reliability,0.455,1.567e-07,1.43,121,Medium Trust,0.455
+design_appeal,0.222,1.544e-02,0.96,119,Low Trust / Unestimable,0.222
+after_sales,0.045,6.530e-01,2.24,101,Low Trust / Unestimable,0.045
+build_quality,0.452,2.506e-07,1.47,119,Medium Trust,0.452
+durability,0.497,1.211e-08,1.71,117,Medium Trust,0.497
+repairability,0.268,4.156e-02,2.09,58,Low Trust / Unestimable,0.268

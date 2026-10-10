@@ -1,0 +1,236 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{figures/}}
+
+\begin{document}
+
+\title{Launch-Blind Product Viability Estimation from Specifications via LLM Aspect Bridging}
+
+\author{Raj~Jagtap%
+\thanks{R. Jagtap is an undergraduate student of Computer Science and Engineering. This work was completed as a final-year capstone project, 2026.}}
+
+\maketitle
+
+\begin{abstract}
+A product team commits its manufacturing budget long before anyone has held the product, yet almost every method for predicting whether a product will succeed needs signals that only appear after launch: reviews, ratings, sales. We built a pipeline that runs earlier than that. A large language model reads more than 43{,}000 real consumer reviews and scores them at the aspect level under a null-forcing prompt; gradient-boosted models learn which aspect profiles tend to succeed inside each category; and a bridging layer, told to reason like a skeptic and anchored to category statistics, estimates the aspect profile a new product would earn from its specification alone. We test the result on 640 physical products across five categories, twice, both times out of sample. On a leakage-controlled holdout of 118 products, whose test items were excluded before the model was retrained, specs-only predictions rank products against their real market outcomes at Spearman $\rho = 0.529$ (95\% CI $[0.31, 0.61]$) and tell eventual bottom-quintile products from top-quintile ones at AUC $= 0.903$. A harder forward-in-time test, trained only on products launched on or before October~2021 and asked about later ones, holds the pooled ranking at $\rho = 0.590$ (AUC $= 0.942$, $n = 125$). Price enters the model as a single monotone-constrained feature, but the LLM aspect signal is not simply price in disguise: a price-free ablation stays largely orthogonal to price ($r = 0.147$) yet still ranks, so the aspects carry information price position does not, and viability falls as price rises at fixed quality. We give a boundary condition the same weight as the positive findings. Predictive validity follows how well a category's specifications encode experiential quality: it works for spec-expressive personal electronics, but for a commodity like ice makers the bridging step cannot separate products from capacity-and-speed numbers (bridging fidelity $r \approx 0.04$), and there the method stops. Throughout, the system reports its own measured limits through reliability-weighted confidence, per-aspect trust tiers, and abstention, which we argue is the only honest thing a pre-production tool can do.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Product success prediction, aspect-based sentiment analysis, large language models, gradient boosting, pre-launch analytics, electronic word of mouth.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\IEEEPARstart{L}{arge} companies get to evaluate a prospective product with a market-research department, paid consumer panels, and analytics bought at a price a small firm cannot match. A small business or an independent maker has none of it. The call to manufacture a wireless headphone or a countertop appliance usually comes down to intuition, a look at the competition, and hope. Being wrong is not an abstraction: a single unsold inventory run can finish a small firm. Consumers absorb part of the cost too, paying for things that break, underwhelm, or were never really built for what they needed. This paper is an attempt to close some of that gap. We wanted to hand a business with no expensive market-intelligence stack an affordable, evidence-based read on whether a design is likely to satisfy its market \emph{before} the money is spent building it, so that more of what gets made is worth what people pay for it.
+
+The obstacle is structural, not incidental. Decades of research connect online reviews and electronic word of mouth (e-WOM) to sales and market outcomes \cite{chevalier2006wom,dellarocas2003digitization,chintagunta2010effects,luca2016reviews}, and today's sentiment pipelines extract strikingly fine-grained signal from review text \cite{zhang2022survey,wang2025multifeature,shan2025bilingual}. All of it feeds on \emph{post-launch} data. Yet at the one moment the decision actually matters, before anything is produced, there are no reviews, no ratings, and no sales to feed on. What exists is the specification and whatever the category has already taught us.
+
+Our question is whether that is enough to work with. The idea we build on is \emph{aspect bridging}. From more than 43{,}000 real reviews we first learn how consumers in a given category rate products along interpretable quality aspects (build quality, ease of use, value for money, and the rest), and how those profiles line up with eventual success. We then put a large language model in the seat of a skeptical market analyst, ground it in per-category statistics, and have it estimate the aspect profile an \emph{unseen} product would earn from its specification alone. That estimate feeds the trained success model, which returns a launch-blind viability figure along with per-aspect explanations, trust tiers we have actually measured, and a flat refusal to answer when the specification says too little.
+
+A tool that informs real money has to be validated like one, so our main contribution is methodological. The evaluation is launch-blind: each real product is re-judged from only what was knowable on the day it launched, and the prediction is checked against the outcome the market later delivered. We run two out-of-sample tests: a leakage-controlled holdout that pulls its test products before the model is retrained, and a forward-in-time split that trains on older products and predicts newer ones. The contributions are:
+
+\begin{itemize}
+\item \textbf{C1.} A null-forcing aspect-extraction scheme over 43{,}000+ reviews: the LLM may score an aspect only when the review gives verbatim evidence for it, never by inference, backed by typed validation and a crash-safe multi-provider pipeline (Section~\ref{sec:method}).
+\item \textbf{C2.} The bridging layer, a skeptic-prompted and category-grounded LLM estimator that turns a specification into an aspect profile, with absence penalties, grounding flags, and anchor discipline (Section~\ref{sec:method}).
+\item \textbf{C3.} Two out-of-sample evaluations---a leakage-controlled holdout and a forward-in-time temporal holdout---that confirm a real, price-complementary signal: $\rho = 0.529$ (holdout) and $\rho = 0.590$ (temporal), with AUC $0.903$ and $0.942$ (Section~\ref{sec:validation}).
+\item \textbf{C4.} An honest map of scope---which aspects a specification can predict and which it cannot---together with a diagnosed \emph{boundary condition}: the method's validity tracks how well a category's specs encode experiential quality (Section~\ref{sec:boundary}).
+\item \textbf{C5.} An honesty layer---reliability-weighted confidence, per-aspect trust tiers, and abstention---wired into a deployed decision-support application whose interface puts the system's own measured limitations in front of the user (Section~\ref{sec:system}).
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Reviews, e-WOM, and Market Outcomes}
+That online opinion moves markets is not in dispute. Chevalier and Mayzlin showed review valence shifting book sales from one retailer to another \cite{chevalier2006wom}; Dellarocas cast digitized word of mouth as a new kind of economic feedback \cite{dellarocas2003digitization}; Chintagunta et al.\ tied user reviews to box-office trajectories \cite{chintagunta2010effects}; and Luca put a revenue figure on Yelp ratings \cite{luca2016reviews}. Nearer to our own feature level, Archak et al.\ found that \emph{aspect-level} content carries pricing power the star rating alone does not \cite{archak2011deriving}, Ghose and Ipeirotis connected review-text characteristics to economic impact \cite{ghose2011estimating}, and Mudambi and Schuff asked what makes a review helpful in the first place \cite{mudambi2010helpful}. Social-media signals have been read the same way to forecast outcomes \cite{asur2010predicting}. Every one of these works after the fact. The nearest thing to our goal is Narayanan et al., who predict reception from pre-release chatter about an announced product \cite{narayanan2020prelaunch}; our setting is harder still, since we assume no product-specific chatter exists at all, only the specification and the category's history.
+
+Review streams are also adversarial. Opinion spam goes back to Jindal and Liu \cite{jindal2008opinion}, convincing fake reviews can be written to order \cite{ott2011deceptive}, and the incentive to manipulate them is plain \cite{mayzlin2014promotional}. The corpus-level fraud filter in Section~\ref{sec:data} is our response to this line of work.
+
+\subsection{Aspect-Based Sentiment Analysis}
+Aspect-based sentiment analysis (ABSA) started with frequency- and lexicon-based aspect mining \cite{hu2004mining,liu2012sentiment}, was given a common benchmark by SemEval-2014 \cite{pontiki2014semeval}, and has since been carried mostly by neural methods, surveyed in \cite{zhang2022survey}. The machinery keeps improving---multi-feature fusion graph attention networks \cite{wang2025multifeature}, curriculum-learning hybrids \cite{lange2025curriculum}, transformer pipelines for bilingual e-commerce satisfaction \cite{shan2025bilingual}, multi-source sentiment fusion \cite{sesr2025multisource}. Our difference is one of purpose, not architecture. We use ABSA as a \emph{measurement instrument}: it turns unstructured reviews into a per-product aspect profile that then becomes the input to supervised learning, and we hold it to a null-forcing, evidence-quoting discipline meant for downstream trustworthiness rather than benchmark accuracy.
+
+\subsection{LLMs as Extractors and Estimators}
+Transformer language models \cite{vaswani2017attention,devlin2019bert}, scaled up into instruction-following generalists \cite{brown2020gpt3,ouyang2022instruct,openai2023gpt4,gemini2023,touvron2023llama}, now label text about as reliably as a human crowd \cite{gilardi2023chatgpt} and turn up more and more as zero-shot parts of e-commerce pipelines---product classification \cite{roumeliotis2025llms}, description generation from reviews \cite{gutierrez2025zeroshot}, numeric value prediction in industrial systems \cite{hidayat2025custody}. Reasoning-eliciting prompting \cite{wei2022chain} and the wider foundation-model programme \cite{bommasani2021foundation} treat LLMs as general-purpose estimators. Our bridging layer belongs to this line but joins two disciplines that are seldom tested together: a built-in skepticism toward adversarial input, because marketing copy is written to sound good for flops and hits alike, and \emph{launch-blind outcome validation}, which holds the LLM's estimates up against the market reality that actually followed.
+
+\subsection{Gradient Boosting for Tabular Prediction}
+For tabular product features, gradient-boosted trees \cite{friedman2001greedy,chen2016xgboost,ke2017lightgbm} remain the default to beat, ahead of both classic ensembles \cite{breiman2001random} and neural alternatives, and they show up across e-commerce supply chains \cite{sayyad2024catboost}, sentiment-augmented financial forecasting \cite{zhen2025stock,shang2025bitcoin}, and multi-criteria recommendation \cite{rakee2025temul}. We chose XGBoost for two reasons in particular: it handles missing values natively, so an unmentioned aspect stays missing rather than being imputed, and it pairs with SHAP attributions \cite{lundberg2017shap} that turn a prediction into an explanation in terms of design levers. Our data infrastructure rests on the Amazon reviews corpora \cite{he2016ups,hou2024amazon}, and we put confidence intervals on results with the bootstrap \cite{efron1979bootstrap}. One further link is worth naming: our insistence that the interface show the model's limits echoes a recent argument from the management literature that AI-assisted decisions need calibrated human autonomy \cite{cristofaro2026dancing}.
+
+\section{Data}
+\label{sec:data}
+The corpus comes from the Amazon Reviews 2023 dataset \cite{hou2024amazon}, restricted to five physical-product categories: wireless headphones, Bluetooth speakers, smartwatches, power banks, and ice makers. We kept English reviews of 10--400 words, dropped any product with fewer than five reviews, and normalized timestamps; every rating sits in $[1,5]$. What remains is 640 products, and extraction ran over more than 43{,}000 reviews. The choice of categories was about signal, not convenience: two early candidates, smartphones and general kitchen appliances, were thrown out because accessory listings contaminated them badly, and ice makers were assembled as a clean single-function category from the Appliances pool to take their place.
+
+Because review streams can be gamed \cite{jindal2008opinion,mayzlin2014promotional}, we ran a fraud filter before any label was computed. A product was flagged when more than 40\% of its sampled reviews landed inside a single 14-day window, when its rating distribution was extreme-J-shaped, or when more than 30\% of its reviews were near-duplicates (Jaccard $> 0.7$ on word sets). Nine products tripped the filter, leaving 631 for training.
+
+The regression target is a within-category composite, $\text{success} = 100\,(0.40\,\text{volume} + 0.35\,\text{rating} + 0.25\,\text{velocity})$, with each component min--max normalized inside its own category and $\log(1+x)$ applied to the heavy-tailed counts. Normalizing within category is not a detail: 500 reviews mean one thing for an ice maker and something else entirely for a pair of wireless headphones.
+
+\textbf{Survivorship disclosure.} The five-review floor keeps out any product that launched and drew no attention at all. Every claim we make is therefore a claim about ranking among products that did reach the market's notice. A ``flop,'' in our vocabulary, is the bottom success quintile of these survivors, not a product nobody ever bought. Section~\ref{sec:limitations} works through what that costs us.
+
+\section{Method}
+\label{sec:method}
+
+\subsection{Aspect Extraction}
+Each review is broken into aspect-level sentiment against a frozen schema of nine aspects: six shared consumer aspects (value for money, utility, ease of use, reliability, design appeal, after-sales) and three physical-product aspects (build quality, durability, repairability). The prompt is \emph{null-forcing} by design. An aspect earns a score (0--10) only if the review actually discusses it; every non-null score must quote a verbatim phrase from the review as evidence; and the star rating is given as context but banned as a source of scores. A review that praises only sound quality comes back with null for durability, because the silence is information and we will not invent around it. Every output is checked against a typed schema. An invalid response is retried once with the error appended, then handed to the next provider, and on a third failure the review is logged and skipped, so one bad response can never stall a batch that runs for days. Extraction covered more than 43{,}000 reviews on a multi-provider cloud pool (Gemini Flash, Groq Llama-3.3-70B, Cerebras, Mistral, and SambaNova) with per-key rate tracking, append-only crash-safe logging, and resume support; we tried a local model too but dropped it after a quality audit. Ahead of the full run, a 30-review hand-validation gate confirmed that unmentioned aspects came back null and that each evidence phrase really did appear in its review.
+
+\subsection{Success Models and Algorithm Selection}
+\label{sec:models}
+Product-level features roll the extraction stream up into a mean score and a mention rate per aspect. An aspect nobody mentions stays missing rather than imputed, which XGBoost \cite{chen2016xgboost} handles on its own. On top of these we add metadata: price, average rating, log rating count, review velocity, a brand-recognition tier, and category. The regressors are gradient-boosted (600 estimators, depth 5, learning rate 0.05, seed 42) and trained under 5-fold cross-validation, and we report two variants that deserve very different levels of trust. The \emph{full} model reaches CV $R^2 = 0.892$ on physical products, but 35\% of its own target is the average rating that it also takes as a feature ($\text{corr} = 0.457$). We flag that leakage openly and read the number as a ceiling on fit, not a sign of insight. The \emph{headline} variant removes only the genuinely leakage-prone metadata---average rating, rating count, and velocity, all of which are ingredients of the success label---while keeping price, which is \emph{not} part of the label and is knowable before launch, as a feature. That model scores $R^2 = 0.595$ on physical products and stands behind every claim in this paper. Each feature also carries a monotonic constraint that pins the sign of its effect: every review aspect and the brand tier are held non-decreasing ($+1$), and price non-increasing ($-1$). The constraints keep the model from picking up the spurious inverse relationships a noisy popularity label invites---a \emph{lower} value-for-money score nudging predicted viability up, for instance, which had once flipped the headline model's response to price and produced backwards attributions. With them, every explanation carries the right sign and the prediction is monotone in price (a higher price never raises viability at fixed quality), and empirically they also \emph{improve} out-of-sample generalization rather than costing accuracy. Strip out the brand tier and price as well, leaving strictly LLM-extracted features, and $R^2 = 0.566$---the pure aspect-based contribution.
+
+\textbf{Why XGBoost.} We did not take the learning algorithm for granted. Six of them were benchmarked on the same aspects-only feature matrix under the same 5-fold CV (seed 42, $n = 631$ physical products), and Table~\ref{tab:algo} with Fig.~\ref{fig:algometrics} report every metric. XGBoost posts the best $R^2$ (0.564), the lowest RMSE (11.4), and the best AUC-ROC for separating the top from the bottom quintile (0.983), and it trains in 0.29\,s, which is 2.5$\times$ faster than Random Forest and 8$\times$ faster than sklearn Gradient Boosting. The runner-up, sklearn Gradient Boosting ($R^2 = 0.549$), ties it on AUC but needs 7$\times$ the time for want of histogram-based splitting \cite{ke2017lightgbm}. Random Forest \cite{breiman2001random} ($R^2 = 0.532$) and the MLP ($R^2 = 0.490$) trail, and the further drop to SVR \cite{cortes1995svm} ($R^2 = 0.421$) and Ridge Regression \cite{hoerl1970ridge} ($R^2 = 0.368$) shows how much the nonlinear interactions matter. The ordering matches recent large-scale benchmarks where tree ensembles still beat deep learning on ordinary tabular data \cite{grinsztajn2022tree,shwartzziv2022tabular}.
+
+Accuracy aside, three features of this particular problem play to XGBoost's strengths. One is native missing-value handling. Aspect scores go structurally missing whenever a review skips an aspect, and XGBoost learns a split direction for the missing entries with no imputation \cite{chen2016xgboost}, where Ridge and SVR would need a fill strategy that only adds noise. Another is native categorical support: the \texttt{category} feature goes in directly through the \texttt{enable\_categorical} flag, with no one-hot encoding, so the histogram learner keeps the structure it can use. The third is SHAP compatibility. TreeExplainer \cite{lundberg2017shap} returns exact, polynomial-time Shapley values for tree ensembles, and those drive the per-prediction risk and strength explanations the application shows (Section~\ref{sec:system}); kernel SHAP on an MLP or an SVR is approximate and slower by orders of magnitude.
+
+\begin{table}[!t]
+\centering
+\caption{Algorithm comparison on aspects-only features (physical products, $n=631$, 5-fold CV, seed 42). The task is regression, so $R^2$/RMSE are the \emph{primary} metrics; the classification metrics are \emph{derived} by binarizing the predicted score at the top- vs.\ bottom-quintile and are shown for completeness. Best value per metric in \textbf{bold}.}
+\label{tab:algo}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lcc|ccccccc@{}}
+\toprule
+ & \multicolumn{2}{c|}{\textbf{Regression (primary)}} & \multicolumn{7}{c}{Classification (derived)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-10}
+Algorithm & $R^2$ & RMSE & Acc. & Prec. & Rec. & Spec. & F1 & AUC & MCC \\
+\midrule
+\textbf{XGBoost}  & \textbf{.564} & \textbf{11.4} & .917 & .914 & .927 & .907 & .917 & \textbf{.983} & .838 \\
+Grad.\ Boosting   & .549 & 11.6 & \textbf{.933} & \textbf{.925} & \textbf{.947} & \textbf{.920} & \textbf{.934} & \textbf{.983} & \textbf{.870} \\
+Random Forest     & .532 & 11.8 & .920 & .906 & .940 & .900 & .922 & .979 & .843 \\
+MLP               & .490 & 12.3 & .917 & .895 & \textbf{.947} & .887 & .919 & .966 & .837 \\
+SVR (RBF)         & .421 & 13.1 & .890 & .897 & .887 & .893 & .889 & .942 & .785 \\
+Ridge             & .368 & 13.7 & .833 & .811 & .880 & .787 & .840 & .921 & .678 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Fig.~\ref{fig:algometrics} lays all seven metrics out together. Because the target is a continuous success score, the regression metrics come first, and there XGBoost holds the best $R^2$ and RMSE and ties for the best AUC-ROC. Gradient Boosting nudges ahead on the \emph{derived} classification metrics, but those gaps live inside cross-validation fold noise, it burns about $8\times$ the training time, and it cannot swallow the structurally missing aspect features without imputation, which XGBoost can. The pooled confusion matrices in Fig.~\ref{fig:confmat} say the same thing: every tree ensemble clears $90\%$ accuracy at telling eventual hits from flops.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig7_algorithm_metrics.png}
+\caption{All evaluation metrics across six algorithms on the aspects-only feature set (5-fold CV, $n=631$). Metrics: $R^2$, Accuracy, Precision, Recall, F1, AUC-ROC, and MCC.}
+\label{fig:algometrics}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig8_algorithm_tradeoffs.png}
+\caption{Three-panel accuracy--efficiency trade-off: predictive accuracy ($R^2$), training time, and error magnitude (RMSE). XGBoost leads on accuracy and error with competitive speed.}
+\label{fig:algotradeoffs}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig9_algorithm_table.png}
+\caption{Complete numerical comparison across all evaluation metrics. Bold verdict column summarises the overall ranking: XGBoost is the only algorithm rated BEST on both regression accuracy and classification-derived measures while maintaining competitive training time.}
+\label{fig:algotable}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig10_confusion_matrices.png}
+\caption{Aggregated confusion matrices (5-fold CV, top-20\% vs.\ bottom-20\% products). Counts and percentages for each quadrant: true negatives (flops correctly identified), false positives, false negatives, and true positives (hits correctly identified).}
+\label{fig:confmat}
+\end{figure}
+
+\subsection{Bridging: Estimating Aspects from Specifications}
+The bridging layer asks an LLM for the aspect profile a product \emph{would} earn after months of real use, given nothing but its specification and a category profile: price quartiles, mean aspect scores, and the leading pain points and strengths mined from real reviews. Our first prompt believed what it read, and it failed in an instructive way. Marketing copy is optimistic by construction, selling flops and hits with equal conviction, and the predictions bunched into a narrow, rosy band. The production prompt runs on three rules of skepticism. Under \emph{adjective blindness}, only verifiable facts justify a score---materials, standards, numbers, warranty terms: ``powerful bass'' is noise, while ``50\,mm drivers'' is evidence. Under the \emph{absence rule}, a spec that offers no concrete evidence for an aspect is itself the signal, since a competent team states its strengths, so the aspect is scored below the category mean and flagged as ungrounded. Under \emph{anchor discipline}, the category mean is whatever the median real product achieves, and any score more than two points above it has to point to a fact in the spec.
+
+\subsection{The Honesty Layer}
+Some aspects bridge more reliably than others, and rather than hide that, the system measures it directly and acts on it. For each aspect we compute the correlation between the bridged estimate and the review-derived ground truth across all bridged products (Section~\ref{sec:validation}), which gives an empirical fidelity weight per aspect. A prediction's confidence is then a \emph{reliability-weighted} grounded fraction: each aspect adds to confidence in proportion to how well it actually bridges, so aspects a spec cannot convey (after-sales, $r \approx 0.07$) no longer move confidence, while the high-fidelity ones (utility, durability, ease of use, build quality, reliability, all $r \approx 0.5$) carry it. The same measurement sets each aspect's trust badge: STRONG (utility, ease of use, build quality, durability, reliability), MODERATE (value for money, repairability), or WEAK (design appeal, after-sales). When confidence drops below a warning threshold, the interface says outright that the estimate is leaning on category averages; below a lower threshold it hides the number entirely and sends the user to the spec coach. The headline viability is rank-calibrated onto a readable 0--100 scale against a reference distribution of real products, and shown as a range rather than a false-precision decimal.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_pipeline.png}
+\caption{Pipeline overview across five physical categories: extraction, label engineering, feature assembly, training, category profiling, and the bridging/prediction service.}
+\label{fig:pipeline}
+\end{figure}
+
+\section{Validation}
+\label{sec:validation}
+The question behind our validation is a counterfactual: \emph{if this system had existed on the day a real product launched, would its specs-only estimate have called that product's eventual market outcome?} We answer it launch-blind and out of sample. For every product we evaluate, the bridging layer sees only what was knowable at launch: name, brand, price, and the manufacturer's specification copy. Reviews, ratings, and sales signals are held back. The bridged profile goes into the aspects-only model, and its estimate is checked against the product's real within-category success score, computed from the reviews the product went on to collect. Table~\ref{tab:validation} lays out the three evaluations; the two holdouts are where the evidence is.
+
+\begin{table}[!t]
+\centering
+\caption{Reliability summary. The two out-of-sample holdouts are the primary evidence; both scales run 0 (useless) to 1 (perfect). Within-category $\rho$ is the mean over categories and is the stricter measure (Section~\ref{sec:boundary}).}
+\label{tab:validation}
+\footnotesize
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Evaluation & $\rho$ (pooled) & AUC & within-cat.\ $\rho$ \\
+\midrule
+Cross-validation ($R^2$) & \multicolumn{3}{c}{$R^2 = 0.595$ aspects-only ($0.566$ pure); $0.892$ full} \\
+Out-of-sample holdout ($n{=}118$) & 0.529 & 0.903 & 0.39 \\
+Temporal holdout ($n{=}125$) & 0.590 & 0.942 & 0.16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Leakage-Controlled Out-of-Sample Holdout}
+We bridged 118 products, drawn from all five categories, through the frozen production pipeline using only their specifications. The model was then \emph{retrained from scratch on the other 513 products}, with every holdout product removed and category priors computed on the training split alone, so nothing in the test set can influence the model that scores it. Specs-only predictions rank the held-out products against their real outcomes at Spearman $\rho = 0.529$ ($p = 7.6\times10^{-7}$), with a 10{,}000-sample bootstrap 95\% CI of $[0.377, 0.654]$ that clears zero, and they tell bottom-quintile from top-quintile products at AUC $= 0.903$. Mean predicted viability climbs monotonically across the actual success quintiles ($55.4 \to 58.1 \to 58.5 \to 62.8 \to 65.4$; Fig.~\ref{fig:holdout}), ten points end to end. At $n = 118$ the pooled $\rho$ accounts for roughly 19\% of the rank variance; this is a screening signal across a portfolio of candidate designs, not a verdict on any single product.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig2_holdout_scatter.png}
+\caption{Leakage-controlled holdout ($n=118$): specs-only predicted viability versus actual market success, with monotonic success-quintile means.}
+\label{fig:holdout}
+\end{figure}
+
+\subsection{Forward-in-Time Temporal Holdout}
+A random split can still leak era-specific regularities, so we ran the harder test a pre-launch tool really faces: predicting the future. Training used only the 505 products launched on or before October~2021 (best iteration chosen by 5-fold CV), and the model then predicted the 125 products launched afterward, from specifications alone. The pooled ranking not only survives but sharpens: $\rho = 0.590$ ($p = 1.2\times10^{-11}$, CI $[0.486, 0.696]$) and AUC $= 0.942$. A signal that holds across a temporal split answers the most common objection to any pre-launch claim before it is raised.
+
+The pooled numbers do get some help from \emph{between-category} structure, since the target is normalized within category. The stricter yardstick is the mean within-category $\rho$, and there the two holdouts part ways honestly: $0.39$ on the random split falls to $0.16$ forward-in-time. Predicting the future inside a single category is genuinely harder than interpolating across a random split, and exposing that is precisely what a temporal test is for. We report both and take the within-category figure as the conservative claim.
+
+\subsection{Baselines and Price Orthogonality}
+A launch-blind correlation is only worth something if it is not just rediscovering price. On the holdout, a within-category price-percentile baseline already reaches $\rho = 0.386$ against actual success---a strong baseline, since expensive segments succeed on their own terms. Our model does use price, as one monotone-constrained feature, but its LLM-extracted aspects carry what price position does not: the headline model reaches $\rho = 0.529$, and a price-free ablation---the same model with price taken out---still reaches $\rho = 0.475$ while staying largely orthogonal to price ($r = 0.147$ between its prediction and the price percentile). The aspect signal therefore complements price rather than standing in for it, and, unlike a price rule of thumb, the model can say \emph{why} in terms of design levers.
+
+\subsection{Which Aspects Can Be Estimated from Specs}
+Aspect by aspect, the bridged estimates track the review-derived ground truth at $r = 0.53$ for utility and durability, $0.52$ for ease of use, $0.51$ for build quality, and $0.50$ for reliability; then $0.34$ for value for money and $0.27$ for repairability; and at the bottom, design appeal ($r = 0.21$) and after-sales ($r = 0.07$) are all but unestimable from a specification (Fig.~\ref{fig:validity}; mean $r \approx 0.39$, $n = 118$). None of this is surprising: service quality never shows up on a spec sheet, and aesthetics are subjective in a way category norms do not pin down. These measured correlations are the very weights the honesty layer uses, so the interface's trust badges are not asserted---they are the validation numbers themselves.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig3_aspect_validity.png}
+\caption{Per-aspect validity of bridged estimates ($r$ with 95\% CI, $n=118$), colored by the trust tier shown to users. These correlations double as the confidence weights.}
+\label{fig:validity}
+\end{figure}
+
+\section{Scope and Boundary Conditions}
+\label{sec:boundary}
+A system meant to inform real decisions ought to name where it breaks as plainly as where it works, so we give a diagnosed boundary condition the same prominence as the positive results. The method's predictive validity tracks \emph{how well a category's specifications encode experiential quality}, and the clearest case is ice makers.
+
+On the surface ice makers are a paradox: of every category they have the \emph{strongest} within-category link between real review aspects and success (mean $|r| = 0.32$, against $0.09$--$0.24$ elsewhere) and the best aspect coverage in extraction, yet their bridged predictions are the weakest of all (holdout $\rho \approx 0.11$; forward-in-time $\rho \approx 0$). The cause is not extraction and not the label; it is the bridging step, and the diagnosis is clean. The LLM hands almost the same aspect scores to every ice maker---a bridged-score standard deviation across products of just $0.08$ for reliability and $0.13$ for build quality and durability---because an ice-maker spec is a set of capacity-and-speed numbers (``26\,lb/day, 9 cubes in 6 minutes'') that say nothing about reliability, durability, or build. With nothing to separate them, the model falls back to the category prior for each one, and flat inputs carry no ranking information. Ice-maker bridging fidelity comes out at $r \approx 0.04$, against $\approx 0.39$ pooled and $0.45$--$0.56$ for the same aspects in the personal-electronics categories.
+
+The lesson generalizes. Where a category's specifications describe experiential attributes---sound, comfort, battery life for headphones, speakers, and smartwatches---bridging fidelity is high and forward prediction works. Where they describe only physical capacity, bridging cannot tell products apart and the method is bounded, no matter how much signal the underlying reviews hold. The temporal holdout shows a cousin of this effect: power banks rank well on a random split ($\rho = 0.43$) but not forward-in-time ($\rho \approx 0$), which fits real technological drift---newer gallium-nitride and USB-C designs a model trained on older stock has never seen. We therefore scope the method to spec-expressive, technologically stable categories, and the interface's abstention machinery is that same boundary expressed at runtime.
+
+\section{System}
+\label{sec:system}
+The pipeline is a chain of independently re-runnable stages (Fig.~\ref{fig:pipeline}). Each one writes its output to disk and skips expensive work unless told to redo it. Extraction is crash-safe and resumable, which mattered in practice: the full batch runs for days of rate-limited API calls across a rotating provider pool. Feature manifests are serialized to disk and the prediction code builds its input vectors by walking them, so the serving path cannot quietly drift out of step with training. One end-to-end smoke test regenerates synthetic data, runs every stage in a sandbox, and gates every change to the code.
+
+The user-facing application (Fig.~\ref{fig:ui}a) is a React front end over a FastAPI backend, deployed under Docker. A founder enters a product's category, price, and specification and gets the whole analysis back: a rank-calibrated viability range, a percentile position against real products, per-aspect estimates drawn against category averages, and top risks and strengths from SHAP \cite{lundberg2017shap} attributions taken relative to the category-average product. Because the attributions are relative in that way, the cards agree with the aspect-vs-average chart by construction, and under the model's monotonic constraints an above-average aspect always reads as a strength and a below-average one as a risk---each phrased as a design lever the founder can actually move. A market-gap report rounds it out, quoting verbatim customer complaints for the category pain points a design does not convincingly address. Every aspect estimate shows its trust badge and grounding flag, and confidence is reliability-weighted, so a specification that grounds only low-fidelity aspects is reported at low confidence and, below threshold, replaced by an explanation rather than a number. The model also conditions on company and product maturity, so a first product from an unknown brand is judged differently from a line extension by an established one.
+
+The spec coach (Fig.~\ref{fig:ui}b) closes the loop for users who are not practiced at writing specs. A single LLM call rates the draft's coverage of each aspect as covered, vague, or missing, asks at most five questions ordered by how much each answer would sharpen the prediction, and rewrites the spec while keeping every fact the user stated and inserting explicit placeholders for the decisions still to be made. By construction, the coach may not invent a material, a number, or a feature the user did not state.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{fig6a_prediction.png}\\[2pt]
+\includegraphics[width=0.49\columnwidth]{fig6b_spec_coach.png}\hfill
+\includegraphics[width=0.49\columnwidth]{fig6c_analyzer.png}
+\caption{The application. (a)~Prediction dashboard with viability range, percentile rank, and aspect-vs-category chart. (b)~Spec coach. (c)~Analyzer view showing the honest benchmark table.}
+\label{fig:ui}
+\end{figure}
+
+\section{Limitations}
+\label{sec:limitations}
+\textbf{Survivorship bias is the biggest limitation, and it bounds every claim in this paper.} The corpus asks for at least five reviews per product, so products that launched and drew no attention---arguably the truest flops---simply are not there. Every result here is about ranking among products that reached the market's attention. Whether the system could flag a product headed for no traction at all is untested, and with this data it cannot be tested.
+
+The second limit is the target itself: our success score is a review-derived popularity composite, not units sold, which are not publicly available. A genuine sales signal (sales rank, say) is the single highest-leverage improvement left on the table. The third is statistical power and scope: the holdouts run $n = 118$ and $125$, the validated claims cover five physical categories, and within-category forward skill is modest ($\rho \approx 0.16$) and concentrated in the spec-expressive categories (Section~\ref{sec:boundary}). The fourth concerns the input. Our ``specifications'' are launch-day spec sheets and marketing copy, the closest launch-knowable proxy we can recover after the fact, optimistic in ways the skeptic prompt curbs without erasing. The fifth is reproducibility, since the pipeline leans on hosted LLMs. We run bridging at temperature zero and memoize each result by a hash of its input, so repeated predictions for the same specification are identical within a deployment; what remains is that hosted model versions drift over time, so reproducing results across time needs the archived extraction outputs we release with the code. Finally, review text can be gamed: the fraud filter caught 9 suspect products, but a sophisticated manipulation \cite{mayzlin2014promotional} would get past it. Folding community-derived buying priorities into the bridging context is a promising but unconfirmed direction we leave to future work.
+
+\section{Conclusion}
+We set out to ask whether a product's market fate can be read, at least in part, from its specification alone, before any consumer has touched it. Within carefully stated bounds, the answer is yes. An LLM that extracts aspect sentiment from more than 43{,}000 reviews, a gradient-boosted model that learns which aspect profiles succeed, and a skeptic-prompted bridging layer that estimates those profiles from specs together produce a launch-blind signal of $\rho = 0.529$ on a leakage-controlled holdout and $\rho = 0.590$ forward-in-time, against real market outcomes. That signal complements price rather than proxying for it, the score declines monotonically as price rises at fixed quality, and predicted viability rises monotonically across the success tiers, from flops to category leaders.
+
+The contribution likely to last, we think, is not that point estimate but the map around it: which aspects a specification can predict (utility, ease of use, build quality, durability, reliability), which it cannot (after-sales service, aesthetics), and which categories the method works in at all---spec-expressive personal electronics---as against where it is bounded, like commodity appliances whose specs encode capacity but not experience. For the small businesses that motivated this work, a map like that is the difference between an oracle they should not trust and an instrument they can: a pre-production screen that shifts the odds toward products their users find worth paying for. A tool that knows its own limits and shows them, through reliability-weighted confidence, trust badges, and abstention, is the only honest form such a tool can take at the current state of the art.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

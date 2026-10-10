@@ -1,0 +1,41 @@
+category,n_category,model,Spearman_rho,p_value,notes
+bluetooth_speakers,7,Proposed (XGBoost Monotone),0.5357,0.2152,Valid variation
+bluetooth_speakers,7,Category + Brand Ridge,0.5777,0.1744,Valid variation
+bluetooth_speakers,7,GBDT,0.6429,0.1194,Valid variation
+bluetooth_speakers,7,Random Forest,-0.1429,0.7599,Valid variation
+bluetooth_speakers,7,TF-IDF + Ridge,-0.2857,0.5345,Valid variation
+bluetooth_speakers,7,Brand-Only,0.5777,0.1744,Valid variation
+bluetooth_speakers,7,Category Mean,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+bluetooth_speakers,7,Category Median,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+ice_makers,36,Proposed (XGBoost Monotone),0.1791,0.2959,Valid variation
+ice_makers,36,Category + Brand Ridge,-0.1604,0.3499,Valid variation
+ice_makers,36,GBDT,0.2717,0.109,Valid variation
+ice_makers,36,Random Forest,0.1415,0.4105,Valid variation
+ice_makers,36,TF-IDF + Ridge,0.1064,0.5369,Valid variation
+ice_makers,36,Brand-Only,-0.1604,0.3499,Valid variation
+ice_makers,36,Category Mean,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+ice_makers,36,Category Median,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+power_banks,19,Proposed (XGBoost Monotone),-0.0422,0.8638,Valid variation
+power_banks,19,Category + Brand Ridge,0.3683,0.1207,Valid variation
+power_banks,19,GBDT,0.2547,0.2926,Valid variation
+power_banks,19,Random Forest,-0.1747,0.4744,Valid variation
+power_banks,19,TF-IDF + Ridge,0.0684,0.7808,Valid variation
+power_banks,19,Brand-Only,0.3683,0.1207,Valid variation
+power_banks,19,Category Mean,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+power_banks,19,Category Median,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+smartwatches,39,Proposed (XGBoost Monotone),0.4153,0.0086,Valid variation
+smartwatches,39,Category + Brand Ridge,0.5491,0.0003,Valid variation
+smartwatches,39,GBDT,0.3698,0.0205,Valid variation
+smartwatches,39,Random Forest,0.2076,0.2047,Valid variation
+smartwatches,39,TF-IDF + Ridge,0.1397,0.3964,Valid variation
+smartwatches,39,Brand-Only,0.5491,0.0003,Valid variation
+smartwatches,39,Category Mean,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+smartwatches,39,Category Median,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+wireless_headphones,23,Proposed (XGBoost Monotone),-0.0554,0.8017,Valid variation
+wireless_headphones,23,Category + Brand Ridge,0.4275,0.0419,Valid variation
+wireless_headphones,23,GBDT,0.5308,0.0092,Valid variation
+wireless_headphones,23,Random Forest,0.5179,0.0114,Valid variation
+wireless_headphones,23,TF-IDF + Ridge,0.166,0.449,Valid variation
+wireless_headphones,23,Brand-Only,0.4275,0.0419,Valid variation
+wireless_headphones,23,Category Mean,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500
+wireless_headphones,23,Category Median,,,Constant prediction within category; variance=0; Spearman mathematically undefined (NaN); C_index=0.500

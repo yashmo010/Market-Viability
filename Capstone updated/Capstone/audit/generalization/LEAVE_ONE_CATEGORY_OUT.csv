@@ -1,0 +1,6 @@
+Held_Out_Category,Train_N,Test_N,LOCO_Spearman_Rho,LOCO_P_Value,LOCO_RMSE,LOCO_MAE,LOCO_AUC
+bluetooth_speakers,379,7,-0.357,4.3161e-01,21.57,16.66,0.5
+ice_makers,398,36,0.246,1.4779e-01,36.21,33.62,0.705
+power_banks,427,19,-0.124,6.1427e-01,30.74,28.03,0.438
+smartwatches,432,39,-0.067,6.8631e-01,22.96,20.33,0.633
+wireless_headphones,392,23,-0.228,2.9508e-01,22.43,19.54,0.44

@@ -1,0 +1,10 @@
+Input Field,Source,Allowed at Cutoff?,Future-Derived?,Test Label-Derived?,Status
+Product Name,Manufacturer Catalog Specification,YES,NO,NO,PASS (Pure Spec)
+Brand,Manufacturer Catalog Specification,YES,NO,NO,PASS (Pure Spec)
+Launch Price,Catalog MSRP / Launch Price,YES,NO,NO,PASS (Pre-launch decision)
+Feature Bullet Points,Manufacturer Spec Sheet / Packaging Text,YES,NO,NO,PASS (Pure Spec)
+Category Pre-Cutoff Intelligence,Pre-cutoff training products (<=2021-10-31),YES,NO,NO,PASS (Frozen Historical Prior)
+Customer Reviews,Post-launch user reviews,NO,YES,NO,EXCLUDED (0 reviews passed)
+Average Star Rating,Post-launch review aggregate,NO,YES,YES,EXCLUDED (Target variable)
+Review Count / Velocity,Post-launch review timestamps,NO,YES,YES,EXCLUDED (Target variable)
+SuccessScore,Target engineering label,NO,YES,YES,EXCLUDED (Target variable)

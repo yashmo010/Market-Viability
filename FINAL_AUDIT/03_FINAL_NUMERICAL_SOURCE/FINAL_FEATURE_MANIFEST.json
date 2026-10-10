@@ -1,0 +1,74 @@
+{
+  "total_features": 24,
+  "feature_names": [
+    "price",
+    "value_for_money",
+    "utility",
+    "ease_of_use",
+    "reliability",
+    "design_appeal",
+    "after_sales",
+    "build_quality",
+    "durability",
+    "repairability",
+    "value_for_money_mention_rate",
+    "utility_mention_rate",
+    "ease_of_use_mention_rate",
+    "reliability_mention_rate",
+    "design_appeal_mention_rate",
+    "after_sales_mention_rate",
+    "build_quality_mention_rate",
+    "durability_mention_rate",
+    "repairability_mention_rate",
+    "brand_tier",
+    "category",
+    "attr_spec_bullets",
+    "attr_word_count",
+    "attr_number_density"
+  ],
+  "aspect_scores": [
+    "value_for_money",
+    "utility",
+    "ease_of_use",
+    "reliability",
+    "design_appeal",
+    "after_sales",
+    "build_quality",
+    "durability",
+    "repairability"
+  ],
+  "aspect_mention_rates": [
+    "value_for_money_mention_rate",
+    "utility_mention_rate",
+    "ease_of_use_mention_rate",
+    "reliability_mention_rate",
+    "design_appeal_mention_rate",
+    "after_sales_mention_rate",
+    "build_quality_mention_rate",
+    "durability_mention_rate",
+    "repairability_mention_rate"
+  ],
+  "spec_density_metrics": [
+    "attr_spec_bullets",
+    "attr_word_count",
+    "attr_number_density"
+  ],
+  "metadata": [
+    "price",
+    "brand_tier",
+    "category"
+  ],
+  "monotonic_priors": {
+    "price": -1,
+    "value_for_money": 1,
+    "utility": 1,
+    "ease_of_use": 1,
+    "reliability": 1,
+    "design_appeal": 1,
+    "after_sales": 1,
+    "build_quality": 1,
+    "durability": 1,
+    "repairability": 1,
+    "brand_tier": 1
+  }
+}

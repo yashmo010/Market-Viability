@@ -1,0 +1,7 @@
+Metric,Historical Baseline,Controlled Baseline,Promoted Model,Delta (Promoted vs Controlled)
+Spearman rho,0.5621,0.5623,0.6722,0.1099
+Top-Quintile AUC,0.8904,0.8904,0.9712,0.0808
+RMSE,21.12,21.12,19.75,-1.37
+MAE,17.84,17.83,16.66,-1.17
+Unseen-Brand rho (n=82),0.5155,0.5155,0.6328,0.1173
+Unseen-Brand AUC (n=82),0.8843,0.8843,0.9815,0.0972

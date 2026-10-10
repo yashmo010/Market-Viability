@@ -1,0 +1,7 @@
+Category,Products_N,Products_Pct,Reviews_N,Reviews_Pct,Brands_N,Products_Per_Brand_Mean,Products_Per_Brand_Median,Earliest_Launch,Latest_Launch,Earliest_Review,Latest_Review,Country_Marketplace,Product_Type,Missing_Price_Pct,Spec_Completeness_Mean
+bluetooth_speakers,136,21.25,12225,28.04,75,1.81,1.0,2010-08-23,2022-10-09,2010-08-23,2023-03-21,Amazon US,Physical Consumer Tech / Appliances,0.0,0.891
+ice_makers,147,22.97,6988,16.03,70,2.1,1.0,2006-02-20,2023-02-28,2006-02-20,2023-09-05,Amazon US,Physical Consumer Tech / Appliances,0.0,0.912
+power_banks,103,16.09,3932,9.02,65,1.58,1.0,2014-11-12,2022-12-11,2014-11-12,2023-03-19,Amazon US,Physical Consumer Tech / Appliances,0.0,0.922
+smartwatches,116,18.12,3981,9.13,76,1.53,1.0,2014-04-17,2023-01-01,2014-04-17,2023-03-22,Amazon US,Physical Consumer Tech / Appliances,0.0,0.952
+wireless_headphones,138,21.56,16473,37.78,70,1.97,1.0,2013-04-09,2022-11-29,2013-04-09,2023-03-21,Amazon US,Physical Consumer Tech / Appliances,0.0,0.912
+TOTAL_DATASET,640,100.0,43599,100.0,340,1.88,1.0,2006-02-20,2023-02-28,2006-02-20,2023-09-05,Amazon US,Consumer Physical Tech/Appliances (5 Verticals),0.0,0.916

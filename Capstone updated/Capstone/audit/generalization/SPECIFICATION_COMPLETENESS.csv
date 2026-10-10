@@ -1,0 +1,4 @@
+Completeness_Tier,Predefined_Cutoff,N,Mean_Completeness_Score,Spearman_Rho,Spearman_CI95_Low,Spearman_CI95_High,P_Value,RMSE,MAE,AUC
+High Completeness,>= 1.00,85,1.0,0.631,0.463,0.754,9.2717e-11,21.01,17.74,0.912
+Medium Completeness,"[0.90, 1.00)",25,0.958,0.508,0.151,0.753,9.5607e-03,20.56,17.79,0.8
+Low Completeness,< 0.90,14,0.832,-0.284,-0.754,0.329,3.2597e-01,22.69,18.48,0.111

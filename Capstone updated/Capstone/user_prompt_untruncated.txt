@@ -1,0 +1,451 @@
+<USER_REQUEST>
+FINAL CLOSING PASS — DO NOT RERUN EVERYTHING
+
+The main experiments have already been recomputed and the headline results are stable.
+
+Do NOT perform another broad rewrite or change numbers simply to make them match an independent reconstruction.
+
+Close ONLY these remaining items:
+
+1. FULL MODEL:
+Trace the ORIGINAL Full-model training configuration/script and determine exactly which features were used.
+Verify whether R² = 0.892 and RMSE = 5.76 are produced by the original configuration.
+Do not replace them with 0.962 / 3.44 unless the original experiment actually produces those values.
+
+2. INNER-SPLIT R²:
+Run the ORIGINAL script/configuration and seed, if available, and verify the reported 0.578.
+If the exact seed/configuration cannot be recovered, document the limitation rather than inventing a new value.
+
+3. REDDIT A/B:
+Find the original Reddit A/B experiment output and verify:
+rho = 0.359
+rho = 0.311
+Δrho = 0.049
+95% CI = [-0.024, 0.127]
+and recover the original n and AUC values if they exist.
+If n/AUC cannot be recovered from the original run, do NOT invent them.
+Either remove unsupported n/AUC claims or clearly qualify them.
+
+4. FIGURE 4:
+Regenerate Figure 4 using the ORIGINAL experiment/script/output.
+Do not substitute a new independently reconstructed confusion matrix unless it is demonstrably the same experiment.
+Make Figure 4 agree with the final reported metrics.
+
+5. 32,477 vs 29,410:
+Trace the actual pipeline.
+Clearly document that the extraction artifact contains 32,477 rows while approximately 3,067 rows correspond to review IDs absent from the cleaned review table.
+State explicitly which rows/cohort were actually used for downstream modeling.
+Use the exact numbers from the actual pipeline.
+
+6. SURVEY LITERATURE:
+Open and verify the ORIGINAL papers for:
+- Shan
+- Sayyad
+- Alantari
+- Wang
+
+For every numerical claim, confirm the exact metric and where it appears in the source.
+If a number cannot be verified, remove or qualify it.
+Do not rely on our manuscript or search snippets.
+
+7. DO NOT CHANGE:
+Do not change the established main results:
+rho = 0.529
+rho = 0.590
+Table 1 results
+per-aspect validity
+dataset counts
+unless the original experiment itself proves them wrong.
+
+8. HEADLINE CV R²:
+Leave 0.595 ± 0.030 unchanged unless the original experiment itself requires a correction.
+The independent 0.584 ± 0.034 reconstruction alone is NOT sufficient reason to replace it.
+
+9. FINAL VISUAL CHECK:
+After the above:
+- render both papers
+- inspect Figures 4, 5, 6, 7, 8
+- ensure no stale images/numbers
+- ensure Figure 8c is the actual live application screenshot
+- ensure captions and manuscript text agree.
+
+10. FINAL OUTPUT:
+Return a short table with:
+ITEM | FINAL VALUE | SOURCE/SCRIPT | VERIFIED?
+
+Do not report an item as verified unless you actually traced it to the original experiment/source.
+
+After this pass, STOP. Do not introduce new experiments, new claims, or new changes.     ==================================================
+FINAL DETAILED CHANGE + VERIFICATION REPORT
+==================================================
+
+THIS SECTION IS MANDATORY.
+
+At the very end, provide a COMPLETE and DETAILED FINAL REPORT of EVERYTHING you changed, verified, removed, recalculated, regenerated, or intentionally left unchanged.
+
+The purpose of this report is that an independent verifier should be able to read the report and understand the final state of the Research Paper and Survey Paper without having to guess where any number came from.
+
+DO NOT simply say:
+- "Fixed"
+- "Verified"
+- "Updated"
+- "Looks consistent"
+
+For EVERY changed or verified item, explain exactly what happened.
+
+Use the following structure:
+
+--------------------------------------------------
+A. DATASET AND EXTRACTION COUNTS
+--------------------------------------------------
+
+Create a table:
+
+| Item | Final value | Meaning | Where used | Source/evidence | Status |
+
+Include at minimum:
+
+- 43,599
+- cleaned review count
+- 32,477 extraction rows
+- 29,410 matched extraction rows
+- 67.5%
+- 631 retained products
+- 640 initially collected products, if still relevant
+
+Explain clearly:
+
+1. What each number represents.
+2. Why 32,477 and 29,410 are different.
+3. Which number was actually used for model training.
+4. Which number is used only to describe extraction coverage.
+5. Whether any rows were excluded and why.
+
+There must be NO ambiguity remaining.
+
+--------------------------------------------------
+B. MODEL RESULTS
+--------------------------------------------------
+
+Create a table:
+
+| Experiment | Final n | Final metric(s) | Original reported value | Final decision | Script/source | Verified? |
+
+Include:
+
+- Cross-validation R²
+- Full model R²
+- Full model RMSE
+- Inner-split R²
+- Retrained holdout
+- Temporal holdout
+- Price-free ablation
+- Any other headline model result
+- Table 1 classification metrics
+- Figure 6 metrics
+- Figure 7 metrics
+- Figure 8 Analyzer metrics
+
+For EVERY metric that changed:
+
+Explain:
+
+- old value
+- new value
+- why it changed
+- exact experiment/script that produced the new value
+- whether the paper was updated
+- whether a figure/table was updated
+- whether the application was updated
+
+For every metric that DID NOT change:
+
+Explicitly state that it was checked and retained because the original experiment/source supported it.
+
+--------------------------------------------------
+C. FULL MODEL DEFINITION
+--------------------------------------------------
+
+State explicitly:
+
+- exact features used by the Full model
+- preprocessing
+- cohort size
+- validation procedure
+- random seed, if known
+- final R²
+- final RMSE
+
+Explain why this is the correct Full-model result and why the alternative independently reconstructed result was not adopted, if applicable.
+
+--------------------------------------------------
+D. REDDIT A/B EXPERIMENT
+--------------------------------------------------
+
+Report:
+
+- Reddit-enabled configuration
+- Reddit-disabled configuration
+- n
+- rho for each
+- Δrho
+- confidence interval
+- AUC for each, if genuinely verified
+- statistical significance interpretation
+- whether Reddit remains in Figure 5
+- where the Reddit result is mentioned in the paper
+
+If any value cannot be recovered from the original experiment, explicitly say:
+
+"Not independently recoverable from the supplied project artifacts."
+
+Do NOT fill the gap with an estimate.
+
+--------------------------------------------------
+E. FIGURE-BY-FIGURE VERIFICATION
+--------------------------------------------------
+
+Create a table:
+
+| Figure | What it shows | Final source | Final values | Updated? | Visual verification? |
+
+At minimum cover:
+
+Figure 4
+Figure 5
+Figure 6
+Figure 7
+Figure 8a
+Figure 8b
+Figure 8c
+
+For each figure explain:
+
+- what experiment/data generated it
+- whether it was regenerated
+- whether the old image was replaced
+- whether the displayed numbers match the manuscript
+- whether the figure was visually inspected in the final rendered paper
+
+For Figure 8c specifically state:
+
+- application version/source used
+- that the application was opened in Chrome
+- Analyzer page used
+- final displayed metrics
+- screenshot filename
+- whether the screenshot came from the live application
+- whether it replaced the old screenshot
+
+--------------------------------------------------
+F. PRICE-FREE ABLATION
+--------------------------------------------------
+
+State:
+
+- exact cohort
+- n
+- features removed
+- features retained
+- final rho
+- script filename
+- whether the script was actually executed
+- execution result
+- manuscript location where the result appears
+
+If the original 0.475 result was changed, explain why.
+
+--------------------------------------------------
+G. TABLE 1 EVALUATION
+--------------------------------------------------
+
+State:
+
+- final threshold methodology
+- whether threshold uses training data only
+- final early-stopping methodology
+- whether an inner split is used
+- final classification metrics
+- whether any old optimistic metrics were replaced
+- exact table location in the manuscript
+
+--------------------------------------------------
+H. SURVEY LITERATURE VERIFICATION
+--------------------------------------------------
+
+For each:
+
+1. Shan
+2. Sayyad
+3. Alantari
+4. Wang
+
+Provide:
+
+| Paper | Claim in Survey | Verified value | Exact source location | Corrected? | Final status |
+
+The "Exact source location" should identify the table, figure, section, page, or equivalent location in the original paper.
+
+Do not merely say "paper verified."
+
+If a number could not be confirmed, explicitly mark it:
+
+NOT VERIFIED — REMOVED/QUALIFIED
+
+--------------------------------------------------
+I. CITATION AND REFERENCE AUDIT
+--------------------------------------------------
+
+Report:
+
+- number of in-text citations checked
+- number of references checked
+- missing references
+- unused references
+- numbering problems
+- citation/reference mismatches
+- DOI/title/year problems
+- final status
+
+If everything is clean, explicitly state:
+
+"All checked in-text citations map to the intended references and no unresolved numbering mismatch was found."
+
+Only say this if actually checked.
+
+--------------------------------------------------
+J. KNOWN ISSUE / STALE VALUE SEARCH
+--------------------------------------------------
+
+Explicitly report the final search results for:
+
+- n = 66
+- rho = 0.545
+- unsupported brand-tier rho ≈ 0.41
+- old Figure 8 values:
+  0.595
+  8.65
+  11.17
+- old extraction label "43.6K rows"
+- contradictory 43,599 extraction wording
+- unexplained 32,477/29,410 usage
+- unsupported price-free 0.475
+- stale Reddit claims
+
+For each, state:
+
+FOUND / REMOVED / RETAINED WITH JUSTIFICATION
+
+and explain why.
+
+--------------------------------------------------
+K. FILES AND ARTIFACTS CHANGED
+--------------------------------------------------
+
+List EVERY file changed.
+
+For each:
+
+| File | Action | Reason |
+
+Examples:
+
+- Research paper DOCX
+- Survey paper DOCX
+- Figure 5
+- Figure 8c screenshot
+- model script
+- price-free reproducibility script
+- application source
+- benchmark configuration
+- generated PDF
+
+Do not omit files just because the change was small.
+
+--------------------------------------------------
+L. FINAL PAPER CONSISTENCY
+--------------------------------------------------
+
+Give a final table:
+
+| Check | Research Paper | Survey Paper | Status |
+|---|---|---|---|
+
+Check:
+
+- dataset counts
+- extraction counts
+- model cohort
+- model metrics
+- figures
+- tables
+- captions
+- methodology
+- literature claims
+- citations
+- references
+- terminology
+- 631 vs 640
+- 29,410 vs 32,477
+- Reddit
+- price-free ablation
+
+--------------------------------------------------
+M. FINAL SOURCE-OF-TRUTH STATEMENT
+--------------------------------------------------
+
+End the report with a short explicit statement answering:
+
+"Are all final numerical claims in the papers traceable to either:
+1. the actual project data/code/experiment output, or
+2. the original cited research paper?"
+
+Answer:
+
+YES / NO
+
+If NO, list every remaining exception.
+
+Also state:
+
+- what was changed
+- what was intentionally NOT changed
+- what could not be independently recovered
+- whether any result remains based on an old run
+- whether any figure remains based on an old screenshot
+
+--------------------------------------------------
+N. FINAL VERDICT
+--------------------------------------------------
+
+Give exactly one of:
+
+READY FOR FINAL SUBMISSION
+
+or
+
+NOT READY — REMAINING ISSUES
+
+If "NOT READY", list ONLY the concrete blockers.
+
+Do not create new speculative concerns at this stage.
+
+IMPORTANT:
+The report must distinguish between:
+
+1. VERIFIED FROM ORIGINAL EXPERIMENT
+2. VERIFIED FROM PROJECT DATA/CODE
+3. VERIFIED FROM ORIGINAL EXTERNAL PAPER
+4. REPRODUCED INDEPENDENTLY BUT NOT IDENTICAL
+5. NOT RECOVERABLE FROM AVAILABLE ARTIFACTS
+
+Do not label category 4 or 5 as fully verified.
+
+The purpose of this final report is to create a permanent audit trail so that the next verifier can understand exactly where every important number came from.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-04T19:13:35+05:30.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Opus 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

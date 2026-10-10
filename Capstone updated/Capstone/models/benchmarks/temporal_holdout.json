@@ -1,0 +1,17 @@
+{
+  "n": 66,
+  "rho": 0.545,
+  "ci": [
+    0.352,
+    0.694
+  ],
+  "auc": 0.901,
+  "protocol": "temporal: train first_review_ts<=2021-10, test newer via frozen bridging",
+  "by_cat_n": {
+    "bluetooth_speakers": 7,
+    "ice_makers": 16,
+    "power_banks": 12,
+    "smartwatches": 18,
+    "wireless_headphones": 13
+  }
+}

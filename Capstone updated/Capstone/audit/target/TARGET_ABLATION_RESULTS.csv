@@ -1,0 +1,9 @@
+Experiment / Target Condition,Target Components,Test Sample Size n,Spearman rho,p-value,AUC (Top vs Bottom Quintile),RMSE,Scientific Interpretation
+Experiment A (Deployed Launch-Blind),Composite SuccessScore (40/35/25),124,0.562,1.09e-11,0.890,21.12,Primary launch-blind result from pre-launch specifications alone via LLM bridging
+Experiment B (Oracle Review Aspects Ceiling),Composite SuccessScore (40/35/25),124,0.754,3.24e-24,0.992,15.42,Ceiling achievable if experiential aspect quality were perfectly known at launch
+Target Ablation: Volume Only,Volume Norm (100/0/0),124,0.509,1.57e-09,0.852,23.40,Evaluates model ability to forecast review popularity/adoption alone
+Target Ablation: Rating Only,Rating Norm (0/100/0),124,0.319,2.99e-04,0.724,26.15,Evaluates model ability to forecast post-launch consumer satisfaction alone
+Target Ablation: Velocity Only,Velocity Norm (0/0/100),124,0.312,4.20e-04,0.718,25.80,Evaluates model ability to forecast review velocity/recency alone
+Target Ablation: Leave-Out-Volume,Rating + Velocity (0/58/42),124,0.384,1.05e-05,0.765,24.10,"Removing volume substantially degrades ranking power, confirming volume as primary signal"
+Target Ablation: Leave-Out-Rating,Volume + Velocity (62/0/38),124,0.516,8.48e-10,0.860,22.05,Model remains strong on adoption/velocity even when satisfaction is omitted
+Target Ablation: Leave-Out-Velocity,Volume + Rating (53/47/0),124,0.562,1.17e-11,0.891,20.95,Velocity omission has negligible effect on overall ranking

@@ -1,0 +1,5 @@
+Target Component,Raw Source File,Raw Field,Transformation Applied,Fitting Scope,Frozen Parameters,Code Location
+volume_norm,data/final/reviews_physical.json,review_uid count,np.log1p(count) -> min-max,Pre-cutoff products (n=507),"vol_min, vol_max per category",src/training/label_engineering.py:137
+rating_norm,data/final/products_physical.json,avg_rating,linear identity -> min-max,Pre-cutoff products (n=507),"rat_min, rat_max per category",src/training/label_engineering.py:138
+velocity_norm,data/final/reviews_physical.json & products_physical.json,"first_review_ts, latest_review_ts, count","count / max(months, 1.0) -> min-max",Pre-cutoff products (n=507),"vel_min, vel_max per category",src/training/label_engineering.py:139
+success_score,Derived composite,"vn, rn, veln",100 * (0.4*vn + 0.35*rn + 0.25*veln),Pre-cutoff products (n=507),"Composite weights (0.40, 0.35, 0.25)",src/training/label_engineering.py:146

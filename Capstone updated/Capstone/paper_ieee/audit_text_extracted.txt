@@ -1,0 +1,1148 @@
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 1
+Detailed Technical Audit: Research Paper + Survey
+Paper
+IEEE-oriented scientific review, consistency audit, statistical validation audit, figure/table audit, and
+correction plan
+Files audited: “Hybrid E-com AI Survey Paper (Formatted)” (17 pages) and “Launch-Blind Product Viability” (21 pages). The audit
+uses the supplied documents as the primary source of truth and adds a limited external verification pass for IEEE requirements and
+selected bibliography items.
+Overall conclusion: the research paper contains a substantially stronger and more defensible methodology than the
+current survey paper describes. The research paper is not yet submission-ready because several numerical/figure
+inconsistencies, provenance gaps, evaluation-definition gaps, and IEEE-format issues remain. The survey should be
+revised after the research paper is frozen, using the research paper's final methodology and results as the source of
+truth.
+1. Executive decision
+Area
+Current status
+Priority
+Decision
+Research concept
+Strong and coherent: historical review learning +
+specification-to-aspect bridging + launch-blind prediction.
+—
+Keep
+Research paper methodology
+Defensible core, but several protocol details are under-specified.
+P0/P1
+Fix before submission
+Research paper results
+Useful external holdouts, but Figure 6 conflicts with the text and
+some metrics need clearer definitions/CIs.
+P0
+Recompute/regenerate
+Research paper figures
+Several figures contain stale sample size or over-interpretive
+labels; Figure 3's verdict is not supported by all metrics.
+P0/P1
+Regenerate
+Survey methodology
+Currently describes an older, simpler LLM→XGBoost system
+rather than the actual launch-blind research system.
+P0
+Rewrite proposed-method section
+Survey results comparison
+Figure 1 mixes accuracy and AUC from different tasks and is
+misleading.
+P0
+Replace
+References
+Survey numbering is not IEEE citation order; selected
+metadata/citation descriptions are wrong or need verification.
+P0/P1
+Renumber and verify
+IEEE formatting
+Neither document is safely treated as final IEEE submission
+formatting; research paper also lacks a standard affiliation block.
+P0
+Move into target IEEE template
+Key point: do not throw away the research paper. The main architecture is worth retaining. The immediate goal is to
+make the evidence, data provenance, figures, and claims line up exactly.
+2. Highest-priority findings
+ID
+Finding
+Paper
+Severity
+What to do
+R-01
+Figure 6 reports ρ≈0.437 and AUC=0.826, while the text reports
+ρ=0.529 and AUC=0.903 for the same holdout.
+Research
+P0
+Recompute from frozen predictions;
+regenerate figure and all dependent text.
+R-02
+Abstract CI [0.31,0.61] conflicts with validation CI [0.377,0.654].
+Research
+P0
+Use the exact bootstrap output everywhere.
+R-03
+Figure 1/3 artwork says n=732, while the cleaned dataset and
+captions say n=631.
+Research
+P0
+Regenerate figures from the final
+631-product analysis object.
+R-04
+Figure 3's “BEST/Good/Weak” verdict overstates XGBoost's overall
+dominance; Gradient Boosting wins several classification-derived
+metrics and ties AUC.
+Research
+P0
+Remove verdict column or predefine a
+primary metric hierarchy.
+R-05
+The final launch-blind pipeline depends on category profiles, but it
+is not explicit enough that every profile component is training-only
+in each holdout.
+Research
+P0
+Add a feature-provenance/leakage table
+and audit every input.
+R-06
+Specification/launch-date acquisition is not sufficiently
+reproducible: the paper does not say exactly where launch-day
+specifications came from or how launch dates were established.
+Research
+P0
+Document source, retrieval/archive method,
+date, fields, and availability rules.
+R-07
+Brand-recognition tier is used in the headline model but its
+construction and launch-time availability are not defined.
+Research
+P0
+Define it and prove it uses only pre-launch
+information; otherwise remove it.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 2
+ID
+Finding
+Paper
+Severity
+What to do
+S-01
+Survey describes a different methodology and an inconsistent
+dataset (43.6k/640/5 vs 74k/1,051/Amazon+Google Play).
+Survey
+P0
+Rewrite the proposed method and dataset
+from the research paper.
+S-02
+Survey Figure 1 compares literature classification accuracy against
+proposed AUC.
+Survey
+P0
+Separate tasks/metrics; do not put them on
+one performance ranking bar chart.
+S-03
+Survey Table 2 contains “Target R²>0.90” and “TBD” instead of
+final results.
+Survey
+P0
+Replace with actual validated results or
+remove the table row.
+S-04
+Survey reference numbering is not in IEEE first-citation order and
+has large numbering gaps.
+Survey
+P0
+Renumber all citations and references after
+content is frozen.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 3
+3. Research paper — detailed audit
+Source of truth used for this section: the supplied 21-page research paper. Page numbers below refer to that PDF.
+R-01 — P0 — Research
+Location: p.13, Fig. 6
+Issue: The plotted holdout statistic is ρ=0.437 with AUC=0.826 and CI [0.28,0.58], while the surrounding text, Table 2, abstract,
+and conclusion use ρ=0.529 and AUC=0.903.
+Why it matters: This is not a cosmetic difference. A reviewer cannot know which result is the actual experiment.
+Required correction: Freeze the holdout prediction file and regenerate the scatter plot from the exact same 118 predictions used
+for the reported statistics. Then update abstract, Table 2, text, caption, and conclusion from that single result object.
+Verification / evidence needed: Also verify whether the figure was generated from an earlier model version. Do not manually edit the annotation;
+regenerate it.
+R-02 — P0 — Research
+Location: p.1 vs p.12
+Issue: The abstract gives 95% CI [0.31,0.61], while the validation section gives bootstrap 95% CI [0.377,0.654].
+Why it matters: Conflicting uncertainty intervals are a direct reproducibility problem.
+Required correction: Use one exact bootstrap procedure and report its exact interval everywhere.
+Verification / evidence needed: Store the random seed, bootstrap method, resampling unit, number of resamples, and statistic used.
+R-03 — P0 — Research
+Location: p.9–10, Fig. 1 and Fig. 3
+Issue: The chart artwork states n=732 even though the final cleaned dataset is 631 products and the captions/table text state
+n=631.
+Why it matters: This creates an immediate credibility problem and suggests figures came from an earlier experiment.
+Required correction: Regenerate all model-comparison figures from the final 631-row analysis dataset.
+Verification / evidence needed: Search every figure/table caption and embedded image for 640, 631, 732, 118, 125, 505, 513 and reconcile each number.
+R-04 — P0 — Research
+Location: p.10, Fig. 3
+Issue: The “BEST/Good/Weak” verdict implies an overall ranking, but Gradient Boosting has higher accuracy, precision, recall,
+specificity, F1 and ties AUC; XGBoost leads the primary regression metrics and ties AUC.
+Why it matters: The current verdict is not a neutral statistical summary and is not supported by a predeclared decision rule.
+Required correction: Remove the verdict column. State a predeclared selection rule such as: R² is the primary regression metric,
+RMSE secondary, AUC an auxiliary extreme-quintile diagnostic, runtime tertiary.
+Verification / evidence needed: If you want a model-selection score, define it before evaluation and report how it is calculated.
+R-05 — P0 — Research
+Location: p.7, p.10–14
+Issue: The paper says category priors are training-only in the random holdout, but the bridging prompt uses price quartiles, mean
+aspect scores, pain points and strengths. It is not explicit that every one of these profile elements is computed only from training
+data for every holdout.
+Why it matters: Any post-launch or test-product information entering the category profile would violate the launch-blind claim.
+Required correction: Add a “feature provenance and leakage guard” table listing every serving input, its source, timestamp, and
+whether it is computed from training-only data.
+Verification / evidence needed: For both holdouts, verify category statistics, pain points, strengths, calibration reference distributions, and trust weights are
+frozen before test predictions.
+R-06 — P0 — Research
+Location: p.12, p.18
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 4
+Issue: The paper says the bridge sees “launch-day spec sheets and marketing copy” but does not give a reproducible acquisition
+protocol for those specifications or launch dates.
+Why it matters: The entire launch-blind claim depends on what was actually available on launch day.
+Required correction: Document the exact source of each specification, how launch date was obtained, how pages were
+archived/recovered, and what fields were retained.
+Verification / evidence needed: Add a small appendix/data card describing the specification source and date-provenance rules. If launch date is proxied by
+first review date, say so explicitly.
+R-07 — P0 — Research
+Location: p.7, p.17
+Issue: Brand-recognition tier is a headline feature, but the construction is not defined. The application also conditions on
+company/product maturity, which is not clearly mapped to the training feature list.
+Why it matters: An undefined feature can hide leakage or make the experiment irreproducible.
+Required correction: Define exact bins, data source, cutoff date, and mapping from brand/product maturity to the model feature. If
+the tier uses post-launch popularity, remove it from the launch-blind model.
+Verification / evidence needed: Run a no-brand-tier ablation and report the effect on both holdouts.
+R-08 — P0 — Research
+Location: p.6, p.12
+Issue: The success label is min–max normalized within category. The paper does not explicitly state whether category min/max
+parameters for evaluation targets and training labels are fitted only on the training split.
+Why it matters: For pooled holdout Spearman, using test-set extrema to normalize the target can leak test distribution information
+and can change between-category ordering.
+Required correction: Fit label-scaling parameters on training data only for each evaluation split; apply them to the test outcomes.
+For within-category Spearman/AUC, the issue is less consequential, but pooled metrics must use a clean protocol.
+Verification / evidence needed: Recompute pooled metrics under the training-only scaling rule and compare with current results.
+R-09 — P0 — Research
+Location: p.13
+Issue: Temporal split uses 505 training + 125 test = 630 products, while the cleaned dataset contains 631.
+Why it matters: One product is unaccounted for, which invites questions about filtering, missing launch date, or exclusion.
+Required correction: State exactly why one product is omitted and include it in the sample-flow diagram.
+Verification / evidence needed: Add a temporal split table with total eligible, excluded, training, validation/CV, and test counts.
+R-10 — P0 — Research
+Location: p.6–7
+Issue: The paper says the LLM sees star rating as context but is “banned as a source of scores.” Because the target contains
+rating, the model can still use the rating implicitly.
+Why it matters: This is a subtle target-proxy concern: LLM-generated aspect scores may encode the star rating even if the prompt
+says not to.
+Required correction: Run a controlled extraction ablation with rating hidden from the LLM. Compare aspect-score correlation,
+model performance, and score distributions. If the difference is material, use the rating-blinded extraction for the headline model.
+Verification / evidence needed: Add a human/automatic check for rating leakage into aspect outputs.
+R-11 — P1 — Research
+Location: p.6
+Issue: Only 30 reviews were hand-validated, checking null behavior and evidence phrase presence.
+Why it matters: Thirty examples are a useful engineering gate but weak evidence for the quality of 43,000+ automated
+annotations.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 5
+Required correction: Call it a “smoke-test/format gate,” not a validation of ABSA quality. Add a stratified manual annotation study
+on a substantially larger sample with at least two annotators.
+Verification / evidence needed: Report aspect presence precision/recall/F1 and score agreement (e.g., MAE or correlation), plus inter-annotator
+agreement.
+R-12 — P1 — Research
+Location: p.6
+Issue: The 0–10 aspect score scale is not accompanied by a detailed scoring rubric.
+Why it matters: Without anchors, an 8 vs 6 is model-dependent and difficult to reproduce across providers.
+Required correction: Include score anchors (e.g., what 0, 2, 5, 8, 10 mean) and one or two examples per aspect in an appendix.
+Verification / evidence needed: Evaluate score stability across providers and repeated calls.
+R-13 — P1 — Research
+Location: p.6
+Issue: Multi-provider extraction uses Gemini Flash, Llama-3.3-70B, Cerebras, Mistral and SambaNova, but exact model
+IDs/versions are not consistently specified.
+Why it matters: Hosted model aliases can change; reproducibility requires exact model/version and date.
+Required correction: Record exact provider + model ID + API version + temperature + max tokens + schema version + date.
+Verification / evidence needed: Add a provider audit table: valid JSON rate, skipped rate, latency, cost if available, and agreement.
+R-14 — P1 — Research
+Location: p.7
+Issue: The paper states monotonic constraints improve out-of-sample generalization, but no unconstrained-vs-constrained result is
+shown.
+Why it matters: That is an empirical claim requiring evidence.
+Required correction: Add a paired ablation: unconstrained XGBoost vs monotone-constrained XGBoost on identical splits.
+Verification / evidence needed: Report CV R²/RMSE and both external holdouts. Also report whether the constraint changes category-level behavior.
+R-15 — P1 — Research
+Location: p.7
+Issue: Price is constrained to be non-increasing and brand tier/aspects to be non-decreasing.
+Why it matters: These are modeling assumptions, not discovered causal effects.
+Required correction: Phrase them as constraints: “the model was constrained so…” rather than “viability falls…” as an empirical
+finding.
+Verification / evidence needed: Run an unconstrained sensitivity analysis and explain the domain rationale for each sign.
+R-16 — P1 — Research
+Location: p.14
+Issue: Price-free ablation reports r=0.147 with price percentile and calls the signal “largely orthogonal.”
+Why it matters: r=0.147 is better described as weakly correlated; no confidence interval is supplied.
+Required correction: Report Pearson or Spearman explicitly, with CI, and use “weakly correlated” unless a formal orthogonality
+criterion is defined.
+Verification / evidence needed: Add a scatter/rank plot only if it helps; otherwise a small ablation table is enough.
+R-17 — P1 — Research
+Location: p.12–14
+Issue: The primary external metric is pooled Spearman, but the paper itself says pooled values benefit from between-category
+structure; within-category temporal ρ falls to 0.16.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 6
+Why it matters: A reviewer may view 0.590 pooled as an optimistic headline if the practical question is ranking products within their
+category.
+Required correction: Report per-category ρ and AUC, plus macro-average and pooled metrics. Make the temporal within-category
+result prominent rather than burying it.
+Verification / evidence needed: Add a category-by-category validation table with n, Spearman ρ, CI, AUC, and failure/abstention rate.
+R-18 — P1 — Research
+Location: p.12–14
+Issue: AUC is computed for top-vs-bottom quintiles, not the whole product population. Confusion-matrix totals also need protocol
+clarification.
+Why it matters: Extreme-quintile classification is a useful diagnostic but is not general binary classification accuracy.
+Required correction: Rename it consistently to “top-vs-bottom quintile AUC.” Explicitly state that the middle 60% is excluded.
+Define whether quintiles are fixed globally or recomputed within each fold.
+Verification / evidence needed: Recompute pooled confusion matrices from out-of-fold predictions and verify that sample counts match the stated labeling
+rule.
+R-19 — P1 — Research
+Location: p.10
+Issue: Figure 4 uses “flop” and “hit” labels.
+Why it matters: The paper defines a flop as bottom-quintile survivor, not a product that sold poorly in an absolute sense.
+Required correction: Use “bottom-quintile” and “top-quintile” throughout figures/tables unless you explicitly define the shorthand.
+Verification / evidence needed: This also aligns better with the survivorship limitation.
+R-20 — P1 — Research
+Location: p.7–9
+Issue: Runtime comparisons are based on one reported run and lack hardware/software details.
+Why it matters: Training time can vary substantially by CPU/GPU, BLAS, thread count, and implementation.
+Required correction: Either remove runtime as a model-selection argument or report hardware, library versions, thread count,
+repeats and mean±SD.
+Verification / evidence needed: If runtime is kept, benchmark all methods under the same environment.
+R-21 — P1 — Research
+Location: p.12–15
+Issue: AUC CIs are not reported for the two primary holdouts, despite small extreme-class samples.
+Why it matters: AUC can be unstable when the top/bottom groups are small.
+Required correction: Add bootstrap CIs for AUC and, ideally, per-category AUC CIs.
+Verification / evidence needed: Report the number of positives/negatives used for each AUC.
+R-22 — P1 — Research
+Location: p.15
+Issue: Trust tiers (STRONG/MODERATE/WEAK) appear to be assigned after observing correlations, but thresholds are not
+defined before validation.
+Why it matters: Post-hoc tier boundaries can overfit the same validation set they summarize.
+Required correction: Either predefine thresholds using training data or avoid categorical tiers and show continuous fidelity with
+uncertainty.
+Verification / evidence needed: If tiers remain, freeze the thresholds before the final holdout and report them in Method.
+R-23 — P1 — Research
+Location: p.10–18
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 7
+Issue: The “confidence” and abstention mechanism is described, but there is no calibration/coverage evaluation.
+Why it matters: A weighted score is not automatically a calibrated confidence estimate.
+Required correction: Add a risk–coverage curve: as the system abstains on low-confidence cases, how does error change?
+Report coverage at several thresholds and calibration between predicted confidence and observed error.
+Verification / evidence needed: Use training-only data to set thresholds; evaluate once on the external holdout.
+R-24 — P1 — Research
+Location: p.10, p.17
+Issue: The 0–100 rank-calibrated viability range and percentile reference distribution are not fully specified.
+Why it matters: If the reference distribution contains test products, calibration leaks test information.
+Required correction: Define the reference set and fit it on training data only for each split.
+Verification / evidence needed: Add a calibration diagram or at least a table showing coverage/error of the reported ranges.
+R-25 — P1 — Research
+Location: p.6
+Issue: The 0.40/0.35/0.25 target weights are design choices with no sensitivity analysis.
+Why it matters: The model is trained to a constructed target; conclusions may depend on those weights.
+Required correction: Run label-weight sensitivity analyses: equal weights and several plausible alternatives. Report how
+Spearman/AUC and product ordering change.
+Verification / evidence needed: State clearly that the target is a review-derived viability proxy, not sales.
+R-26 — P1 — Research
+Location: p.6
+Issue: Review velocity is not precisely defined in terms of observation window and product age.
+Why it matters: A product with different exposure time can have a different velocity statistic; the target may partly reflect
+observation-window choices.
+Required correction: Define velocity mathematically and use a common post-launch observation window if possible, or justify the
+exposure normalization.
+Verification / evidence needed: Run a sensitivity analysis using a fixed review window.
+R-27 — P1 — Research
+Location: p.5–6
+Issue: The fraud filter thresholds (>40% in 14 days, >30% near duplicates, Jaccard >0.7, J-shaped ratings) are heuristic and not
+validated.
+Why it matters: The filter can remove legitimate launches or fail sophisticated manipulation.
+Required correction: Add a short rationale or sensitivity analysis showing results with and without the filter.
+Verification / evidence needed: Report the nine removed products by category and the exact exclusion reason counts.
+R-28 — P1 — Research
+Location: p.18
+Issue: Survivorship bias is acknowledged, but no sensitivity analysis is possible because products with <5 reviews are absent.
+Why it matters: This limitation directly constrains what “success” means.
+Required correction: Keep the limitation, but avoid language implying the model can detect absolute flops. Consider future
+external data with sales/rank information.
+Verification / evidence needed: Use “survivor-product viability ranking” where precision is important.
+R-29 — P1 — Research
+Location: p.17
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 8
+Issue: The spec coach asks questions “ordered by how much each answer would sharpen the prediction,” but no experiment
+proves that ordering.
+Why it matters: This is a product feature claim, not a validated research result.
+Required correction: Either evaluate the coach with a small user study/ablation or describe it as an implementation heuristic.
+Verification / evidence needed: Do not present it as experimentally validated unless tested.
+R-30 — P2 — Research
+Location: throughout
+Issue: Several phrases are rhetorical rather than scientific: “only honest thing,” “default to beat,” “not in dispute,” “answers the most
+common objection,” “oracle they should not trust.”
+Why it matters: They make the paper sound argumentative and can distract from the empirical contribution.
+Required correction: Replace with neutral, testable language.
+Verification / evidence needed: Keep the strong limitations; remove rhetorical framing.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 9
+4. Research paper — evaluation redesign
+The current evaluation is promising, but the following additions would make it much harder for a reviewer to challenge the central
+claim.
+Analysis
+Current paper
+Recommended final analysis
+Why it matters
+Main launch-blind holdout
+n=118; pooled ρ/AUC
+Recompute exact predictions; report ρ + 95% CI, AUC + 95%
+CI, MAE/RMSE if score is continuous
+Primary external evidence
+Temporal holdout
+n=125; pooled ρ/AUC
+Same metrics + per-category and macro-average metrics
+Shows whether signal survives
+time/category shift
+Per-category performance
+Only mean within-category ρ
+Five-category table with n, ρ, CI, AUC, CI, RMSE
+Reveals where method actually works
+Price baseline
+ρ=.386
+Add category-mean baseline, price-only model, random/rank
+baseline, and price-free proposed model
+Shows incremental value beyond price
+Model ablation
+Aspects-only R²=.566;
+price/brand effects partly shown
+Full factorial ablation: aspects; +price; +brand; +category;
+constrained vs unconstrained
+Quantifies each design choice
+LLM extraction validation
+30-review gate
+Human annotation study, inter-rater agreement, aspect
+detection F1, score MAE/correlation
+Validates the measurement layer
+Rating-blind extraction
+Not tested
+Repeat ABSA without star-rating input
+Tests hidden target-proxy leakage
+Confidence/abstention
+Mechanism described
+Risk-coverage curve + calibration/coverage table
+Turns “confidence” into measured reliability
+Target sensitivity
+One 40/35/25 label
+Alternative weightings + rank stability
+Tests dependence on arbitrary label
+engineering
+Specification bridge
+Aspect r values
+Per-aspect calibration, category-specific bridge error, provider
+sensitivity
+Shows whether the bridge is reliable
+Recommended primary result table
+Model / evaluation
+Spearman ρ
+95% CI
+AUC (top/bottom quintile)
+AUC 95% CI
+Within-category ρ
+Leakage-controlled holdout (n=118)
+0.529*
+RECOMPUTE / freeze
+0.903*
+ADD
+0.39*
+Forward temporal holdout (n=125)
+0.590
+[0.486,0.696]
+0.942
+ADD
+0.16
+Price-only baseline
+0.386
+ADD
+ADD
+ADD
+ADD
+Price-free proposed
+0.475
+ADD
+ADD
+ADD
+ADD
+*Use the exact final recomputed values. Do not retain conflicting figure annotations.
+Recommended ablation table
+Variant
+Launch-blind inputs
+Purpose
+A0
+Category prior only
+Lower-bound / naive baseline
+A1
+Price only
+Measures price signal
+A2
+LLM aspects only
+Measures semantic signal
+A3
+Aspects + price
+Headline signal without brand
+A4
+Aspects + price + brand tier
+Tests brand contribution
+A5
+Aspects + price + brand + category
+Full headline feature set
+A6
+A5, unconstrained
+Tests whether monotonic constraints help
+A7
+A5, rating-blind extraction
+Tests hidden rating leakage
+Recommended new figures
+Figure
+What it should show
+Priority
+New Fig. 1
+Final launch-blind architecture: historical review learning → bridge → XGBoost → confidence/abstention.
+P0
+New Fig. 2
+Holdout predicted vs actual viability, regenerated from final 118 predictions with exact ρ/AUC annotation.
+P0
+New Fig. 3
+Temporal holdout: predicted vs actual or rank-vs-rank, with ρ/AUC and CI.
+P1
+New Fig. 4
+Per-category Spearman ρ with 95% CIs for random and temporal holdouts.
+P1
+New Fig. 5
+Risk–coverage curve for confidence/abstention.
+P1
+New Fig. 6
+Unconstrained vs monotone-constrained performance across the same splits.
+P1
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 10
+Figure
+What it should show
+Priority
+New Fig. 7
+Per-aspect bridging fidelity with CIs, plus sample counts.
+P1
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 11
+5. Survey paper — detailed audit
+The survey should be treated as a literature-and-methodology companion to the research paper. It must not describe an older
+version of the system.
+S-01 — P0 — Survey
+Location: p.1, Abstract
+Issue: The abstract says approximately 43,600 reviews / 640 products / five hardware categories, while Section 5 says 74,000+
+reviews / 1,051 products including Amazon and Google Play.
+Why it matters: The survey contradicts itself and the current research paper.
+Required correction: Use the research paper's final dataset: 43,000+ reviews, 640 initial products, five physical categories; 631
+after fraud filtering for model development.
+Verification / evidence needed: If a separate exploratory dataset really exists, label it separately and explain why it is not the final experiment.
+S-02 — P0 — Survey
+Location: p.1, p.10–12
+Issue: The proposed system is described as direct LLM ABSA + XGBoost on review features, but the actual research system is
+launch-blind: historical reviews train the aspect-success relationship, then a specification-to-aspect bridge supplies the new
+product's features.
+Why it matters: This is the central methodological mismatch between the papers.
+Required correction: Rewrite the proposed methodology around the two-stage learning/bridging pipeline.
+Verification / evidence needed: The survey's architecture figure, abstract, gap, results and conclusion must all use the same story.
+S-03 — P0 — Survey
+Location: p.6, Fig. 1
+Issue: Figure 1 places literature accuracy values (e.g. 98.43%) beside proposed AUC=0.743. These are different tasks and
+metrics.
+Why it matters: It visually implies the proposed method is weaker than sentiment classifiers even though the research task is
+different.
+Required correction: Replace with two panels or separate tables: literature sentiment-classification results vs launch-blind viability
+results.
+Verification / evidence needed: Caption must explicitly state that metrics are not directly comparable.
+S-04 — P0 — Survey
+Location: p.13, Table 2
+Issue: Proposed XGBoost row says “Target R²>0.90” and MAE/RMSE “TBD.”
+Why it matters: A submission cannot contain planned/TBD results in a final results table.
+Required correction: Replace with final actual results, or remove the proposed row from that literature-comparison table.
+Verification / evidence needed: Use the research paper's final external validation numbers in a separate launch-blind evaluation table.
+S-05 — P0 — Survey
+Location: References
+Issue: The references are numbered with large gaps and citations are not in IEEE first-citation order. The first citation in the paper
+is [42].
+Why it matters: IEEE numbered citations should be sequential by first appearance; the current numbering looks like an
+inherited/partially edited bibliography.
+Required correction: Renumber all references after the content is frozen.
+Verification / evidence needed: Do not manually patch individual numbers; regenerate the reference numbering globally.
+S-06 — P0 — Survey
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 12
+Location: p.4, p.9
+Issue: Reference [31] is attributed to “A. Mori et al.” but arXiv:2407.13069 is by Junichiro Niimi.
+Why it matters: This is a direct bibliographic error.
+Required correction: Replace author/title metadata and verify the claimed 8.3% figure against the actual paper before retaining it.
+Verification / evidence needed: If the exact 8.3% claim cannot be located in the source, delete the number or replace it with a verified result.
+S-07 — P0 — Survey
+Location: p.8, Section 4.1
+Issue: Hidayat et al. [24] is described as an LLM→structured-feature→regressor architecture using narrative operational logs, but
+the cited IEEE Access paper is a time-series discrepancy forecasting study using Chronos and multiple forecasting models.
+Why it matters: The cited source does not obviously support the architecture description currently assigned to it.
+Required correction: Re-read the source and either correct the description or replace it with a paper that genuinely demonstrates
+LLM text-to-structured-feature regression.
+Verification / evidence needed: Do not use it as the “closest architectural analog” unless the cited paper actually contains that architecture.
+S-08 — P0 — Survey
+Location: p.10–12
+Issue: The survey says the proposed dataset includes Google Play apps, but the actual research paper is restricted to five physical
+Amazon product categories.
+Why it matters: This makes the survey's methodology and claimed scope incompatible with the experiment.
+Required correction: Remove Google Play from the final proposed-method dataset unless it is a separate experiment with results.
+Verification / evidence needed: Keep the five final physical categories consistent across both papers.
+S-09 — P1 — Survey
+Location: p.1, p.7
+Issue: “F1-Score is the most trusted evaluation metric” is interpretive language; the cited review supports frequency/importance,
+not a universal trust ranking.
+Why it matters: It turns a descriptive literature statistic into an evaluative statement.
+Required correction: Use “most frequently reported metric” or quote the exact wording of the systematic review.
+Verification / evidence needed: Cite the Daza review directly.
+S-10 — P1 — Survey
+Location: p.5
+Issue: The statement that SVM is unsuitable because it is “binary” is technically too broad. SVM can be extended to
+multiclass/multilabel settings with appropriate output schemes.
+Why it matters: This is a factual simplification that a reviewer may catch.
+Required correction: Say that a standard single SVM classifier does not directly produce a nine-dimensional structured aspect
+vector; multiple classifiers/output schemes would be required.
+Verification / evidence needed: Avoid claiming that SVM itself is intrinsically binary-only.
+S-11 — P1 — Survey
+Location: p.3
+Issue: The lexicon formula is presented as “the mathematical foundation” of lexicon-based sentiment scoring, but it is one possible
+TF-IDF-weighted formulation, not a universal canonical equation.
+Why it matters: A survey should distinguish illustrative formulations from standard definitions.
+Required correction: Label it “one illustrative weighted lexicon scoring formulation” or remove the equation.
+Verification / evidence needed: Cite the method from the actual source if retained.
+S-12 — P0 — Survey
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 13
+Location: p.9
+Issue: The retry formula uses p≈0.85 from another source and concludes P(valid|3 retries)≈0.997. The actual research system
+does not report an observed p=0.85 and the attempts are not necessarily independent.
+Why it matters: The calculation is theoretical and the wording currently sounds like an empirical guarantee.
+Required correction: Change “guarantee” to “theoretical probability under an independence assumption,” use “three attempts”
+rather than “three retries,” and preferably report actual observed validity rate from the 43k run.
+Verification / evidence needed: If no measured p exists, remove the 0.997 figure from the survey.
+S-13 — P1 — Survey
+Location: p.10
+Issue: The survey says the local Ollama/Gemma model was evaluated and excluded, while the synthesis later lists Ollama in the
+technology stack.
+Why it matters: This creates an internal ambiguity about what is actually in production.
+Required correction: Separate “evaluated but excluded” from “production stack.”
+Verification / evidence needed: The final stack should match the research paper and deployed system exactly.
+S-14 — P0 — Survey
+Location: p.1, p.16
+Issue: The claim “no published study has combined…” is too absolute.
+Why it matters: A literature review can establish a gap within its search scope, not prove universal nonexistence.
+Required correction: Use “within the studies identified by this review, we found no…” and state search databases/date/criteria.
+Verification / evidence needed: Add the research paper's related prior-art distinction: Narayanan et al. pre-launch prediction uses pre-release e-WOM,
+whereas your setting uses specifications only.
+S-15 — P1 — Survey
+Location: p.16
+Issue: The conclusion says “single-source, single-model systems consistently underperform hybrid systems.”
+Why it matters: That is a broad comparative claim not demonstrated by the presented survey tables.
+Required correction: Either provide a systematic quantitative comparison or soften to “hybrid systems can combine
+complementary signals.”
+Verification / evidence needed: Do not infer universal superiority from heterogeneous studies.
+S-16 — P1 — Survey
+Location: p.8
+Issue: Figure 2 is labelled “Illustrative SHAP feature-importance ranking” but the caption says LLM aspects dominate and “confirm”
+added signal.
+Why it matters: An illustrative figure cannot serve as experimental evidence.
+Required correction: Either generate the figure from the actual trained model or label it explicitly as a conceptual illustration and
+remove empirical language.
+Verification / evidence needed: Use actual SHAP results from the research paper if available.
+S-17 — P1 — Survey
+Location: p.4, p.9
+Issue: The survey uses the LLM retry/majority-voting literature to motivate the system, but the actual research implementation uses
+validation/retry across providers, not majority voting.
+Why it matters: The mechanism should not be described as if it were the same method.
+Required correction: Describe your actual retry/provider-fallback mechanism and cite majority voting only as related robustness
+literature.
+Verification / evidence needed: Do not transfer a source's performance improvement to your own system.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 14
+S-18 — P1 — Survey
+Location: p.11
+Issue: The survey states zero-shot ABSA “eliminates” the need for labelled aspect data.
+Why it matters: It removes the need for task-specific labels for the prompted extraction stage, but does not eliminate the need for
+validation or outcome labels for the downstream model.
+Required correction: Use “reduces dependence on task-specific aspect labels for extraction.”
+Verification / evidence needed: Keep the downstream product-level success labels clearly separate.
+S-19 — P1 — Survey
+Location: p.12
+Issue: The survey says the aspects-only R²=0.566 is the “leakage-honest headline” but the actual research paper's primary
+launch-blind evidence is the external holdout/temporal performance.
+Why it matters: The survey's headline metric is not the same as the final research question.
+Required correction: Make the external launch-blind holdouts the primary evidence and R² the intermediate-model diagnostic.
+Verification / evidence needed: Align Abstract, Results and Conclusion.
+S-20 — P1 — Survey
+Location: p.1–17
+Issue: The survey does not sufficiently explain the specification-to-aspect bridge, category grounding, trust tiers, abstention, or the
+ice-maker boundary condition.
+Why it matters: These are now central to the actual research contribution.
+Required correction: Add dedicated subsections: “Specification-to-Aspect Bridging,” “Launch-Blind Validation,” and “Boundary
+Conditions.”
+Verification / evidence needed: Use the research paper's measured per-aspect fidelity and category results.
+S-21 — P2 — Survey
+Location: format
+Issue: The document is A4, single-column, with mixed 9/10/12 pt text and many manually formatted sections; it is not safely treated
+as final IEEE conference formatting.
+Why it matters: IEEE provides official templates and author tools; exact requirements depend on the target venue.
+Required correction: Move the final text into the exact IEEE template for the target venue.
+Verification / evidence needed: Do formatting only after technical content is frozen.
+S-22 — P2 — Survey
+Location: abstract
+Issue: The survey abstract is about 300 words by the supplied document text.
+Why it matters: IEEE conference guidance specifies a single-paragraph abstract up to 250 words.
+Required correction: Reduce to ≤250 words and remove unnecessary implementation detail.
+Verification / evidence needed: Use the final dataset and final launch-blind results.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 15
+6. Cross-paper consistency matrix — what must match exactly
+Topic
+Research paper final state
+Survey must say
+Status
+Problem
+Pre-launch / launch-blind product viability from specifications
+Same
+ALIGN
+Historical data
+43,000+ reviews; 640 initial products; five categories; 631 after
+filtering
+Same
+FIX SURVEY
+Categories
+Wireless headphones, Bluetooth speakers, smartwatches,
+power banks, ice makers
+Same
+FIX SURVEY
+Target
+Within-category composite of review volume, rating, velocity
+Same, with explicit caveat that it is a proxy
+ALIGN
+Headline model
+Leakage-prone rating/count/velocity removed; price retained;
+aspects + other pre-launch features
+Same
+FIX SURVEY
+Bridge
+Specification → estimated 9-aspect profile
+Must be central
+FIX SURVEY
+Final external evidence
+Holdout n=118; temporal n=125
+Same exact numbers after recomputation
+FIX BOTH
+Holdout result
+ρ=.529, AUC=.903 in text; figure conflicts
+Use frozen recomputed values
+FIX RESEARCH
+Temporal result
+ρ=.590, AUC=.942; within-cat ρ=.16
+Same, with pooled vs within-cat distinction
+ALIGN
+Confidence
+Reliability-weighted, but calibration not yet demonstrated
+Describe as mechanism, not calibrated probability until tested
+FIX BOTH
+Trust tiers
+Based on per-aspect bridge fidelity
+Need threshold definition and training-only derivation
+FIX RESEARCH
+Boundary
+Ice makers fail at bridging; personal electronics more
+expressive
+Include in survey discussion
+ADD SURVEY
+SHAP
+Relative product strengths/risks
+Use actual results, not illustrative claims
+FIX SURVEY
+System
+React + FastAPI + Docker; spec coach; analyzer
+Only include features that are actually implemented and
+evaluated
+VERIFY
+Cold start
+Specification-only inference, but trained on products that had
+reviews
+Avoid absolute “cold-start” claims; use
+“launch-blind/low-information” carefully
+FIX BOTH
+7. Correct scientific narrative for both papers
+The two papers should use the following exact conceptual chain. This is the cleanest version of your contribution:
+Historical consumer evidence → 43,000+ reviews → null-forcing LLM ABSA → nine consumer aspects → XGBoost
+learns aspect-profile/viability relationship → trained viability model.
+New product at launch → price + launch-available specifications + other verified pre-launch metadata →
+category-grounded specification-to-aspect bridge → estimated nine-aspect profile → trained XGBoost →
+viability/rank estimate → SHAP explanations + measured confidence + abstention.
+This distinction fixes the leakage concern that appeared in the earlier survey version: the new product's review count, rating and
+review velocity are not used as predictive inputs at inference time. They are part of the historical outcome used to teach the model
+what “viability” means.
+Important wording: the system is not predicting sales and is not predicting absolute failure for products with no
+market attention. The validated claim is a survivor-product, within-category viability ranking from launch-available
+specifications, with strong variation by category.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 16
+8. Figure and table audit
+Paper
+Current figure/table
+Problem
+Correction
+Research
+Fig. 1
+Chart text says n=732; final dataset is 631. Also mixes
+regression R² with classification metrics on one scale.
+Regenerate with n=631; separate regression and
+top/bottom-quintile classification panels.
+Research
+Fig. 2
+Runtime/accuracy language is ambiguous; R² is not
+“accuracy.”
+Rename to predictive performance and training
+efficiency; report benchmark environment.
+Research
+Fig. 3
+n=732 in artwork; “BEST/Good/Weak” overall verdict
+unsupported by all metrics.
+Remove verdict; use bold per-metric best values only.
+Research
+Fig. 4
+Confusion-matrix totals/protocol need verification; labels say
+flops/hits.
+Recompute from out-of-fold predictions and use
+bottom/top quintile labels.
+Research
+Fig. 5
+Architecture is good but needs explicit training-only
+category-profile boundary.
+Add a visual “TRAINING ONLY” wall around
+review-derived category statistics.
+Research
+Fig. 6
+Numerical annotation conflicts with text/Table 2.
+Regenerate from frozen holdout predictions.
+Research
+Fig. 7
+Useful, but trust-tier thresholds and confidence interpretation
+are not defined.
+Show exact CI method and define tier thresholds in
+Method; ideally validate thresholds.
+Research
+Fig. 8
+Good application evidence, but it is not itself model validation.
+Keep as system demonstration; do not treat UI as
+experimental evidence.
+Survey
+Fig. 1
+Accuracy vs AUC from different tasks is visually misleading;
+proposed result is outdated.
+Replace with literature landscape + separate
+launch-blind result panel.
+Survey
+Fig. 2
+Illustrative SHAP plot is described as confirming a result.
+Use actual SHAP or mark conceptual and remove
+evidence claim.
+Survey
+Fig. 3
+Should show the two-stage bridge architecture, not only
+review→LLM→XGBoost.
+Redraw to match research paper.
+Survey
+Fig. 4
+Theoretical retry curve uses an unverified p≈.85 as if it were
+system reliability.
+Replace with observed validity curve or remove.
+Survey
+Fig. 5
+Label weights figure is okay, but it should be clearly identified
+as target-label design, not learned importance.
+Retain with sensitivity-analysis discussion.
+Survey
+Fig. 6
+Algorithm-frequency chart is useful but should not imply
+performance superiority.
+Keep as literature-frequency evidence, not
+model-selection evidence.
+Survey
+Tables 2–3
+Mixed task metrics and TBD proposed values.
+Separate literature sentiment classification from your
+launch-blind viability evaluation.
+9. Minor but important scientific wording corrections
+Current style
+Use instead
+Reason
+“F1 is the most trusted metric”
+“F1 was the most frequently reported metric in the reviewed studies.”
+Descriptive, not evaluative.
+“no published study has…”
+“Within the studies identified by our review, we found no study that…”
+Limits the claim to the search
+scope.
+“SVM is binary-only”
+“A standard SVM classifier does not directly output a nine-dimensional aspect
+vector without multiple output models.”
+Technically precise.
+“P(valid)=0.997 guarantee”
+“Under an independence assumption and p=..., the theoretical probability after
+three attempts is...”
+Not an empirical guarantee.
+“viability falls as price rises”
+“The headline model is constrained so predicted viability cannot increase with
+price when other inputs are held fixed.”
+Distinguishes imposed monotonicity
+from causal effect.
+“orthogonal to price”
+“weakly correlated with price (r=0.147)”
+Orthogonality is stronger
+terminology.
+“flops/hits”
+“bottom-quintile/top-quintile survivors”
+Matches the target definition.
+“only honest thing”
+“the system exposes measured uncertainty and abstention conditions.”
+Scientific tone.
+“default to beat”
+“strong baseline for tabular prediction”
+Scientific tone.
+“answers the most common objection”
+“provides a temporal generalization check.”
+Avoids unsupported universal claim.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 17
+10. Literature/reference audit
+A limited external verification was performed for selected high-risk citations. The point is not to replace a full reference-manager
+check, but to identify citations that should be corrected before submission.
+Item
+Finding
+Action
+Daza et al. 2024
+The published article is IJIM Data Insights 4(2), article 100267, DOI
+10.1016/j.jjimei.2024.100267; it reviews 20 studies across four databases.
+Keep, but use exact metadata and describe
+its findings as reported frequencies/summary
+results.
+Shan et al. 2025
+IEEE Access 13, 51027–51041, DOI 10.1109/ACCESS.2025.3551666. The source
+supports ELECTRA 98.09%, BERT 95.28%, BiLSTM 96.09%.
+Correct survey reference title to the exact
+published title and retain task-specific
+context.
+Niimi / arXiv:2407.13069
+The cited “Mori et al.” source is actually Junichiro Niimi, “Dynamic Sentiment Analysis
+with Local Large Language Models using Majority Voting...”.
+Fix author metadata and verify the claimed
+8.3% number before using it.
+Elangovan & Subedha 2023
+Their paper reports XGBoost 91.60% as a comparison baseline on the CPAA dataset;
+their proposed APGWO-DLSA is 94.77%.
+Survey must not imply that XGBoost was their
+proposed method.
+Thomas & Jeba 2024
+Publisher page reports 98.43% accuracy, but currently displays an investigation notice.
+Use cautiously; verify current status and
+avoid making this paper a cornerstone of the
+survey's argument.
+Hou et al. 2024
+The paper introduces Amazon Reviews 2023; it describes a much larger source
+dataset than your filtered 43k-review sample.
+Cite it as the dataset source, then document
+your exact filtering/sampling pipeline
+separately.
+Hidayat et al. 2025
+The cited IEEE Access work is a Chronos/time-series discrepancy forecasting study.
+Do not describe it as an LLM
+narrative-to-regressor ABSA analogue unless
+the actual source supports that description.
+Survey reference-numbering problem
+The survey currently contains references such as [1]–[9], then [15], [16], [17], [18], [20], [24], [25], [31], [32], [35], [39]–[47]. The
+body also cites [42] before many lower numbers. This is not a clean IEEE numbered-reference sequence. After the content is
+finalized, renumber references by first appearance and regenerate all in-text citations automatically. Do not preserve the existing
+inherited numbers just to avoid editing the text.
+11. IEEE-format audit
+Requirement/check
+Research paper
+Survey paper
+Action
+Official IEEE template
+Custom layout
+A4 single-column Word layout
+Use exact target IEEE template.
+Abstract length
+~343 words
+~300 words
+Reduce to ≤250 words.
+Abstract style
+Contains rhetorical/strong claims
+Dense and method-heavy
+One paragraph; self-contained; no
+references/equations.
+Author block
+Only Raj Jagtap + explanatory note
+Multiple authors + affiliation
+Use target venue's exact
+author/affiliation format.
+Citations
+Author-year
+Numbered but not IEEE order
+Convert both to venue-required
+IEEE numeric style if
+conference/journal requires it.
+References
+Alphabetical author-year style
+Numbered, but inconsistent sequence
+Regenerate with IEEE bibliography
+style.
+Figures/tables
+Mostly good but stale numbers and
+unsupported verdicts
+Several illustrative figures presented too
+strongly
+Regenerate after analysis freeze.
+Page count
+21 pages
+17 pages
+Check the exact target venue limit;
+do not assume a generic IEEE limit.
+IEEE's Author Center states that conference abstracts should be a single paragraph up to 250 words, self-contained, with no references, footnotes, or
+mathematical equations, and recommends using the official IEEE templates and author tools. Exact page limits and formatting details remain venue-specific.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 18
+12. Recommended final revision sequence
+Step
+Do this
+Why first?
+1
+Freeze the actual dataset: 640 initial → 9 fraud-filter removals → 631 analysis products; document every
+exclusion.
+Prevents every downstream figure/table from
+drifting.
+2
+Freeze the target definition, normalization, velocity window, and label-weight sensitivity protocol.
+Defines what “viability” actually means.
+3
+Freeze feature provenance: specs, price, brand tier, category profile, pain points, calibration reference,
+trust weights.
+Closes hidden leakage paths.
+4
+Recompute the 118-product holdout from scratch and regenerate Figure 6.
+Resolves the largest numerical contradiction.
+5
+Recompute the 125-product temporal holdout and explain the missing 631st product.
+Makes the temporal experiment auditable.
+6
+Recompute top/bottom quintile AUC/confusion matrices from clearly defined labels.
+Fixes the classification diagnostic.
+7
+Run rating-blind ABSA extraction ablation.
+Tests hidden target-proxy leakage.
+8
+Run constrained vs unconstrained model ablation.
+Supports the monotonic-constraint claim.
+9
+Run per-category and macro-average evaluation with CIs.
+Prevents pooled metrics from hiding category
+failure.
+10
+Run confidence/abstention calibration and risk–coverage analysis.
+Validates the “honesty layer.”
+11
+Update research paper text/figures/tables/references.
+Research paper becomes the final source of
+truth.
+12
+Rewrite survey around the frozen research paper.
+Prevents the two papers diverging again.
+13
+Convert both into the exact IEEE template and regenerate references automatically.
+Formatting should be last, not first.
+14
+Run a final consistency script/search for all key numbers and terms.
+Catches stale 732/631, .437/.529, old AUC .743,
+Google Play, TBD, etc.
+13. Final pre-submission search list
+Run a literal text search across both final manuscripts for the following terms/numbers and confirm every occurrence is intentional:
+Numbers: 43,600, 43,000, 640, 631, 732, 1,051, 74,000, Google Play, 0.437, 0.529, 0.903, 0.826, 0.590, 0.942,
+0.743, 0.595, 0.566
+Claims/terms: 0.892, TBD, Target R², free-tier, Ollama, Mori, Hidayat, flop, hit, cold-start, no published, only
+honest, default to beat, orthogonal, 98.43%, 91.60%
+14. Submission-readiness verdict
+Paper
+If submitted now
+After required corrections
+Research paper
+Not ready: strong core, but numerical/figure inconsistencies
+and protocol gaps are too visible.
+Potentially strong IEEE-style experimental paper if the
+recomputation confirms the headline results and the
+provenance/ablation/calibration issues are addressed.
+Survey paper
+Not ready: methodology, dataset, figure comparison,
+references and proposed results are out of sync with the
+research paper.
+Good companion survey/framework paper after it is rewritten
+around the final launch-blind architecture and literature scope.
+Bottom line
+The central research idea is worth keeping. The biggest risk is not that the model is “too low accuracy”; it is that the
+paper currently contains several places where a reviewer can no longer tell which experiment generated which
+number. Fixing provenance and evaluation consistency is therefore more important than trying to increase a single
+headline metric. In particular, do not optimize the paper around the 0.590/0.942 pooled temporal result while hiding
+the 0.16 within-category temporal correlation. Present both: the pooled signal and the conservative within-category
+generalization result. That is scientifically stronger and much harder to criticize.
+15. External verification notes
+Selected external checks used for this audit:
+•
+IEEE Author Center — Structure Your Paper: conference abstract guidance (single paragraph, up to 250 words, self-contained).
+•
+IEEE Author Center — Authoring Tools and Templates: official IEEE templates and reference-validation tools.
+
+Detailed Technical Audit — Research Paper + Survey Paper
+Page 19
+•
+Daza et al. (2024), International Journal of Information Management Data Insights, 4(2), 100267, DOI
+10.1016/j.jjimei.2024.100267.
+•
+Shan, Sun & Macawile (2025), IEEE Access 13, 51027–51041, DOI 10.1109/ACCESS.2025.3551666.
+•
+Niimi (2024), arXiv:2407.13069 — the source currently attributed in the survey to “Mori et al.”
+•
+Elangovan & Subedha (2023), Engineering, Technology & Applied Science Research 13(3), 10989–10993, DOI
+10.48084/etasr.5787.
+•
+Hou et al. (2024), “Bridging Language and Items for Retrieval and Recommendation,” arXiv:2403.03952 — source describing
+Amazon Reviews 2023.
+This report is an audit and correction plan, not a claim that the proposed model is valid merely because the current
+numbers look promising. The decisive next step is to regenerate the affected analyses from the final frozen
+data/prediction artifacts and make both papers report those same verified outputs.

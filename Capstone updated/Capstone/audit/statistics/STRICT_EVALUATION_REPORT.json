@@ -1,0 +1,88 @@
+{
+  "evaluation_name": "Canonical Strict Temporal Holdout",
+  "cutoff_epoch": 1635724799,
+  "cutoff_date": "2021-10-31T23:59:59Z",
+  "prediction_file_sha256": "20ac4b1e670fe3f45fb79d3e3abe1ece191466b5a09a63d94ed413d871f627c2",
+  "ground_truth_file_sha256": "b04af56b5ab14391d6c2b8332b8ed8d467a0a3450ddea1c83839f5114812b5c9",
+  "n_evaluated": 124,
+  "metrics": {
+    "spearman_rho": 0.562,
+    "spearman_rho_exact": 0.5621423929124316,
+    "spearman_ci95_bootstrap": [
+      0.414,
+      0.681
+    ],
+    "p_value_asymptotic": 1.0939760990465129e-11,
+    "pearson_r": 0.62,
+    "pearson_p_value": 1.6433180050293803e-14,
+    "auc_roc_quintile": 0.89,
+    "auc_ci95_bootstrap": [
+      0.795,
+      0.968
+    ],
+    "auc_ci95_delong": [
+      0.804,
+      0.976
+    ],
+    "rmse": 21.12,
+    "mae": 17.84,
+    "r2_score": 0.2306,
+    "mean_within_category_rho": 0.207
+  },
+  "mature_cohort_ge30": {
+    "n": 51,
+    "spearman_rho": 0.631,
+    "spearman_ci95_bootstrap": [
+      0.413,
+      0.778
+    ],
+    "p_value": 6.781444816393366e-07,
+    "auc": 0.955,
+    "auc_ci95_bootstrap": [
+      0.809,
+      1.0
+    ]
+  },
+  "per_category": [
+    {
+      "category": "bluetooth_speakers",
+      "n": 7,
+      "spearman_rho": 0.536,
+      "p_value": 0.21521745567801298,
+      "auc": null,
+      "rmse": 21.17
+    },
+    {
+      "category": "ice_makers",
+      "n": 36,
+      "spearman_rho": 0.179,
+      "p_value": 0.29587397822371575,
+      "auc": 0.688,
+      "rmse": 20.5
+    },
+    {
+      "category": "power_banks",
+      "n": 19,
+      "spearman_rho": -0.042,
+      "p_value": 0.86375167516143,
+      "auc": 0.438,
+      "rmse": 27.95
+    },
+    {
+      "category": "smartwatches",
+      "n": 39,
+      "spearman_rho": 0.415,
+      "p_value": 0.00856444080498136,
+      "auc": 0.844,
+      "rmse": 16.1
+    },
+    {
+      "category": "wireless_headphones",
+      "n": 23,
+      "spearman_rho": -0.055,
+      "p_value": 0.8017482453793975,
+      "auc": 0.54,
+      "rmse": 22.93
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Product Category,Holdout n,Model_O rho,Model_New rho,Delta rho,Model_New RMSE
+Smartwatches,39,0.415,0.544,+0.129,14.22
+Ice Makers,36,0.185,0.192,+0.007,18.17
+Wireless Headphones,23,-0.055,0.132,+0.187,22.79
+Power Banks,19,-0.042,0.126,+0.168,26.39
+Bluetooth Speakers,7,0.536,0.429,-0.107,21.64

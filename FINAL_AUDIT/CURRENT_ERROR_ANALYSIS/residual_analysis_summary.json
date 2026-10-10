@@ -1,0 +1,12 @@
+{
+  "n": 124,
+  "mean_residual": -7.1055,
+  "std_residual": 18.4279,
+  "mae": 16.66,
+  "rmse": 19.75,
+  "max_overprediction": -48.72,
+  "max_underprediction": 30.59,
+  "q25_residual": -21.26,
+  "median_residual": -8.73,
+  "q75_residual": 4.79
+}

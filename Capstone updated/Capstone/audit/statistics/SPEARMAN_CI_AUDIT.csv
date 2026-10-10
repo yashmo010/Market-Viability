@@ -1,0 +1,5 @@
+Method,Assumptions,Resampling Unit,Replicates,CI 95%,CI Width,Evaluation
+Naive Row-wise Bootstrap (Reported),i.i.d. observations; empirical distribution represents DGP,Individual product (n=124),10000,"[0.4140, 0.6811]",0.2671,Standard ML benchmark practice; slightly underestimates clustering variance
+Fisher z-Transformation (Asymptotic),Bivariate normality of ranks; SE = 1.06 / sqrt(n - 3),Parametric formula,Analytical,"[0.4195, 0.6777]",0.2582,Very close to empirical bootstrap; robust for n > 50
+Category-Stratified Bootstrap,Preserves category sample proportions; robust to category imbalance,Stratified within each category,10000,"[0.4413, 0.6691]",0.2278,Narrower CI because between-category proportions are held invariant
+BCa Bootstrap (Bias-Corrected & Accelerated),Adjusts for skewness and acceleration via jackknife,Individual product + jackknife,10000,"[0.4174, 0.6825]",0.2651,Confirms negligible bias (z0 ≈ 0.02) and minimal skewness

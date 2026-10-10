@@ -1,0 +1,64 @@
+{
+  "physical": {
+    "value_for_money": 0.336,
+    "utility": 0.527,
+    "ease_of_use": 0.516,
+    "reliability": 0.496,
+    "design_appeal": 0.21,
+    "after_sales": 0.073,
+    "build_quality": 0.512,
+    "durability": 0.528,
+    "repairability": 0.27
+  },
+  "meta": {
+    "n_products": 118,
+    "detail": {
+      "value_for_money": {
+        "r": 0.336,
+        "n": 117,
+        "weight": 0.336
+      },
+      "utility": {
+        "r": 0.527,
+        "n": 118,
+        "weight": 0.527
+      },
+      "ease_of_use": {
+        "r": 0.516,
+        "n": 117,
+        "weight": 0.516
+      },
+      "reliability": {
+        "r": 0.496,
+        "n": 118,
+        "weight": 0.496
+      },
+      "design_appeal": {
+        "r": 0.21,
+        "n": 116,
+        "weight": 0.21
+      },
+      "after_sales": {
+        "r": 0.073,
+        "n": 98,
+        "weight": 0.073
+      },
+      "build_quality": {
+        "r": 0.512,
+        "n": 116,
+        "weight": 0.512
+      },
+      "durability": {
+        "r": 0.528,
+        "n": 114,
+        "weight": 0.528
+      },
+      "repairability": {
+        "r": 0.27,
+        "n": 55,
+        "weight": 0.27
+      }
+    },
+    "note": "per-aspect Pearson r of bridged-vs-real extracted score; used as confidence weights in predictor._adj_confidence"
+  }
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "feature": "repairability",
+    "gain": 3682.0647,
+    "weight": 55
+  },
+  {
+    "feature": "after_sales",
+    "gain": 2572.3518,
+    "weight": 53
+  },
+  {
+    "feature": "category",
+    "gain": 1257.3025,
+    "weight": 109
+  },
+  {
+    "feature": "brand_tier",
+    "gain": 965.4969,
+    "weight": 79
+  },
+  {
+    "feature": "utility",
+    "gain": 940.7849,
+    "weight": 68
+  },
+  {
+    "feature": "ease_of_use",
+    "gain": 935.8276,
+    "weight": 82
+  },
+  {
+    "feature": "value_for_money_mention_rate",
+    "gain": 857.3195,
+    "weight": 182
+  },
+  {
+    "feature": "repairability_mention_rate",
+    "gain": 665.1397,
+    "weight": 74
+  },
+  {
+    "feature": "reliability",
+    "gain": 641.515,
+    "weight": 57
+  },
+  {
+    "feature": "value_for_money",
+    "gain": 638.7049,
+    "weight": 65
+  },
+  {
+    "feature": "durability",
+    "gain": 626.7737,
+    "weight": 60
+  },
+  {
+    "feature": "build_quality_mention_rate",
+    "gain": 562.4521,
+    "weight": 206
+  },
+  {
+    "feature": "utility_mention_rate",
+    "gain": 507.5831,
+    "weight": 152
+  },
+  {
+    "feature": "design_appeal_mention_rate",
+    "gain": 489.0075,
+    "weight": 157
+  },
+  {
+    "feature": "design_appeal",
+    "gain": 355.443,
+    "weight": 63
+  },
+  {
+    "feature": "attr_spec_bullets",
+    "gain": 353.6295,
+    "weight": 58
+  },
+  {
+    "feature": "reliability_mention_rate",
+    "gain": 326.3162,
+    "weight": 134
+  },
+  {
+    "feature": "ease_of_use_mention_rate",
+    "gain": 319.4709,
+    "weight": 123
+  },
+  {
+    "feature": "attr_word_count",
+    "gain": 311.2622,
+    "weight": 190
+  },
+  {
+    "feature": "after_sales_mention_rate",
+    "gain": 281.6428,
+    "weight": 119
+  },
+  {
+    "feature": "durability_mention_rate",
+    "gain": 253.0037,
+    "weight": 119
+  },
+  {
+    "feature": "attr_number_density",
+    "gain": 247.7483,
+    "weight": 173
+  },
+  {
+    "feature": "build_quality",
+    "gain": 171.0416,
+    "weight": 17
+  },
+  {
+    "feature": "price",
+    "gain": 157.0326,
+    "weight": 34
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "ranking_stability": {
+    "40/35/25 (Baseline)": {
+      "spearman_rho_vs_baseline": 1.0,
+      "pearson_r_vs_baseline": 0.9999999999999997
+    },
+    "50/30/20 (Volume-Heavy)": {
+      "spearman_rho_vs_baseline": 0.9923047722252724,
+      "pearson_r_vs_baseline": 0.9918287930526446
+    },
+    "30/40/30 (Quality-Heavy)": {
+      "spearman_rho_vs_baseline": 0.9887160288784056,
+      "pearson_r_vs_baseline": 0.9887389470737165
+    },
+    "33/33/33 (Equal Weighting)": {
+      "spearman_rho_vs_baseline": 0.995802298732871,
+      "pearson_r_vs_baseline": 0.9942934665104568
+    }
+  },
+  "cv_performance": {
+    "40/35/25 (Baseline)": {
+      "cv_r2_mean": 0.5910651417259245,
+      "cv_r2_std": 0.033517662612129594,
+      "cv_rmse_mean": 11.220537180217198,
+      "cv_rmse_std": 0.3708253447551237,
+      "cv_mae_mean": 8.670768679331458,
+      "cv_mae_std": 0.37872146660393163
+    },
+    "50/30/20 (Volume-Heavy)": {
+      "cv_r2_mean": 0.62734951104589,
+      "cv_r2_std": 0.03165971848013879,
+      "cv_rmse_mean": 11.672740341824932,
+      "cv_rmse_std": 0.31234966929670677,
+      "cv_mae_mean": 8.97549625131516,
+      "cv_mae_std": 0.4215869257517192
+    },
+    "30/40/30 (Quality-Heavy)": {
+      "cv_r2_mean": 0.5402945116219671,
+      "cv_r2_std": 0.01833557358018598,
+      "cv_rmse_mean": 11.065129648025149,
+      "cv_rmse_std": 0.24477902800369203,
+      "cv_mae_mean": 8.497943662788803,
+      "cv_mae_std": 0.289507430167133
+    },
+    "33/33/33 (Equal Weighting)": {
+      "cv_r2_mean": 0.5406119891549427,
+      "cv_r2_std": 0.02239306852961602,
+      "cv_rmse_mean": 11.322801247983625,
+      "cv_rmse_std": 0.27926659615806976,
+      "cv_mae_mean": 8.645148107892863,
+      "cv_mae_std": 0.4136183754042713
+    }
+  },
+  "summary": [
+    {
+      "Weighting Scheme": "40/35/25 (Baseline)",
+      "Target Rank Stability (\u03c1 vs Baseline)": "1.0000",
+      "Target Pearson r": "1.0000",
+      "Aspects-Only CV R\u00b2": "0.591 \u00b1 0.034",
+      "CV RMSE": "11.22",
+      "CV MAE": "8.67"
+    },
+    {
+      "Weighting Scheme": "50/30/20 (Volume-Heavy)",
+      "Target Rank Stability (\u03c1 vs Baseline)": "0.9923",
+      "Target Pearson r": "0.9918",
+      "Aspects-Only CV R\u00b2": "0.627 \u00b1 0.032",
+      "CV RMSE": "11.67",
+      "CV MAE": "8.98"
+    },
+    {
+      "Weighting Scheme": "30/40/30 (Quality-Heavy)",
+      "Target Rank Stability (\u03c1 vs Baseline)": "0.9887",
+      "Target Pearson r": "0.9887",
+      "Aspects-Only CV R\u00b2": "0.540 \u00b1 0.018",
+      "CV RMSE": "11.07",
+      "CV MAE": "8.50"
+    },
+    {
+      "Weighting Scheme": "33/33/33 (Equal Weighting)",
+      "Target Rank Stability (\u03c1 vs Baseline)": "0.9958",
+      "Target Pearson r": "0.9943",
+      "Aspects-Only CV R\u00b2": "0.541 \u00b1 0.022",
+      "CV RMSE": "11.32",
+      "CV MAE": "8.65"
+    }
+  ]
+}

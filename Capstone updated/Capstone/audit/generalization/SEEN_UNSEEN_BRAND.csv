@@ -1,0 +1,4 @@
+Brand_Partition,N_Products,N_Brands,Fallback_Rule,Spearman_Rho,Spearman_CI95_Low,Spearman_CI95_High,P_Value,RMSE,MAE,AUC
+Seen Brands (Pre-Cutoff History),42,26,Historical SKU Tier (0-3),0.346,0.038,0.601,2.4613e-02,20.27,17.02,0.728
+Unseen Brands (Zero Pre-Cutoff History),82,70,Tier 0 Fallback Enforced,0.585,0.397,0.725,7.9203e-09,21.54,18.25,0.929
+All Brands Combined (Full Temporal Test),124,96,Mixed (Tiered + Tier 0 Fallback),0.562,0.412,0.682,1.0940e-11,21.12,17.84,0.89

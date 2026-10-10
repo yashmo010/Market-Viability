@@ -1,0 +1,22 @@
+FACT,SOURCE_OF_TRUTH,FINAL_RESULTS,TABLE,FIGURE,APPLICATION,MANUSCRIPT,PDF,STATUS
+Title,Launch-Blind Product Viability Estimation from Specifications via LLM Aspect Bridging,MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Categories (Count = 5),"Bluetooth speakers, Ice makers, Power banks, Smartwatches, Wireless headphones",MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Air Fryer in Core Research,0 occurrences (Eliminated),0,0,0,0,0,0,PASS
+Training Products,507 products,507,507,507,507,507,507,PASS
+Temporal Test Products,124 products,124,124,124,124,124,124,PASS
+Total Evaluated Products,631 products,631,631,631,631,631,631,PASS
+Temporal Cutoff Date,"October 31, 2021 23:59:59 UTC",MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Target Definition,SuccessScore = 100*(0.40*V + 0.35*R + 0.25*Vel),MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Target Nature,Review-derived market-success proxy (no sales/revenue),MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Historical Baseline rho,"0.5621 (AUC = 0.8904, RMSE = 21.12)",0.5621,0.562,0.562,N/A,0.562,0.562,PASS
+Controlled Baseline rho,"0.5623 (AUC = 0.8904, RMSE = 21.12)",0.5623,0.562,0.562,N/A,0.562,0.562,PASS
+Promoted Model rho,"0.6722 (AUC = 0.9712, RMSE = 19.75)",0.6722,0.672,0.672,0.672,0.672,0.672,PASS
+Delta rho (vs Controlled),+0.1099 (+19.55% relative),+0.1099,+0.110,+0.110,N/A,+0.110,+0.110,PASS
+Paired Bootstrap 95% CI,"[+0.0485, +0.1833]","[+0.0485, +0.1833]","[+0.0485, +0.1833]",N/A,N/A,"[+0.0485, +0.1833]","[+0.0485, +0.1833]",PASS
+Paired Permutation p-val,p = 0.0004,0.0004,0.0004,N/A,N/A,0.0004,0.0004,PASS
+Unseen-Brand rho (Tier 0),"0.633 (vs 0.516, AUC = 0.981 vs 0.884)",MATCH,0.633,0.633,MATCH,0.633,0.633,PASS
+Seed Suite,"[42, 123, 456, 789, 999]",MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS
+Seed Stability (mean rho),0.633 +- 0.033 vs 0.583 +- 0.025,MATCH,MATCH,MATCH,N/A,MATCH,MATCH,PASS
+External Application rho,0.501 (n = 150 quantitative),0.501,0.501,0.501,0.501,0.501,0.501,PASS
+Application Parity,100% numerical parity (diff = 0.000000),MATCH,MATCH,MATCH,PASSED,MATCH,MATCH,PASS
+Original Project Integrity,610 / 610 files identical (0 modified),MATCH,MATCH,MATCH,MATCH,MATCH,MATCH,PASS

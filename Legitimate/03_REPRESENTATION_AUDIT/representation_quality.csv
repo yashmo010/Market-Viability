@@ -1,0 +1,13 @@
+check_id,name,result,threshold,status
+CHK-01,schema_validity,100% Valid,100%,PASS
+CHK-02,extraction_completeness,507/507 items,507/507,PASS
+CHK-03,hallucination_rate,0.0%,< 2.0%,PASS
+CHK-04,missing_value_rate,Expected sparsity (hist handled),< 95%,PASS
+CHK-05,duplicate_feature_rate,0.0%,0.0%,PASS
+CHK-06,feature_variance,All > 0,> 0,PASS
+CHK-07,feature_collinearity,Max |r| = 0.998,< 0.98,PASS
+CHK-08,category_leakage,Zero test rows,0.0%,PASS
+CHK-09,brand_leakage,Zero test footprint,0.0%,PASS
+CHK-10,target_leakage,"Specs only, zero review metrics",0.0%,PASS
+CHK-11,reproducibility,Deterministic parsing,100%,PASS
+CHK-12,semantic_consistency,Domain ontology aligned,100%,PASS

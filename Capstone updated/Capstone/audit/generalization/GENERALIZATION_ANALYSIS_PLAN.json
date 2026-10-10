@@ -1,0 +1,111 @@
+{
+  "plan_version": "1.0-frozen",
+  "audit_issue": "Issue 5: External Validity, Generalization, and Distribution Shift",
+  "timestamp_utc": "2026-10-06T00:00:00Z",
+  "primary_generalization_hypotheses": [
+    {
+      "hypothesis_id": "H1_POOLED_TEMPORAL",
+      "type": "CONFIRMATORY_PRIMARY",
+      "target_subgroup": "All Temporal Test Products (N=124)",
+      "metric": "Spearman rank correlation (rho) and Quintile ROC-AUC",
+      "minimum_n": 100,
+      "statistical_method": "Percentile bootstrap (B=10000) for 95% CI; asymptotic t-test p-value",
+      "interpretation_rule": "Supported if rho > 0.40 and p < 0.001 and AUC > 0.75",
+      "empirical_result": {
+        "rho": 0.562,
+        "ci95": [0.414, 0.681],
+        "p_value": 1.094e-11,
+        "auc": 0.890,
+        "status": "CONFIRMED"
+      }
+    },
+    {
+      "hypothesis_id": "H2_UNSEEN_BRAND_GENERALIZATION",
+      "type": "CONFIRMATORY_PRIMARY",
+      "target_subgroup": "Unseen Brands (Zero Pre-Cutoff SKU Footprint, Tier 0 Fallback)",
+      "metric": "Spearman rho and Quintile ROC-AUC",
+      "minimum_n": 30,
+      "statistical_method": "Percentile bootstrap (B=2000) for 95% CI; comparison against seen brands",
+      "interpretation_rule": "Supported if unseen brand rho > 0.30 and p < 0.05, demonstrating non-reliance on brand memorization",
+      "empirical_result": {
+        "n": 82,
+        "rho": 0.585,
+        "ci95": [0.397, 0.725],
+        "p_value": 7.920e-9,
+        "auc": 0.929,
+        "status": "CONFIRMED"
+      }
+    },
+    {
+      "hypothesis_id": "H3_SPECIFICATION_COMPLETENESS_GRADIENT",
+      "type": "CONFIRMATORY_PRIMARY",
+      "target_subgroup": "Specification Completeness Terciles (High vs Medium vs Low)",
+      "metric": "Spearman rho monotonically increasing with completeness score",
+      "minimum_n": 10,
+      "statistical_method": "Predefined tercile thresholds (t33=0.90, t66=1.00) fit on train set before outcome inspection",
+      "interpretation_rule": "Supported if rho_High > rho_Medium > rho_Low",
+      "empirical_result": {
+        "rho_high": 0.631,
+        "rho_med": 0.508,
+        "rho_low": -0.284,
+        "status": "CONFIRMED_MONOTONIC"
+      }
+    },
+    {
+      "hypothesis_id": "H4_CATEGORY_TRANSFER_LOCO",
+      "type": "CONFIRMATORY_PRIMARY",
+      "target_subgroup": "Leave-One-Category-Out (LOCO) 5-fold evaluation",
+      "metric": "Spearman rho in unseen category test products",
+      "minimum_n": 5,
+      "statistical_method": "Model fit on 4 categories without held-out category data; zero category profile",
+      "interpretation_rule": "Supported if mean LOCO rho > 0.25; Falsified if mean LOCO rho <= 0.0",
+      "empirical_result": {
+        "mean_loco_rho": -0.106,
+        "smartwatches_loco_rho": -0.067,
+        "status": "FALSIFIED_UNSEEN_CATEGORIES_UNSUPPORTED"
+      }
+    },
+    {
+      "hypothesis_id": "H5_BRAND_ABLATION_TRANSFERABILITY",
+      "type": "CONFIRMATORY_PRIMARY",
+      "target_subgroup": "Full Temporal Test with Brand Tier Feature Zeroed Out",
+      "metric": "Spearman rho retention percentage (rho_nobrand / rho_full)",
+      "minimum_n": 100,
+      "statistical_method": "Direct feature zeroing of brand_tier in frozen model",
+      "interpretation_rule": "Supported if rho_nobrand retains >= 80% of full model rho",
+      "empirical_result": {
+        "rho_full": 0.562,
+        "rho_nobrand": 0.513,
+        "retention_pct": 91.3,
+        "status": "CONFIRMED_SPEC_DRIVEN"
+      }
+    }
+  ],
+  "exploratory_post_hoc_analyses": [
+    {
+      "analysis_id": "EXP1_ICE_MAKER_FAILURE_TAXONOMY",
+      "type": "EXPLORATORY",
+      "description": "Post-hoc investigation of physical spec omissions (noise, mold, corrosion) in countertop ice maker manual and specs",
+      "caveat": "Exploratory root-cause attribution; observational and non-confirmatory"
+    },
+    {
+      "analysis_id": "EXP2_POWER_BANK_GAN_SHIFT",
+      "type": "EXPLORATORY",
+      "description": "Post-hoc attribution of power bank performance drop to GaN / high-wattage USB-C PD 100W market shift post-2021",
+      "caveat": "Technological shift hypothesis formulated after observing negative temporal correlation in power banks"
+    },
+    {
+      "analysis_id": "EXP3_TEMPORAL_HORIZON_DECAY",
+      "type": "EXPLORATORY",
+      "description": "3-cohort temporal distance partitioning (Horizon 1, 2, 3)",
+      "caveat": "Horizon 3 has n=11; underpowered to establish formal decay curve slope"
+    }
+  ],
+  "reproducibility_invariants": {
+    "temporal_cutoff_epoch": 1635724799,
+    "train_set_size": 507,
+    "test_set_size": 124,
+    "random_seed": 42,
+    "completeness_score_formula": "0.35 * min(words/200, 1) + 0.35 * min(bullets/5, 1) + 0.15 * has_price + 0.15 * min(numbers/5, 1)"
+  }
+}

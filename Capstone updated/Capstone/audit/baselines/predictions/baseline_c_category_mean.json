@@ -1,0 +1,746 @@
+[
+  {
+    "product_uid": "amzp_B09JC9LDYD",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 81.481
+  },
+  {
+    "product_uid": "amzp_B08QF9F8BC",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 22.732
+  },
+  {
+    "product_uid": "amzp_B0BPHR5YPJ",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 48.518
+  },
+  {
+    "product_uid": "amzp_B0C3QSJ8SC",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 42.436
+  },
+  {
+    "product_uid": "amzp_B0CBFJT657",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 69.281
+  },
+  {
+    "product_uid": "amzp_B0BW8KNM1S",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 44.741
+  },
+  {
+    "product_uid": "amzp_B09VKZPST7",
+    "category": "bluetooth_speakers",
+    "predicted": 54.403,
+    "actual": 57.275
+  },
+  {
+    "product_uid": "amzp_B0C89GZYGF",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 38.012
+  },
+  {
+    "product_uid": "amzp_B0BVV65MLW",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 21.261
+  },
+  {
+    "product_uid": "amzp_B0BSV2Y9XW",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 54.374
+  },
+  {
+    "product_uid": "amzp_B0C51V6BJD",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 33.613
+  },
+  {
+    "product_uid": "amzp_B0C6WYKZW2",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 61.315
+  },
+  {
+    "product_uid": "amzp_B0C65Z9VTK",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 47.951
+  },
+  {
+    "product_uid": "amzp_B0BYSRY6CZ",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 36.31
+  },
+  {
+    "product_uid": "amzp_B09GM4HQPZ",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 27.602
+  },
+  {
+    "product_uid": "amzp_B09JKDFXFN",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 32.593
+  },
+  {
+    "product_uid": "amzp_B0B5SQRNCS",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 23.264
+  },
+  {
+    "product_uid": "amzp_B0B4DPGNVC",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 54.231
+  },
+  {
+    "product_uid": "amzp_B0BQ6VSYGL",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 25.019
+  },
+  {
+    "product_uid": "amzp_B0C5M7P2X9",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 35.832
+  },
+  {
+    "product_uid": "amzp_B0CB1R1YZ7",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 31.663
+  },
+  {
+    "product_uid": "amzp_B0BVZQ2QHM",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 30.292
+  },
+  {
+    "product_uid": "amzp_B09QBTSXDN",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 39.94
+  },
+  {
+    "product_uid": "amzp_B0CFYM77D2",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 34.953
+  },
+  {
+    "product_uid": "amzp_B0BKS7XK22",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 30.041
+  },
+  {
+    "product_uid": "amzp_B0C95BXY52",
+    "category": "power_banks",
+    "predicted": 42.796,
+    "actual": 10.538
+  },
+  {
+    "product_uid": "amzp_B09J8T11J4",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 37.693
+  },
+  {
+    "product_uid": "amzp_B0BXDDQPFX",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 41.585
+  },
+  {
+    "product_uid": "amzp_B09JWF2STR",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 52.898
+  },
+  {
+    "product_uid": "amzp_B09B9S8TGK",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 32.089
+  },
+  {
+    "product_uid": "amzp_B0C6JVVZTJ",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 45.876
+  },
+  {
+    "product_uid": "amzp_B09YM3YDJ7",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 48.472
+  },
+  {
+    "product_uid": "amzp_B0BXLYFVDM",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 39.706
+  },
+  {
+    "product_uid": "amzp_B0C3X61R1F",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 51.992
+  },
+  {
+    "product_uid": "amzp_B0BHT8XX49",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 37.922
+  },
+  {
+    "product_uid": "amzp_B09TP9LJWZ",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 41.057
+  },
+  {
+    "product_uid": "amzp_B0BRZD2G1V",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 56.246
+  },
+  {
+    "product_uid": "amzp_B0C7MK2QWY",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 49.2
+  },
+  {
+    "product_uid": "amzp_B0BJMLC7WM",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 59.271
+  },
+  {
+    "product_uid": "amzp_B0B3TJMN8P",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 37.561
+  },
+  {
+    "product_uid": "amzp_B09J83WPPW",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 27.754
+  },
+  {
+    "product_uid": "amzp_B0B52VNW79",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 41.182
+  },
+  {
+    "product_uid": "amzp_B09ZQD4TRZ",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 30.059
+  },
+  {
+    "product_uid": "amzp_B0B5GQ75F5",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 21.393
+  },
+  {
+    "product_uid": "amzp_B0C334DW7G",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 46.108
+  },
+  {
+    "product_uid": "amzp_B0B7LC281R",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 28.887
+  },
+  {
+    "product_uid": "amzp_B09PRMFGL1",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 43.463
+  },
+  {
+    "product_uid": "amzp_B0B8S534KB",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 33.547
+  },
+  {
+    "product_uid": "amzp_B0BRZW575H",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 43.748
+  },
+  {
+    "product_uid": "amzp_B0BCPZ2D8G",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 26.315
+  },
+  {
+    "product_uid": "amzp_B09P4QW5Y2",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 25.977
+  },
+  {
+    "product_uid": "amzp_B0BGK79RXL",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 50.65
+  },
+  {
+    "product_uid": "amzp_B0BVMX2DZZ",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 21.844
+  },
+  {
+    "product_uid": "amzp_B0CD2QDQGV",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 46.076
+  },
+  {
+    "product_uid": "amzp_B0CH817Z21",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 38.198
+  },
+  {
+    "product_uid": "amzp_B0BLSTP5QG",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 42.772
+  },
+  {
+    "product_uid": "amzp_B09JSDGVKD",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 17.249
+  },
+  {
+    "product_uid": "amzp_B0C32YRHQJ",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 29.122
+  },
+  {
+    "product_uid": "amzp_B0BW8Z9D98",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 17.245
+  },
+  {
+    "product_uid": "amzp_B0C3JSNSYK",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 45.666
+  },
+  {
+    "product_uid": "amzp_B09575N1M5",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 26.252
+  },
+  {
+    "product_uid": "amzp_B09TRQMV5N",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 28.71
+  },
+  {
+    "product_uid": "amzp_B09CTFNH54",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 40.626
+  },
+  {
+    "product_uid": "amzp_B09MLX1BSH",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 23.513
+  },
+  {
+    "product_uid": "amzp_B0B12L5JXV",
+    "category": "smartwatches",
+    "predicted": 40.444,
+    "actual": 22.776
+  },
+  {
+    "product_uid": "amzp_B09PRC3WC5",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 84.091
+  },
+  {
+    "product_uid": "amzp_B09JSLH3H1",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 60.775
+  },
+  {
+    "product_uid": "amzp_B0C85M22Z6",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 48.718
+  },
+  {
+    "product_uid": "amzp_B0BVYGWJWM",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 85.396
+  },
+  {
+    "product_uid": "amzp_B0B9FKKTX6",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 34.312
+  },
+  {
+    "product_uid": "amzp_B0BZ6XH3LC",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 82.621
+  },
+  {
+    "product_uid": "amzp_B0B6RG6SLB",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 50.154
+  },
+  {
+    "product_uid": "amzp_B09BPBX79Z",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 48.933
+  },
+  {
+    "product_uid": "amzp_B09F2YQQ1B",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 59.689
+  },
+  {
+    "product_uid": "amzp_B0BNJW4NV7",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 19.891
+  },
+  {
+    "product_uid": "amzp_B09TW65LHN",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 26.455
+  },
+  {
+    "product_uid": "amzp_B09KT2Q34R",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 45.393
+  },
+  {
+    "product_uid": "amzp_B09TZWNWKX",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 24.925
+  },
+  {
+    "product_uid": "amzp_B0BM8TMYLV",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 33.564
+  },
+  {
+    "product_uid": "amzp_B0C3H2SV75",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 27.096
+  },
+  {
+    "product_uid": "amzp_B09ZTGG152",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 29.852
+  },
+  {
+    "product_uid": "amzp_B09QNPC8M2",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 39.483
+  },
+  {
+    "product_uid": "amzp_B09F5N95V9",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 54.293
+  },
+  {
+    "product_uid": "amzp_B0C7429KCR",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 38.809
+  },
+  {
+    "product_uid": "amzp_B0B76VZ5QR",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 25.32
+  },
+  {
+    "product_uid": "amzp_B09F3H9RRY",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 47.927
+  },
+  {
+    "product_uid": "amzp_B0C77KJXGH",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 52.883
+  },
+  {
+    "product_uid": "amzp_B0BQTKWPTV",
+    "category": "wireless_headphones",
+    "predicted": 51.243,
+    "actual": 29.609
+  },
+  {
+    "product_uid": "amzp_B09QRZMDHC",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 82.5
+  },
+  {
+    "product_uid": "amzp_B0BW8L7FJR",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 96.373
+  },
+  {
+    "product_uid": "amzp_B0C5CD4X6J",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 89.513
+  },
+  {
+    "product_uid": "amzp_B0C6SGRVBX",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 97.083
+  },
+  {
+    "product_uid": "amzp_B0C4FQ2X2M",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 83.627
+  },
+  {
+    "product_uid": "amzp_B09CZFYGF5",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 97.083
+  },
+  {
+    "product_uid": "amzp_B09D77LK8K",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 100.0
+  },
+  {
+    "product_uid": "amzp_B09JY77GCY",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 85.417
+  },
+  {
+    "product_uid": "amzp_B0C9TTZW3K",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 89.827
+  },
+  {
+    "product_uid": "amzp_B09KV17R2Y",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 78.358
+  },
+  {
+    "product_uid": "amzp_B0C36D12V2",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 94.167
+  },
+  {
+    "product_uid": "amzp_B09JY8YPTK",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 76.667
+  },
+  {
+    "product_uid": "amzp_B0C36BL644",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 91.25
+  },
+  {
+    "product_uid": "amzp_B0C3C5P3DB",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 100.0
+  },
+  {
+    "product_uid": "amzp_B0C4KWPH7K",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 73.01
+  },
+  {
+    "product_uid": "amzp_B0BJ8WXV9S",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 82.5
+  },
+  {
+    "product_uid": "amzp_B0BYZBBDPN",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 85.417
+  },
+  {
+    "product_uid": "amzp_B0CC66XD1W",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 90.997
+  },
+  {
+    "product_uid": "amzp_B0C4GC9WK6",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 71.182
+  },
+  {
+    "product_uid": "amzp_B09SHB4G7C",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 77.964
+  },
+  {
+    "product_uid": "amzp_B0C49YTRKQ",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 100.0
+  },
+  {
+    "product_uid": "amzp_B0BYZ86N13",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 91.25
+  },
+  {
+    "product_uid": "amzp_B0C7KPWLHX",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 63.352
+  },
+  {
+    "product_uid": "amzp_B0C9J6J79Y",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 96.085
+  },
+  {
+    "product_uid": "amzp_B098HFBF1B",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 67.805
+  },
+  {
+    "product_uid": "amzp_B09Y5LGB2F",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 59.251
+  },
+  {
+    "product_uid": "amzp_B0BZW5SSVK",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 98.975
+  },
+  {
+    "product_uid": "amzp_B0BVVWZJGM",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 97.961
+  },
+  {
+    "product_uid": "amzp_B09KC8PXG4",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 62.65
+  },
+  {
+    "product_uid": "amzp_B09FLSR3D1",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 51.811
+  },
+  {
+    "product_uid": "amzp_B0C6LVLXKG",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 85.417
+  },
+  {
+    "product_uid": "amzp_B0BHQMHD3H",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 77.007
+  },
+  {
+    "product_uid": "amzp_B09Y38R6DC",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 71.652
+  },
+  {
+    "product_uid": "amzp_B0CF8R92J6",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 56.822
+  },
+  {
+    "product_uid": "amzp_B09MDN783L",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 58.703
+  },
+  {
+    "product_uid": "amzp_B0C2PNH7L1",
+    "category": "ice_makers",
+    "predicted": 66.41,
+    "actual": 37.33
+  }
+]

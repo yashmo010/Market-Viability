@@ -1,0 +1,40 @@
+{
+  "EXP-OOS-02_initial_temporal_mature": {
+    "n": 66,
+    "spearman_rho": 0.545,
+    "ci95": [
+      0.352,
+      0.694
+    ],
+    "auc": 0.901,
+    "by_category_n": {
+      "bluetooth_speakers": 7,
+      "ice_makers": 16,
+      "power_banks": 12,
+      "smartwatches": 18,
+      "wireless_headphones": 13
+    },
+    "leakage_flaws": [
+      "Cohort size discrepancy: Actual post-cutoff mature products is 51, not 66 (fraud=6, immature=73)",
+      "Brand tier used full catalog footprint including future products",
+      "Category profiles pooled across all products (pre and post cutoff)",
+      "Target normalization scalers fitted across all products"
+    ]
+  },
+  "EXP-OOS-04_extended_temporal_coverage": {
+    "n": 126,
+    "spearman_rho": 0.59,
+    "ci95": [
+      0.464,
+      0.692
+    ],
+    "auc": 0.942,
+    "mean_within_category_rho": 0.16,
+    "leakage_flaws": [
+      "Derived from arbitrary 80% quantile split rather than strict frozen calendar cutoff",
+      "Brand tier leaked future catalog releases",
+      "Category reference priors saw test rows",
+      "Target scaling minmax saw test rows"
+    ]
+  }
+}

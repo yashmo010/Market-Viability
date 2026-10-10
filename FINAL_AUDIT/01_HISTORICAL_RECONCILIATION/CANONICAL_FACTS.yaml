@@ -1,0 +1,38 @@
+# Canonical Project Facts and Research Identity
+research_title: "Launch-Blind Product Viability Estimation from Specifications via LLM Aspect Bridging"
+temporal_cutoff: "2021-10-31T23:59:59Z"
+split_counts:
+  train_products: 507
+  test_products: 124
+  total_products: 631
+canonical_categories:
+  - "bluetooth_speakers"
+  - "ice_makers"
+  - "power_banks"
+  - "smartwatches"
+  - "wireless_headphones"
+category_counts:
+  train:
+    bluetooth_speakers: 128
+    power_banks: 80
+    smartwatches: 75
+    wireless_headphones: 115
+    ice_makers: 109
+  test:
+    bluetooth_speakers: 7
+    power_banks: 19
+    smartwatches: 39
+    wireless_headphones: 23
+    ice_makers: 36
+target_definition:
+  name: "SuccessScore"
+  formula: "100.0 * (0.40 * Volume_norm + 0.35 * Rating_norm + 0.25 * Velocity_norm)"
+  proxy_type: "review-derived market-success proxy"
+  claims_disallowed:
+    - "direct commercial sales"
+    - "retail unit sales"
+    - "financial revenue"
+    - "guaranteed commercial success"
+downstream_model: "XGBoost Regressor (hist tree method, monotonic priors)"
+promoted_representation: "Candidate B: 9 LLM Aspects + Specification Density Metrics + Launch Metadata"
+feature_count: 24

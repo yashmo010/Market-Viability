@@ -1,0 +1,27 @@
+{
+  "primary_provider": "gemini_flash",
+  "model_family": "gemini-1.5-flash",
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "json_mode": true,
+  "max_retries": 2,
+  "fallback_providers": [
+    "groq_llama70b",
+    "cerebras_llama70b",
+    "sambanova_llama70b"
+  ],
+  "mock_provider_available": true,
+  "memoization": "SHA-256 prompt-hash memoization cache",
+  "price_decoupling": "Aspects bridged price-free; deterministic value_for_money applied post-bridging via category price profile",
+  "aspect_keys": [
+    "value_for_money",
+    "utility",
+    "ease_of_use",
+    "reliability",
+    "design_appeal",
+    "after_sales",
+    "build_quality",
+    "durability",
+    "repairability"
+  ]
+}

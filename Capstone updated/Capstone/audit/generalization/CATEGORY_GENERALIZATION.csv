@@ -1,0 +1,6 @@
+Category,N,Spearman_Rho,Spearman_CI95_Low,Spearman_CI95_High,P_Value,RMSE,MAE,AUC,Spec_Completeness_Mean,Aspect_Coverage_Pct
+bluetooth_speakers,7,0.536,-0.4,0.957,2.1522e-01,21.17,17.21,1.0,0.964,100.0
+ice_makers,36,0.179,-0.142,0.475,2.9587e-01,20.5,17.47,0.688,0.983,100.0
+power_banks,19,-0.042,-0.556,0.533,8.6375e-01,27.95,25.05,0.438,0.948,100.0
+smartwatches,39,0.415,0.122,0.66,8.5644e-03,16.1,13.56,0.844,0.99,100.0
+wireless_headphones,23,-0.055,-0.504,0.4,8.0175e-01,22.93,19.88,0.54,0.949,100.0

@@ -1,0 +1,4 @@
+Normalization Strategy,Mathematical Formulation,Test n,Spearman rho,p-value,RMSE,Scientific Assessment
+Within-Category Min-Max (Current Pipeline),S_cat = 100 * sum(w_i * (x_i - min_c) / (max_c - min_c)),124,0.538,1.12e-10,21.12,RECOMMENDED: Eliminates inter-category volume/scale confounding while preserving intra-category ranking.
+Global Min-Max Normalization,S_glob = 100 * sum(w_i * (x_i - min_all) / (max_all - min_all)),124,0.443,2.84e-07,24.85,DEGRADED: High-volume categories (smartphones/speakers) artificially dominate low-volume categories (ice makers).
+Raw Unnormalized Composite,S_raw = sum(w_i * x_i),124,0.343,9.15e-05,29.30,METHODOLOGICALLY FLAWED: Scale imbalance severely distorts ratings (1-5) against log review counts (2-12).

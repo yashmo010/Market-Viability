@@ -1,0 +1,4 @@
+Temporal_Horizon,N,Spearman_Rho,P_Value,RMSE,MAE,AUC
+Horizon 1: Near-Future (Nov 2021 - Apr 2022),64,0.562,1.3608e-06,20.69,18.04,0.876
+Horizon 2: Mid-Horizon (May 2022 - Oct 2022),49,0.624,1.6289e-06,20.19,16.74,0.9
+Horizon 3: Long-Horizon (Nov 2022 - Feb 2023),11,0.364,2.7046e-01,26.84,21.55,0.833

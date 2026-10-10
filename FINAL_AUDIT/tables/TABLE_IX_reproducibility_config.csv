@@ -1,0 +1,9 @@
+Component,Parameter,Value
+Downstream Regressor,algorithm,XGBoost (Hist tree method)
+Tree Ensemble,n_estimators,112 trees
+Tree Structure,max_depth,5 levels
+Learning Rate,eta / learning_rate,0.05
+Regularization,subsample / colsample,0.80 / 0.80
+Regularization,min_child_weight,3.0
+Domain Priors,monotone_constraints,"Price (-1), Aspects (+1), Spec Density (+1)"
+Random Seed,random_state,42 (stability evaluated on 5 seeds)

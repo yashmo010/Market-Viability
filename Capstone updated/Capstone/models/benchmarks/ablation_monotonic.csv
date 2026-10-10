@@ -1,0 +1,3 @@
+Model Variant,CV R²,CV RMSE,CV MAE,Holdout n,Holdout Spearman ρ,Holdout p-value,Holdout AUC,Monotonic Inversion Protected
+Unconstrained,0.616 ± 0.048,10.86,8.43,41,0.420,0.0062,0.917,No (learned spurious inversions)
+Monotonic Constrained,0.595 ± 0.030,11.17,8.63,41,0.279,0.0772,0.750,Yes

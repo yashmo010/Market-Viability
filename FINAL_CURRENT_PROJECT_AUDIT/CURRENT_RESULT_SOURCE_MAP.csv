@@ -1,0 +1,16 @@
+metric_claim,evaluation_split,source_file,variable_path,verification_script
+Promoted Spearman rho = 0.6722,Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,model_promoted.spearman_rho,Legitimate/run_statistical_tests.py
+"Promoted 95% Bootstrap CI = [0.5495, 0.7620]",Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,"model_promoted.ci_low, ci_high",Legitimate/run_statistical_tests.py
+Promoted Asymptotic p = 1.25e-17,Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,model_promoted.p_value,Legitimate/run_statistical_tests.py
+Promoted Top/Bottom AUC = 0.9712,"Temporal Holdout (n=124, Top20 vs Bot20)",FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,model_promoted.auc,Legitimate/run_candidate_experiments.py
+"Promoted RMSE = 19.75, MAE = 16.66",Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,"model_promoted.rmse, mae",Legitimate/save_promoted_model.py
+Controlled Baseline rho = 0.5623,Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,baseline_controlled.spearman_rho,Legitimate/run_candidate_experiments.py
+"Controlled Baseline 95% CI = [0.4140, 0.6812]",Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,"baseline_controlled.ci_low, ci_high",Legitimate/run_candidate_experiments.py
+Controlled Baseline AUC = 0.8904,Temporal Holdout (n=124),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,baseline_controlled.auc,Legitimate/run_candidate_experiments.py
+"Delta rho = +0.1099, 95% CI = [+0.0485, +0.1833]",Temporal Holdout (n=124 paired),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,paired_comparisons_vs_controlled.bootstrap_ci_95,Legitimate/run_statistical_tests.py
+Paired Permutation p = 0.0004,"Temporal Holdout (n=124 paired, 10k flips)",FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,paired_comparisons_vs_controlled.permutation_p_value,Legitimate/run_statistical_tests.py
+Cold-Start Unseen Brands rho = 0.6328 (vs 0.5155),Temporal Holdout Tier-0 (n=90),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,cold_start_unseen_brands.model_promoted_rho,Legitimate/run_candidate_experiments.py
+Cold-Start Unseen Brands AUC = 0.9815 (vs 0.8843),Temporal Holdout Tier-0 (n=90),FINAL_AUDIT/03_FINAL_NUMERICAL_SOURCE/FINAL_RESULTS.json,cold_start_unseen_brands.model_promoted_auc,Legitimate/run_candidate_experiments.py
+External Real-World Cohort rho = 0.6120,External Amazon 2022-2024 (n=155),Legitimate/application_evaluation/EXTERNAL_EVALUATION_REPORT.md,spearman_rho,Legitimate/build_application_evaluation.py
+"External Cohort AUC = 0.8840, MAE = 14.82",External Amazon 2022-2024 (n=155),Legitimate/application_evaluation/EXTERNAL_EVALUATION_REPORT.md,"auc, mae",Legitimate/build_application_evaluation.py
+"5-Fold OOF XGBoost rho = 0.7565, R2 = 0.5715",Training Cross-Validation (n=507 OOF),FINAL_AUDIT/CURRENT_OOF_RESULTS.json,XGBoost.pooled_oof_spearman_rho,scratch/run_clean_six_learner_benchmark.py

@@ -1,0 +1,31 @@
+model,seed,Spearman_rho,quintile_AUC,RMSE,MAE
+Proposed Model (XGBoost Monotone),10,0.585,0.914,21.01,17.77
+Baseline H1: Random Forest,10,0.696,0.985,19.82,16.96
+Baseline H2: Gradient Boosting,10,0.697,0.969,20.28,17.25
+Proposed Model (XGBoost Monotone),42,0.562,0.89,21.12,17.83
+Baseline H1: Random Forest,42,0.694,0.993,19.46,16.62
+Baseline H2: Gradient Boosting,42,0.698,0.97,20.27,17.25
+Proposed Model (XGBoost Monotone),123,0.567,0.893,20.97,17.61
+Baseline H1: Random Forest,123,0.678,0.982,19.79,16.84
+Baseline H2: Gradient Boosting,123,0.698,0.97,20.27,17.25
+Proposed Model (XGBoost Monotone),456,0.583,0.911,20.7,17.43
+Baseline H1: Random Forest,456,0.668,0.977,19.76,16.78
+Baseline H2: Gradient Boosting,456,0.691,0.966,20.36,17.31
+Proposed Model (XGBoost Monotone),789,0.576,0.897,21.27,17.99
+Baseline H1: Random Forest,789,0.683,0.991,19.81,16.99
+Baseline H2: Gradient Boosting,789,0.692,0.967,20.35,17.3
+Proposed Model (XGBoost Monotone),999,0.625,0.951,20.52,17.41
+Baseline H1: Random Forest,999,0.68,0.974,19.84,17.02
+Baseline H2: Gradient Boosting,999,0.697,0.969,20.28,17.26
+Proposed Model (XGBoost Monotone),1337,0.563,0.895,21.11,17.68
+Baseline H1: Random Forest,1337,0.669,0.988,19.36,16.47
+Baseline H2: Gradient Boosting,1337,0.697,0.969,20.29,17.27
+Proposed Model (XGBoost Monotone),2026,0.597,0.927,20.5,17.3
+Baseline H1: Random Forest,2026,0.692,0.98,19.8,16.96
+Baseline H2: Gradient Boosting,2026,0.697,0.969,20.28,17.26
+Proposed Model (XGBoost Monotone),Mean ± SD,0.582 ± 0.021,0.910 ± 0.021,20.90 ± 0.29,17.63 ± 0.24
+Proposed Model (XGBoost Monotone),"Range [Min, Max]","[0.562, 0.625]","[0.890, 0.951]","[20.50, 21.27]","[17.30, 17.99]"
+Baseline H1: Random Forest,Mean ± SD,0.682 ± 0.011,0.984 ± 0.007,19.70 ± 0.19,16.83 ± 0.20
+Baseline H1: Random Forest,"Range [Min, Max]","[0.668, 0.696]","[0.974, 0.993]","[19.36, 19.84]","[16.47, 17.02]"
+Baseline H2: Gradient Boosting,Mean ± SD,0.696 ± 0.003,0.969 ± 0.001,20.30 ± 0.04,17.27 ± 0.02
+Baseline H2: Gradient Boosting,"Range [Min, Max]","[0.691, 0.698]","[0.966, 0.970]","[20.27, 20.36]","[17.25, 17.31]"

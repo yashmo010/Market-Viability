@@ -1,0 +1,10 @@
+experiment_id,model_name,best_cv_alpha,train_5fold_cv_rho,test_pooled_rho,test_within_cat_macro_rho,test_unseen_brand_rho,test_RMSE,test_MAE
+EXP-UNIQUE-INFO,Model A (Price + Cat + Brand),1.0,0.569,0.72,0.31,0.68,17.76,14.26
+EXP-UNIQUE-INFO,Model B (Price + Cat + Brand + Aspects),1.0,0.69,0.633,0.156,0.614,18.59,15.07
+EXP-UNIQUE-INFO,Model C (Price + Cat + Brand + TF-IDF),1.0,0.619,0.712,0.234,0.627,17.29,13.96
+EXP-UNIQUE-INFO,Model D (LLM Aspects Alone),1.0,0.61,0.541,-0.167,0.601,20.35,16.64
+EXP-UNIQUE-INFO,Model E (Raw TF-IDF Alone),1.0,0.585,0.683,0.039,0.623,17.0,14.15
+EXP-CALIBRATION-TRANSFORM,Model B + Within-Cat Standardized Aspects (Ridge),10.0,0.584,0.657,0.168,0.614,18.59,14.85
+EXP-ASPECT-SELECTION,Model B + Objective Aspects Only (Set B),10.0,0.592,0.706,0.263,0.644,17.99,14.47
+EXP-ARCHITECTURE,Gradient Boosting (GBDT) + All Aspects,0.0,0.558,0.603,0.364,0.633,22.07,19.1
+EXP-ARCHITECTURE,Random Forest + All Aspects,0.0,0.532,0.641,0.13,0.618,21.38,18.45

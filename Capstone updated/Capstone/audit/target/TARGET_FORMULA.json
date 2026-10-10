@@ -1,0 +1,33 @@
+{
+  "target_name": "success_score (SuccessScore)",
+  "operational_definition": "Review-derived composite proxy for product market success / traction",
+  "normalization_scope": "within-category min-max scaling",
+  "composite_formula": "100.0 * (0.40 * volume_norm + 0.35 * rating_norm + 0.25 * velocity_norm)",
+  "weights": {
+    "volume": 0.4,
+    "rating": 0.35,
+    "velocity": 0.25
+  },
+  "components": {
+    "volume": {
+      "source_signal": "review_count (total number of scraped reviews for product)",
+      "transformation": "ln(1 + review_count)",
+      "scaling": "min-max normalized to [0, 1] within category using pre-cutoff bounds",
+      "formula": "vn = (log(1 + count) - vol_min_c) / (vol_max_c - vol_min_c)"
+    },
+    "rating": {
+      "source_signal": "avg_rating (mean star rating in [1.0, 5.0])",
+      "transformation": "linear identity",
+      "scaling": "min-max normalized to [0, 1] within category using pre-cutoff bounds",
+      "formula": "rn = (avg_rating - rat_min_c) / (rat_max_c - rat_min_c)"
+    },
+    "velocity": {
+      "source_signal": "review accumulation rate over commercial lifespan",
+      "transformation": "review_count / max(months_between(first_review_ts, latest_review_ts), 1.0)",
+      "scaling": "min-max normalized to [0, 1] within category using pre-cutoff bounds",
+      "formula": "veln = (velocity - vel_min_c) / (vel_max_c - vel_min_c)"
+    }
+  },
+  "output_range": "[0.0, 100.0]",
+  "zero_reviews_behavior": "Products with <5 reviews excluded during dataset construction (survivorship constraint)"
+}

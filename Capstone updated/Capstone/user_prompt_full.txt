@@ -1,0 +1,123 @@
+<USER_REQUEST>
+FINAL CLOSING PASS — DO NOT RERUN EVERYTHING
+
+The main experiments have already been recomputed and the headline results are stable.
+
+Do NOT perform another broad rewrite or change numbers simply to make them match an independent reconstruction.
+
+Close ONLY these remaining items:
+
+1. FULL MODEL:
+Trace the ORIGINAL Full-model training configuration/script and determine exactly which features were used.
+Verify whether R² = 0.892 and RMSE = 5.76 are produced by the original configuration.
+Do not replace them with 0.962 / 3.44 unless the original experiment actually produces those values.
+
+2. INNER-SPLIT R²:
+Run the ORIGINAL script/configuration and seed, if available, and verify the reported 0.578.
+If the exact seed/configuration cannot be recovered, document the limitation rather than inventing a new value.
+
+3. REDDIT A/B:
+Find the original Reddit A/B experiment output and verify:
+rho = 0.359
+rho = 0.311
+Δrho = 0.049
+95% CI = [-0.024, 0.127]
+and recover the original n and AUC values if they exist.
+If n/AUC cannot be recovered from the original run, do NOT invent them.
+Either remove unsupported n/AUC claims or clearly qualify them.
+
+4. FIGURE 4:
+Regenerate Figure 4 using the ORIGINAL experiment/script/output.
+Do not substitute a new independently reconstructed confusion matrix unless it is demonstrably the same experiment.
+Make Figure 4 agree with the final reported metrics.
+
+5. 32,477 vs 29,410:
+Trace the actual pipeline.
+Clearly document that the extraction artifact contains 32,477 rows while approximately 3,067 rows correspond to review IDs absent from the cleaned review table.
+State explicitly which rows/cohort were actually used for downstream modeling.
+Use the exact numbers from the actual pipeline.
+
+6. SURVEY LITERATURE:
+Open and verify the ORIGINAL papers for:
+- Shan
+- Sayyad
+- Alantari
+- Wang
+
+For every numerical claim, confirm the exact metric and where it appears in the source.
+If a number cannot be verified, remove or qualify it.
+Do not r
+<truncated 8735 bytes>
+
+- figures
+- tables
+- captions
+- methodology
+- literature claims
+- citations
+- references
+- terminology
+- 631 vs 640
+- 29,410 vs 32,477
+- Reddit
+- price-free ablation
+
+--------------------------------------------------
+M. FINAL SOURCE-OF-TRUTH STATEMENT
+--------------------------------------------------
+
+End the report with a short explicit statement answering:
+
+"Are all final numerical claims in the papers traceable to either:
+1. the actual project data/code/experiment output, or
+2. the original cited research paper?"
+
+Answer:
+
+YES / NO
+
+If NO, list every remaining exception.
+
+Also state:
+
+- what was changed
+- what was intentionally NOT changed
+- what could not be independently recovered
+- whether any result remains based on an old run
+- whether any figure remains based on an old screenshot
+
+--------------------------------------------------
+N. FINAL VERDICT
+--------------------------------------------------
+
+Give exactly one of:
+
+READY FOR FINAL SUBMISSION
+
+or
+
+NOT READY — REMAINING ISSUES
+
+If "NOT READY", list ONLY the concrete blockers.
+
+Do not create new speculative concerns at this stage.
+
+IMPORTANT:
+The report must distinguish between:
+
+1. VERIFIED FROM ORIGINAL EXPERIMENT
+2. VERIFIED FROM PROJECT DATA/CODE
+3. VERIFIED FROM ORIGINAL EXTERNAL PAPER
+4. REPRODUCED INDEPENDENTLY BUT NOT IDENTICAL
+5. NOT RECOVERABLE FROM AVAILABLE ARTIFACTS
+
+Do not label category 4 or 5 as fully verified.
+
+The purpose of this final report is to create a permanent audit trail so that the next verifier can understand exactly where every important number came from.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-04T19:13:35+05:30.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Claude Opus 4.6 (Thinking). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

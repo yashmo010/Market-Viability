@@ -1,0 +1,9 @@
+ablation_id,configuration,feature_count,spearman_rho,delta_vs_baseline,auc,rmse,mae
+A0,Model_O (Original Baseline),21,0.562,0.0,0.89,21.12,17.83
+A1,LLM Aspects + Brand/Price (No Mentions),12,0.595,0.033,0.906,19.75,16.57
+A2,LLM Aspects + Technical Attributes,33,0.633,0.071,0.954,20.31,17.26
+A3,LLM Aspects + Spec Density (Model_New),24,0.672,0.11,0.971,19.75,16.66
+A4,LLM Aspects + Tech Attributes + Spec Density,36,0.617,0.055,0.952,20.23,17.01
+A5,Model_New without Brand,23,0.609,0.047,0.941,20.65,17.27
+A6,Model_New without Category,23,0.613,0.05,0.944,20.71,17.52
+A7,Model_New without Price,23,0.645,0.082,0.971,20.11,17.01

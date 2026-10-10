@@ -1,0 +1,6 @@
+Category,n,Spearman rho,Fisher 95% CI,p-value,Pearson r,AUC (Quintile),RMSE,Power / Reliability Status
+bluetooth_speakers,7,0.536,"[-0.414, 0.927]",0.2152,0.36,N/A (n < 10),21.17,Severely Underpowered (n=7)
+ice_makers,36,0.179,"[-0.179, 0.495]",0.2959,0.092,0.688,20.5,Adequate Sample (n>=30)
+power_banks,19,-0.042,"[-0.509, 0.444]",0.8638,-0.015,0.438,27.95,Moderately Underpowered (n<30)
+smartwatches,39,0.415,"[0.095, 0.657]",0.0086,0.39,0.844,16.1,Adequate Sample (n>=30)
+wireless_headphones,23,-0.055,"[-0.478, 0.388]",0.8017,-0.029,0.54,22.93,Moderately Underpowered (n<30)

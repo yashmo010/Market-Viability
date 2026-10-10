@@ -1,0 +1,8 @@
+Evaluation Dimension,Metric,Model_O (baseline),Model_New (promoted),Delta,Statistical Detail
+Global monotonic rank,Spearman rho,0.5623,0.6722,+0.1099,p = 0.0004 (permutation)
+Concordant pair ordering,Kendall's tau,0.3946,0.4772,+0.0826,p = 4.12e-15
+Catalog shortlist ranking,NDCG@5 (top 5),0.86,0.8933,+0.0333,discounted cumulative gain
+Catalog shortlist ranking,NDCG@10 (top 10),0.8832,0.8771,-0.0061,discounted cumulative gain
+Extreme discrimination,ROC-AUC (top vs bottom 20%),0.8904,0.9712,+0.0808,p < 0.001 (bootstrap)
+Extreme accuracy,Accuracy (n = 50),82.00%,92.00%,+10.00 pp,46 / 50 correct
+Extreme precision,Precision (top 20% flag),80.00%,92.00%,+12.00 pp,23 / 25 true hits

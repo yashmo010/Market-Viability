@@ -1,0 +1,8 @@
+Figure_ID,Filename,Content_Description,Data_Source,Resolution,Canon_Compliance,Status
+Fig. 1,fig1_pipeline.png,End-to-End Scientific Architecture Diagram,FINAL_ARCHITECTURE_SPEC.json,300 DPI Vector-Style,"Redesigned Scopus-standard, Date-free, 5 Categories, 24 Feats",FINAL_PUBLISHED_FIGURE
+Fig. 2,fig2_temporal_protocol.png,Frozen Forward-in-Time Protocol (507/124 split),strict_temporal dataset,300 DPI Vector-Style,"Redesigned Scopus-standard, Date-free, Strict Quarantine Barrier",FINAL_PUBLISHED_FIGURE
+Fig. 3,fig3_performance_comparison.png,Temporal Benchmark vs Baselines with CIs,FINAL_RESULTS.json,300 DPI Horizontal Bar,"Proposed rho=0.672, AUC=0.971",FINAL_PUBLISHED_FIGURE
+Fig. 4,fig4_cold_start.png,Cold-Start Unseen Brand Ranking Performance,FINAL_RESULTS.json,300 DPI Bar Chart,"Tier 0, n=82/90, rho=0.633",FINAL_PUBLISHED_FIGURE
+Fig. 5,fig5_within_category.png,Within-Category Head-to-Head Ranking,FINAL_CATEGORY_RESULTS.csv,300 DPI Grouped Bar,"Exactly 5 categories, Bluetooth -0.107 visible",FINAL_PUBLISHED_FIGURE
+Fig. 6,fig6_ablation.png,Controlled Component Feature Ablation (A0-A7),ABLATION_STUDY.csv,300 DPI Component Bar,A3 Model_New rho=0.672 peak,FINAL_PUBLISHED_FIGURE
+Fig. 7,fig7_scatter.png,Predicted Viability vs Observed Proxy Diagnostic,FINAL_PREDICTIONS.csv,300 DPI Scatter + Regression Fit,"n=124, Fit Line rho=0.672",FINAL_PUBLISHED_FIGURE

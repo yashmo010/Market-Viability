@@ -1,0 +1,813 @@
+{
+  "bluetooth_speakers": {
+    "n_products": 128,
+    "price": {
+      "mean": 72.54,
+      "median": 44.99,
+      "p25": 27.99,
+      "p75": 89.95,
+      "min": 13.29,
+      "max": 399.95
+    },
+    "avg_aspect_scores": {
+      "value_for_money": 7.7,
+      "utility": 7.88,
+      "ease_of_use": 7.64,
+      "reliability": 5.45,
+      "design_appeal": 8.24,
+      "after_sales": 5.33,
+      "build_quality": 7.35,
+      "durability": 6.21,
+      "repairability": 4.11
+    },
+    "avg_mention_rates": {
+      "value_for_money": 0.407,
+      "utility": 0.877,
+      "ease_of_use": 0.494,
+      "reliability": 0.281,
+      "design_appeal": 0.363,
+      "after_sales": 0.056,
+      "build_quality": 0.222,
+      "durability": 0.182,
+      "repairability": 0.01
+    },
+    "pain_points": {
+      "aspects": [
+        "repairability",
+        "after_sales",
+        "reliability"
+      ],
+      "evidence": {
+        "repairability": [
+          "A hard reset didn\u2019t work",
+          "weird charging cord. I seem to have lost it",
+          "Why would I pay that much to repair a speaker I just got last year?",
+          "it became harder to plug in the cable",
+          "100$ repair, seriously....?",
+          "ridiculous instructions",
+          "no replacement battery",
+          "piece of crap",
+          "can't get it back together",
+          "tried multiple fixes with no success",
+          "does not offer repairs",
+          "not replaceable easily",
+          "will not attach back on",
+          "Didn\u2019t even come",
+          "not worth trying to"
+        ],
+        "after_sales": [
+          "got no response",
+          "told me $75",
+          "hung up on",
+          "too late to return or refund",
+          "wrote seller days ago got no reply",
+          "returning the item to amazon",
+          "thanks for lieing",
+          "past the return window so cannot return it",
+          "I would not recommed it at this point",
+          "exchange process Update: from four stars down to one",
+          "Unable to get support",
+          "never received a response",
+          "Bose Tech Support host the usual response, to \"Factory Reset\"",
+          "Seller wants me to go through a long process",
+          "no changer and no way to charge it"
+        ],
+        "reliability": [
+          "stopped working",
+          "loses the signal",
+          "stopped working",
+          "just turned itself off",
+          "quit working",
+          "stopped working",
+          "Clock does not stay",
+          "won't charge",
+          "will not turn",
+          "disaster from day 1",
+          "after 30 days it won't hold a charge",
+          "Lasted 2 months before speaker sounds completely distorted",
+          "audio cuts off when I tried",
+          "stopped charging after the first time",
+          "no longer charges"
+        ]
+      }
+    },
+    "strengths": {
+      "aspects": [
+        "design_appeal",
+        "utility",
+        "value_for_money"
+      ],
+      "evidence": {
+        "design_appeal": [
+          "Looks slick",
+          "WOW! Better than",
+          "Aesthetically, this speaker",
+          "I loved it",
+          "I LOVE THIS",
+          "I love it",
+          "I love this",
+          "Awesome little speaker",
+          "little pod",
+          "pretty fun too",
+          "little versatile",
+          "I love that it\u2019s got a light",
+          "Midnight Blue",
+          "I love it",
+          "very attractive"
+        ],
+        "utility": [
+          "sounds amazing",
+          "Great sound",
+          "Fantastic sound",
+          "sound is amazing",
+          "works well",
+          "Great Sound",
+          "blown away",
+          "superior sound quality",
+          "sound quality is amazing",
+          "Even better",
+          "very powerful",
+          "movie theater quality",
+          "Sounds great",
+          "Best thing",
+          "sound is phenomenal"
+        ],
+        "value_for_money": [
+          "Worth the money",
+          "Even better",
+          "I love this",
+          "better than expected",
+          "great value",
+          "save money",
+          "Great sound for a great price",
+          "worth it",
+          "Bought this on sale",
+          "great price",
+          "for $30",
+          "right price",
+          "so pleased with it",
+          "outstanding fidelity",
+          "Best thing"
+        ]
+      }
+    },
+    "consumer_priorities": "[\"Uhm maybe I'm missing something in your post, but not all of music on Qobuz is advertised as lossless or even CD quality. So unless you specifically bought records advertised as lossless, some lower quality records are bound to slip in when you buy so many. So far I don't have anything bad to say about the quality on Qobuz, although I only listened, not analyzed. Another thing could be possibly a mistake made by a distributior, not Qobuz itself. My gripe with Qobuz is that it doesn't really differentiate between artists with the same name. That's a big problem. I've had my own music pooled together with seemingly 2-3 different people with the same name, under one unified profile. I imagine this would be ideal for people looking to profit of artists by uploading and reuploading music under their alias. This can happen on Spotify as well, but there it usually gets sorted quickly. Although I guess if you want to sell your record and not just stream it, there are additional steps and ver",
+    "success_score": {
+      "mean": 54.4,
+      "median": 51.81,
+      "min": 13.81,
+      "max": 90.96
+    },
+    "median_avg_rating": 4.2,
+    "median_rating_count_log": 5.0,
+    "median_review_velocity": 10.0
+  },
+  "ice_makers": {
+    "n_products": 109,
+    "price": {
+      "mean": 259.92,
+      "median": 174.33,
+      "p25": 109.99,
+      "p75": 279.99,
+      "min": 64.35,
+      "max": 1272.99
+    },
+    "avg_aspect_scores": {
+      "value_for_money": 6.02,
+      "utility": 6.86,
+      "ease_of_use": 7.36,
+      "reliability": 3.41,
+      "design_appeal": 7.7,
+      "after_sales": 3.51,
+      "build_quality": 4.39,
+      "durability": 2.19,
+      "repairability": 2.86
+    },
+    "avg_mention_rates": {
+      "value_for_money": 0.286,
+      "utility": 0.882,
+      "ease_of_use": 0.448,
+      "reliability": 0.44,
+      "design_appeal": 0.187,
+      "after_sales": 0.184,
+      "build_quality": 0.182,
+      "durability": 0.24,
+      "repairability": 0.068
+    },
+    "pain_points": {
+      "aspects": [
+        "durability",
+        "repairability",
+        "reliability"
+      ],
+      "evidence": {
+        "durability": [
+          "stopped working",
+          "quit working",
+          "can't comment",
+          "stopped working",
+          "worked about 1 1/2 months and now it don\u2019t work",
+          "If died 6 months in",
+          "The day after the return date passed",
+          "these machines don't last",
+          "quit working",
+          "lasted only",
+          "both broke within a 2 year period",
+          "now leaks all over my counter top",
+          "huge immovable ice block",
+          "Stopped working after 5 month",
+          "After a year"
+        ],
+        "repairability": [
+          "I don't know who to call",
+          "my refrigerator ice maker stopped working",
+          "we shouldn't have to pay anything on a product",
+          "done everything recommended to fix this issue, and. . . nothing",
+          "I am at a loss as to what to do",
+          "No user manual online.",
+          "no way to contact the manufacturer for replacement parts.",
+          "Can't you repair it?",
+          "they do not have spare parts",
+          "tried all the troubleshooting",
+          "never received the part",
+          "No way to fix this",
+          "parts that came into contact with water were RUSTED",
+          "Still looking for the problem of why it won't make ice any more",
+          "No parts"
+        ],
+        "reliability": [
+          "doesn't even do",
+          "stopped working",
+          "quit working",
+          "Worked one time",
+          "stopped working",
+          "never worked",
+          "this is the first one that has not worked",
+          "worked about 1 1/2 months and now it don\u2019t work",
+          "If died 6 months in",
+          "decides when it wants to work",
+          "it stopped working. Nothing, nada, no ice",
+          "began to leak profusely",
+          "it just stopped working",
+          "quit working",
+          "lasted only"
+        ]
+      }
+    },
+    "strengths": {
+      "aspects": [
+        "design_appeal",
+        "ease_of_use",
+        "utility"
+      ],
+      "evidence": {
+        "design_appeal": [
+          "Silver",
+          "perfect size just for me!",
+          "he loved it",
+          "perfect size",
+          "the red color is cheery",
+          "They are perfect if you have limited space.",
+          "Perfect for entertaining in whatever room.",
+          "Just like a mini commercial ice maker.",
+          "I love the color",
+          "Love it",
+          "Looks good on my countertop",
+          "Perfect to replace ice maker",
+          "absolutely loved everything about it",
+          "this little ice machine",
+          "best buy so far"
+        ],
+        "ease_of_use": [
+          "easy to use",
+          "we started making ice",
+          "ready to go",
+          "Very nice ice",
+          "easy to install",
+          "Easy to use",
+          "Took 5 minutes to install",
+          "never have to bag",
+          "I only had to empty the bin",
+          "They are perfect if you have limited space.",
+          "I don't need to make ice in one place and shuttle it continually to another place, I can make ice on demand, on location",
+          "Just like a mini commercial ice maker.",
+          "Fast and fun",
+          "User friendly",
+          "Easy to use!"
+        ],
+        "utility": [
+          "quick ice making",
+          "makes little ice",
+          "AMAZING",
+          "Makes perfect cubes",
+          "built just as good",
+          "I can have my smoothies again!",
+          "works great",
+          "get ice",
+          "it is fast",
+          "great thing",
+          "you'll never run out, this machine keeps up!",
+          "Make 26 lbs ice",
+          "better job quicker",
+          "makes ice cubes",
+          "cranks out 5 cubes"
+        ]
+      }
+    },
+    "consumer_priorities": null,
+    "success_score": {
+      "mean": 66.41,
+      "median": 71.68,
+      "min": 17.5,
+      "max": 89.57
+    },
+    "median_avg_rating": 4.2,
+    "median_rating_count_log": 5.0,
+    "median_review_velocity": 10.0
+  },
+  "power_banks": {
+    "n_products": 80,
+    "price": {
+      "mean": 34.49,
+      "median": 30.97,
+      "p25": 23.98,
+      "p75": 39.99,
+      "min": 11.69,
+      "max": 143.99
+    },
+    "avg_aspect_scores": {
+      "value_for_money": 7.47,
+      "utility": 7.6,
+      "ease_of_use": 7.85,
+      "reliability": 5.91,
+      "design_appeal": 7.55,
+      "after_sales": 5.08,
+      "build_quality": 7.13,
+      "durability": 5.65,
+      "repairability": 5.73
+    },
+    "avg_mention_rates": {
+      "value_for_money": 0.414,
+      "utility": 0.849,
+      "ease_of_use": 0.458,
+      "reliability": 0.44,
+      "design_appeal": 0.385,
+      "after_sales": 0.073,
+      "build_quality": 0.247,
+      "durability": 0.183,
+      "repairability": 0.004
+    },
+    "pain_points": {
+      "aspects": [
+        "after_sales",
+        "durability",
+        "repairability"
+      ],
+      "evidence": {
+        "after_sales": [
+          "customer service is nonexistent",
+          "Anchor will not honor the warranty",
+          "China",
+          "they didn\u2019t even return a message",
+          "seller and they didn't change the product",
+          "No support page for product through Amazon.",
+          "no support number listed for them to reach out to",
+          "I\u2019ve already had to return one of two I\u2019ve bought",
+          "Amazon refunds for crap products like this",
+          "waste of my time",
+          "would not refund",
+          "Returned the item",
+          "return time has expired",
+          "I had to return them",
+          "no satisfaction or response from seller"
+        ],
+        "durability": [
+          "Will no longer",
+          "it broke",
+          "almost fell apart",
+          "After a few charging cycles it will not recharge",
+          "getting damp while in a back pack",
+          "Didnt even last a year with almost no use",
+          "bought this one month ago and now this doesn't work",
+          "I\u2019ve only had it it a few months",
+          "dies after one or two uses",
+          "The thing blew up in my drawer.",
+          "had it for 5 months... it no longer recharges",
+          "after only being used for 6 months",
+          "the one before broke within 3 months",
+          "Now it wont charge my phone at all",
+          "used once"
+        ],
+        "repairability": [
+          "not returnable",
+          "flashlight stopped working and doesn't work anymore",
+          "does not have a plug",
+          "null",
+          "experimenting with attaching another output",
+          "Need certified USB-C charger",
+          "you can use your own cord",
+          "Works well on complaint I have is I thought",
+          "I most definitely recommend this product",
+          "Thanks",
+          "Great product"
+        ]
+      }
+    },
+    "strengths": {
+      "aspects": [
+        "ease_of_use",
+        "utility",
+        "design_appeal"
+      ],
+      "evidence": {
+        "ease_of_use": [
+          "must have",
+          "Easy to use",
+          "Really happy",
+          "plug right",
+          "Love using",
+          "easy to carry",
+          "super easy",
+          "tiny enough to fit",
+          "become a staple in my purse and travel bag",
+          "Very convenient",
+          "They\u2019re just easy to use and very handy",
+          "Easily to see battery balance",
+          "carry with us on our Harley Trike",
+          "good to have for the summer",
+          "easy to use"
+        ],
+        "utility": [
+          "get about 3 full",
+          "charge phones quickly",
+          "best",
+          "holds a charge",
+          "Plenty of charging",
+          "Works great",
+          "Holds charge",
+          "Powers my MacBook",
+          "Great battery pack",
+          "save me",
+          "great for charging",
+          "most versatile",
+          "holds a lot",
+          "recharge so",
+          "came in very handy"
+        ],
+        "design_appeal": [
+          "looks just as good",
+          "Compact",
+          "just the right size",
+          "Great product",
+          "red color",
+          "like the design",
+          "This little guy",
+          "Perfect size",
+          "some of the other brands that were twice as big",
+          "without a lot of weight or space",
+          "compact, sleek and elegant",
+          "This is a nice bank",
+          "Great for travel charging",
+          "no evidence provided",
+          "It wasn\u2019t too big."
+        ]
+      }
+    },
+    "consumer_priorities": "[\"CONGRATULATIONS! you've got a shitty company making shitty proprietary cables that do NOT fit the USB-C standard. you're fucked. unless you're willing to go the extra mile and sand off the plastic casing around the cable\", \"get an Ikea charger, they're barely more expensive than this and they're made well.\", 'cells are probably swollen. congrats your powerbank is now a bomb.', 'That looks like the cheapest, crappiest little charger made out of Chinesium that i have ever seen. If it started to get hot or smoke, junk it. It isnt worth the fire risk. Buy a quality, name brand battery charger.', 'USB-C plug shells are supposed to be 6.65mm long with a tolerance of 0.10mm. What device do you have that needs a longer shell?', \"Amazon makes it hard, I tried to find way to report it. finally I phoned them yesterday to give my report. representative said he would pass the information to the correct department. This all takes time - by time they do anything, many will be sold. As soon as my fi",
+    "success_score": {
+      "mean": 42.8,
+      "median": 40.02,
+      "min": 6.91,
+      "max": 92.39
+    },
+    "median_avg_rating": 4.2,
+    "median_rating_count_log": 5.0,
+    "median_review_velocity": 10.0
+  },
+  "smartwatches": {
+    "n_products": 75,
+    "price": {
+      "mean": 100.01,
+      "median": 50.0,
+      "p25": 34.94,
+      "p75": 142.47,
+      "min": 18.44,
+      "max": 449.99
+    },
+    "avg_aspect_scores": {
+      "value_for_money": 6.91,
+      "utility": 6.53,
+      "ease_of_use": 6.41,
+      "reliability": 4.23,
+      "design_appeal": 8.06,
+      "after_sales": 4.13,
+      "build_quality": 6.3,
+      "durability": 5.15,
+      "repairability": 3.88
+    },
+    "avg_mention_rates": {
+      "value_for_money": 0.436,
+      "utility": 0.757,
+      "ease_of_use": 0.614,
+      "reliability": 0.439,
+      "design_appeal": 0.403,
+      "after_sales": 0.12,
+      "build_quality": 0.24,
+      "durability": 0.207,
+      "repairability": 0.021
+    },
+    "pain_points": {
+      "aspects": [
+        "repairability",
+        "after_sales",
+        "reliability"
+      ],
+      "evidence": {
+        "repairability": [
+          "All I got was you need to buy a new one",
+          "I can\u2019t fix it",
+          "tried to charge me $140 to fix",
+          "The manufacturer refused to repair the watch.",
+          "that they'll have to reach out to a third party, and it may cost more",
+          "Samsung wouldn't replace it or fix it",
+          "stopped working after 10 months",
+          "deemed unrepairable",
+          "There is no way to buy them.",
+          "I would have to ship my entire watch back",
+          "can\u2019t be replaced",
+          "Does not come with a charger",
+          "I couldn\u2019t get it to come back on",
+          "it was less than a year old",
+          "The Heart Monitor Plate / Back Plate Came off"
+        ],
+        "after_sales": [
+          "kid-Snowflakes",
+          "Do not replace",
+          "Customer support worthless",
+          "missed return date",
+          "horrible customer support on their part",
+          "Tell me why I have to pay for taxes and hopping when the vendor sent me a defective item",
+          "Company asking me to change my review",
+          "the company won't refund or replace it",
+          "Hardly a sufficient amount of time for bugs",
+          "Amazon tells me to go to the manufacturer; the manufacturer won't respond",
+          "have to go",
+          "Awaiting response from Garmin to address.",
+          "nope just completely died now",
+          "Samsung will not honor the warranty",
+          "they aren\u2019t offering any damn help"
+        ],
+        "reliability": [
+          "dead on arrival",
+          "died after",
+          "no sync with",
+          "common problem",
+          "battery only",
+          "loses wifi connection",
+          "vibrator broke after a month's use",
+          "both the Back and Home buttons stopped working",
+          "never adjusts",
+          "Didn't work",
+          "it still would not turn on",
+          "just sits there with no signal",
+          "watch started working and reverted back to the barcode",
+          "Always glitches or freezes",
+          "not reliable on their reading's at all"
+        ]
+      }
+    },
+    "strengths": {
+      "aspects": [
+        "design_appeal",
+        "value_for_money",
+        "utility"
+      ],
+      "evidence": {
+        "design_appeal": [
+          "beautiful display",
+          "very comfortable",
+          "awesome",
+          "Love how it feels",
+          "looks more like",
+          "Lightweight",
+          "beautiful classic",
+          "many compliments",
+          "The display is amazing",
+          "like new",
+          "design is great",
+          "It is very neat and with the gold bezel",
+          "purple and it is really pretty and true to color",
+          "Graphite",
+          "This is theeeee best!!"
+        ],
+        "value_for_money": [
+          "at this price",
+          "great",
+          "great smart watch",
+          "Only way more affordable",
+          "my favorite",
+          "more features",
+          "lived up to that hope",
+          "Very glad I purchased",
+          "like new",
+          "everything I need",
+          "exceeded my expectations",
+          "definitely is worth the purchase",
+          "skeptical after seeing the low price",
+          "didn't pay the outrageous fee Apple requires",
+          "very happy with it"
+        ],
+        "utility": [
+          "functional",
+          "like the HR feature",
+          "great battery life",
+          "works better than expected",
+          "Love the apps",
+          "does exactly",
+          "Easily as good",
+          "does it prefert",
+          "tells the time",
+          "outstanding battery",
+          "incredible",
+          "lived up to that hope",
+          "Does everything I expected",
+          "track my sleep",
+          "works great"
+        ]
+      }
+    },
+    "consumer_priorities": "['Settings > health > notifications > toggle \"daily activity\" to OFF (Note that you MUST go to settings > health. This setting is NOT found in settings > notifications.)', 'I think fixing it will be more expensive than a new one.', \"For some reason I couldn't seem to edit this post so here's an update. It was indeed the screen protector! Thanks to u/Main_Schedule9853 for telling me all I had to do was use my fingernail to peel it off and thanks to everyone easing my mind. My first watch and I received it slightly used so I didn't know if it had a protector.\", \"Doesn't matter if it's 2 months old or 100 years old. Replacing the body + screen costs a bit in parts and labor. Likely more than the value of the watch\", 'I hit my goals for 3 months straight. 120 days in a row.... Lost 50 lbs in the process.. Miss one day and it\\'s all \"Is today the day you reach your goals?\" Oh f\\' off. I can act like the fatass I was for one day after spending 3 months being a hardass to not be a fatass.', \"",
+    "success_score": {
+      "mean": 40.44,
+      "median": 40.05,
+      "min": 3.23,
+      "max": 90.0
+    },
+    "median_avg_rating": 4.2,
+    "median_rating_count_log": 5.0,
+    "median_review_velocity": 10.0
+  },
+  "wireless_headphones": {
+    "n_products": 115,
+    "price": {
+      "mean": 68.48,
+      "median": 35.99,
+      "p25": 24.99,
+      "p75": 79.99,
+      "min": 9.75,
+      "max": 489.0
+    },
+    "avg_aspect_scores": {
+      "value_for_money": 7.35,
+      "utility": 7.41,
+      "ease_of_use": 6.85,
+      "reliability": 4.78,
+      "design_appeal": 7.51,
+      "after_sales": 5.23,
+      "build_quality": 6.4,
+      "durability": 4.66,
+      "repairability": 4.62
+    },
+    "avg_mention_rates": {
+      "value_for_money": 0.372,
+      "utility": 0.777,
+      "ease_of_use": 0.641,
+      "reliability": 0.367,
+      "design_appeal": 0.239,
+      "after_sales": 0.081,
+      "build_quality": 0.308,
+      "durability": 0.177,
+      "repairability": 0.015
+    },
+    "pain_points": {
+      "aspects": [
+        "repairability",
+        "durability",
+        "reliability"
+      ],
+      "evidence": {
+        "repairability": [
+          "won't Bluetooth connect",
+          "useless overseas tech that tells you to go",
+          "glue it back together",
+          "Any one having this issue and knows how to repair this?",
+          "Its unclear to me where to even find these replacement pads",
+          "tried everything that's a video suggested",
+          "no possible easy way to get them fixed",
+          "Looked all over on youtube to try to fix",
+          "Reset",
+          "still not working",
+          "send back to case and buds back to Samsung",
+          "tried resetting, charging for 24",
+          "Not as fixable as the older model",
+          "no recourse for getting this fixed",
+          "Impossible to take out the electronics to wash it."
+        ],
+        "durability": [
+          "stop working",
+          "broke anyway",
+          "already dead",
+          "ran out of power",
+          "one week",
+          "stopped after",
+          "just die",
+          "die in 30min",
+          "stop charging",
+          "if they fall out of your pocket",
+          "The neck piece in the middle breaks REALLY EASILY!",
+          "Falling apart after less than a month",
+          "Very disappointed in longevity",
+          "you will be buying a new pair every year",
+          "They only lasted a few months."
+        ],
+        "reliability": [
+          "stop working",
+          "lose connection constantly",
+          "stop working",
+          "continually turning itself off",
+          "loosing connection",
+          "already dead",
+          "left earbud stopped",
+          "wouldn't charge",
+          "cannot get it",
+          "stopped after",
+          "loosing signal",
+          "headphones would die",
+          "only one works",
+          "stop charging",
+          "won't charge"
+        ]
+      }
+    },
+    "strengths": {
+      "aspects": [
+        "design_appeal",
+        "utility",
+        "value_for_money"
+      ],
+      "evidence": {
+        "design_appeal": [
+          "love the color",
+          "molded to my skull",
+          "Glad you added",
+          "incredible piece",
+          "Compact carrying",
+          "fits so good",
+          "packaging is very nice",
+          "I love the design",
+          "they\u2019re the bomb",
+          "I love these headphones",
+          "Case slips easily into a pocket",
+          "small so I don't look like an alien",
+          "PURE LUXURY",
+          "I love the rose gold color",
+          "The charging box of and the earbuds looks like a high-quality"
+        ],
+        "utility": [
+          "nice quiet",
+          "blown away",
+          "work great to cancel out surrounding sounds",
+          "crystal clear",
+          "sound is great",
+          "sound is awesome",
+          "best I've ever had",
+          "Nice bass",
+          "noise cancellation",
+          "quality of the sound",
+          "cancel out all sound",
+          "amazing product",
+          "great sound",
+          "My kids can't",
+          "made it virtually silent"
+        ],
+        "value_for_money": [
+          "forever-headphones",
+          "Price point superb",
+          "amazing value",
+          "Such a steal",
+          "JBL quality",
+          "saved our trip",
+          "I'd recommend",
+          "Awesome deal",
+          "I love these",
+          "can't beat the price",
+          "Worth it",
+          "can't go wrong",
+          "Glad I didn\u2019t waste",
+          "amazing",
+          "decent affordable"
+        ]
+      }
+    },
+    "consumer_priorities": "['Asurion is garbage. I\u2019d be more surprised if they actually could fix or replace properly.', 'Maybe try following up with Amazon, they sold you the warranty. See what they say about in it, ask for a warranty refund if needed.', 'I think the technician checking your headphone is deaf on one ears. sorry.', \"It's definitely going to interfere with the driver and distort the sound.\", 'Imo this is not QC, this is a design flaw!', 'You might have heard them before by their more famous name...Linsoul.', 'Driver upgrades are very rarely linear, they\u2019re often side grades.', 'Unfortunately Sennheiser IEMs are a completely different story than their headphones. They\u2019re like Hifiman in the IEM world. Terrible QC, bad reliability. At least their customer service is better', \"Yeah go through A to Z. I did that for an item that claimed 1 year guarantee that wasn't being honoured. Eventually you get to speak to an actual Amazon rep and they just straight up refunded me instantly, no returning anythin",
+    "success_score": {
+      "mean": 51.24,
+      "median": 50.21,
+      "min": 15.91,
+      "max": 89.88
+    },
+    "median_avg_rating": 4.2,
+    "median_rating_count_log": 5.0,
+    "median_review_velocity": 10.0
+  }
+}

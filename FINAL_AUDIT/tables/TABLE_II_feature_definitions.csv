@@ -1,0 +1,9 @@
+Group,Feature,Type,Directional Prior,Description
+Commercial Metadata,price,Continuous ($),-1 (Penalty),Launch unit price in USD
+Commercial Metadata,brand_tier,Ordinal (0-3),+1 (Bonus),Pre-cutoff catalog footprint tier
+Commercial Metadata,category,Categorical,Unconstrained,Product market category partition
+LLM Semantic Aspects,9 aspect scores,"Continuous [0, 10]",+1 (Bonus),Grounded consumer aspect ratings
+Category Aspect Priors,9 mention rates,"Continuous [0, 1]",Unconstrained,Category-level historical mention frequency
+Cold-Start Rich Specs,attr_spec_bullets,Integer (count),+1 (Bonus),Number of technical specification bullet points
+Cold-Start Rich Specs,attr_word_count,Integer (count),+1 (Bonus),Total specification text length
+Cold-Start Rich Specs,attr_number_density,"Continuous [0, 1]",+1 (Bonus),Ratio of concrete numeric measurements to words

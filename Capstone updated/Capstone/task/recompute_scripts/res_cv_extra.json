@@ -1,0 +1,62 @@
+{
+ "asp_only_unconstrained_peek": {
+  "r2": 0.6069794391570049,
+  "r2_sd": 0.010309983527886313,
+  "rmse": 11.051341408951975,
+  "mae": 8.51167432023138,
+  "best_iter": 323,
+  "per_cat_r2": {
+   "bluetooth_speakers": 0.640620745626548,
+   "ice_makers": 0.2900898021394628,
+   "power_banks": 0.5551161027610437,
+   "smartwatches": 0.5584775011266949,
+   "wireless_headphones": 0.38600819784638707
+  },
+  "mean_per_cat_r2": 0.4860624699000273
+ },
+ "asp_only_constrained_peek": {
+  "r2": 0.5767795336959558,
+  "r2_sd": 0.01482099409405424,
+  "rmse": 11.465156355060367,
+  "mae": 8.853574048601427,
+  "best_iter": 146,
+  "mean_per_cat_r2": 0.4508201440338562,
+  "per_cat_r2": {
+   "bluetooth_speakers": 0.5860087424426177,
+   "ice_makers": 0.30318004153250266,
+   "power_banks": 0.5453780401277017,
+   "smartwatches": 0.4760530719016203,
+   "wireless_headphones": 0.34348082416483816
+  }
+ },
+ "pure_constrained_peek": {
+  "r2": 0.5441739115865974,
+  "r2_sd": 0.033219161502843236,
+  "rmse": 11.89532192108788,
+  "mae": 9.28854276381099,
+  "best_iter": 135,
+  "mean_per_cat_r2": 0.4090455668214725,
+  "per_cat_r2": {
+   "bluetooth_speakers": 0.5503047442296323,
+   "ice_makers": 0.3135495065395071,
+   "power_banks": 0.4844125439442354,
+   "smartwatches": 0.40086047812764836,
+   "wireless_headphones": 0.29610056126633943
+  }
+ },
+ "full_constrained_peek": {
+  "r2": 0.8872591050929023,
+  "r2_sd": 0.006333476759179462,
+  "rmse": 5.912982867676577,
+  "mae": 4.597273159618718,
+  "best_iter": 367,
+  "mean_per_cat_r2": 0.852128905940585,
+  "per_cat_r2": {
+   "bluetooth_speakers": 0.9093632798003692,
+   "ice_makers": 0.8379880622663299,
+   "power_banks": 0.8827583494163098,
+   "smartwatches": 0.8396122046573794,
+   "wireless_headphones": 0.7909226335625372
+  }
+ }
+}

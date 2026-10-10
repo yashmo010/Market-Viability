@@ -1,0 +1,3 @@
+Condition,Extraction Input,CV R²,CV RMSE,CV MAE,Holdout Spearman ρ (n=59),Holdout AUC,Leakage Risk
+Condition A (Contextual Rating Provided),Review text + star rating anchor ('rated {rating}/5'),0.595 ± 0.030,11.17,8.63,0.317,0.743,Low (rating context banned from scores; null-forcing enforced)
+Condition B (Rating-Blinded Extraction),Review text only (zero rating context),0.531 ± 0.034,12.03,9.26,0.312,0.738,Zero (impossible to leak star rating; retains 98.4% of holdout signal)

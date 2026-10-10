@@ -1,0 +1,6 @@
+Category,Test_N,Seen_Category_Rho,Seen_Category_RMSE,Seen_Category_AUC,Unseen_Category_LOCO_Rho,Unseen_Category_LOCO_RMSE,Unseen_Category_LOCO_AUC,Delta_Rho
+bluetooth_speakers,7,0.536,21.17,1.0,-0.357,21.57,0.5,-0.893
+ice_makers,36,0.179,20.5,0.688,0.246,36.21,0.705,0.067
+power_banks,19,-0.042,27.95,0.438,-0.124,30.74,0.438,-0.081
+smartwatches,39,0.415,16.1,0.844,-0.067,22.96,0.633,-0.482
+wireless_headphones,23,-0.055,22.93,0.54,-0.228,22.43,0.44,-0.173

@@ -1,0 +1,12 @@
+model,n_unseen,Spearman_rho,p_value,RMSE,MAE,notes
+Proposed (XGBoost Monotone),82,0.5849,7.920339917660324e-09,21.54,18.25,Empirical ranking across unseen brands
+LLM Aspects Alone,82,0.6211,4.789836071415229e-10,23.59,20.37,Empirical ranking across unseen brands
+Category Mean,82,0.6857,1.1804333044195234e-12,17.47,14.59,Empirical ranking across unseen brands
+Category Median,82,0.6632,1.1344318335347594e-11,15.95,13.3,Empirical ranking across unseen brands
+Ablation B (Remove Brand),82,0.5444,1.2415435103459655e-07,23.56,20.38,Empirical ranking across unseen brands
+Brand-Only,82,,,25.46,20.41,Zero variance across unseen brands (constant fallback); Spearman mathematically undefined
+TF-IDF + Ridge,82,0.623,4.0890942354945495e-10,17.52,14.7,Empirical ranking across unseen brands
+GBDT,82,0.6698,5.968382215750893e-12,20.88,17.9,Empirical ranking across unseen brands
+Random Forest,82,0.6176,6.385655605736178e-10,20.51,17.73,Empirical ranking across unseen brands
+Category + Brand Ridge,82,0.6857,1.1804333044195234e-12,18.27,14.7,Empirical ranking across unseen brands
+Ablation A (Remove LLM),82,0.6644,1.0101434884529426e-11,17.49,14.11,Empirical ranking across unseen brands

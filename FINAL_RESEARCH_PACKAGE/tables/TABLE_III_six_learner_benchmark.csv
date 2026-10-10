@@ -1,0 +1,7 @@
+Downstream Learner,OOF rho,OOF r,OOF R2,OOF RMSE,OOF MAE,Fold rho +- SD
+XGBoost (promoted),0.7565,0.7592,0.5715,12.53,9.56,0.756 +- 0.024
+SVR (RBF kernel),0.7495,0.741,0.5401,12.98,9.94,0.748 +- 0.026
+GBDT (sklearn),0.7396,0.7385,0.5375,13.02,10.12,0.739 +- 0.028
+Random Forest,0.7267,0.725,0.5207,13.25,10.31,0.726 +- 0.029
+Ridge Regression,0.6481,0.647,0.4165,14.63,11.45,0.648 +- 0.035
+MLP (Neural Network),0.5463,0.521,0.2138,16.98,13.2,0.545 +- 0.048

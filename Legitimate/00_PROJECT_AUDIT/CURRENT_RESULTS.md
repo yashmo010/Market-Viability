@@ -1,0 +1,24 @@
+# Current Results: Canonical Baseline (Model_O)
+
+- **Dataset Protocol**:
+  - Training products: 507 (pre-cutoff <= 2021-10-31)
+  - Test products: 124 (post-cutoff > 2021-10-31)
+- **Primary Performance Metrics**:
+  - Spearman rank correlation (rho): **0.562** (Exact: 0.5621)
+  - 95% Bootstrap CI: **[0.414, 0.681]** (10,000 iterations)
+  - Asymptotic p-value: **1.09e-11**
+  - Pearson r: **0.620** (p = 1.64e-14)
+  - Top-vs-Bottom Quintile AUC: **0.890** (95% Bootstrap CI: [0.795, 0.968], DeLong: [0.804, 0.976])
+  - RMSE: **21.12**
+  - MAE: **17.84**
+  - R^2: **0.2306**
+  - Mean Within-Category rho: **0.207**
+- **Subgroup & Cold-Start Metrics**:
+  - Mature Cohort (n_reviews >= 30, n=51): rho = **0.631** [0.413, 0.778], AUC = **0.955**
+  - Unseen Brands (Tier 0, n=82): rho = **0.585**, RMSE = **21.54**, MAE = **18.25**
+- **Per-Category Breakdown**:
+  - Bluetooth Speakers (n=7): rho = 0.536, RMSE = 21.17
+  - Ice Makers (n=36): rho = 0.179, RMSE = 20.50
+  - Power Banks (n=19): rho = -0.042, RMSE = 27.95
+  - Smartwatches (n=39): rho = 0.415, RMSE = 16.10
+  - Wireless Headphones (n=23): rho = -0.055, RMSE = 22.93

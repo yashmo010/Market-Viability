@@ -1,0 +1,16 @@
+Model,Representation,Spearman_rho,95_CI,p_value,AUC,RMSE,MAE,Unseen_Brand_rho,Status
+Model_New (Promoted Cold-Start Rich),Aspects + Spec Density (LLM-COLDSTART-RICH),0.672,"[0.611, 0.746]",1.25e-17,0.971,19.75,16.66,0.633,PROMOTED_NEW_MODEL
+Model_O (Original Canonical Baseline),9 Scalar Aspects (Compressed LLM),0.562,"[0.414, 0.681]",1.09e-11,0.89,21.12,17.84,0.516,ORIGINAL_BASELINE
+Baseline A: Global Mean,Priors (None / Category),0.0,"[0.000, 0.000]",1.00,0.5,24.08,20.27,-,CANONICAL_BASELINE
+Baseline B: Global Median,Priors (None / Category),0.0,"[0.000, 0.000]",1.00,0.5,24.12,19.99,-,CANONICAL_BASELINE
+Baseline C: Category Mean,Priors (None / Category),0.671,"[0.548, 0.762]",1.41e-17,0.98,17.18,14.15,-,CANONICAL_BASELINE
+Baseline D: Category Median,Priors (None / Category),0.691,"[0.575, 0.781]",6.84e-19,0.98,15.82,12.94,-,CANONICAL_BASELINE
+Baseline E: Brand-Only,Brand Identity / Tier,0.227,"[0.088, 0.370]",1.12e-02,0.64,24.51,19.76,-,CANONICAL_BASELINE
+Baseline F: Category + Brand,Brand Identity / Tier,0.712,"[0.626, 0.778]",1.90e-20,0.994,17.79,14.33,-,CANONICAL_BASELINE
+Baseline G1: Ridge Regression,Full Specifications + Brand + Cat,0.651,"[0.528, 0.738]",2.84e-16,0.977,18.31,14.6,-,CANONICAL_BASELINE
+Baseline G2: Elastic Net,Full Specifications + Brand + Cat,0.652,"[0.534, 0.737]",2.29e-16,0.977,19.14,15.32,-,CANONICAL_BASELINE
+Baseline H1: Random Forest,Full Specifications + Brand + Cat,0.694,"[0.579, 0.779]",3.98e-19,0.993,19.46,16.62,-,CANONICAL_BASELINE
+Baseline H2: Gradient Boosting,Full Specifications + Brand + Cat,0.698,"[0.597, 0.778]",2.12e-19,0.97,20.27,17.25,-,CANONICAL_BASELINE
+Baseline I1: Spec TF-IDF + Ridge,Raw Specs Text (Non-LLM),0.683,"[0.572, 0.764]",2.53e-18,0.979,17.0,14.15,-,CANONICAL_BASELINE
+Baseline I2: Spec TF-IDF + Price + Cat (Ridge),Raw Specs Text (Non-LLM),0.688,"[0.577, 0.772]",1.09e-18,0.979,16.92,14.03,-,CANONICAL_BASELINE
+Baseline I3: Spec TF-IDF + Gradient Boosting,Raw Specs Text (Non-LLM),0.693,"[0.581, 0.776]",5.09e-19,0.987,17.27,14.23,-,CANONICAL_BASELINE

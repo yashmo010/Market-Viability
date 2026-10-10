@@ -1,0 +1,40 @@
+{
+  "hardware_environment": {
+    "os": "Microsoft Windows 11 Enterprise",
+    "cpu_arch": "AMD/Intel x86_64",
+    "python_version": "3.13.0",
+    "xgboost_version": "3.3.0"
+  },
+  "promoted_model_inference": {
+    "batch_latency_ms_per_item": 0.0395,
+    "throughput_items_per_sec": 25316,
+    "model_disk_size_kb": 297.3,
+    "feature_manifest_size_kb": 0.57
+  },
+  "learner_comparison": {
+    "XGBoost": {
+      "mean_train_time_sec": 0.088,
+      "mean_infer_latency_ms": 0.0419
+    },
+    "Support Vector Regressor (SVR)": {
+      "mean_train_time_sec": 0.0171,
+      "mean_infer_latency_ms": 0.0722
+    },
+    "Gradient Boosting (GBDT)": {
+      "mean_train_time_sec": 0.4478,
+      "mean_infer_latency_ms": 0.0681
+    },
+    "Random Forest": {
+      "mean_train_time_sec": 0.1466,
+      "mean_infer_latency_ms": 0.3707
+    },
+    "Ridge Regression": {
+      "mean_train_time_sec": 0.0107,
+      "mean_infer_latency_ms": 0.0526
+    },
+    "Multi-Layer Perceptron (MLP)": {
+      "mean_train_time_sec": 0.7412,
+      "mean_infer_latency_ms": 0.0605
+    }
+  }
+}

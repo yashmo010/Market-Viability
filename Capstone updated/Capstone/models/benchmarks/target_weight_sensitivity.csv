@@ -1,0 +1,5 @@
+Weighting Scheme,Target Rank Stability (ρ vs Baseline),Target Pearson r,Aspects-Only CV R²,CV RMSE,CV MAE
+40/35/25 (Baseline),1.0000,1.0000,0.591 ± 0.034,11.22,8.67
+50/30/20 (Volume-Heavy),0.9923,0.9918,0.627 ± 0.032,11.67,8.98
+30/40/30 (Quality-Heavy),0.9887,0.9887,0.540 ± 0.018,11.07,8.50
+33/33/33 (Equal Weighting),0.9958,0.9943,0.541 ± 0.022,11.32,8.65

@@ -1,0 +1,3 @@
+model,n_unseen,spearman_rho,p_value,auc,rmse,mae
+Model_O (Original Baseline),90,0.516,1.9973396972083e-07,0.884,22.61,19.3
+Model_New (Cold-Start Rich),90,0.633,2.2163701489370262e-11,0.981,20.9,17.71

@@ -1,0 +1,20 @@
+{
+  "comparison": "Model_New (Candidate B) vs Model_O (Baseline)",
+  "original_spearman_rho": 0.562,
+  "new_spearman_rho": 0.672,
+  "delta_spearman_rho": 0.1099,
+  "delta_spearman_ci95_bootstrap": [
+    0.0485,
+    0.1833
+  ],
+  "paired_bootstrap_p_value": 0.0002,
+  "paired_permutation_p_value": 0.0004,
+  "original_quintile_auc": 0.89,
+  "new_quintile_auc": 0.971,
+  "delta_quintile_auc": 0.0808,
+  "original_rmse": 21.12,
+  "new_rmse": 19.75,
+  "original_mae": 17.83,
+  "new_mae": 16.66,
+  "status": "STATISTICALLY_SIGNIFICANT"
+}

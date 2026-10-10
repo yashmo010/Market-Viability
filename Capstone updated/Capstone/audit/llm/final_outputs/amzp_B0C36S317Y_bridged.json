@@ -1,0 +1,18 @@
+{
+  "product_uid": "amzp_B0C36S317Y",
+  "prompt_version": 2,
+  "model": "gemini-1.5-flash",
+  "temperature": 0.0,
+  "bridged_aspects": {
+    "value_for_money": 8.5,
+    "utility": 6.5,
+    "ease_of_use": 7.0,
+    "reliability": 4.5,
+    "design_appeal": 7.5,
+    "after_sales": 4.0,
+    "build_quality": 7.0,
+    "durability": 6.5,
+    "repairability": 3.0
+  },
+  "audit_validation": "Pydantic BridgingResult verified"
+}

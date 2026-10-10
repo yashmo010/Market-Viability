@@ -1,0 +1,8 @@
+{
+  "master_seed": 42,
+  "kfold_seed": 42,
+  "xgboost_seed": 42,
+  "bootstrap_seed": 42,
+  "data_split_seed": 42,
+  "sampling_seed": 4242
+}

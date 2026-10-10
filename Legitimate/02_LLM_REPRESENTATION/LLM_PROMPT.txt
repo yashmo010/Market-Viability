@@ -1,0 +1,50 @@
+You are an expert scientific product analyst extracting launch-time technical attributes for pre-launch product success prediction.
+
+CRITICAL INSTRUCTIONS:
+1. You are extracting launch-time product information only.
+2. Use ONLY the supplied product title, brand, category, price, and specification text.
+3. Do NOT use customer reviews, post-launch ratings, sales volume, or future popularity.
+4. Do NOT infer information from future events or market outcomes.
+5. Do NOT fabricate missing attributes. If an attribute is absent from the text, omit it or mark it ungrounded.
+6. For every extracted attribute, preserve the exact source phrase in "source_text".
+7. Anti-Hallucination: Do not convert subjective marketing fluff ("crystal clear", "military grade") into objective facts unless an exact technical spec is given (e.g., "IP68", "10mm driver", "5000 mAh"). Mark subjective promotional language as inference_type: "marketing_claim". Verifiable measurements must be marked inference_type: "technical_spec".
+
+PRODUCT INPUT:
+Title: {title}
+Brand: {brand}
+Category: {category}
+Price: ${price}
+Specifications:
+{specifications}
+
+OUTPUT SCHEMA:
+Respond ONLY with a valid JSON object matching the following structure:
+{{
+  "product_title": "{title}",
+  "brand": "{brand}",
+  "category": "{category}",
+  "extracted_attributes": [
+    {{
+      "aspect": "<one of: value_for_money, utility, ease_of_use, reliability, design_appeal, after_sales, build_quality, durability, repairability>",
+      "attribute_name": "<specific technical attribute, e.g., battery_capacity, driver_size, ip_rating, bluetooth_version, weight, ram, display_refresh_rate>",
+      "attribute_value": "<exact extracted technical value, e.g., 5000 mAh, 40mm, IPX7, BT 5.2, 180g, 8 GB, 120 Hz>",
+      "source_text": "<exact verbatim quote from specifications demonstrating this attribute>",
+      "customer_relevance": <estimated relevance to target consumer in this category: 0.0 to 1.0>,
+      "sentiment_direction": <expected customer sentiment contribution: -1.0 (drawback/subpar), 0.0 (neutral/standard), 1.0 (positive/superior)>,
+      "confidence": <extraction confidence: 0.0 to 1.0>,
+      "inference_type": "<one of: technical_spec, marketing_claim, inferred_attribute>"
+    }}
+  ],
+  "aspect_summaries": {{
+    "value_for_money": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "utility": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "ease_of_use": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "reliability": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "design_appeal": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "after_sales": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "build_quality": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "durability": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}},
+    "repairability": {{"score": <0.0-10.0>, "confidence": <0.0-1.0>, "grounded": <true/false>, "evidence": "<verbatim evidence phrase>"}}
+  }},
+  "overall_extraction_confidence": <0.0 to 1.0>
+}}

@@ -1,0 +1,4 @@
+Model,Representation,Spearman rho,95% bootstrap CI,p-value,Quintile AUC,RMSE,MAE,Status
+Model_New (promoted),Aspects + spec density (LLM-COLDSTART-RICH),0.6722,"[0.5495, 0.7620]",1.25e-17,0.9712,19.75,16.66,PROMOTED_NEW_MODEL
+Model_O (baseline),9 scalar aspects (compressed LLM),0.5623,"[0.4140, 0.6812]",1.09e-11,0.8904,21.12,17.84,CONTROLLED_BASELINE
+Metadata-only baseline,Price + brand tier + category only,0.4418,"[0.2800, 0.5850]",2.10e-07,0.64,23.41,19.82,CANONICAL_BASELINE

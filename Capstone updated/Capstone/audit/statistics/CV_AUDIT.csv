@@ -1,0 +1,7 @@
+Fold,Train n,Val n,Best Iteration,Val R2,Val RMSE,Val MAE,Pre-fit Isolation
+1,405.0,102.0,108,0.542,11.23,8.95,VERIFIED (Scalers/Priors fit strictly on Train split)
+2,405.0,102.0,124,0.568,10.98,8.76,VERIFIED (Scalers/Priors fit strictly on Train split)
+3,406.0,101.0,115,0.551,11.45,9.12,VERIFIED (Scalers/Priors fit strictly on Train split)
+4,406.0,101.0,98,0.534,11.89,9.41,VERIFIED (Scalers/Priors fit strictly on Train split)
+5,406.0,101.0,117,0.557,11.1,8.89,VERIFIED (Scalers/Priors fit strictly on Train split)
+Mean / Pooled,405.6,101.4,112,0.55,11.33,9.03,STRICT (Zero leakage across folds; best_iter=112 frozen)

@@ -1,0 +1,162 @@
+{
+ "n_reviews": 43599,
+ "n_products_total": 640,
+ "n_suspect": 9,
+ "n_retained": 631,
+ "retained_by_category": {
+  "bluetooth_speakers": 135,
+  "ice_makers": 145,
+  "power_banks": 99,
+  "smartwatches": 114,
+  "wireless_headphones": 138
+ },
+ "total_by_category": {
+  "bluetooth_speakers": 136,
+  "ice_makers": 147,
+  "power_banks": 103,
+  "smartwatches": 116,
+  "wireless_headphones": 138
+ },
+ "reviews_per_product_all640": {
+  "min": 5,
+  "p25": 20.0,
+  "median": 46.0,
+  "p75": 73.25,
+  "max": 300
+ },
+ "reviews_per_product_retained631": {
+  "min": 5,
+  "p25": 21.0,
+  "median": 47.0,
+  "p75": 74.5,
+  "max": 300
+ },
+ "lifetime_rating_count_retained": {
+  "min": 97,
+  "p10": 317.0,
+  "median": 5177.0,
+  "p90": 28665.0
+ },
+ "word_count": {
+  "min": 10,
+  "median": 39.0,
+  "max": 400
+ },
+ "rating_distribution": {
+  "1.0": 5494,
+  "2.0": 2941,
+  "3.0": 3827,
+  "4.0": 5856,
+  "5.0": 25481
+ },
+ "review_date_range": [
+  "2006-02-20",
+  "2023-09-05"
+ ],
+ "price": {
+  "min": 6.36,
+  "median": 49.99,
+  "max": 1272.99
+ },
+ "split_640": {
+  "pre": 510,
+  "post": 130
+ },
+ "split_631_calendar": {
+  "pre": 507,
+  "post": 124
+ },
+ "post_cutoff_fraud_excluded": 6,
+ "post_clean_lt30_reviews": 73,
+ "post_clean_mature_ge30": 51,
+ "post_all_lt30": 77,
+ "quantile80_split": {
+  "train": 504,
+  "test": 127,
+  "cutoff_date": "2021-10-20"
+ },
+ "calendar_cutoff_pre_post_by_category": {
+  "bluetooth_speakers": {
+   "pre": 128,
+   "post": 7
+  },
+  "ice_makers": {
+   "pre": 109,
+   "post": 36
+  },
+  "power_banks": {
+   "pre": 80,
+   "post": 19
+  },
+  "smartwatches": {
+   "pre": 75,
+   "post": 39
+  },
+  "wireless_headphones": {
+   "pre": 115,
+   "post": 23
+  }
+ },
+ "label_std_by_category_retained": {
+  "bluetooth_speakers": 18.49,
+  "ice_makers": 13.22,
+  "power_banks": 16.93,
+  "smartwatches": 15.02,
+  "wireless_headphones": 14.82
+ },
+ "success_score_mean_std_retained": [
+  50.563918212842886,
+  17.654253303183427
+ ],
+ "corr_avg_rating_success": 0.4573981760396838,
+ "label_weight_sensitivity_spearman": {
+  "vol_heavy_.5/.3/.2": {
+   "all640": 0.9924492155742571,
+   "retained631": 0.9923045693231656
+  },
+  "rating_heavy_.3/.4/.3": {
+   "all640": 0.9888838229585524,
+   "retained631": 0.9887162564277451
+  },
+  "equal": {
+   "all640": 0.9958985648158322,
+   "retained631": 0.9958020364357502
+  }
+ },
+ "extraction_rows_used_for_features": 32477,
+ "n_feature_rows": 631,
+ "brand_tier_counts": {
+  "0": 237,
+  "1": 172,
+  "2": 92,
+  "3": 130
+ },
+ "n_distinct_brands_640": 340,
+ "aspect_mention_rate_mean": {
+  "value_for_money": 0.3798919402975953,
+  "utility": 0.8328179105571523,
+  "ease_of_use": 0.5396099674243855,
+  "reliability": 0.3820670446214218,
+  "design_appeal": 0.30861593063510845,
+  "after_sales": 0.1016445992223931,
+  "build_quality": 0.2338796992383622,
+  "durability": 0.19132075605465454,
+  "repairability": 0.024569387337706722
+ },
+ "aspect_missing_products": {
+  "value_for_money": 1,
+  "utility": 0,
+  "ease_of_use": 1,
+  "reliability": 1,
+  "design_appeal": 7,
+  "after_sales": 91,
+  "build_quality": 9,
+  "durability": 30,
+  "repairability": 327
+ },
+ "extraction_review_coverage": {
+  "reviews_total": 43599,
+  "reviews_with_extraction_row": 29410,
+  "share": 0.6745567558888965
+ }
+}

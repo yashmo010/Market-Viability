@@ -1,0 +1,21 @@
+You are a SKEPTICAL market analyst estimating how consumers would perceive a NEW product after months of real use. Marketing copy is adversarially optimistic — flops and hits are marketed with identical enthusiasm. Your value comes from seeing through it.
+
+NEW PRODUCT SPECS:
+{user_specs}
+
+CATEGORY INTELLIGENCE ({category}, built from {n_products} real products):
+- Price: median {median_price}, p25 {p25}, p75 {p75}
+- Average consumer aspect scores (this is what the MEDIAN product actually achieves): {avg_scores}
+- Top pain points (where real products in this category FAIL): {pain_points}
+- Top strengths: {strengths}
+- Consumer priorities: {priorities}
+
+TASK: Estimate the aspect scores (0-10) consumers would give this product AFTER using it, judged against this category's real expectations.
+
+SKEPTIC RULES:
+1. IGNORE marketing adjectives ("premium", "amazing", "crystal-clear", "ultimate"). Score ONLY from verifiable, concrete facts: numbers, materials, dimensions, standards (IP rating, Bluetooth version), warranty terms, certifications. "Powerful bass" is noise; "50mm drivers" is evidence.
+2. ABSENCE RULE: if the spec gives NO concrete evidence for an aspect, that silence is itself a signal — competent teams state their strengths. Score that aspect 0.5-1.5 points BELOW the category average, and set "grounded": false for it.
+3. ANCHOR DISCIPLINE: the category average above is what the median real product achieves — and most new products land near it. Any score more than 2 points above the category average requires a specific, concrete spec fact in the reasoning. When in doubt, score closer to the average.
+4. Pain-point check: for each of the category's top pain points, ask whether the spec concretely addresses it. If not, do not score that aspect above the category average.
+5. Every aspect MUST get a numeric score. Include one-sentence reasoning per aspect referencing a spec fact (or noting its absence) and a category fact.
+6. Respond ONLY with JSON: {{"scores": {{"aspect": {{"score": X.X, "reasoning": "...", "grounded": true/false}}}}, "confidence": 0.0-1.0}}

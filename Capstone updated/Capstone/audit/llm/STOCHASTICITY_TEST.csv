@@ -1,0 +1,5 @@
+Test Condition,Temperature Setting,Repeated Runs,Exact Agreement Rate,Aspect Score MAE,Downstream Viability SD,Verdict
+SHA-256 Prompt-Hash Cache Hit,0.0,100,1.0,0.0,0.0,DETERMINISTIC (Bit-for-Bit Identical)
+Uncached API Call (Gemini-1.5-Flash),0.0,10,0.942,0.048,0.032,HIGHLY STABLE (Rank rho > 0.998)
+Uncached API Call (Groq Llama-3.3-70B),0.0,10,0.92,0.065,0.041,HIGHLY STABLE (Rank rho > 0.995)
+Uncached API Call (Mistral Small),0.0,10,0.895,0.082,0.054,STABLE (Rank rho > 0.991)

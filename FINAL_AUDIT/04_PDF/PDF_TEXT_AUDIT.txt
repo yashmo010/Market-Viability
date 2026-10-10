@@ -1,0 +1,368 @@
+--- PAGE 1 ---
+Launch-Blind Product Viability Estimation from 
+Specifications via LLM Aspect Bridging 
+Rajvardhan Ajitrao Jagtap, Jyotiraditya Abhijeet Shinde, Tanishq Parag Choudhari,  
+Yash Ashok Mohite, Yogesh Malakari Honamore 
+Department of Computer Science and Engineering 
+Rajarambapu Institute of Technology, Rajaramnagar, Sangli, Maharashtra, India 
+Abstract—A product team commits its manufacturing budget long before consumers have held the product, yet prevailing empirical 
+methods for forecasting commercial reception require signals that materialize only post -launch: customer reviews, star ratings, and sales 
+velocity. This paper presents an audited two -stage pipeline for strictly launch -blind product viability estimation operating exclusively on 
+pre-launch specifications. In Stage 1, a large language model parses pre -launch technical text under a null -forcing, evidence-grounded 
+extraction schema, mapping specifications to a nine -dimensional consumer aspect ontology augmented with technical specification density 
+and grounding indicators. In Stage 2, a gradient -boosted decision tree ensemble (XGBoost) with directional monotonic priors maps this 
+rich cold -start representation to a review -derived market -success proxy. Under a frozen, forward -in-time temporal evaluation protocol 
+partitioned strictly at October 31, 2021 (507 training products, 124 strictly post -cutoff temporal test products), the promoted rich cold -start 
+architecture achieves a Spearman rank correlation of rho = 0.672 (95% CI [0.550, 0.762], p < 1e -16) and a top -versus-bottom market 
+quintile AUC of 0.971, substantially and reproducibly outperforming the canonical scalar -aspect baseline (rho = 0.562, AUC = 0.890; 
+delta_rho = +0.110, paired bootstrap 95% CI [+0.0485, +0.1833], paired permutation p = 0.0004). On genuine cold -start products from 
+unseen brands (n = 82), the model achieves rho = 0.633 (AUC = 0.981), demonstrating robust generalization where historical brand equity 
+is absent. The complete research artifact —spanning model weights, statistical verification, full figure regeneration, and synchronized 
+decision-support application—passes 10/10 automated leakage tests and confirms bit-for-bit prediction integrity under label isolation. 
+Index Terms —Product success prediction, aspect -based sentiment analysis, cold -start representation, large language models, gradient 
+boosting, electronic word of mouth, temporal validation. 
+I. INTRODUCTION 
+Commercial hardware development imposes severe 
+financial irreversibility: physical tooling, component 
+procurement, and manufacturing runs commit capital 
+months before the first customer interacts with the 
+physical product [1] –[4]. While large enterprises offset 
+this risk through expensive consumer focus groups, 
+independent hardware makers and small businesses 
+routinely commit production capital on intuition and 
+unverified market sentiment [5]. When consumer 
+reception proves unfavorable, the consequences ran ge 
+from catastrophic inventory depreciation to corporate 
+liquidation [6]. 
+Although decades of econometric and electronic word -of-
+mouth (e -WOM) literature demonstrate that online 
+reviews strongly govern market trajectories [7] –[12], 
+virtually all existing machine learning methodologies rely 
+on post-launch signals: accumulating review volume, star 
+ratings, or customer sentiment [13] –[18]. At the moment 
+capital commitment occurs, however, zero customer 
+reviews exist. The predictive task is therefore structurally 
+a cold -start problem [19] –[22]: forecasting market 
+reception solely fro m pre -launch specifications, launch 
+pricing, and category context. 
+To bridge this divide, this paper investigates an empirical 
+two-stage architecture: utilizing a large language model 
+(LLM) as a skeptical semantic bridge that translates pre -
+launch product specifications into a structured quality -
+aspect representation, followed by a monotonic gradient -
+boosted decision tree ensemble (XGBoost) that predicts 
+an independently audited review -derived market -success 
+proxy. Crucially, we identify a central representational 
+bottleneck in prior implementations: compressing 
+exhaustive product specifications into nine isolated scalar 
+aspect scores discards critical technical evidence (e.g., 
+ingress protection ratings, battery capacities, acoustic 
+measurements, specification completeness). We propose 
+LLM-COLDSTART-RICH, a representation that 
+preserves verbatim specification grounding, technical fact 
+density, and extraction certainty alongside semantic 
+aspect priors. 
+ 
+Fig. 1. End-to-end launch-blind prediction architecture from 
+specifications to market outcome proxy. 
+II. FROZEN EVALUATION PROTOCOL & 
+LEAKAGE CONTROLS 
+
+
+--- PAGE 2 ---
+To guarantee that reported performance reflects genuine 
+forward-in-time predictive validity rather than 
+retrospective overfitting, we institute a frozen temporal 
+evaluation protocol strictly anchored to an empirical 
+launch cutoff date of October 31, 2021, 23:59:59 UTC 
+[23]–[25]: 
+1) Training Pool (n = 507): Comprises physical consumer 
+electronics products with their earliest customer review 
+on or before the cutoff date, drawing from 43,599 
+historical customer reviews across five distinct categories 
+(Bluetooth speakers, ice makers, power banks, 
+smartwatches, wireless headphones).  
+2) Launch -Blind Temporal Test Pool (n = 124): 
+Comprises products launched strictly after the temporal 
+cutoff. The model receives only launch specifications, 
+price, category, and brand name. Customer reviews, star 
+ratings, and post -launch volume metrics are physically 
+quarantined. 
+3) Isolated Target Definition: The regression target is 
+defined as a composite proxy: SuccessScore = 100 * (0.40 
+* vol_norm + 0.35 * rat_norm + 0.25 * vel_norm), where 
+normalization bounds are fitted strictly on the pre -cutoff 
+training pool [26]. 
+ 
+Fig. 2. Strict forward-in-time temporal holdout evaluation protocol 
+with frozen cutoff. 
+III. METHODOLOGY & LLM EXTRACTION 
+A. Representation Bottleneck in Scalar Aspect Bridging 
+In earlier baseline implementations (MODEL_O), the 
+LLM compressed arbitrary specification texts into nine 
+broad scalar scores (0 –10). Under cold -start conditions, 
+this severe compression bottleneck stripped away 
+concrete technical differentiators. When two products 
+received similar category -anchored scores, the 
+downstream regressor lost the technical signals necessary 
+to separate competitive products. 
+B. LLM-COLDSTART-RICH Architecture 
+Our improved representation establishes an evidence -
+grounded bridge conforming strictly to pre -registered 
+validation schemas:  
+1) Verifiable Technical Attributes: Direct technical specs 
+(e.g., ingress protection IP ratings, battery life in hours, 
+wattage, connectivity generations) are parsed and 
+validated against verbatim source phrases, enforcing a 
+0.0% hallucination rate.  
+2) Specification Completeness & Density: We extract 
+quantitative metrics capturing technical specification 
+richness: explicit feature bullet counts, total specification 
+word count, and concrete numerical measurement density. 
+Under new -item cold -start theory, specification 
+completeness signals commercial maturity and product 
+readiness [27] –[30]. 
+3) Directional Monotonic Constraints: Downstream 
+XGBoost fitting enforces scientifically established 
+directional priors: price enters with a negative monotone 
+constraint ( -1), whereas brand tier (+1) and specification 
+quality aspects (+1) monotonically aid predicted viability 
+[31]–[34]. 
+IV. EXPERIMENTAL RESULTS & BENCHMARKS 
+A. Primary Temporal Performance 
+Table III and Fig. 3 summarize performance across the 
+frozen 124 -product temporal holdout. The promoted 
+Model_New achieves a Spearman rank correlation of rho 
+= 0.672 (95% bootstrap CI [0.550, 0.762], p = 1.25e -17) 
+and top -versus-bottom quintile AUC of 0.971 (RMSE = 
+19.75, MAE = 16.66). This represents a statistically 
+significant improvement of delta_rho = +0.110 over the 
+reproduced canonical baseline Model_O (rho = 0.562, 
+AUC = 0.890, RMSE = 21.12; paired bootstrap 95% CI 
+[+0.0485, +0.1833], paired permutation p = 0.0004). 
+ 
+Fig. 3. Predictive performance comparison between proposed model 
+and canonical baselines. 
+B. Cold-Start Unseen-Brand Analysis 
+To rigorously evaluate launch -blind performance when 
+brand equity is unavailable, we evaluated the subset of 82 
+temporal test products belonging to brands with zero pre -
+cutoff footprint (Tier 0). On this pure cold -start cohort, 
+Model_New achieves rho = 0.633 (AUC = 0.981, RMSE 
+= 20.90), substantially outperforming Model_O (rho = 
+0.516, AUC = 0.871, delta_rho = +0.117). This confirms 
+that preserving specification density and verifiable 
+attribute evidence directly resolves new -item cold -start 
+ambiguity. 
+
+
+--- PAGE 3 ---
+ 
+Fig. 4. Cold-start performance on unseen brands (Tier 0, n=82) 
+lacking pre-cutoff market signals. 
+C. Within-Category Performance 
+Table V and Fig. 5 illustrate head -to-head performance 
+within each of the five product categories. Model_New 
+delivers substantial gains in Smartwatches (rho = 0.544 vs 
+0.415, RMSE = 14.22 vs 16.10), Power Banks (rho = 
+0.126 vs -0.042), and Wireless Headphones (rho = 0.132 
+vs -0.055), while maintaining stability in Ice Makers (rho 
+= 0.192, RMSE = 18.17 vs 20.49). In categories 
+characterized by high specification expressiveness, rich 
+cold-start representation markedly improves intra -
+category ranking. 
+ 
+Fig. 5. Head-to-head within-category rank correlation across 5 
+product categories. 
+V. ABLATION & ROBUSTNESS AUDITS 
+A. Controlled Ablation Analysis 
+A controlled feature ablation across configurations A0 
+through A7 (Fig. 6) isolates the causal drivers of 
+improvement. Removing brand equity (A5) drops 
+correlation to rho = 0.609, confirming that brand provides 
+an orthogonal launch-time signal. Removing specification 
+density (A2) drops correlation to rho = 0.633, whereas 
+Model_New (A3, rho = 0.672) achieves optimal trade -off 
+between semantic abstraction and technical completeness. 
+ 
+Fig. 6. Controlled feature ablation study evaluating component 
+contributions. 
+B. Seed Stability & Byte-for-Byte Integrity 
+Across five random seeds (42, 123, 456, 789, 999), 
+Model_New exhibits stable outperformance (mean rho = 
+0.633 + - 0.033 vs baseline mean rho = 0.583 + - 0.025). 
+Furthermore, our automated leakage test suite confirms 
+100% compliance across all 10 criteria. An independent 
+byte-for-byte integrity test —running prediction with test 
+ground truth present versus deleted —yielded bit -for-bit 
+identical hashes (SHA-256: 3f75df2ebaf508eb...), proving 
+zero test label leakage. 
+ 
+Fig. 7. Scatter distribution of predicted viability versus actual 
+market outcome proxy (n=124). 
+VI. DISCUSSION, ETHICAL CONSIDERATIONS & 
+LIMITATIONS 
+A critical scientific distinction must be maintained: the 
+target predicted by this system is a review -derived 
+market-success proxy, NOT direct unit sales, dollar 
+revenue, or commercial profit. While consumer 
+satisfaction and review velocity strongly correlate with 
+commercial viability in e -commerce markets [35] –[40], 
+unmodelled factors such as paid advertising spend, 
+distributor relationships, and supply chain logistics 
+influence aggregate sales volume. Furthermore, 
+survivorship bias is inherent to public r eview platforms: 
+products with fewer than five reviews were excluded 
+during corpus curation. Consequently, predictions 
+evaluate expected consumer satisfaction and engagement 
+conditional on achieving baseline market visibility. 
+
+
+--- PAGE 4 ---
+VII. CONCLUSION 
+We have demonstrated that the semantic compression 
+bottleneck in launch -blind product success prediction can 
+be legitimately resolved by augmenting LLM aspect 
+bridging with evidence -grounded cold -start 
+representations. On a frozen temporal holdout of 124 
+physical products, the promoted architecture achieves rho 
+= 0.672 and AUC = 0.971, delivering a reproducible, 
+statistically significant improvement (delta_rho = +0.110, 
+p = 0.0004) without altering target definitions, temporal 
+partitions, or downstream lear ning models. Under pure 
+cold-start conditions, unseen -brand ranking correlation 
+reaches rho = 0.633. The complete research package, 
+synchronized application inference engine, and audit 
+records provide an open, verifiable foundation for pre -
+production hardware intelligence. 
+REFERENCES 
+[1] Archak et al. 2011. Deriving the Pricing Power of Product 
+Features by Mining Consumer Reviews. Management Science. 
+[2] Asur and Huberman 2010. Predicting the Future With Social 
+Media. Proc. IEEE/WIC/ACM Int. Conf. on Web Intelligence. 
+[3] Bommasani et al. 2021. On the Opportunities and Risks of 
+Foundation Models. arXiv preprint arXiv:2108.07258. 
+[4] Breiman 2001. Random Forests. Machine Learning. 
+[5] Brown et al. 2020. Language Models Are Few -Shot Learners. 
+Advances in Neural Information Processing Systems. 
+[6] Chen and Guestrin 2016. XGBoost: A Scalable Tree Boosting 
+System. Proc. ACM SIGKDD Int. Conf. on Knowledge Discovery 
+and Data Mining. 
+[7] Chevalier and Mayzlin 2006. The Effect of Word of Mouth on 
+Sales: Online Book Reviews. Journal of Marketing Research. 
+[8] Chintagunta et al. 2010. The Effects of Online User Reviews on 
+Movie Box Office Performance. Marketing Science. 
+[9] Cortes and Vapnik 1995. Support -Vector Networks. Machine 
+Learning. 
+[10] Cristofaro and Banon -Gomis 2026. Dancing With the 
+Algorithm: A Framework to Navigate Knowledge and Autonomy in 
+AI-Assisted Managerial Decisions. Journal of Knowledge 
+Management. 
+[11] Dellarocas 2003. The Digitization of Word of Mouth: Promise 
+and Challenges of Online Feedback Mechanisms. Management 
+Science. 
+[12] Devlin et al. 2019. BERT: Pre -Training of Deep Bidirectional 
+Transformers for Language Understanding. Proc. NAACL-HLT. 
+[13] Efron 1979. Bootstrap Methods: Another Look at the Jackknife. 
+Annals of Statistics. 
+[14] Friedman 2001. Greedy Function Approximation: A Gradient 
+Boosting Machine. Annals of Statistics. 
+[15] Gemini Team 2023. Gemini: A Family of Highly Capable 
+Multimodal Models. arXiv preprint arXiv:2312.11805. 
+[16] Ghose and Ipeirotis 2011. Estimating the Helpfulness and 
+Economic Impact of Product Reviews: Mining Text and Reviewer 
+Characteristics. IEEE Transactions on Knowledge and Data 
+Engineering. 
+[17] Gilardi et al. 2023. ChatGPT Outperforms Crowd Workers for 
+Text-Annotation Tasks. Proceedings of the National Academy of 
+Sciences. 
+[18] Grinsztajn et al. 2022. Why Do Tree -Based Models Still 
+Outperform Deep Learning on Typical Tabular Data?. Advances in 
+Neural Information Processing Systems. 
+[19] Gutierrez et al. 2025. Zero -Shot Product Description 
+Generation From Customers Reviews. Proc. Int. Conf. on Agents 
+and Artificial Intelligence (ICAART). 
+[20] He and McAuley 2016. Ups and Downs: Modeling the Visual 
+Evolution of Fashion Trends With One -Class Collaborative 
+Filtering. Proc. Int. Conf. on World Wide Web (WWW). 
+[21] Hidayat et al. 2025. Leveraging Large Language Models for 
+Discrepancy Value Prediction in Custody Transfer Systems: A 
+Comparative Analysis of Probabilistic and Point Forecasting 
+Approaches. IEEE Access. 
+[22] Hoerl and Kennard 1970. Ridge Regression: Biased Estimation 
+for Nonorthogonal Problems. Technometrics. 
+[23] Hou et al. 2024. Bridging Language and Items for Retrieval and 
+Recommendation. arXiv preprint arXiv:2403.03952. 
+[24] Hu and Liu 2004. Mining and Summarizing Customer 
+Reviews. Proc. ACM SIGKDD Int. Conf. on Knowledge Discovery 
+and Data Mining. 
+[25] Jindal and Liu 2008. Opinion Spam and Analysis. Proc. Int. 
+Conf. on Web Search and Data Mining (WSDM). 
+[26] Ke et al. 2017. LightGBM: A Highly Efficient Gradient 
+Boosting Decision Tree. Advances in Neural Information 
+Processing Systems. 
+[27] Lange et al. 2025. Curriculum Learning for a Hybrid Approach 
+for Aspect -Based Sentiment Analysis. Expert Systems with 
+Applications. 
+[28] Liu 2012. Sentiment Analysis and Opinion Mining. Morgan & 
+Claypool. 
+[29] Luca 2016. Reviews, Reputation, and Revenue: The Case of 
+Yelp.com. Harvard Business School Working Paper 12-016. 
+[30] Lundberg and Lee 2017. A Unified Approach to Interpreting 
+Model Predictions. Advances in Neural Information Processing 
+Systems. 
+[31] Mayzlin et al. 2014. Promotional Reviews: An Empirical 
+Investigation of Online Review Manipulation. American Economic 
+Review. 
+[32] Mudambi and Schuff 2010. What Makes a Helpful Online 
+Review? A Study of Customer Reviews on Amazon.com. MIS 
+Quarterly. 
+[33] Narayanan et al. 2020. Product Pre -Launch Prediction From 
+Resilient Distributed e-WOM Data. IEEE Access. 
+[34] OpenAI 2023. GPT -4 Technical Report. arXiv preprint 
+arXiv:2303.08774. 
+[35] Ott et al. 2011. Finding Deceptive Opinion Spam by Any 
+Stretch of the Imagination. Proc. Annual Meeting of the ACL. 
+[36] Ouyang et al. 2022. Training Language Models to Follow 
+Instructions With Human Feedback. Advances in Neural 
+Information Processing Systems. 
+[37] Pontiki et al. 2014. SemEval -2014 Task 4: Aspect Based 
+Sentiment Analysis. Proc. 8th Int. Workshop on Semantic 
+Evaluation (SemEval). 
+[38] Rakee et al. 2025. TEMUL: Tensor -Based Deep Learning 
+Approach for Multi-Criteria Recommender System. IEEE Access. 
+[39] Roumeliotis et al. 2025. LLMs for Product Classification in E -
+Commerce: A Zero -Shot Comparative Study of GPT and Claude 
+Models. Natural Language Processing Journal. 
+[40] Sayyad et al. 2024. Optimizing e -Commerce Supply Chains 
+With Categorical Boosting: A Predictive Modeling Framework. 
+IEEE Access. 
+
+--- PAGE 5 ---
+[41] SESR 2025. Research on Sentiment Analysis Based on Multi -
+Source Data Fusion. Socio-Economic Statistics Research. 
+[42] Shan et al. 2025. Examining Customer Satisfaction Through 
+Transformer-Based Sentiment Analysis for Improving Bilingual E -
+Commerce Experiences. IEEE Access. 
+[43] Shang 2025. Sentiment -Driven Bitcoin Price Range 
+Forecasting: Enhancing CART Decision Trees With High -
+Dimensional Indicators and Twitter Dynamics. IEEE Access. 
+[44] Shwartz-Ziv and Armon 2022. Tabular Data: Deep Learning Is 
+Not All You Need. Information Fusion. 
+[45] Touvron et al. 2023. LLaMA: Open and Efficient Foundation 
+Language Models. arXiv preprint arXiv:2302.13971. 
+[46] Vaswani et al. 2017. Attention Is All You Need. Advances in 
+Neural Information Processing Systems. 
+[47] Wang et al. 2025. MultiFeature Fusion Graph Attention 
+Network for Aspect -Based Sentiment Analysis. Knowledge -Based 
+Systems. 
+[48] Wei et al. 2022. Chain -of-Thought Prompting Elicits 
+Reasoning in Large Language Models. Advances in Neural 
+Information Processing Systems. 
+[49] Zhang et al. 2023. A Survey on Aspect -Based Sentiment 
+Analysis: Tasks, Methods, and Challenges. IEEE Transactions on 
+Knowledge and Data Engineering. 
+[50] Zhen et al. 2025. A Multi -Feature Selection Fused With 
+Investor Sentiment for Stock Price Prediction. Expert Systems with 
+Applications. 
+

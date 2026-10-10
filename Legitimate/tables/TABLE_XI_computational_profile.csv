@@ -1,0 +1,5 @@
+Pipeline Component,Implementation,Inference Latency,Throughput,Storage Footprint
+Downstream tabular inference,XGBoost (hist tree),0.0395 ms / item,"> 25,000 items/sec",297 KB (model JSON)
+Specification density parser,Python / regex tokenizer,0.12 ms / item,"> 8,000 items/sec",In-memory (< 1 MB)
+LLM aspect extraction,JSON schema (9 aspects),1.4–2.2 s / item,~ 30 items/min (API),3.5 KB (prompt/schema)
+Downstream model training,XGBoost (n = 507 products),0.093 seconds,Single training run,297 KB

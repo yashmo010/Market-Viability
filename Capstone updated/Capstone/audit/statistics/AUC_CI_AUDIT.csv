@@ -1,0 +1,4 @@
+Method,Assumptions,CI 95%,CI Width,Evaluation
+Percentile Bootstrap (Reported),Empirical sampling distribution of Mann-Whitney U,"[0.7984, 0.9680]",0.1696,Standard non-parametric; conservative
+DeLong Asymptotic Method,U-statistic structural variance decomposition (s10/m + s01/n),"[0.8044, 0.9764]",0.172,Gold-standard asymptotic variance for ROC AUC
+Hanley-McNeil Negative Exponential Approximation,Binormal model approximation of Q1 and Q2 components,"[0.7966, 0.9842]",0.1876,Slightly wider; assumes parametric score distributions

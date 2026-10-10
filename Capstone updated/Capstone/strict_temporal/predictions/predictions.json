@@ -1,0 +1,2358 @@
+[
+  {
+    "product_uid": "amzp_B09JC9LDYD",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 66.4,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 149.0,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 2.0,
+      "utility": 7.43,
+      "ease_of_use": 7.19,
+      "reliability": 5.0,
+      "design_appeal": 7.79,
+      "after_sales": 4.88,
+      "build_quality": 6.9,
+      "durability": 5.76,
+      "repairability": 3.66
+    }
+  },
+  {
+    "product_uid": "amzp_B08QF9F8BC",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 66.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.98,
+      "utility": 8.08,
+      "ease_of_use": 7.84,
+      "reliability": 5.65,
+      "design_appeal": 8.44,
+      "after_sales": 5.53,
+      "build_quality": 7.55,
+      "durability": 6.41,
+      "repairability": 4.31
+    }
+  },
+  {
+    "product_uid": "amzp_B0BPHR5YPJ",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 67.7,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 99.95,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 3.98,
+      "utility": 7.43,
+      "ease_of_use": 7.19,
+      "reliability": 5.0,
+      "design_appeal": 7.79,
+      "after_sales": 4.88,
+      "build_quality": 6.9,
+      "durability": 5.76,
+      "repairability": 3.66
+    }
+  },
+  {
+    "product_uid": "amzp_B0C3QSJ8SC",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 63.2,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.98,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.12,
+      "utility": 7.95,
+      "ease_of_use": 7.71,
+      "reliability": 5.52,
+      "design_appeal": 8.31,
+      "after_sales": 5.4,
+      "build_quality": 7.42,
+      "durability": 6.28,
+      "repairability": 4.18
+    }
+  },
+  {
+    "product_uid": "amzp_B0CBFJT657",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 71.28,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 19.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.82,
+      "utility": 8.21,
+      "ease_of_use": 7.97,
+      "reliability": 5.78,
+      "design_appeal": 8.57,
+      "after_sales": 5.66,
+      "build_quality": 7.68,
+      "durability": 6.54,
+      "repairability": 4.44
+    }
+  },
+  {
+    "product_uid": "amzp_B0BW8KNM1S",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 58.81,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 79.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 4.79,
+      "utility": 7.43,
+      "ease_of_use": 7.19,
+      "reliability": 5.0,
+      "design_appeal": 7.79,
+      "after_sales": 4.88,
+      "build_quality": 6.9,
+      "durability": 5.76,
+      "repairability": 3.66
+    }
+  },
+  {
+    "product_uid": "amzp_B09VKZPST7",
+    "category": "bluetooth_speakers",
+    "predicted_viability": 63.34,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 179.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 0.75,
+      "utility": 7.43,
+      "ease_of_use": 7.19,
+      "reliability": 5.0,
+      "design_appeal": 7.79,
+      "after_sales": 4.88,
+      "build_quality": 6.9,
+      "durability": 5.76,
+      "repairability": 3.66
+    }
+  },
+  {
+    "product_uid": "amzp_B0C89GZYGF",
+    "category": "power_banks",
+    "predicted_viability": 54.9,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 38.98,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.7,
+      "utility": 7.44,
+      "ease_of_use": 7.69,
+      "reliability": 5.75,
+      "design_appeal": 7.39,
+      "after_sales": 4.92,
+      "build_quality": 6.97,
+      "durability": 5.49,
+      "repairability": 5.57
+    }
+  },
+  {
+    "product_uid": "amzp_B0BVV65MLW",
+    "category": "power_banks",
+    "predicted_viability": 64.93,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 9.88,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 10.0,
+      "utility": 8.01,
+      "ease_of_use": 8.26,
+      "reliability": 6.32,
+      "design_appeal": 7.96,
+      "after_sales": 5.49,
+      "build_quality": 7.54,
+      "durability": 6.06,
+      "repairability": 6.14
+    }
+  },
+  {
+    "product_uid": "amzp_B0BSV2Y9XW",
+    "category": "power_banks",
+    "predicted_viability": 64.75,
+    "bridge_source": "cached_prompt_v2",
+    "price": 44.99,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 4.23,
+      "utility": 6.51,
+      "ease_of_use": 8.14,
+      "reliability": 4.75,
+      "design_appeal": 8.66,
+      "after_sales": 4.48,
+      "build_quality": 6.14,
+      "durability": 4.71,
+      "repairability": 4.33
+    }
+  },
+  {
+    "product_uid": "amzp_B0C51V6BJD",
+    "category": "power_banks",
+    "predicted_viability": 62.11,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 22.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.24,
+      "utility": 7.75,
+      "ease_of_use": 8.0,
+      "reliability": 6.06,
+      "design_appeal": 7.7,
+      "after_sales": 5.23,
+      "build_quality": 7.28,
+      "durability": 5.8,
+      "repairability": 5.88
+    }
+  },
+  {
+    "product_uid": "amzp_B0C6WYKZW2",
+    "category": "power_banks",
+    "predicted_viability": 59.53,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 25.96,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.57,
+      "utility": 7.7,
+      "ease_of_use": 7.95,
+      "reliability": 6.01,
+      "design_appeal": 7.65,
+      "after_sales": 5.18,
+      "build_quality": 7.23,
+      "durability": 5.75,
+      "repairability": 5.83
+    }
+  },
+  {
+    "product_uid": "amzp_B0C65Z9VTK",
+    "category": "power_banks",
+    "predicted_viability": 55.61,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 37.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.93,
+      "utility": 7.46,
+      "ease_of_use": 7.71,
+      "reliability": 5.77,
+      "design_appeal": 7.41,
+      "after_sales": 4.94,
+      "build_quality": 6.99,
+      "durability": 5.51,
+      "repairability": 5.59
+    }
+  },
+  {
+    "product_uid": "amzp_B0BYSRY6CZ",
+    "category": "power_banks",
+    "predicted_viability": 64.27,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 159.99,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 7.15,
+      "ease_of_use": 7.4,
+      "reliability": 5.46,
+      "design_appeal": 7.1,
+      "after_sales": 4.63,
+      "build_quality": 6.68,
+      "durability": 5.2,
+      "repairability": 5.28
+    }
+  },
+  {
+    "product_uid": "amzp_B09GM4HQPZ",
+    "category": "power_banks",
+    "predicted_viability": 63.47,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 16.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 10.0,
+      "utility": 7.87,
+      "ease_of_use": 8.12,
+      "reliability": 6.18,
+      "design_appeal": 7.82,
+      "after_sales": 5.35,
+      "build_quality": 7.4,
+      "durability": 5.92,
+      "repairability": 6.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09JKDFXFN",
+    "category": "power_banks",
+    "predicted_viability": 63.05,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 5.48,
+      "utility": 7.43,
+      "ease_of_use": 7.68,
+      "reliability": 5.74,
+      "design_appeal": 7.38,
+      "after_sales": 4.91,
+      "build_quality": 6.96,
+      "durability": 5.48,
+      "repairability": 5.56
+    }
+  },
+  {
+    "product_uid": "amzp_B0B5SQRNCS",
+    "category": "power_banks",
+    "predicted_viability": 54.9,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.48,
+      "utility": 7.43,
+      "ease_of_use": 7.68,
+      "reliability": 5.74,
+      "design_appeal": 7.38,
+      "after_sales": 4.91,
+      "build_quality": 6.96,
+      "durability": 5.48,
+      "repairability": 5.56
+    }
+  },
+  {
+    "product_uid": "amzp_B0B4DPGNVC",
+    "category": "power_banks",
+    "predicted_viability": 63.4,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 19.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.89,
+      "utility": 7.81,
+      "ease_of_use": 8.06,
+      "reliability": 6.12,
+      "design_appeal": 7.76,
+      "after_sales": 5.29,
+      "build_quality": 7.34,
+      "durability": 5.86,
+      "repairability": 5.94
+    }
+  },
+  {
+    "product_uid": "amzp_B0BQ6VSYGL",
+    "category": "power_banks",
+    "predicted_viability": 58.34,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.7,
+      "utility": 7.62,
+      "ease_of_use": 7.87,
+      "reliability": 5.93,
+      "design_appeal": 7.57,
+      "after_sales": 5.1,
+      "build_quality": 7.15,
+      "durability": 5.67,
+      "repairability": 5.75
+    }
+  },
+  {
+    "product_uid": "amzp_B0C5M7P2X9",
+    "category": "power_banks",
+    "predicted_viability": 57.53,
+    "bridge_source": "cached_prompt_v2",
+    "price": 25.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.98,
+      "utility": 7.6,
+      "ease_of_use": 7.2,
+      "reliability": 4.5,
+      "design_appeal": 7.5,
+      "after_sales": 4.0,
+      "build_quality": 6.5,
+      "durability": 4.7,
+      "repairability": 4.3
+    }
+  },
+  {
+    "product_uid": "amzp_B0CB1R1YZ7",
+    "category": "power_banks",
+    "predicted_viability": 55.84,
+    "bridge_source": "cached_prompt_v2",
+    "price": 24.09,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.87,
+      "utility": 6.5,
+      "ease_of_use": 7.5,
+      "reliability": 4.5,
+      "design_appeal": 7.0,
+      "after_sales": 3.5,
+      "build_quality": 6.8,
+      "durability": 4.5,
+      "repairability": 3.8
+    }
+  },
+  {
+    "product_uid": "amzp_B0BVZQ2QHM",
+    "category": "power_banks",
+    "predicted_viability": 59.62,
+    "bridge_source": "cached_prompt_v2",
+    "price": 26.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.22,
+      "utility": 7.2,
+      "ease_of_use": 8.5,
+      "reliability": 4.5,
+      "design_appeal": 8.0,
+      "after_sales": 3.5,
+      "build_quality": 6.5,
+      "durability": 4.7,
+      "repairability": 4.3
+    }
+  },
+  {
+    "product_uid": "amzp_B09QBTSXDN",
+    "category": "power_banks",
+    "predicted_viability": 63.55,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 34.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 6.58,
+      "utility": 7.52,
+      "ease_of_use": 7.77,
+      "reliability": 5.83,
+      "design_appeal": 7.47,
+      "after_sales": 5.0,
+      "build_quality": 7.05,
+      "durability": 5.57,
+      "repairability": 5.65
+    }
+  },
+  {
+    "product_uid": "amzp_B0CFYM77D2",
+    "category": "power_banks",
+    "predicted_viability": 55.61,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 37.49,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.03,
+      "utility": 7.47,
+      "ease_of_use": 7.72,
+      "reliability": 5.78,
+      "design_appeal": 7.42,
+      "after_sales": 4.95,
+      "build_quality": 7.0,
+      "durability": 5.52,
+      "repairability": 5.6
+    }
+  },
+  {
+    "product_uid": "amzp_B0BKS7XK22",
+    "category": "power_banks",
+    "predicted_viability": 54.9,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 38.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.7,
+      "utility": 7.44,
+      "ease_of_use": 7.69,
+      "reliability": 5.75,
+      "design_appeal": 7.39,
+      "after_sales": 4.92,
+      "build_quality": 6.97,
+      "durability": 5.49,
+      "repairability": 5.57
+    }
+  },
+  {
+    "product_uid": "amzp_B0C95BXY52",
+    "category": "power_banks",
+    "predicted_viability": 64.93,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 12.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 10.0,
+      "utility": 7.95,
+      "ease_of_use": 8.2,
+      "reliability": 6.26,
+      "design_appeal": 7.9,
+      "after_sales": 5.43,
+      "build_quality": 7.48,
+      "durability": 6.0,
+      "repairability": 6.08
+    }
+  },
+  {
+    "product_uid": "amzp_B09J8T11J4",
+    "category": "smartwatches",
+    "predicted_viability": 48.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 33.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.92,
+      "utility": 6.72,
+      "ease_of_use": 6.6,
+      "reliability": 4.42,
+      "design_appeal": 8.25,
+      "after_sales": 4.32,
+      "build_quality": 6.49,
+      "durability": 5.34,
+      "repairability": 4.07
+    }
+  },
+  {
+    "product_uid": "amzp_B0BXDDQPFX",
+    "category": "smartwatches",
+    "predicted_viability": 47.19,
+    "bridge_source": "cached_prompt_v2",
+    "price": 32.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.9,
+      "utility": 6.1,
+      "ease_of_use": 6.0,
+      "reliability": 3.2,
+      "design_appeal": 7.5,
+      "after_sales": 3.0,
+      "build_quality": 5.5,
+      "durability": 4.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B09JWF2STR",
+    "category": "smartwatches",
+    "predicted_viability": 56.45,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.98,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 7.54,
+      "utility": 6.65,
+      "ease_of_use": 6.53,
+      "reliability": 4.35,
+      "design_appeal": 8.18,
+      "after_sales": 4.25,
+      "build_quality": 6.42,
+      "durability": 5.27,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09B9S8TGK",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.54,
+      "utility": 6.65,
+      "ease_of_use": 6.53,
+      "reliability": 4.35,
+      "design_appeal": 8.18,
+      "after_sales": 4.25,
+      "build_quality": 6.42,
+      "durability": 5.27,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B0C6JVVZTJ",
+    "category": "smartwatches",
+    "predicted_viability": 48.37,
+    "bridge_source": "cached_prompt_v2",
+    "price": 49.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.5,
+      "utility": 6.8,
+      "ease_of_use": 5.5,
+      "reliability": 3.5,
+      "design_appeal": 7.0,
+      "after_sales": 3.5,
+      "build_quality": 5.5,
+      "durability": 5.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B09YM3YDJ7",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 42.35,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.4,
+      "utility": 6.62,
+      "ease_of_use": 6.5,
+      "reliability": 4.32,
+      "design_appeal": 8.15,
+      "after_sales": 4.22,
+      "build_quality": 6.39,
+      "durability": 5.24,
+      "repairability": 3.97
+    }
+  },
+  {
+    "product_uid": "amzp_B0BXLYFVDM",
+    "category": "smartwatches",
+    "predicted_viability": 47.28,
+    "bridge_source": "cached_prompt_v2",
+    "price": 39.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.73,
+      "utility": 6.1,
+      "ease_of_use": 5.8,
+      "reliability": 3.2,
+      "design_appeal": 7.8,
+      "after_sales": 3.5,
+      "build_quality": 5.5,
+      "durability": 4.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0C3X61R1F",
+    "category": "smartwatches",
+    "predicted_viability": 56.45,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 7.54,
+      "utility": 6.65,
+      "ease_of_use": 6.53,
+      "reliability": 4.35,
+      "design_appeal": 8.18,
+      "after_sales": 4.25,
+      "build_quality": 6.42,
+      "durability": 5.27,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B0BHT8XX49",
+    "category": "smartwatches",
+    "predicted_viability": 56.36,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 67.31,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 5.82,
+      "utility": 6.32,
+      "ease_of_use": 6.2,
+      "reliability": 4.02,
+      "design_appeal": 7.85,
+      "after_sales": 3.92,
+      "build_quality": 6.09,
+      "durability": 4.94,
+      "repairability": 3.67
+    }
+  },
+  {
+    "product_uid": "amzp_B09TP9LJWZ",
+    "category": "smartwatches",
+    "predicted_viability": 48.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.18,
+      "utility": 6.77,
+      "ease_of_use": 6.65,
+      "reliability": 4.47,
+      "design_appeal": 8.3,
+      "after_sales": 4.37,
+      "build_quality": 6.54,
+      "durability": 5.39,
+      "repairability": 4.12
+    }
+  },
+  {
+    "product_uid": "amzp_B0BRZD2G1V",
+    "category": "smartwatches",
+    "predicted_viability": 47.62,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 359.0,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 6.08,
+      "ease_of_use": 5.96,
+      "reliability": 3.78,
+      "design_appeal": 7.61,
+      "after_sales": 3.68,
+      "build_quality": 5.85,
+      "durability": 4.7,
+      "repairability": 3.43
+    }
+  },
+  {
+    "product_uid": "amzp_B0C7MK2QWY",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.91,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.54,
+      "utility": 6.65,
+      "ease_of_use": 6.53,
+      "reliability": 4.35,
+      "design_appeal": 8.18,
+      "after_sales": 4.25,
+      "build_quality": 6.42,
+      "durability": 5.27,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B0BJMLC7WM",
+    "category": "smartwatches",
+    "predicted_viability": 49.59,
+    "bridge_source": "cached_prompt_v2",
+    "price": 279.0,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 1.18,
+      "utility": 7.5,
+      "ease_of_use": 7.0,
+      "reliability": 4.0,
+      "design_appeal": 8.5,
+      "after_sales": 3.5,
+      "build_quality": 7.0,
+      "durability": 5.5,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0B3TJMN8P",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 49.97,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.91,
+      "utility": 6.53,
+      "ease_of_use": 6.41,
+      "reliability": 4.23,
+      "design_appeal": 8.06,
+      "after_sales": 4.13,
+      "build_quality": 6.3,
+      "durability": 5.15,
+      "repairability": 3.88
+    }
+  },
+  {
+    "product_uid": "amzp_B09J83WPPW",
+    "category": "smartwatches",
+    "predicted_viability": 48.24,
+    "bridge_source": "cached_prompt_v2",
+    "price": 54.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.08,
+      "utility": 6.8,
+      "ease_of_use": 6.0,
+      "reliability": 3.5,
+      "design_appeal": 7.5,
+      "after_sales": 3.0,
+      "build_quality": 6.0,
+      "durability": 4.5,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0B52VNW79",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 34.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.86,
+      "utility": 6.71,
+      "ease_of_use": 6.59,
+      "reliability": 4.41,
+      "design_appeal": 8.24,
+      "after_sales": 4.31,
+      "build_quality": 6.48,
+      "durability": 5.33,
+      "repairability": 4.06
+    }
+  },
+  {
+    "product_uid": "amzp_B09ZQD4TRZ",
+    "category": "smartwatches",
+    "predicted_viability": 48.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 32.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.99,
+      "utility": 6.73,
+      "ease_of_use": 6.61,
+      "reliability": 4.43,
+      "design_appeal": 8.26,
+      "after_sales": 4.33,
+      "build_quality": 6.5,
+      "durability": 5.35,
+      "repairability": 4.08
+    }
+  },
+  {
+    "product_uid": "amzp_B0B5GQ75F5",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 48.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.97,
+      "utility": 6.54,
+      "ease_of_use": 6.42,
+      "reliability": 4.24,
+      "design_appeal": 8.07,
+      "after_sales": 4.14,
+      "build_quality": 6.31,
+      "durability": 5.16,
+      "repairability": 3.89
+    }
+  },
+  {
+    "product_uid": "amzp_B0C334DW7G",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 36.62,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.76,
+      "utility": 6.69,
+      "ease_of_use": 6.57,
+      "reliability": 4.39,
+      "design_appeal": 8.22,
+      "after_sales": 4.29,
+      "build_quality": 6.46,
+      "durability": 5.31,
+      "repairability": 4.04
+    }
+  },
+  {
+    "product_uid": "amzp_B0B7LC281R",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 34.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.86,
+      "utility": 6.71,
+      "ease_of_use": 6.59,
+      "reliability": 4.41,
+      "design_appeal": 8.24,
+      "after_sales": 4.31,
+      "build_quality": 6.48,
+      "durability": 5.33,
+      "repairability": 4.06
+    }
+  },
+  {
+    "product_uid": "amzp_B09PRMFGL1",
+    "category": "smartwatches",
+    "predicted_viability": 48.5,
+    "bridge_source": "cached_prompt_v2",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.97,
+      "utility": 6.0,
+      "ease_of_use": 5.5,
+      "reliability": 3.5,
+      "design_appeal": 7.0,
+      "after_sales": 3.0,
+      "build_quality": 5.5,
+      "durability": 4.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0B8S534KB",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 59.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.28,
+      "utility": 6.41,
+      "ease_of_use": 6.29,
+      "reliability": 4.11,
+      "design_appeal": 7.94,
+      "after_sales": 4.01,
+      "build_quality": 6.18,
+      "durability": 5.03,
+      "repairability": 3.76
+    }
+  },
+  {
+    "product_uid": "amzp_B0BRZW575H",
+    "category": "smartwatches",
+    "predicted_viability": 57.07,
+    "bridge_source": "cached_prompt_v2",
+    "price": 119.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 5.87,
+      "utility": 7.2,
+      "ease_of_use": 6.0,
+      "reliability": 4.0,
+      "design_appeal": 8.0,
+      "after_sales": 3.5,
+      "build_quality": 6.5,
+      "durability": 5.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0BCPZ2D8G",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 39.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.54,
+      "utility": 6.65,
+      "ease_of_use": 6.53,
+      "reliability": 4.35,
+      "design_appeal": 8.18,
+      "after_sales": 4.25,
+      "build_quality": 6.42,
+      "durability": 5.27,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09P4QW5Y2",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 49.98,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.91,
+      "utility": 6.53,
+      "ease_of_use": 6.41,
+      "reliability": 4.23,
+      "design_appeal": 8.06,
+      "after_sales": 4.13,
+      "build_quality": 6.3,
+      "durability": 5.15,
+      "repairability": 3.88
+    }
+  },
+  {
+    "product_uid": "amzp_B0BGK79RXL",
+    "category": "smartwatches",
+    "predicted_viability": 48.35,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 169.95,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 2.62,
+      "utility": 6.08,
+      "ease_of_use": 5.96,
+      "reliability": 3.78,
+      "design_appeal": 7.61,
+      "after_sales": 3.68,
+      "build_quality": 5.85,
+      "durability": 4.7,
+      "repairability": 3.43
+    }
+  },
+  {
+    "product_uid": "amzp_B0BVMX2DZZ",
+    "category": "smartwatches",
+    "predicted_viability": 48.24,
+    "bridge_source": "cached_prompt_v2",
+    "price": 59.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.27,
+      "utility": 6.8,
+      "ease_of_use": 6.0,
+      "reliability": 3.5,
+      "design_appeal": 7.5,
+      "after_sales": 4.0,
+      "build_quality": 6.0,
+      "durability": 4.5,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0CD2QDQGV",
+    "category": "smartwatches",
+    "predicted_viability": 56.36,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 69.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 5.65,
+      "utility": 6.29,
+      "ease_of_use": 6.17,
+      "reliability": 3.99,
+      "design_appeal": 7.82,
+      "after_sales": 3.89,
+      "build_quality": 6.06,
+      "durability": 4.91,
+      "repairability": 3.64
+    }
+  },
+  {
+    "product_uid": "amzp_B0CH817Z21",
+    "category": "smartwatches",
+    "predicted_viability": 48.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.18,
+      "utility": 6.77,
+      "ease_of_use": 6.65,
+      "reliability": 4.47,
+      "design_appeal": 8.3,
+      "after_sales": 4.37,
+      "build_quality": 6.54,
+      "durability": 5.39,
+      "repairability": 4.12
+    }
+  },
+  {
+    "product_uid": "amzp_B0BLSTP5QG",
+    "category": "smartwatches",
+    "predicted_viability": 54.15,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 149.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 3.09,
+      "utility": 6.08,
+      "ease_of_use": 5.96,
+      "reliability": 3.78,
+      "design_appeal": 7.61,
+      "after_sales": 3.68,
+      "build_quality": 5.85,
+      "durability": 4.7,
+      "repairability": 3.43
+    }
+  },
+  {
+    "product_uid": "amzp_B09JSDGVKD",
+    "category": "smartwatches",
+    "predicted_viability": 48.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.18,
+      "utility": 6.77,
+      "ease_of_use": 6.65,
+      "reliability": 4.47,
+      "design_appeal": 8.3,
+      "after_sales": 4.37,
+      "build_quality": 6.54,
+      "durability": 5.39,
+      "repairability": 4.12
+    }
+  },
+  {
+    "product_uid": "amzp_B0C32YRHQJ",
+    "category": "smartwatches",
+    "predicted_viability": 48.77,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 35.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.8,
+      "utility": 6.7,
+      "ease_of_use": 6.58,
+      "reliability": 4.4,
+      "design_appeal": 8.23,
+      "after_sales": 4.3,
+      "build_quality": 6.47,
+      "durability": 5.32,
+      "repairability": 4.05
+    }
+  },
+  {
+    "product_uid": "amzp_B0BW8Z9D98",
+    "category": "smartwatches",
+    "predicted_viability": 47.32,
+    "bridge_source": "cached_prompt_v2",
+    "price": 42.49,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.67,
+      "utility": 6.8,
+      "ease_of_use": 5.5,
+      "reliability": 3.2,
+      "design_appeal": 7.8,
+      "after_sales": 3.0,
+      "build_quality": 6.0,
+      "durability": 5.5,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0C3JSNSYK",
+    "category": "smartwatches",
+    "predicted_viability": 48.44,
+    "bridge_source": "cached_prompt_v2",
+    "price": 45.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.59,
+      "utility": 6.2,
+      "ease_of_use": 6.0,
+      "reliability": 3.5,
+      "design_appeal": 7.5,
+      "after_sales": 3.8,
+      "build_quality": 5.5,
+      "durability": 4.0,
+      "repairability": 2.5
+    }
+  },
+  {
+    "product_uid": "amzp_B09575N1M5",
+    "category": "smartwatches",
+    "predicted_viability": 45.94,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 199.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.92,
+      "utility": 6.08,
+      "ease_of_use": 5.96,
+      "reliability": 3.78,
+      "design_appeal": 7.61,
+      "after_sales": 3.68,
+      "build_quality": 5.85,
+      "durability": 4.7,
+      "repairability": 3.43
+    }
+  },
+  {
+    "product_uid": "amzp_B09TRQMV5N",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 49.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.91,
+      "utility": 6.53,
+      "ease_of_use": 6.41,
+      "reliability": 4.23,
+      "design_appeal": 8.06,
+      "after_sales": 4.13,
+      "build_quality": 6.3,
+      "durability": 5.15,
+      "repairability": 3.88
+    }
+  },
+  {
+    "product_uid": "amzp_B09CTFNH54",
+    "category": "smartwatches",
+    "predicted_viability": 54.82,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 114.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 3.9,
+      "utility": 6.08,
+      "ease_of_use": 5.96,
+      "reliability": 3.78,
+      "design_appeal": 7.61,
+      "after_sales": 3.68,
+      "build_quality": 5.85,
+      "durability": 4.7,
+      "repairability": 3.43
+    }
+  },
+  {
+    "product_uid": "amzp_B09MLX1BSH",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 58.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.34,
+      "utility": 6.42,
+      "ease_of_use": 6.3,
+      "reliability": 4.12,
+      "design_appeal": 7.95,
+      "after_sales": 4.02,
+      "build_quality": 6.19,
+      "durability": 5.04,
+      "repairability": 3.77
+    }
+  },
+  {
+    "product_uid": "amzp_B0B12L5JXV",
+    "category": "smartwatches",
+    "predicted_viability": 48.01,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 64.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.96,
+      "utility": 6.35,
+      "ease_of_use": 6.23,
+      "reliability": 4.05,
+      "design_appeal": 7.88,
+      "after_sales": 3.95,
+      "build_quality": 6.12,
+      "durability": 4.97,
+      "repairability": 3.7
+    }
+  },
+  {
+    "product_uid": "amzp_B09PRC3WC5",
+    "category": "wireless_headphones",
+    "predicted_viability": 65.88,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 15.29,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 9.44,
+      "utility": 7.76,
+      "ease_of_use": 7.2,
+      "reliability": 5.13,
+      "design_appeal": 7.86,
+      "after_sales": 5.58,
+      "build_quality": 6.75,
+      "durability": 5.01,
+      "repairability": 4.97
+    }
+  },
+  {
+    "product_uid": "amzp_B09JSLH3H1",
+    "category": "wireless_headphones",
+    "predicted_viability": 62.55,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 24.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 8.46,
+      "utility": 7.59,
+      "ease_of_use": 7.03,
+      "reliability": 4.96,
+      "design_appeal": 7.69,
+      "after_sales": 5.41,
+      "build_quality": 6.58,
+      "durability": 4.84,
+      "repairability": 4.8
+    }
+  },
+  {
+    "product_uid": "amzp_B0C85M22Z6",
+    "category": "wireless_headphones",
+    "predicted_viability": 58.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 21.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.77,
+      "utility": 7.64,
+      "ease_of_use": 7.08,
+      "reliability": 5.01,
+      "design_appeal": 7.74,
+      "after_sales": 5.46,
+      "build_quality": 6.63,
+      "durability": 4.89,
+      "repairability": 4.85
+    }
+  },
+  {
+    "product_uid": "amzp_B0BVYGWJWM",
+    "category": "wireless_headphones",
+    "predicted_viability": 50.53,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 199.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 6.96,
+      "ease_of_use": 6.4,
+      "reliability": 4.33,
+      "design_appeal": 7.06,
+      "after_sales": 4.78,
+      "build_quality": 5.95,
+      "durability": 4.21,
+      "repairability": 4.17
+    }
+  },
+  {
+    "product_uid": "amzp_B0B9FKKTX6",
+    "category": "wireless_headphones",
+    "predicted_viability": 59.86,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 16.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.27,
+      "utility": 7.73,
+      "ease_of_use": 7.17,
+      "reliability": 5.1,
+      "design_appeal": 7.83,
+      "after_sales": 5.55,
+      "build_quality": 6.72,
+      "durability": 4.98,
+      "repairability": 4.94
+    }
+  },
+  {
+    "product_uid": "amzp_B0BZ6XH3LC",
+    "category": "wireless_headphones",
+    "predicted_viability": 59.64,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 19.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.97,
+      "utility": 7.68,
+      "ease_of_use": 7.12,
+      "reliability": 5.05,
+      "design_appeal": 7.78,
+      "after_sales": 5.5,
+      "build_quality": 6.67,
+      "durability": 4.93,
+      "repairability": 4.89
+    }
+  },
+  {
+    "product_uid": "amzp_B0B6RG6SLB",
+    "category": "wireless_headphones",
+    "predicted_viability": 65.67,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 21.23,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 8.84,
+      "utility": 7.66,
+      "ease_of_use": 7.1,
+      "reliability": 5.03,
+      "design_appeal": 7.76,
+      "after_sales": 5.48,
+      "build_quality": 6.65,
+      "durability": 4.91,
+      "repairability": 4.87
+    }
+  },
+  {
+    "product_uid": "amzp_B09BPBX79Z",
+    "category": "wireless_headphones",
+    "predicted_viability": 60.2,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 49.95,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 5.94,
+      "utility": 7.18,
+      "ease_of_use": 6.62,
+      "reliability": 4.55,
+      "design_appeal": 7.28,
+      "after_sales": 5.0,
+      "build_quality": 6.17,
+      "durability": 4.43,
+      "repairability": 4.39
+    }
+  },
+  {
+    "product_uid": "amzp_B09F2YQQ1B",
+    "category": "wireless_headphones",
+    "predicted_viability": 52.94,
+    "bridge_source": "cached_prompt_v2",
+    "price": 129.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 2.19,
+      "utility": 7.96,
+      "ease_of_use": 6.46,
+      "reliability": 4.4,
+      "design_appeal": 7.6,
+      "after_sales": 4.31,
+      "build_quality": 6.57,
+      "durability": 4.23,
+      "repairability": 3.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0BNJW4NV7",
+    "category": "wireless_headphones",
+    "predicted_viability": 59.64,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 19.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.97,
+      "utility": 7.68,
+      "ease_of_use": 7.12,
+      "reliability": 5.05,
+      "design_appeal": 7.78,
+      "after_sales": 5.5,
+      "build_quality": 6.67,
+      "durability": 4.93,
+      "repairability": 4.89
+    }
+  },
+  {
+    "product_uid": "amzp_B09TW65LHN",
+    "category": "wireless_headphones",
+    "predicted_viability": 60.3,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 11.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.77,
+      "utility": 7.81,
+      "ease_of_use": 7.25,
+      "reliability": 5.18,
+      "design_appeal": 7.91,
+      "after_sales": 5.63,
+      "build_quality": 6.8,
+      "durability": 5.06,
+      "repairability": 5.02
+    }
+  },
+  {
+    "product_uid": "amzp_B09KT2Q34R",
+    "category": "wireless_headphones",
+    "predicted_viability": 58.79,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 99.95,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 2.94,
+      "utility": 6.96,
+      "ease_of_use": 6.4,
+      "reliability": 4.33,
+      "design_appeal": 7.06,
+      "after_sales": 4.78,
+      "build_quality": 5.95,
+      "durability": 4.21,
+      "repairability": 4.17
+    }
+  },
+  {
+    "product_uid": "amzp_B09TZWNWKX",
+    "category": "wireless_headphones",
+    "predicted_viability": 55.92,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 25.49,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.41,
+      "utility": 7.59,
+      "ease_of_use": 7.03,
+      "reliability": 4.96,
+      "design_appeal": 7.69,
+      "after_sales": 5.41,
+      "build_quality": 6.58,
+      "durability": 4.84,
+      "repairability": 4.8
+    }
+  },
+  {
+    "product_uid": "amzp_B0BM8TMYLV",
+    "category": "wireless_headphones",
+    "predicted_viability": 58.91,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 21.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.77,
+      "utility": 7.64,
+      "ease_of_use": 7.08,
+      "reliability": 5.01,
+      "design_appeal": 7.74,
+      "after_sales": 5.46,
+      "build_quality": 6.63,
+      "durability": 4.89,
+      "repairability": 4.85
+    }
+  },
+  {
+    "product_uid": "amzp_B0C3H2SV75",
+    "category": "wireless_headphones",
+    "predicted_viability": 55.68,
+    "bridge_source": "cached_prompt_v2",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.77,
+      "utility": 7.5,
+      "ease_of_use": 7.0,
+      "reliability": 4.4,
+      "design_appeal": 7.4,
+      "after_sales": 4.0,
+      "build_quality": 6.5,
+      "durability": 4.2,
+      "repairability": 3.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09ZTGG152",
+    "category": "wireless_headphones",
+    "predicted_viability": 59.86,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 14.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.47,
+      "utility": 7.76,
+      "ease_of_use": 7.2,
+      "reliability": 5.13,
+      "design_appeal": 7.86,
+      "after_sales": 5.58,
+      "build_quality": 6.75,
+      "durability": 5.01,
+      "repairability": 4.97
+    }
+  },
+  {
+    "product_uid": "amzp_B09QNPC8M2",
+    "category": "wireless_headphones",
+    "predicted_viability": 60.2,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 49.95,
+    "brand_tier": 3,
+    "aspects": {
+      "value_for_money": 5.94,
+      "utility": 7.18,
+      "ease_of_use": 6.62,
+      "reliability": 4.55,
+      "design_appeal": 7.28,
+      "after_sales": 5.0,
+      "build_quality": 6.17,
+      "durability": 4.43,
+      "repairability": 4.39
+    }
+  },
+  {
+    "product_uid": "amzp_B09F5N95V9",
+    "category": "wireless_headphones",
+    "predicted_viability": 49.67,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 179.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 6.96,
+      "ease_of_use": 6.4,
+      "reliability": 4.33,
+      "design_appeal": 7.06,
+      "after_sales": 4.78,
+      "build_quality": 5.95,
+      "durability": 4.21,
+      "repairability": 4.17
+    }
+  },
+  {
+    "product_uid": "amzp_B0C7429KCR",
+    "category": "wireless_headphones",
+    "predicted_viability": 53.53,
+    "bridge_source": "cached_prompt_v2",
+    "price": 20.39,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.51,
+      "utility": 6.5,
+      "ease_of_use": 7.2,
+      "reliability": 3.9,
+      "design_appeal": 6.6,
+      "after_sales": 3.8,
+      "build_quality": 5.5,
+      "durability": 3.7,
+      "repairability": 3.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0B76VZ5QR",
+    "category": "wireless_headphones",
+    "predicted_viability": 55.68,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 29.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.95,
+      "utility": 7.51,
+      "ease_of_use": 6.95,
+      "reliability": 4.88,
+      "design_appeal": 7.61,
+      "after_sales": 5.33,
+      "build_quality": 6.5,
+      "durability": 4.76,
+      "repairability": 4.72
+    }
+  },
+  {
+    "product_uid": "amzp_B09F3H9RRY",
+    "category": "wireless_headphones",
+    "predicted_viability": 52.45,
+    "bridge_source": "cached_prompt_v2",
+    "price": 79.95,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 4.46,
+      "utility": 6.96,
+      "ease_of_use": 6.46,
+      "reliability": 4.4,
+      "design_appeal": 7.6,
+      "after_sales": 4.31,
+      "build_quality": 6.57,
+      "durability": 4.23,
+      "repairability": 3.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0C77KJXGH",
+    "category": "wireless_headphones",
+    "predicted_viability": 54.48,
+    "bridge_source": "cached_prompt_v2",
+    "price": 21.96,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.44,
+      "utility": 7.5,
+      "ease_of_use": 6.2,
+      "reliability": 3.9,
+      "design_appeal": 6.6,
+      "after_sales": 4.3,
+      "build_quality": 5.5,
+      "durability": 3.7,
+      "repairability": 3.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0BQTKWPTV",
+    "category": "wireless_headphones",
+    "predicted_viability": 61.33,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 6.36,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 10.0,
+      "utility": 7.86,
+      "ease_of_use": 7.3,
+      "reliability": 5.23,
+      "design_appeal": 7.96,
+      "after_sales": 5.68,
+      "build_quality": 6.85,
+      "durability": 5.11,
+      "repairability": 5.07
+    }
+  },
+  {
+    "product_uid": "amzp_B09QRZMDHC",
+    "category": "ice_makers",
+    "predicted_viability": 58.76,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 389.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.35,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0BW8L7FJR",
+    "category": "ice_makers",
+    "predicted_viability": 73.43,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 109.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 7.71,
+      "utility": 7.08,
+      "ease_of_use": 7.58,
+      "reliability": 3.63,
+      "design_appeal": 7.92,
+      "after_sales": 3.73,
+      "build_quality": 4.61,
+      "durability": 2.41,
+      "repairability": 3.08
+    }
+  },
+  {
+    "product_uid": "amzp_B0C5CD4X6J",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 109.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.71,
+      "utility": 7.08,
+      "ease_of_use": 7.58,
+      "reliability": 3.63,
+      "design_appeal": 7.92,
+      "after_sales": 3.73,
+      "build_quality": 4.61,
+      "durability": 2.41,
+      "repairability": 3.08
+    }
+  },
+  {
+    "product_uid": "amzp_B0C6SGRVBX",
+    "category": "ice_makers",
+    "predicted_viability": 77.35,
+    "bridge_source": "cached_prompt_v2",
+    "price": 94.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 8.17,
+      "utility": 8.2,
+      "ease_of_use": 8.1,
+      "reliability": 4.8,
+      "design_appeal": 7.7,
+      "after_sales": 5.5,
+      "build_quality": 5.5,
+      "durability": 4.5,
+      "repairability": 3.8
+    }
+  },
+  {
+    "product_uid": "amzp_B0C4FQ2X2M",
+    "category": "ice_makers",
+    "predicted_viability": 58.76,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 399.1,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.21,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B09CZFYGF5",
+    "category": "ice_makers",
+    "predicted_viability": 58.76,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 399.97,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.2,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B09D77LK8K",
+    "category": "ice_makers",
+    "predicted_viability": 73.43,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 91.4,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 8.19,
+      "utility": 7.15,
+      "ease_of_use": 7.65,
+      "reliability": 3.7,
+      "design_appeal": 7.99,
+      "after_sales": 3.8,
+      "build_quality": 4.68,
+      "durability": 2.48,
+      "repairability": 3.15
+    }
+  },
+  {
+    "product_uid": "amzp_B09JY77GCY",
+    "category": "ice_makers",
+    "predicted_viability": 63.33,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 312.85,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 2.48,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0C9TTZW3K",
+    "category": "ice_makers",
+    "predicted_viability": 63.93,
+    "bridge_source": "cached_prompt_v2",
+    "price": 599.0,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 9.2,
+      "ease_of_use": 8.8,
+      "reliability": 5.2,
+      "design_appeal": 9.0,
+      "after_sales": 4.5,
+      "build_quality": 7.5,
+      "durability": 5.0,
+      "repairability": 4.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09KV17R2Y",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 119.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.44,
+      "utility": 7.05,
+      "ease_of_use": 7.55,
+      "reliability": 3.6,
+      "design_appeal": 7.89,
+      "after_sales": 3.7,
+      "build_quality": 4.58,
+      "durability": 2.38,
+      "repairability": 3.05
+    }
+  },
+  {
+    "product_uid": "amzp_B0C36D12V2",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 89.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.23,
+      "utility": 7.15,
+      "ease_of_use": 7.65,
+      "reliability": 3.7,
+      "design_appeal": 7.99,
+      "after_sales": 3.8,
+      "build_quality": 4.68,
+      "durability": 2.48,
+      "repairability": 3.15
+    }
+  },
+  {
+    "product_uid": "amzp_B09JY8YPTK",
+    "category": "ice_makers",
+    "predicted_viability": 62.16,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 309.32,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 2.53,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0C36BL644",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 109.98,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.71,
+      "utility": 7.08,
+      "ease_of_use": 7.58,
+      "reliability": 3.63,
+      "design_appeal": 7.92,
+      "after_sales": 3.73,
+      "build_quality": 4.61,
+      "durability": 2.41,
+      "repairability": 3.08
+    }
+  },
+  {
+    "product_uid": "amzp_B0C3C5P3DB",
+    "category": "ice_makers",
+    "predicted_viability": 72.14,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 159.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 6.39,
+      "utility": 6.91,
+      "ease_of_use": 7.41,
+      "reliability": 3.46,
+      "design_appeal": 7.75,
+      "after_sales": 3.56,
+      "build_quality": 4.44,
+      "durability": 2.24,
+      "repairability": 2.91
+    }
+  },
+  {
+    "product_uid": "amzp_B0C4KWPH7K",
+    "category": "ice_makers",
+    "predicted_viability": 73.43,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 99.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 7.96,
+      "utility": 7.12,
+      "ease_of_use": 7.62,
+      "reliability": 3.67,
+      "design_appeal": 7.96,
+      "after_sales": 3.77,
+      "build_quality": 4.65,
+      "durability": 2.45,
+      "repairability": 3.12
+    }
+  },
+  {
+    "product_uid": "amzp_B0BJ8WXV9S",
+    "category": "ice_makers",
+    "predicted_viability": 72.14,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 188.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.63,
+      "utility": 6.81,
+      "ease_of_use": 7.31,
+      "reliability": 3.36,
+      "design_appeal": 7.65,
+      "after_sales": 3.46,
+      "build_quality": 4.34,
+      "durability": 2.14,
+      "repairability": 2.81
+    }
+  },
+  {
+    "product_uid": "amzp_B0BYZBBDPN",
+    "category": "ice_makers",
+    "predicted_viability": 58.76,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 389.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.35,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0CC66XD1W",
+    "category": "ice_makers",
+    "predicted_viability": 58.6,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 429.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 0.76,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0C4GC9WK6",
+    "category": "ice_makers",
+    "predicted_viability": 72.31,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 83.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.39,
+      "utility": 7.17,
+      "ease_of_use": 7.67,
+      "reliability": 3.72,
+      "design_appeal": 8.01,
+      "after_sales": 3.82,
+      "build_quality": 4.7,
+      "durability": 2.5,
+      "repairability": 3.17
+    }
+  },
+  {
+    "product_uid": "amzp_B09SHB4G7C",
+    "category": "ice_makers",
+    "predicted_viability": 73.85,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 76.55,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 8.58,
+      "utility": 7.2,
+      "ease_of_use": 7.7,
+      "reliability": 3.75,
+      "design_appeal": 8.04,
+      "after_sales": 3.85,
+      "build_quality": 4.73,
+      "durability": 2.53,
+      "repairability": 3.2
+    }
+  },
+  {
+    "product_uid": "amzp_B0C49YTRKQ",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 119.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.44,
+      "utility": 7.05,
+      "ease_of_use": 7.55,
+      "reliability": 3.6,
+      "design_appeal": 7.89,
+      "after_sales": 3.7,
+      "build_quality": 4.58,
+      "durability": 2.38,
+      "repairability": 3.05
+    }
+  },
+  {
+    "product_uid": "amzp_B0BYZ86N13",
+    "category": "ice_makers",
+    "predicted_viability": 59.42,
+    "bridge_source": "cached_prompt_v2",
+    "price": 399.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 1.18,
+      "utility": 7.2,
+      "ease_of_use": 7.5,
+      "reliability": 2.5,
+      "design_appeal": 7.9,
+      "after_sales": 2.8,
+      "build_quality": 3.5,
+      "durability": 1.2,
+      "repairability": 2.0
+    }
+  },
+  {
+    "product_uid": "amzp_B0C7KPWLHX",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 97.89,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.02,
+      "utility": 7.12,
+      "ease_of_use": 7.62,
+      "reliability": 3.67,
+      "design_appeal": 7.96,
+      "after_sales": 3.77,
+      "build_quality": 4.65,
+      "durability": 2.45,
+      "repairability": 3.12
+    }
+  },
+  {
+    "product_uid": "amzp_B0C9J6J79Y",
+    "category": "ice_makers",
+    "predicted_viability": 72.75,
+    "bridge_source": "cached_prompt_v2",
+    "price": 65.66,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 9.1,
+      "utility": 6.5,
+      "ease_of_use": 7.5,
+      "reliability": 2.5,
+      "design_appeal": 7.0,
+      "after_sales": 2.5,
+      "build_quality": 3.5,
+      "durability": 1.5,
+      "repairability": 1.5
+    }
+  },
+  {
+    "product_uid": "amzp_B098HFBF1B",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 89.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.23,
+      "utility": 7.15,
+      "ease_of_use": 7.65,
+      "reliability": 3.7,
+      "design_appeal": 7.99,
+      "after_sales": 3.8,
+      "build_quality": 4.68,
+      "durability": 2.48,
+      "repairability": 3.15
+    }
+  },
+  {
+    "product_uid": "amzp_B09Y5LGB2F",
+    "category": "ice_makers",
+    "predicted_viability": 59.4,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 1099.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 0.0,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0BZW5SSVK",
+    "category": "ice_makers",
+    "predicted_viability": 72.31,
+    "bridge_source": "cached_prompt_v2",
+    "price": 84.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.81,
+      "utility": 6.5,
+      "ease_of_use": 7.0,
+      "reliability": 2.5,
+      "design_appeal": 7.0,
+      "after_sales": 2.8,
+      "build_quality": 3.5,
+      "durability": 1.2,
+      "repairability": 1.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0BVVWZJGM",
+    "category": "ice_makers",
+    "predicted_viability": 73.17,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 70.52,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.74,
+      "utility": 7.22,
+      "ease_of_use": 7.72,
+      "reliability": 3.77,
+      "design_appeal": 8.06,
+      "after_sales": 3.87,
+      "build_quality": 4.75,
+      "durability": 2.55,
+      "repairability": 3.22
+    }
+  },
+  {
+    "product_uid": "amzp_B09KC8PXG4",
+    "category": "ice_makers",
+    "predicted_viability": 75.33,
+    "bridge_source": "cached_prompt_v2",
+    "price": 94.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 7.67,
+      "utility": 6.8,
+      "ease_of_use": 7.5,
+      "reliability": 2.5,
+      "design_appeal": 7.9,
+      "after_sales": 2.8,
+      "build_quality": 3.5,
+      "durability": 1.2,
+      "repairability": 2.0
+    }
+  },
+  {
+    "product_uid": "amzp_B09FLSR3D1",
+    "category": "ice_makers",
+    "predicted_viability": 68.46,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 259.99,
+    "brand_tier": 1,
+    "aspects": {
+      "value_for_money": 3.78,
+      "utility": 6.57,
+      "ease_of_use": 7.07,
+      "reliability": 3.12,
+      "design_appeal": 7.41,
+      "after_sales": 3.22,
+      "build_quality": 4.1,
+      "durability": 1.9,
+      "repairability": 2.57
+    }
+  },
+  {
+    "product_uid": "amzp_B0C6LVLXKG",
+    "category": "ice_makers",
+    "predicted_viability": 73.22,
+    "bridge_source": "cached_prompt_v2",
+    "price": 89.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 8.74,
+      "utility": 6.5,
+      "ease_of_use": 7.8,
+      "reliability": 2.5,
+      "design_appeal": 7.5,
+      "after_sales": 2.5,
+      "build_quality": 3.5,
+      "durability": 1.5,
+      "repairability": 1.5
+    }
+  },
+  {
+    "product_uid": "amzp_B0BHQMHD3H",
+    "category": "ice_makers",
+    "predicted_viability": 72.14,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 189.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 5.61,
+      "utility": 6.81,
+      "ease_of_use": 7.31,
+      "reliability": 3.36,
+      "design_appeal": 7.65,
+      "after_sales": 3.46,
+      "build_quality": 4.34,
+      "durability": 2.14,
+      "repairability": 2.81
+    }
+  },
+  {
+    "product_uid": "amzp_B09Y38R6DC",
+    "category": "ice_makers",
+    "predicted_viability": 67.31,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 299.99,
+    "brand_tier": 2,
+    "aspects": {
+      "value_for_money": 2.73,
+      "utility": 6.43,
+      "ease_of_use": 6.93,
+      "reliability": 2.98,
+      "design_appeal": 7.27,
+      "after_sales": 3.08,
+      "build_quality": 3.96,
+      "durability": 1.76,
+      "repairability": 2.43
+    }
+  },
+  {
+    "product_uid": "amzp_B0CF8R92J6",
+    "category": "ice_makers",
+    "predicted_viability": 62.89,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 284.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 3.12,
+      "utility": 6.48,
+      "ease_of_use": 6.98,
+      "reliability": 3.03,
+      "design_appeal": 7.32,
+      "after_sales": 3.13,
+      "build_quality": 4.01,
+      "durability": 1.81,
+      "repairability": 2.48
+    }
+  },
+  {
+    "product_uid": "amzp_B09MDN783L",
+    "category": "ice_makers",
+    "predicted_viability": 62.16,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 329.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 2.23,
+      "utility": 6.41,
+      "ease_of_use": 6.91,
+      "reliability": 2.96,
+      "design_appeal": 7.25,
+      "after_sales": 3.06,
+      "build_quality": 3.94,
+      "durability": 1.74,
+      "repairability": 2.41
+    }
+  },
+  {
+    "product_uid": "amzp_B0C2PNH7L1",
+    "category": "ice_makers",
+    "predicted_viability": 72.26,
+    "bridge_source": "frozen_category_grounded_mock",
+    "price": 99.99,
+    "brand_tier": 0,
+    "aspects": {
+      "value_for_money": 7.96,
+      "utility": 7.12,
+      "ease_of_use": 7.62,
+      "reliability": 3.67,
+      "design_appeal": 7.96,
+      "after_sales": 3.77,
+      "build_quality": 4.65,
+      "durability": 2.45,
+      "repairability": 3.12
+    }
+  }
+]

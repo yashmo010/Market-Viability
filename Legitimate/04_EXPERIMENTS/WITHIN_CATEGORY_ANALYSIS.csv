@@ -1,0 +1,6 @@
+category,n,orig_rho,new_rho,delta_rho,orig_rmse,new_rmse,rmse_change
+bluetooth_speakers,7,0.536,0.429,-0.107,21.17,22.09,0.92
+ice_makers,36,0.185,0.192,0.007,20.49,18.17,-2.32
+power_banks,19,-0.042,0.126,0.169,27.95,26.39,-1.56
+smartwatches,39,0.415,0.544,0.128,16.1,14.22,-1.88
+wireless_headphones,23,-0.055,0.132,0.188,22.93,22.79,-0.14

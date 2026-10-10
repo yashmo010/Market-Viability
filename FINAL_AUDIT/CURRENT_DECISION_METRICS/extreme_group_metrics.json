@@ -1,0 +1,21 @@
+{
+  "n_extreme_products": 50,
+  "n_top_products": 25,
+  "n_bottom_products": 25,
+  "q20_cutoff": 29.75,
+  "q80_cutoff": 79.61,
+  "promoted_auc": 0.9712,
+  "baseline_auc": 0.8904,
+  "delta_auc": 0.0808,
+  "contingency_matrix": {
+    "tp": 23,
+    "fp": 2,
+    "fn": 2,
+    "tn": 23
+  },
+  "accuracy": 0.92,
+  "precision": 0.92,
+  "recall": 0.92,
+  "f1": 0.92,
+  "mcc": 0.84
+}

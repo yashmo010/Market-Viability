@@ -1,0 +1,113 @@
+{
+  "canonical_identity": {
+    "title": "Launch-Blind Product Viability Estimation from Specifications via LLM Aspect Bridging",
+    "temporal_cutoff": "2021-10-31T23:59:59Z",
+    "train_n": 507,
+    "test_n": 124,
+    "categories": [
+      "bluetooth_speakers",
+      "ice_makers",
+      "power_banks",
+      "smartwatches",
+      "wireless_headphones"
+    ]
+  },
+  "baseline_historical": {
+    "spearman_rho": 0.5621,
+    "ci_low": 0.414,
+    "ci_high": 0.6811,
+    "p_value": 1.0939760990465129e-11,
+    "auc": 0.8904,
+    "rmse": 21.12,
+    "mae": 17.84
+  },
+  "baseline_controlled": {
+    "spearman_rho": 0.5623,
+    "ci_low": 0.414,
+    "ci_high": 0.6812,
+    "p_value": 1.0780331822836015e-11,
+    "auc": 0.8904,
+    "rmse": 21.12,
+    "mae": 17.83
+  },
+  "model_promoted": {
+    "spearman_rho": 0.6722,
+    "ci_low": 0.5495,
+    "ci_high": 0.762,
+    "p_value": 1.2539912585453059e-17,
+    "auc": 0.9712,
+    "rmse": 19.75,
+    "mae": 16.66
+  },
+  "paired_comparisons_vs_controlled": {
+    "delta_spearman_rho": 0.1099,
+    "bootstrap_ci_95": [
+      0.0485,
+      0.1833
+    ],
+    "bootstrap_p_value": 0.0002,
+    "permutation_diff": 0.1099,
+    "permutation_p_value": 0.0004
+  },
+  "cold_start_unseen_brands": {
+    "n": 90,
+    "baseline_historical_rho": 0.5155,
+    "baseline_controlled_rho": 0.5155,
+    "model_promoted_rho": 0.6328,
+    "delta_rho_vs_controlled": 0.1173,
+    "baseline_historical_auc": 0.8843,
+    "model_promoted_auc": 0.9815
+  },
+  "categories": [
+    {
+      "category": "bluetooth_speakers",
+      "n": 7,
+      "baseline_historical_rho": 0.536,
+      "baseline_controlled_rho": 0.536,
+      "model_promoted_rho": 0.429,
+      "delta_rho_vs_controlled": -0.107,
+      "baseline_historical_rmse": 21.17,
+      "model_promoted_rmse": 22.09
+    },
+    {
+      "category": "ice_makers",
+      "n": 36,
+      "baseline_historical_rho": 0.179,
+      "baseline_controlled_rho": 0.185,
+      "model_promoted_rho": 0.192,
+      "delta_rho_vs_controlled": 0.007,
+      "baseline_historical_rmse": 20.5,
+      "model_promoted_rmse": 18.17
+    },
+    {
+      "category": "power_banks",
+      "n": 19,
+      "baseline_historical_rho": -0.042,
+      "baseline_controlled_rho": -0.042,
+      "model_promoted_rho": 0.126,
+      "delta_rho_vs_controlled": 0.169,
+      "baseline_historical_rmse": 27.95,
+      "model_promoted_rmse": 26.39
+    },
+    {
+      "category": "smartwatches",
+      "n": 39,
+      "baseline_historical_rho": 0.415,
+      "baseline_controlled_rho": 0.415,
+      "model_promoted_rho": 0.544,
+      "delta_rho_vs_controlled": 0.128,
+      "baseline_historical_rmse": 16.1,
+      "model_promoted_rmse": 14.22
+    },
+    {
+      "category": "wireless_headphones",
+      "n": 23,
+      "baseline_historical_rho": -0.055,
+      "baseline_controlled_rho": -0.055,
+      "model_promoted_rho": 0.132,
+      "delta_rho_vs_controlled": 0.188,
+      "baseline_historical_rmse": 22.93,
+      "model_promoted_rmse": 22.79
+    }
+  ]
+}

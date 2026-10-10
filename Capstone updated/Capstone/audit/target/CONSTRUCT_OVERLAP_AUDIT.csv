@@ -1,0 +1,8 @@
+Pipeline Feature / Variable,Source Information,Target Connection,Direct Leakage?,Construct Overlap?,Classification,Methodological Justification
+Launch Price,Catalog / manufacturer spec,Not in target formula (corr r=0.147 with success),NO,NO,Independent Input,Legitimate pre-launch decision lever; governed by monotone -1 constraint.
+Brand Tier,Catalog SKU footprint <= cutoff,Not in target formula (corr r=0.284 with success),NO,NO,Independent Input,"Measures historical commercial presence, not target outcome; fallback tier 0 for unseen."
+Bridged Aspects (Specs via LLM),Product spec bullet points + frozen category profile,Predicts experiential qualities that drive post-launch reviews,NO,NO,Legitimate Mediation,Input uses zero post-launch reviews; models how specs translate to expected consumer perception.
+Oracle Review Aspects (Upper Bound),Post-launch customer review text,Extracted from same review corpus as target volume/rating,NO,YES,Construct Overlap (Diagnostic Only),"Aspect sentiments reflect customer satisfaction; used strictly as diagnostic ceiling, not in headline predictor."
+Average Star Rating (avg_rating),Post-launch customer review ratings,Direct ingredient of target (weight 0.35),YES,YES,Target Leakage (Excluded),Permanently excluded from headline model features (LEAKY_COLUMNS).
+Review Count / Log Count,Post-launch customer review volume,Direct ingredient of target (weight 0.40),YES,YES,Target Leakage (Excluded),Permanently excluded from headline model features (LEAKY_COLUMNS).
+Review Velocity,Post-launch customer review timestamps,Direct ingredient of target (weight 0.25),YES,YES,Target Leakage (Excluded),Permanently excluded from headline model features (LEAKY_COLUMNS).

@@ -1,0 +1,10 @@
+{
+  "n": 117,
+  "rho": 0.529,
+  "ci": [
+    0.377,
+    0.654
+  ],
+  "auc": 0.903,
+  "note": "deployed pipeline: price-free bridging + deterministic value_for_money"
+}

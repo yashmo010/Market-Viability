@@ -1,0 +1,10 @@
+Metric,Stored Value,Recalculated Value,Absolute Difference,Relative Difference (%),Tolerance,PASS/FAIL
+Spearman rho (Pooled),0.562,0.5621,0.0001,0.025,0.005,PASS
+Asymptotic p-value,1.094e-11,1.094e-11,0.0,0.0,1e-12,PASS
+AUC-ROC (Quintile),0.89,0.8904,0.0004,0.045,0.005,PASS
+RMSE,21.12,21.1194,0.0006,0.003,0.01,PASS
+MAE,17.84,17.835,0.005,0.028,0.01,PASS
+Mean within-category rho,0.207,0.2065,0.0005,0.241,0.005,PASS
+Mature Cohort rho (n=51),0.631,0.6314,0.0004,0.059,0.005,PASS
+Mature Cohort AUC (n=51),0.955,0.9545,0.0005,0.048,0.005,PASS
+Out-of-sample R2,Not Reported in Main Tab,0.2306,0.0,0.0,N/A,PASS (Audited: 0.231)
